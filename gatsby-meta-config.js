@@ -9,5 +9,5 @@ module.exports = {
     medium: `@Jbee_`,
     facebook: `devjbee`,
   },
-  keywords: [`blog`, `gatsby`, `javascript`, `react`],
+  keywords: [`blog`, `javascript`, `react`, `vue`, `frontend`, `development`],
 }
