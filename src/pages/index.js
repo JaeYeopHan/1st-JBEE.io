@@ -1,42 +1,25 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 
-import Bio from '../components/Bio'
-import Layout from '../components/Layout'
-import SEO from '../components/seo'
-import { rhythm } from '../utils/typography'
+import { Layout } from '../layout'
+import { Bio } from '../components/bio'
+import { Head } from '../components/head'
+import { ThumbnailItem } from '../components/thumbnail-item'
 
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const keywords = data.site.siteMetadata.keywords
     const posts = data.allMarkdownRemark.edges
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          title="All posts"
-          keywords={[`blog`, `gatsby`, `javascript`, `react`]}
-        />
+        <Head title="All posts" keywords={keywords} />
         <Bio />
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p dangerouslySetInnerHTML={{ __html: node.excerpt }} />
-            </div>
-          )
-        })}
+        {posts.map(({ node }, index) => (
+          <ThumbnailItem node={node} key={`item_${index}`} />
+        ))}
       </Layout>
     )
   }

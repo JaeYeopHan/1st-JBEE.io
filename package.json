@@ -1,11 +1,11 @@
 {
-  "name": "gatsby-starter-blog",
+  "name": "gjbee-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
+  "description": "Blog posted about front end development.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Jbee[JaeYeopHan]<ljyhanll@gmail.com>",
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/JaeYeopHan/JaeYeopHan.github.io/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.76",
@@ -48,7 +48,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
+    "url": "git+https://github.com/JaeYeopHan/JaeYeopHan.github.io.git"
   },
   "scripts": {
     "dev": "gatsby develop",
