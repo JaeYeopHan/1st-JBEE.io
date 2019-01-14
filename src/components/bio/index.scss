@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+
+.bio {
+  .author-image {
+    display: flex;
+    margin-top: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    margin-bottom: 0;
+    min-width: 72px;
+    border-radius: 100%;
+  }
+
+  .author-description {
+    display: flex;
+  }
+  .author-name-prefix {
+    font-size: 90%;
+    margin-right: 4px;
+  }
+  .author-name {
+    padding: 2px 4px;
+    font-weight: bolder;
+    background-color: $dimmed-color;
+    border-radius: 8px;
+  }
+
+  .author-introduction {
+    margin-top: 4px;
+    font-size: 80%;
+    line-height: 1.4;
+    color: $description-color;
+  }
+
+  .author-socials {
+    margin-top: 2px;
+    float: right;
+  }
+
+  a {
+    margin-right: 8px;
+    color: $link-color;
+    font-size: 80%;
+  }
+
+  a.visited {
+    color: $link-color;
+    text-decoration: none;
+  }
+}
