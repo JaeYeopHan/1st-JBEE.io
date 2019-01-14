@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.thumbnail {
+  box-shadow: none;
+
+  h3 {
+    color: $dark-gray;
+  }
+
+  small {
+    color: $light-gray;
+  }
+
+  p {
+    color: $description-color;
+    font-size: 90%;
+    line-height: 1.4;
+  }
+}

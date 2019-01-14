@@ -1,16 +1,11 @@
 import React from 'react'
 import { Link } from 'gatsby'
 
+import './index.scss'
 import { rhythm } from '../../utils/typography'
 
 export const ThumbnailItem = ({ node }) => (
-  <Link
-    style={{
-      boxShadow: `none`,
-      color: '#41403e',
-    }}
-    to={node.fields.slug}
-  >
+  <Link className="thumbnail" to={node.fields.slug}>
     <div key={node.fields.slug}>
       <h3
         style={{
