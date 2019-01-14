@@ -1,15 +1,7 @@
+const metaConfig = require('./gatsby-meta-config')
+
 module.exports = {
-  siteMetadata: {
-    title: `FELog`,
-    author: `Jbee`,
-    description: `Blog posted about front end development.`,
-    siteUrl: `https://jaeyeophan.github.io`,
-    social: {
-      twitter: `JbeeLjyhanll`,
-      github: `JaeYeopHan`,
-    },
-    keywords: [`blog`, `gatsby`, `javascript`, `react`],
-  },
+  siteMetadata: metaConfig,
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
