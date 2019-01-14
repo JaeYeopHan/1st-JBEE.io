@@ -21,6 +21,10 @@ export const Bio = () => (
             <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
             {` `}
             <a href={`https://github.com/${social.github}`}>GitHub</a>
+            {` `}
+            <a href={`https://medium.com/${social.medium}`}>Medium</a>
+            {` `}
+            <a href={`https://www.facebook.com/${social.facebook}`}>Facebook</a>
           </p>
         </div>
       )
@@ -43,6 +47,8 @@ const bioQuery = graphql`
         social {
           twitter
           github
+          medium
+          facebook
         }
       }
     }
