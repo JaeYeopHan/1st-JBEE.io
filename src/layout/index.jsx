@@ -4,6 +4,8 @@ import { Header } from '../components/header'
 import { Footer } from '../components/footer'
 import { rhythm } from '../utils/typography'
 
+import './index.scss'
+
 export const Layout = ({ location, title, children }) => {
   const rootPath = `${__PATH_PREFIX__}/`
 
