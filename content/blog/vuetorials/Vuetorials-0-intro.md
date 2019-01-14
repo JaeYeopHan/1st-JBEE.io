@@ -34,12 +34,12 @@ date: 2018-10-21 16:21:13
 
 ## 순서
 
-1. [@vue-cli 3.0](https://jaeyeophan.github.io/2018/10/21/Vuetorials-1-vue-cli-3-0/)
-2. [Vue 의 전반적인 concept](https://jaeyeophan.github.io/2018/10/21/Vuetorials-2-Vue-concept/)
-3. [Vue 의 Component API](https://jaeyeophan.github.io/2018/10/23/Vuetorials-3-Component-API/)
-4. [Vue 의 내장 컴포넌트](https://jaeyeophan.github.io/2018/11/05/Vuetorials-4-Internal-Component/)
-5. [Vuex API](https://jaeyeophan.github.io/2018/11/07/Vuetorials-5-Vuex/)
-6. [Vuex Module Pattern](https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/)
-7. [Vuex Best Practice로 가는 여정](https://jaeyeophan.github.io/2018/11/17/Vuetorials-7-Vuex-Best-Practice/)
+1. [@vue-cli 3.0](../Vuetorials-1-vue-cli-3-0/)
+2. [Vue 의 전반적인 concept](../Vuetorials-2-Vue-concept/)
+3. [Vue 의 Component API](../Vuetorials-3-Component-API/)
+4. [Vue 의 내장 컴포넌트](../Vuetorials-4-Internal-Component/)
+5. [Vuex API](../Vuetorials-5-Vuex/)
+6. [Vuex Module Pattern](../Vuetorials-6-Vuex-Module-pattern/)
+7. [Vuex Best Practice로 가는 여정](../Vuetorials-7-Vuex-Best-Practice/)
 
 > Let's Vue!
