@@ -1,0 +1,13 @@
+@import '../../styles/variables.scss';
+
+.footer {
+  padding-top: 52px;
+  text-align: center;
+  font-size: 12px;
+  color: $light-gray;
+
+  a {
+    color: $dark-gray;
+    text-decoration: none !important;
+  }
+}

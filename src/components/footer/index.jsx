@@ -1,9 +1,9 @@
 import React from 'react'
 
+import './index.scss'
+
 export const Footer = () => (
-  <footer>
-    © {new Date().getFullYear()}, Built with
-    {` `}
-    <a href="https://www.gatsbyjs.org">Gatsby</a>
+  <footer className="footer">
+    ©<a href="https://github.com/JaeYeopHan">Jbee</a>, Built with Gatsby
   </footer>
 )
