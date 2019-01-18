@@ -9,11 +9,11 @@
   padding: 0;
 
   a {
-    font-size: 12px;
-    color: $dark-gray;
-    background-color: $dimmed-color;
     padding: 4px 8px;
+    background-color: $inline-dimmed-color;
+    color: $inline-text-color;
     border-radius: 4px;
+    font-size: 12px;
     opacity: 0.8;
   }
 }
