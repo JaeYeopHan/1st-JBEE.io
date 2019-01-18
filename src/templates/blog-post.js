@@ -7,6 +7,7 @@ import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { PostContainer } from '../components/post-container'
 import { PostNavigator } from '../components/post-navigator'
+import { Disqus } from '../components/disqus'
 
 import '../styles/code.scss'
 
@@ -14,16 +15,23 @@ class BlogPostTemplate extends React.Component {
   render() {
     const { data, pageContext, location } = this.props
     const post = data.markdownRemark
-    const siteTitle = data.site.siteMetadata.title
+    const metaData = data.site.siteMetadata
+    const { title, disqusShortName, siteUrl } = metaData
 
     return (
-      <Layout location={location} title={siteTitle}>
+      <Layout location={location} title={title}>
         <Head title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
         <PostContainer html={post.html} />
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
+        <Disqus
+          post={post}
+          shortName={disqusShortName}
+          siteUrl={siteUrl}
+          slug={pageContext.slug}
+        />
       </Layout>
     )
   }
@@ -37,6 +45,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        disqusShortName
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
