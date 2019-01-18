@@ -33,11 +33,12 @@
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.13",
+    "typeface-catamaran": "0.0.54",
     "typeface-merriweather": "0.0.43",
     "typeface-montserrat": "0.0.43",
+    "typeface-noto-sans-kr": "0.0.63",
     "typography": "^0.16.17",
-    "typography-theme-github": "^0.16.18",
-    "typography-theme-wordpress-2016": "^0.15.10"
+    "typography-theme-github": "^0.16.18"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
