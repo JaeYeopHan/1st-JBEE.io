@@ -1,9 +1,11 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 
+import * as Elements from '../components/elements'
 import { Layout } from '../layout'
 import { Bio } from '../components/bio'
 import { Head } from '../components/head'
+import { PostContainer } from '../components/post-container'
 import { PostNavigator } from '../components/post-navigator'
 import { rhythm, scale } from '../utils/typography'
 
@@ -27,12 +29,8 @@ class BlogPostTemplate extends React.Component {
         >
           {post.frontmatter.date}
         </p>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-        <hr
-          style={{
-            marginBottom: rhythm(1),
-          }}
-        />
+        <PostContainer html={post.html} />
+        <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
       </Layout>
