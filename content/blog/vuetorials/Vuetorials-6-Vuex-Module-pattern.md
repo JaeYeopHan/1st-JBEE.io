@@ -47,13 +47,15 @@ export default {
 
 기본적으로 모듈에서 작성된 action, mutation, getter 들은 global namespace 에 등록됨. 이 때 `namespaced: true`로 지정을 해주면 **해당 모듈의 namespace 로 제한됨.** (완전 매력있는 API임.) 이 기능과 action type을 상수로 분리하여 작성을 했다면 한 가지 추가 작업이 더 필요함. 다음의 경우를 보자.
 
-```js todos/type.js
+```js
+// todos/type.js
 export const ADD_ITEM = 'ADD_ITEM'
 ```
 
 이 action type을 action과 mutation과 `mapActions`해주는 곳에서 같이 사용한다고 가정했을 때,
 
-```js todos/actions.js
+```js
+// todos/actions.js
 export default {
   [ADD_ITEM]({ commit }, payload) {
     commit(ADD_ITEM, payload.newItem)
@@ -61,7 +63,8 @@ export default {
 }
 ```
 
-```js todos/mutations.js
+```js
+// todos/mutations.js
 export default {
   [ADD_ITEM](state, newItem) {
     state.items.push(newItem)

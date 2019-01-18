@@ -28,7 +28,9 @@ Vuex에 대한 설명은 다음 두 글을 첨부함.
 
 Vuex에서 관리하게 되는 상태가 커지면 커질수록 `state`, `action`, `mutation` 관리가 제대로 이뤄지지 않음. 그렇기 때문에 Vuex 공식 문서에서도 **module**이란 것을 소개하고 있음. 또한 Vuex에서는 `namespaced`라는 아주 훌륭한 API를 지원하고 있기 때문에 여기까지는 대부분의 Vue application에서는 적용하고 있을 것 같음.
 
-```js @/store/modules/todos/index.js
+```js
+// @/store/modules/todos/index.js
+
 export default new Vuex.Store({
   modules: {
     todos,
@@ -41,7 +43,8 @@ export default new Vuex.Store({
 
 컴포넌트에서 Vuex는 다음과 같이 사용할 수 있음.
 
-```js todo.vue
+```js
+// todo.vue
 // state
 data() {
   return {
@@ -111,7 +114,9 @@ methods: {
 
 Vuex에서 제공하는 [createNamespacedHelpers](https://github.com/vuejs/vuex/blob/dev/src/helpers.js#L117)란 API를 사용할 수 있음,
 
-```js @/store/modules/todos/index.js
+```js
+// @/store/modules/todos/index.js
+
 import { createNamespacedHelpers } from 'vuex'
 import { NAMESPACE } from './types'
 
@@ -153,7 +158,8 @@ Vuex 코드를 작성하다보면 `action`과 `mutation` 에서 많은 중복이
 
 일단 `action`과 `mutation`에서 사용되는 type을 별도 파일로 분리하자.
 
-```js @/store/module/todos/types.js
+```js
+// @/store/module/todos/types.js
 // namespace
 export const NAMESPACE = 'todos'
 // actions
@@ -162,7 +168,9 @@ export const ADD_ITEM = 'ADD_ITEM'
 
 이에 따라 정의한 `mutation.js`와 `actions.js`도 변경됨.
 
-```js @/store/mdules/todos/mutations.js
+```js
+// @/store/mdules/todos/mutations.js
+
 import * as actions from './types'
 
 export default {
@@ -172,7 +180,9 @@ export default {
 }
 ```
 
-```js @/store/mdules/todos/actions.js
+```js
+// @/store/mdules/todos/actions.js
+
 import * as actions from './types'
 
 export default {
@@ -184,7 +194,9 @@ export default {
 
 이제 이 constant를 컴포넌트에서도 사용하자.
 
-```js todo.vue
+```js
+// todo.vue
+
 import { mapActions, mapState, mapGetters } from '@/store/modules/todos'
 import * as actions from '@/store/modules/todos/action-types'
 export default {
@@ -198,7 +210,9 @@ export default {
 
 나와 같은 병에 걸렸다면 `getters`에서의 중복도 불편할 것이라 생각됨. 이제 getters의 상수를 제거하자.
 
-```js @/store/mdules/todos/getters.js
+```js
+// @/store/mdules/todos/getters.js
+
 export const DONE_ITEMS = 'DONE_ITEMS'
 export const ACTIVE_ITEMS = 'ACTIVE_ITEMS'
 
@@ -210,7 +224,9 @@ export default {
 
 컴포넌트에서 getters를 바인딩하자.
 
-```js todo.vue
+```js
+// todo.vue
+
 import * as getters from '@/store/modules/todos/getters'
 
 export default {
@@ -255,14 +271,18 @@ export default {
 
 한 컴포넌트에서 두 개 이상의 modules에 있는 action, getters 등을 바인딩해야 할 경우가 발생할 수 있음. 이렇게 되면 `mapActions`로 import할 수 없음. (name 충돌)
 
-```js my-component.vue
+```js
+// my-component.vue
+
 import { mapActions as mapActionsOfTodo } from '@/store/todo'
 import { mapActiosn as mapActiosnOfFilters } from '@store/filter'
 ```
 
 이럴 경우, 이렇게 `as`를 통해 `Of-*` suffix로 사용할 수 있음. 또는,
 
-```js my-component.vue
+```js
+// my-component.vue
+
 import * as todo from '@store/todo'
 
 export default {
@@ -301,7 +321,9 @@ child module에서 parent module의 namespace 상수를 import하여 `createName
 
 Vuex를 계속 사용하다보니 컴포넌트에 노출되어야 하는 타입은 action type 뿐임. 또한 action에서 정의되는 type의 의미와 mutation에서 사용하는 type의 의미가 명확히 다름. 그래서 이 둘을 분리하기로 함. 분리를 하다보니 `types.js`라는 파일을 별도로 둘 필요가 없음. 컴포넌트에 노출되는 것은 action type만 노출되며 mutation type은 action에서 가져와 사용하는 방식을 취함.
 
-```js modules/actions.js
+```js
+// modules/actions.js
+
 import * as mutations from './mutations'
 
 export const ADD_TODO = 'ADD_TODO'
@@ -313,7 +335,9 @@ export default {
 }
 ```
 
-```js modules/mutations.js
+```js
+// modules/mutations.js
+
 export const SET_NEW_ITEM = 'SET_NEW_ITEM'
 
 export default {
@@ -347,7 +371,9 @@ export default {
 
 JavaScript의 `export`와 `export default`를 활용하여 보다 깔끔한 코드를 작성할 수 있음. Vuex의 모듈을 세 파일로 정의하게 됨. 이 상태들을 컴포넌트에서는 다음과 같이 사용할 수 있음.
 
-```js my-component.vue
+```js
+// my-component.vue
+
 import * as todoStore from '@/store/todo'
 import * as todoActions from '@/store/todo'
 import * as todoGetters from '@/store/todo/getters'
@@ -375,7 +401,9 @@ export default {
 
 _example_
 
-```js @/store/todo/index.js
+```js
+// @/store/todo/index.js
+
 export default {
   // ...
   state: {

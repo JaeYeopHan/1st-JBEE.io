@@ -9,11 +9,11 @@ date: 2018-10-21 16:22:02
 
 일단 뭐가 됐든 프로젝트 세팅부터 할 `CRA(Create React App)` 같은게 필요함. 그게 [@vue/cli](https://cli.vuejs.org/) 임. 2018 년 8 월 version 3 이 release 되었음.
 
-```sh
+```bash
 $ npm install -g @vue/cli
 ```
 
-```sh
+```bash
 $ vue create vue-app
 ```
 
@@ -21,7 +21,7 @@ $ vue create vue-app
 
 일단 처음이니 `default` 옵션으로 프로젝트를 생성해보겠음. yarn 쓸 지, npm 쓸 지도 선택할 수 있는데 npm 선택한 후 프로젝트 생성함.
 
-```sh
+```bash
 $ cd vue-app
 $ npm run serve
 ```
@@ -88,7 +88,7 @@ babel 이랑 typescript 랑 같이 선택하면 `Use Babel alongside TypeScript 
 
 ## Support GUI
 
-```sh
+```bash
 $ vue ui
 ```
 
