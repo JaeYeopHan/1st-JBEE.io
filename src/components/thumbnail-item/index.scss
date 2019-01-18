@@ -1,13 +1,20 @@
 @import '../../styles/variables.scss';
 
 .thumbnail {
+  display: block;
+  margin-bottom: 12px;
+  padding: 4px;
+  padding-bottom: 12px;
   box-shadow: none;
+  transition: text-shadow 0.3s;
 
   h3 {
     color: $dark-gray;
   }
 
   small {
+    margin-top: -4px;
+    margin-bottom: 2px;
     color: $light-gray;
   }
 
@@ -16,4 +23,8 @@
     font-size: 90%;
     line-height: 1.4;
   }
+}
+
+.thumbnail:hover {
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
 }

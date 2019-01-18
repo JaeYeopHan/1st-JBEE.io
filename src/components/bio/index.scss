@@ -1,8 +1,15 @@
 @import '../../styles/variables.scss';
 
 .bio {
-  .author-image {
+  .author {
+    margin-bottom: 32px;
+  }
+
+  .author-description {
     display: flex;
+  }
+
+  .author-image {
     margin-top: 12px;
     margin-right: 12px;
     margin-bottom: 12px;
@@ -11,14 +18,14 @@
     border-radius: 100%;
   }
 
-  .author-description {
-    display: flex;
+  .author-name {
   }
+
   .author-name-prefix {
     font-size: 90%;
     margin-right: 4px;
   }
-  .author-name {
+  .author-name-content {
     padding: 2px 4px;
     font-weight: bolder;
     background-color: $dimmed-color;
@@ -33,8 +40,7 @@
   }
 
   .author-socials {
-    margin-top: 2px;
-    float: right;
+    margin-top: 4px;
   }
 
   a {

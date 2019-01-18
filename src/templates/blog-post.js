@@ -7,7 +7,8 @@ import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { PostContainer } from '../components/post-container'
 import { PostNavigator } from '../components/post-navigator'
-import { rhythm, scale } from '../utils/typography'
+
+import '../styles/code.scss'
 
 class BlogPostTemplate extends React.Component {
   render() {
@@ -19,16 +20,6 @@ class BlogPostTemplate extends React.Component {
       <Layout location={location} title={siteTitle}>
         <Head title={post.frontmatter.title} description={post.excerpt} />
         <h1>{post.frontmatter.title}</h1>
-        <p
-          style={{
-            ...scale(-1 / 5),
-            display: `block`,
-            marginBottom: rhythm(1),
-            marginTop: rhythm(-1),
-          }}
-        >
-          {post.frontmatter.date}
-        </p>
         <PostContainer html={post.html} />
         <Elements.Hr />
         <Bio />

@@ -1,17 +1,45 @@
 import Typography from 'typography'
-import Wordpress2016 from 'typography-theme-wordpress-2016'
+import GitHubTheme from 'typography-theme-github'
 
-Wordpress2016.overrideThemeStyles = () => {
+GitHubTheme.overrideThemeStyles = () => {
   return {
+    a: {
+      boxShadow: `none`,
+      textDecoration: `none`,
+      color: `#cc007a`,
+    },
     'a.gatsby-resp-image-link': {
       boxShadow: `none`,
+      textDecoration: `none`,
+    },
+
+    'a:hover': {
+      textDecoration: `none`,
+    },
+
+    h1: {
+      fontWeight: 800,
+      lineHeight: 1.2,
+    },
+
+    h2: {
+      fontWeight: 700,
+      lineHeight: 1.2,
+      marginTop: '56px',
+      marginBottom: '20px',
+    },
+
+    ul: {
+      marginBottom: '6px',
+    },
+
+    li: {
+      marginBottom: '2px',
     },
   }
 }
 
-delete Wordpress2016.googleFonts
-
-const typography = new Typography(Wordpress2016)
+const typography = new Typography(GitHubTheme)
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== `production`) {

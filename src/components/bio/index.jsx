@@ -12,24 +12,28 @@ export const Bio = () => (
 
       return (
         <div className="bio">
-          <div className="author-description">
-            <Image
-              fixed={data.avatar.childImageSharp.fixed}
-              alt={author}
-              className="author-image"
-            />
-            <div>
-              <span className="author-name-prefix">Written by</span>
-              <span className="author-name">{author}</span>.
-              <div className="author-introduction">{introduction}</div>
+          <div className="author">
+            <div className="author-description">
+              <Image
+                className="author-image"
+                fixed={data.avatar.childImageSharp.fixed}
+                alt={author}
+              />
+              <div className="author-name">
+                <span className="author-name-prefix">Written by</span>
+                <span className="author-name-content">{author}</span>.
+                <div className="author-introduction">{introduction}</div>
+                <p className="author-socials">
+                  <a href={`https://github.com/${social.github}`}>GitHub</a>
+                  <a href={`https://medium.com/${social.medium}`}>Medium</a>
+                  <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
+                  <a href={`https://www.facebook.com/${social.facebook}`}>
+                    Facebook
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
-          <p className="author-socials">
-            <a href={`https://github.com/${social.github}`}>GitHub</a>
-            <a href={`https://medium.com/${social.medium}`}>Medium</a>
-            <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
-            <a href={`https://www.facebook.com/${social.facebook}`}>Facebook</a>
-          </p>
         </div>
       )
     }}
