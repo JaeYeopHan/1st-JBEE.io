@@ -7,8 +7,8 @@ date: 2018-11-17 17:09:44
 
 Vuex에 대한 설명은 다음 두 글을 첨부함.
 
-- [5. Vuex API](https://jaeyeophan.github.io/2018/11/07/Vuetorials-5-Vuex/)
-- [6. Vuex Module pattern](https://jaeyeophan.github.io/2018/11/16/Vuetorials-6-Vuex-Module-pattern/)
+- [5. Vuex API](../Vuetorials-5-Vuex/)
+- [6. Vuex Module pattern](../Vuetorials-6-Vuex-Module-pattern/)
 
 진행하고 있는 프로젝트에서 Vuex를 어떻게 하면 잘 사용할 수 있을까 고민을 했고 그 과정을 기록함. 총 다섯 단계로 나누어져 있음.
 
