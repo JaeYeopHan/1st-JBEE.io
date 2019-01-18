@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.navigator {
+  margin-top: 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style: none;
+  padding: 0;
+
+  a {
+    font-size: 12px;
+    color: $dark-gray;
+    background-color: $dimmed-color;
+    padding: 4px 8px;
+    border-radius: 4px;
+    opacity: 0.8;
+  }
+}
