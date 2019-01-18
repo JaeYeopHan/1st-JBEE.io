@@ -1,7 +1,9 @@
+@import '../../styles/variables.scss';
+
 .top {
   position: relative;
   width: 100%;
   height: 60px;
   border: 0px solid #000000;
-  background: linear-gradient(72deg, rgb(41, 30, 149), rgb(204, 0, 122));
+  background: $theme-gradient;
 }
