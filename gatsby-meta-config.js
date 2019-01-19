@@ -12,4 +12,8 @@ module.exports = {
   },
   keywords: [`blog`, `javascript`, `react`, `vue`, `frontend`, `development`],
   disqusShortName: 'https-felog-netlify-com',
+
+  configs: {
+    countOfInitialPost: 6,
+  },
 }

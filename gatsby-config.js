@@ -36,7 +36,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              showLineNumbers: true,
+              codeFrameColumns: true,
             },
           },
           `gatsby-remark-copy-linked-files`,
