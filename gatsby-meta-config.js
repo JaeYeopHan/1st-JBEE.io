@@ -11,7 +11,7 @@ module.exports = {
     facebook: `devjbee`,
   },
   keywords: [`blog`, `javascript`, `react`, `vue`, `frontend`, `development`],
-  disqusShortName: 'https-felog-netlify-com',
+  disqusShortName: 'Developer-jbee',
 
   configs: {
     countOfInitialPost: 6,
