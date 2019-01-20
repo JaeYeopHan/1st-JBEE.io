@@ -65,7 +65,8 @@ export default class BlogIndex extends React.Component {
   }
 
   render() {
-    const { siteMetadata } = this.props.data.site
+    const { data } = this.props
+    const { siteMetadata } = data.site
     const { currentCount } = this.state
     const posts = data.allMarkdownRemark.edges
     const countOfItem = currentCount * this.countOfInitialPost
