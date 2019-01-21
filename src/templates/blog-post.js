@@ -9,6 +9,7 @@ import { PostContainer } from '../components/post-container'
 import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
 import { Disqus } from '../components/disqus'
+import { Utterences } from '../components/utterances'
 
 import '../styles/code.scss'
 
@@ -18,7 +19,7 @@ class BlogPostTemplate extends React.Component {
     const post = data.markdownRemark
     const metaData = data.site.siteMetadata
     const { title, comment, siteUrl } = metaData
-    const { disqusShortName } = comment
+    const { disqusShortName, utterances } = comment
 
     return (
       <Layout location={location} title={title}>
@@ -36,6 +37,7 @@ class BlogPostTemplate extends React.Component {
             slug={pageContext.slug}
           />
         )}
+        {!!utterances && <Utterences repo={utterances} />}
       </Layout>
     )
   }
@@ -52,6 +54,7 @@ export const pageQuery = graphql`
         siteUrl
         comment {
           disqusShortName
+          utterances
         }
       }
     }

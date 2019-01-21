@@ -10,9 +10,18 @@ module.exports = {
     medium: `@Jbee_`,
     facebook: `devjbee`,
   },
-  keywords: [`blog`, `javascript`, `react`, `vue`, `frontend`, `development`],
+  keywords: [
+    `blog`,
+    `javascript`,
+    `web`,
+    `react`,
+    `vue`,
+    `frontend`,
+    `development`,
+  ],
   comment: {
-    disqusShortName: 'https-felog-netlify-com',
+    disqusShortName: '',
+    utterances: 'JaeYeopHan/felog',
   },
   configs: {
     countOfInitialPost: 6,
