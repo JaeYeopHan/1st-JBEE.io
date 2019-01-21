@@ -3,9 +3,10 @@ import { graphql } from 'gatsby'
 
 import * as Elements from '../components/elements'
 import { Layout } from '../layout'
-import { Bio } from '../components/bio'
 import { Head } from '../components/head'
+import { PostTitle } from '../components/post-title'
 import { PostContainer } from '../components/post-container'
+import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
 import { Disqus } from '../components/disqus'
 
@@ -22,7 +23,7 @@ class BlogPostTemplate extends React.Component {
     return (
       <Layout location={location} title={title}>
         <Head title={post.frontmatter.title} description={post.excerpt} />
-        <h1>{post.frontmatter.title}</h1>
+        <PostTitle title={post.frontmatter.title} />
         <PostContainer html={post.html} />
         <Elements.Hr />
         <Bio />
