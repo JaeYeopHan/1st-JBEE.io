@@ -16,7 +16,8 @@ class BlogPostTemplate extends React.Component {
     const { data, pageContext, location } = this.props
     const post = data.markdownRemark
     const metaData = data.site.siteMetadata
-    const { title, disqusShortName, siteUrl } = metaData
+    const { title, comment, siteUrl } = metaData
+    const { disqusShortName } = comment
 
     return (
       <Layout location={location} title={title}>
@@ -26,12 +27,14 @@ class BlogPostTemplate extends React.Component {
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
-        <Disqus
-          post={post}
-          shortName={disqusShortName}
-          siteUrl={siteUrl}
-          slug={pageContext.slug}
-        />
+        {!!disqusShortName && (
+          <Disqus
+            post={post}
+            shortName={disqusShortName}
+            siteUrl={siteUrl}
+            slug={pageContext.slug}
+          />
+        )}
       </Layout>
     )
   }
@@ -46,7 +49,9 @@ export const pageQuery = graphql`
         title
         author
         siteUrl
-        disqusShortName
+        comment {
+          disqusShortName
+        }
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
