@@ -2,13 +2,13 @@ import React from 'react'
 
 import './index.scss'
 
-export const TwitterIcon = () => (
+export const TwitterIcon = ({ onClick }) => (
   <a
     className="resp-sharing-button__link"
-    href="https://twitter.com/intent/tweet/?text=Super%20fast%20and%20easy%20Social%20Media%20Sharing%20Buttons.%20No%20JavaScript.%20No%20tracking.&amp;url=http%3A%2F%2Fsharingbuttons.io"
-    target="_blank"
+    href="#"
     rel="noopener"
     aria-label="Share on Twitter"
+    onClick={onClick}
   >
     <div className="resp-sharing-button resp-sharing-button--twitter resp-sharing-button--large">
       <div

@@ -19,7 +19,7 @@ class BlogPostTemplate extends React.Component {
     const { data, pageContext, location } = this.props
     const post = data.markdownRemark
     const metaData = data.site.siteMetadata
-    const { title, comment, siteUrl } = metaData
+    const { title, comment, siteUrl, author } = metaData
     const { disqusShortName, utterances } = comment
 
     return (
@@ -27,7 +27,7 @@ class BlogPostTemplate extends React.Component {
         <Head title={post.frontmatter.title} description={post.excerpt} />
         <PostTitle title={post.frontmatter.title} />
         <PostContainer html={post.html} />
-        <SocialShare />
+        <SocialShare title={post.frontmatter.title} author={author} />
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />

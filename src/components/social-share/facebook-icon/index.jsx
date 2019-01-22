@@ -2,13 +2,14 @@ import React from 'react'
 
 import './index.scss'
 
-export const FacebookIcon = () => (
+export const FacebookIcon = ({ onClick }) => (
   <a
     className="resp-sharing-button__link"
-    href="https://facebook.com/sharer/sharer.php?u=http%3A%2F%2Fsharingbuttons.io"
+    href="#"
     target="_blank"
     rel="noopener"
     aria-label="Share on Facebook"
+    onClick={onClick}
   >
     <div className="resp-sharing-button resp-sharing-button--facebook resp-sharing-button--large">
       <div
