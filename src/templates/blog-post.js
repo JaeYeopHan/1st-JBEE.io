@@ -6,6 +6,7 @@ import { Layout } from '../layout'
 import { Head } from '../components/head'
 import { PostTitle } from '../components/post-title'
 import { PostContainer } from '../components/post-container'
+import { SocialShare } from '../components/social-share'
 import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
 import { Disqus } from '../components/disqus'
@@ -26,6 +27,7 @@ class BlogPostTemplate extends React.Component {
         <Head title={post.frontmatter.title} description={post.excerpt} />
         <PostTitle title={post.frontmatter.title} />
         <PostContainer html={post.html} />
+        <SocialShare />
         <Elements.Hr />
         <Bio />
         <PostNavigator pageContext={pageContext} />
