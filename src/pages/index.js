@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import { uniq } from 'lodash'
 
 import { Layout } from '../layout'
 import { Bio } from '../components/bio'
 import { Head } from '../components/head'
+import { Category } from '../components/category'
 import HomeContainer from '../containers/home'
 
 export default class BlogIndex extends Component {
@@ -11,15 +13,15 @@ export default class BlogIndex extends Component {
     const { data } = this.props
     const { siteMetadata } = data.site
     const { countOfInitialPost } = siteMetadata.configs
+    const posts = data.allMarkdownRemark.edges
+    const category = uniq(posts.map(({ node }) => node.frontmatter.category))
 
     return (
       <Layout location={this.props.location} title={siteMetadata.title}>
         <Head title="FELog | Home" keywords={siteMetadata.keywords} />
         <Bio />
-        <HomeContainer
-          countOfInitialPost={countOfInitialPost}
-          posts={data.allMarkdownRemark.edges}
-        />
+        <Category category={category} />
+        <HomeContainer countOfInitialPost={countOfInitialPost} posts={posts} />
       </Layout>
     )
   }
@@ -45,6 +47,7 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            category
           }
         }
       }
