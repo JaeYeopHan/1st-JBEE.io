@@ -26,4 +26,7 @@ module.exports = {
   configs: {
     countOfInitialPost: 6,
   },
+  share: {
+    facebookAppId: '829988527335744', // v3.2
+  },
 }
