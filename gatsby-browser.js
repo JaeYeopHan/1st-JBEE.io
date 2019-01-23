@@ -1,12 +1,13 @@
 // custom typefaces
-import 'typeface-noto-sans-kr'
-import 'typeface-catamaran'
-import meta from './gatsby-meta-config'
+require('typeface-noto-sans-kr')
+require('typeface-catamaran')
+
+const metaConfig = require('./gatsby-meta-config')
 
 exports.onInitialClientRender = () => {
   window.fbAsyncInit = function() {
     FB.init({
-      appId: meta.share.facebookAppId,
+      appId: metaConfig.share.facebookAppId,
       xfbml: true,
       version: 'v3.2',
     })
