@@ -1,6 +1,7 @@
 ---
 title: '[TS] 0. Quick Start'
 date: 2017-04-19 13:49:15
+category: 'typescript'
 ---
 
 ![](./typescript.png)

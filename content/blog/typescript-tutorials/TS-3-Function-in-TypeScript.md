@@ -1,6 +1,7 @@
 ---
 title: '[TS] 3. Function in TypeScript'
 date: 2017-12-18 12:15:32
+category: 'typescript'
 ---
 
 ![](./typescript.png)

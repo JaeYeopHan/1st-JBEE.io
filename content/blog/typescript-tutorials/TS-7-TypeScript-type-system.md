@@ -1,6 +1,7 @@
 ---
 title: '[TS] 7. TypeScript type system'
 date: 2018-01-10 13:31:30
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 2. 전반적인 concept'
 date: 2018-10-21 16:27:24
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

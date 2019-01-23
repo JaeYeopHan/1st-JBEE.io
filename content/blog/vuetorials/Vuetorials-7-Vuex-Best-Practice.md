@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 7. Vuex Best Practice로 가는 여정'
 date: 2018-11-17 17:09:44
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

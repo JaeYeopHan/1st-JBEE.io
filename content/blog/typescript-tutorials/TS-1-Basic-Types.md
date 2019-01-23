@@ -1,6 +1,7 @@
 ---
 title: '[TS] 1. Basic Types'
 date: 2017-04-23 16:12:08
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[TS] 6. Decorator'
 date: 2018-01-09 09:59:14
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[TS] TypeScript Playground'
 date: 2017-12-06 20:17:18
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 1. @vue-cli 3.0'
 date: 2018-10-21 16:22:02
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

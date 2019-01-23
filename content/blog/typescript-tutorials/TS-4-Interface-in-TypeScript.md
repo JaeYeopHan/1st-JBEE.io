@@ -1,6 +1,7 @@
 ---
 title: '[TS] 4. Interface in TypeScript'
 date: 2017-12-28 10:10:52
+category: 'typescript'
 ---
 
 ![](./typescript.png)

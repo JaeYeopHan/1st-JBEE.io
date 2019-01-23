@@ -1,6 +1,7 @@
 ---
 title: '[TS] 8. enum vs const enum'
 date: 2018-06-16 15:02:44
+category: 'typescript'
 ---
 
 ![](./typescript.png)

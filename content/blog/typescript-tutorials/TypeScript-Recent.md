@@ -1,6 +1,7 @@
 ---
 title: 'TypeScript 근황'
 date: 2017-04-19 13:39:38
+category: 'typescript'
 ---
 
 ![](./typescript.png)

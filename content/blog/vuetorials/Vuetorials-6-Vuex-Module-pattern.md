@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 6. Vuex Module pattern'
 date: 2018-11-16 09:47:02
+category: 'vue'
 ---
 
 ![](./vuetorials.png)
@@ -43,7 +44,7 @@ export default {
 
 다른 것은 이전 포스팅에서 다 다룬 내용이고 `namespaced`라는 것이 있음.
 
-#### namespaced
+### namespaced
 
 기본적으로 모듈에서 작성된 action, mutation, getter 들은 global namespace 에 등록됨. 이 때 `namespaced: true`로 지정을 해주면 **해당 모듈의 namespace 로 제한됨.** (완전 매력있는 API임.) 이 기능과 action type을 상수로 분리하여 작성을 했다면 한 가지 추가 작업이 더 필요함. 다음의 경우를 보자.
 
@@ -101,11 +102,11 @@ export default {
 
 위와 같이 modules에서 정의한 **namespace로 한 번 wrapping 후** `mapActions`로 binding 해야 함. 이렇게 해주면 action type에 자동으로 `todos`라는 namespace가 추가됨.
 
-#### modules
+### modules
 
 중첩 모듈 작성이 가능함. `module` 내부에 트리 형식으로 또 `module`을 등록할 수 있음. 이 경우에도 `namespaced`를 지정해주면 `namespace`가 중첩되어 접근할 수 있음. namespace 중복은 `/`으로 중첩됨. ([관련 코드](https://github.com/vuejs/vuex/blob/dev/src/module/module-collection.js#L16))
 
-### 그 외
+## 그 외
 
 - Vuex 생성자에 `strict: true`로 지정하면 `mutations`이외에 상태 변이에서 에러를 발생시킬 수 있음.
 - `Vuex.Store`에서 제공하고 있는 API 가 여럿 있음. `subscribe`, `registerModule` 등. 활용하면 좋은 기능을 추가할 수 있을 것 같다는 막연한 생각.

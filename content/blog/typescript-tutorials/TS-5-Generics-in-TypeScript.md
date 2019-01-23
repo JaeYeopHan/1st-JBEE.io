@@ -1,6 +1,7 @@
 ---
 title: '[TS] 5. Generics in TypeScript'
 date: 2017-12-30 16:11:41
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 5. Vuex API'
 date: 2018-11-07 13:35:48
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

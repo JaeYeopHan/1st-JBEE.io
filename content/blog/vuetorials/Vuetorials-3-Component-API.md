@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 3. Component API'
 date: 2018-10-23 12:01:56
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

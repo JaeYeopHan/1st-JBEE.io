@@ -1,6 +1,7 @@
 ---
 title: '[TS] 2. Class in TypeScript'
 date: 2017-12-13 15:56:11
+category: 'typescript'
 ---
 
 ![](./typescript.png)

@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 0. 들어가면서'
 date: 2018-10-21 16:21:13
+category: 'vue'
 ---
 
 ![](./vuetorials.png)

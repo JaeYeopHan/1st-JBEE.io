@@ -1,6 +1,7 @@
 ---
 title: '[Vuetorials] 4. 내장 컴포넌트'
 date: 2018-11-05 20:48:30
+category: 'vue'
 ---
 
 ![](./vuetorials.png)
