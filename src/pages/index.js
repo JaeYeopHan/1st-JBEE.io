@@ -40,7 +40,7 @@ export default class BlogIndex extends Component {
 
     return (
       <Layout location={this.props.location} title={siteMetadata.title}>
-        <Head title="FELog | Home" keywords={siteMetadata.keywords} />
+        <Head title="Home" keywords={siteMetadata.keywords} />
         <Bio />
         <Category
           category={category}
