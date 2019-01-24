@@ -42,7 +42,11 @@ export default class BlogIndex extends Component {
       <Layout location={this.props.location} title={siteMetadata.title}>
         <Head title="FELog | Home" keywords={siteMetadata.keywords} />
         <Bio />
-        <Category category={category} selectCategory={this.selectCategory} />
+        <Category
+          category={category}
+          currentCategory={currentCategory}
+          selectCategory={this.selectCategory}
+        />
         <HomeContainer
           currentCategory={currentCategory}
           countOfInitialPost={countOfInitialPost}
