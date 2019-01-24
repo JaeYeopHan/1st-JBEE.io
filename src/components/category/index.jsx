@@ -3,7 +3,7 @@ import randomColor from 'randomcolor'
 
 import './index.scss'
 
-export const Category = ({ category }) => {
+export const Category = ({ category, selectCategory }) => {
   const lists = category.map((item, idx) => {
     const color = randomColor({
       luminosity: 'dark',
@@ -17,7 +17,7 @@ export const Category = ({ category }) => {
           borderColor: color,
         }}
       >
-        <a href="" style={{ color }}>
+        <a href="#" style={{ color }} onClick={e => selectCategory(e, item)}>
           {item}
         </a>
       </li>
@@ -27,7 +27,9 @@ export const Category = ({ category }) => {
   return (
     <ul className="category-container" role="tablist">
       <li className="item">
-        <a href="">ALL</a>
+        <a href="" onClick={e => selectCategory(e, 'All')}>
+          All
+        </a>
       </li>
       {lists}
     </ul>

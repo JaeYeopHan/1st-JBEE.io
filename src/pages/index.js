@@ -12,15 +12,21 @@ export default class BlogIndex extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentCategory: '',
+      currentCategory: 'All',
     }
 
     this.selectCategory = this.selectCategory.bind(this)
   }
 
-  selectCategory(value) {
-    this.setState({
-      currentCategory: value,
+  selectCategory(e, item) {
+    e.preventDefault()
+
+    this.setState(prevState => {
+      return (
+        prevState.currentCategory !== item && {
+          currentCategory: item,
+        }
+      )
     })
   }
 

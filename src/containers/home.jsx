@@ -60,11 +60,17 @@ export default class HomeContainer extends Component {
   }
 
   render() {
-    const { posts, countOfInitialPost } = this.props
+    const { posts, countOfInitialPost, currentCategory } = this.props
     const { currentCount } = this.state
     const countOfItem = currentCount * countOfInitialPost
+    const filtered =
+      currentCategory === 'All'
+        ? posts
+        : posts.filter(
+            ({ node }) => node.frontmatter.category === currentCategory
+          )
 
-    return posts
+    return filtered
       .slice(0, countOfItem)
       .map(({ node }, index) => (
         <ThumbnailItem node={node} key={`item_${index}`} />
