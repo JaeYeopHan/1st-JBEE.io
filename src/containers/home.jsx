@@ -18,7 +18,7 @@ export default class HomeContainer extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener(`scroll`, this.handleScroll)
+    window.addEventListener(`scroll`, this.handleScroll, { capture: false })
   }
 
   componentWillUnmount() {
@@ -53,9 +53,19 @@ export default class HomeContainer extends Component {
           currentCount: prevState.currentCount + 1,
         }),
         () => {
+          window.refreshObserver()
           this.ticking = false
         }
       )
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    const { currentCategory: prevCategory } = prevProps
+    const { currentCategory } = this.props
+
+    if (prevCategory !== currentCategory) {
+      window.refreshObserver()
     }
   }
 
