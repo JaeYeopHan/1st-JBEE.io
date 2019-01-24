@@ -1,10 +1,16 @@
 .category-container {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
   margin: 0 auto;
   line-height: 0;
   white-space: nowrap;
   overflow-x: scroll;
   -ms-overflow-style: none; // IE 10+
   overflow: -moz-scrollbars-none; // Firefox
+  background-color: #fff;
+  z-index: 1;
+  padding: 12px 0px;
 
   .item {
     display: inline-block;
