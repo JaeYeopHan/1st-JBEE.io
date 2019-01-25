@@ -1,10 +1,19 @@
 import React from 'react'
 
+import { rhythm } from '../../utils/typography'
+
 import './index.scss'
 
 export const Category = ({ category, selectCategory, currentCategory }) => {
   return (
-    <ul className="category-container" role="tablist" id="category">
+    <ul
+      className="category-container"
+      role="tablist"
+      id="category"
+      style={{
+        margin: `0 -${rhythm(3 / 4)}`,
+      }}
+    >
       <li className={currentCategory === 'All' ? 'item selected' : 'item'}>
         <a href="" onClick={e => selectCategory(e, 'All')}>
           All
