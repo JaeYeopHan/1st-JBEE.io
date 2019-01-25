@@ -2,21 +2,26 @@
   position: sticky;
   position: -webkit-sticky;
   top: 0;
-  margin: 0 auto;
+  margin: 0 -24px;
   line-height: 0;
   white-space: nowrap;
   overflow-x: scroll;
   -ms-overflow-style: none; // IE 10+
   overflow: -moz-scrollbars-none; // Firefox
-  background-color: #fff;
+  border-top: 1px solid #ecf0f2;
+  border-bottom: 1px solid #ecf0f2;
+  border-right: 6px solid #ecf0f2;
+  border-left: 6px solid #ecf0f2;
+  background-color: #f4f7f8;
   z-index: 1;
-  padding: 12px 0px;
+  padding: 6px 20px;
 
   .item {
     display: inline-block;
     margin: 0.25rem 6px 0.25rem 0;
+    border: 1px solid #ecf0f2;
     border-radius: 15px;
-    border: 1px solid #666;
+    background-color: #fff;
     white-space: normal;
     -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
@@ -27,20 +32,17 @@
       padding: 14px 16px 16px 16px;
       font-size: 13px;
       color: #666;
-      -webkit-box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.05);
-      box-shadow: 0 -3px 12px rgba(0, 0, 0, 0.05);
       box-sizing: border-box;
     }
   }
+
   .item:last-child {
     margin-right: 0;
   }
 
   .item.selected {
-    border: 2px solid;
+    border: 2px solid #666;
     font-weight: bolder;
-    -webkit-box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.05);
-    box-shadow: 0 -6px 12px rgba(0, 0, 0, 0.05);
   }
 }
 
