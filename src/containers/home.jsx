@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { ThumbnailItem } from '../components/thumbnail-item'
+import * as IOManager from '..//utils/visible'
 
 const BASE_LINE = 80
 
@@ -19,6 +20,7 @@ export default class HomeContainer extends Component {
 
   componentDidMount() {
     window.addEventListener(`scroll`, this.handleScroll, { capture: false })
+    IOManager.init()
   }
 
   componentWillUnmount() {
