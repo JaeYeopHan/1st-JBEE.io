@@ -4,7 +4,7 @@ import './index.scss'
 
 export const Category = ({ category, selectCategory, currentCategory }) => {
   return (
-    <ul className="category-container" role="tablist">
+    <ul className="category-container" role="tablist" id="category">
       <li className={currentCategory === 'All' ? 'item selected' : 'item'}>
         <a href="" onClick={e => selectCategory(e, 'All')}>
           All

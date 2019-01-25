@@ -8,18 +8,27 @@ import { Head } from '../components/head'
 import { Category } from '../components/category'
 import HomeContainer from '../containers/home'
 
+import { getElementPosition } from '../utils/dom'
+
 export default class BlogIndex extends Component {
   constructor(props) {
     super(props)
     this.state = {
       currentCategory: 'All',
     }
-
     this.selectCategory = this.selectCategory.bind(this)
+  }
+
+  componentDidMount() {
+    this.categoryPosition = getElementPosition('#category')('y')
   }
 
   selectCategory(e, item) {
     e.preventDefault()
+
+    if (window.scrollY > this.categoryPosition) {
+      window.scrollTo(0, this.categoryPosition)
+    }
 
     this.setState(prevState => {
       return (
