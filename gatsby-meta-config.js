@@ -24,7 +24,7 @@ module.exports = {
     utterances: 'JaeYeopHan/felog',
   },
   configs: {
-    countOfInitialPost: 6,
+    countOfInitialPost: 10,
   },
   share: {
     facebookAppId: '829988527335744', // v3.2
