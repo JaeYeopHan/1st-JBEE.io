@@ -16,9 +16,8 @@ export const Category = ({ category, selectCategory, currentCategory }) => {
       }}
     >
       <li
-        className={
-          currentCategory === CATEGORY_TYPE.ALL ? 'item selected' : 'item'
-        }
+        className="item"
+        aria-selected={currentCategory === CATEGORY_TYPE.ALL ? 'true' : ''}
       >
         <a href="" onClick={e => selectCategory(e, CATEGORY_TYPE.ALL)}>
           All
@@ -27,7 +26,8 @@ export const Category = ({ category, selectCategory, currentCategory }) => {
       {category.map((item, idx) => (
         <li
           key={idx}
-          className={currentCategory === item ? 'item selected' : 'item'}
+          className="item"
+          aria-selected={currentCategory === item ? 'true' : ''}
         >
           <a href="#" onClick={e => selectCategory(e, item)}>
             {item}

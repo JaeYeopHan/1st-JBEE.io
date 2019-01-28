@@ -1,3 +1,7 @@
+// app
+$theme-gradient: linear-gradient(72deg, #291e95, #cc007a);
+
+// index
 $dimmed-color: #eef5db;
 $description-color: #7d7d7d;
 $link-color: #000080;
@@ -5,12 +9,13 @@ $dark-gray: #333;
 $light-gray: #aaa;
 $post-link-color: #cc007a;
 
+// code
 $inline-dimmed-color: rgb(236, 230, 245);
 $inline-text-color: #4b2043;
 
-$theme-gradient: linear-gradient(72deg, #291e95, #cc007a);
-
 // category
 $category-border-color: #ecf0f2;
+$category-highlight-border-color: #909da1;
 $category-background-color: #f4f7f8;
 $category-text-color: #666;
+$category-highlight-text-color: #636c6e;

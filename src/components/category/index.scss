@@ -41,9 +41,13 @@
     margin-right: 0;
   }
 
-  .item.selected {
-    border: 2px solid $category-text-color;
+  .item[aria-selected='true'] {
+    border: 2px solid $category-highlight-border-color;
     font-weight: bolder;
+  }
+
+  .item[aria-selected='true'] a {
+    color: $category-highlight-text-color;
   }
 }
 
