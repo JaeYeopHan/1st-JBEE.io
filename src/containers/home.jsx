@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
+
 import { ThumbnailItem } from '../components/thumbnail-item'
+import { CATEGORY_TYPE } from '../constants'
 import * as IOManager from '..//utils/visible'
 
 const BASE_LINE = 80
@@ -76,7 +78,7 @@ export default class HomeContainer extends Component {
     const { currentCount } = this.state
     const countOfItem = currentCount * countOfInitialPost
     const filtered =
-      currentCategory === 'All'
+      currentCategory === CATEGORY_TYPE.ALL
         ? posts
         : posts.filter(
             ({ node }) => node.frontmatter.category === currentCategory

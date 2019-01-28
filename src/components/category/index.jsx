@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { rhythm } from '../../utils/typography'
+import { CATEGORY_TYPE } from '../../constants'
 
 import './index.scss'
 
@@ -14,8 +15,12 @@ export const Category = ({ category, selectCategory, currentCategory }) => {
         margin: `0 -${rhythm(3 / 4)}`,
       }}
     >
-      <li className={currentCategory === 'All' ? 'item selected' : 'item'}>
-        <a href="" onClick={e => selectCategory(e, 'All')}>
+      <li
+        className={
+          currentCategory === CATEGORY_TYPE.ALL ? 'item selected' : 'item'
+        }
+      >
+        <a href="" onClick={e => selectCategory(e, CATEGORY_TYPE.ALL)}>
           All
         </a>
       </li>
