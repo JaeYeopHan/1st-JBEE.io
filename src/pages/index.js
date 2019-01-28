@@ -6,6 +6,7 @@ import { Layout } from '../layout'
 import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { Category } from '../components/category'
+import { ToTop } from '../components/to-top'
 import HomeContainer from '../containers/home'
 
 import { getElementPosition } from '../utils/dom'
@@ -49,20 +50,23 @@ export default class BlogIndex extends Component {
     const category = uniq(posts.map(({ node }) => node.frontmatter.category))
 
     return (
-      <Layout location={this.props.location} title={siteMetadata.title}>
-        <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
-        <Bio />
-        <Category
-          category={category}
-          currentCategory={currentCategory}
-          selectCategory={this.selectCategory}
-        />
-        <HomeContainer
-          currentCategory={currentCategory}
-          countOfInitialPost={countOfInitialPost}
-          posts={posts}
-        />
-      </Layout>
+      <React.Fragment>
+        <Layout location={this.props.location} title={siteMetadata.title}>
+          <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
+          <Bio />
+          <Category
+            category={category}
+            currentCategory={currentCategory}
+            selectCategory={this.selectCategory}
+          />
+          <HomeContainer
+            currentCategory={currentCategory}
+            countOfInitialPost={countOfInitialPost}
+            posts={posts}
+          />
+        </Layout>
+        <ToTop onClick={() => window.scrollTo(0, 0)} />
+      </React.Fragment>
     )
   }
 }
