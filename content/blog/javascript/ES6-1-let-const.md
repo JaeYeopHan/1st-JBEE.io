@@ -1,7 +1,7 @@
 ---
 title: '[ES6] 1. let-const'
 date: 2017-04-18 13:48:49
-categories: javascript
+category: 'javascript'
 ---
 
 ![](/images/javascript_es6.png)

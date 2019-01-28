@@ -1,5 +1,5 @@
 ---
-title: 'Jbee's 2017 그리고 이공일팔'
+title: 'Jbee`s 2017 그리고 이공일팔'
 date: 2017-12-31 16:21:13
 category: 'essay'
 ---
