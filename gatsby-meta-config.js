@@ -7,7 +7,7 @@ module.exports = {
   social: {
     twitter: `JbeeLjyhanll`,
     github: `JaeYeopHan`,
-    medium: `@Jbee_`,
+    medium: ``,
     facebook: `devjbee`,
   },
   keywords: [
