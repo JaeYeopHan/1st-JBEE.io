@@ -2,7 +2,7 @@ module.exports = {
   title: `FELog`,
   description: `Blog posted about front end development.`,
   author: `Jbee`,
-  introduction: `프론트 엔지니어. 생산성.문서화.클린코드.멘토링에 관심이 많음. FEConf Organizer / TypeScript Korea Organizer. 여러 개발 커뮤니티에서 볼 수 있음.`,
+  introduction: `프론트엔드 개발자: 설계.테스트.생산성.문서화.클린코드.멘토링에 관심이 많음. FEConf Organizer / TypeScript Korea Organizer.`,
   siteUrl: `https://felog.netlify.com/`,
   social: {
     twitter: `JbeeLjyhanll`,
