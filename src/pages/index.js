@@ -9,18 +9,19 @@ import { Category } from '../components/category'
 import HomeContainer from '../containers/home'
 
 import { getElementPosition } from '../utils/dom'
+import { SCROLL_Y, HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
 export default class BlogIndex extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      currentCategory: 'All',
+      currentCategory: CATEGORY_TYPE.ALL,
     }
     this.selectCategory = this.selectCategory.bind(this)
   }
 
   componentDidMount() {
-    this.categoryPosition = getElementPosition('#category')('y')
+    this.categoryPosition = getElementPosition('#category')(SCROLL_Y)
   }
 
   selectCategory(e, item) {
@@ -49,7 +50,7 @@ export default class BlogIndex extends Component {
 
     return (
       <Layout location={this.props.location} title={siteMetadata.title}>
-        <Head title="Home" keywords={siteMetadata.keywords} />
+        <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
         <Bio />
         <Category
           category={category}

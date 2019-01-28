@@ -24,12 +24,22 @@ export const Bio = () => (
                 <span className="author-name-content">{author}</span>.
                 <div className="author-introduction">{introduction}</div>
                 <p className="author-socials">
-                  <a href={`https://github.com/${social.github}`}>GitHub</a>
-                  <a href={`https://medium.com/${social.medium}`}>Medium</a>
-                  <a href={`https://twitter.com/${social.twitter}`}>Twitter</a>
-                  <a href={`https://www.facebook.com/${social.facebook}`}>
-                    Facebook
-                  </a>
+                  {social.github && (
+                    <a href={`https://github.com/${social.github}`}>GitHub</a>
+                  )}
+                  {social.medium && (
+                    <a href={`https://medium.com/${social.medium}`}>Medium</a>
+                  )}
+                  {social.twitter && (
+                    <a href={`https://twitter.com/${social.twitter}`}>
+                      Twitter
+                    </a>
+                  )}
+                  {social.facebook && (
+                    <a href={`https://www.facebook.com/${social.facebook}`}>
+                      Facebook
+                    </a>
+                  )}
                 </p>
               </div>
             </div>

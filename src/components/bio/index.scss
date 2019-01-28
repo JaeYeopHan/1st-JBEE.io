@@ -16,9 +16,6 @@
     border-radius: 100%;
   }
 
-  .author-name {
-  }
-
   .author-name-prefix {
     font-size: 90%;
     margin-right: 4px;
@@ -26,7 +23,7 @@
   .author-name-content {
     padding: 2px 4px;
     font-weight: bolder;
-    background-color: $dimmed-color;
+    background-color: $category-border-color;
     border-radius: 8px;
   }
 

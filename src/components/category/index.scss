@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .category-container {
   position: sticky;
   position: -webkit-sticky;
@@ -7,18 +9,18 @@
   overflow-x: scroll;
   -ms-overflow-style: none; // IE 10+
   overflow: -moz-scrollbars-none; // Firefox
-  border-top: 1px solid #ecf0f2;
-  border-bottom: 1px solid #ecf0f2;
-  border-right: 6px solid #ecf0f2;
-  border-left: 6px solid #ecf0f2;
-  background-color: #f4f7f8;
+  border-top: 1px solid $category-border-color;
+  border-bottom: 1px solid $category-border-color;
+  border-right: 6px solid $category-border-color;
+  border-left: 6px solid $category-border-color;
+  background-color: $category-background-color;
   z-index: 1;
   padding: 6px 20px;
 
   .item {
     display: inline-block;
     margin: 0.25rem 6px 0.25rem 0;
-    border: 1px solid #ecf0f2;
+    border: 1px solid $category-border-color;
     border-radius: 15px;
     background-color: #fff;
     white-space: normal;
@@ -30,7 +32,7 @@
       display: block;
       padding: 14px 16px 16px 16px;
       font-size: 13px;
-      color: #666;
+      color: $category-text-color;
       box-sizing: border-box;
     }
   }
@@ -40,7 +42,7 @@
   }
 
   .item.selected {
-    border: 2px solid #666;
+    border: 2px solid $category-text-color;
     font-weight: bolder;
   }
 }
