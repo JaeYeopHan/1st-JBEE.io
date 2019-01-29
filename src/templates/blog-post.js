@@ -14,7 +14,7 @@ import { Utterences } from '../components/utterances'
 
 import '../styles/code.scss'
 
-class BlogPostTemplate extends React.Component {
+export default class BlogPostTemplate extends React.Component {
   render() {
     const { data, pageContext, location } = this.props
     const post = data.markdownRemark
@@ -44,8 +44,6 @@ class BlogPostTemplate extends React.Component {
     )
   }
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
