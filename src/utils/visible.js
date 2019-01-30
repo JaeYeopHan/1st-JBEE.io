@@ -1,32 +1,45 @@
+import * as Dom from './dom'
+
 const ROOT_ID = '#___gatsby'
 export const TARGET_CLASS = 'observed'
 const VISIBLE_RECOGNIZE_CLASS = 'visible'
 const INTERSECTION_OBSERVER_ROOT_MARGIN = '20px'
 const INTERSECTION_OBSERVER_THRESHOLD = 0.8
 
+let observer
+
 function observeCallback(entries) {
-  entries
+  return entries
     .filter(({ isIntersecting }) => isIntersecting)
-    .map(({ target }) => target.classList.add(VISIBLE_RECOGNIZE_CLASS))
+    .forEach(({ target }) => Dom.addClass(target, VISIBLE_RECOGNIZE_CLASS))
 }
 
-function observerTargeting(observer) {
-  document
-    .querySelectorAll(`.${TARGET_CLASS}`)
-    .forEach(target => observer.observe(target))
+function observerTargeting() {
+  return Dom.getElements(`.${TARGET_CLASS}`).forEach(el => observer.observe(el))
+}
+
+function disconnect(callback = () => {}) {
+  if (!observer) {
+    throw Error('Not found IntersectionObserver instance')
+  }
+  observer.disconnect()
+  return callback()
 }
 
 export function init() {
-  const observer = new IntersectionObserver(observeCallback, {
-    root: document.querySelector(ROOT_ID),
+  observer = new IntersectionObserver(observeCallback, {
+    root: Dom.getElement(ROOT_ID),
     rootMargin: INTERSECTION_OBSERVER_ROOT_MARGIN,
     threshold: INTERSECTION_OBSERVER_THRESHOLD,
   })
 
-  observerTargeting(observer)
+  return observerTargeting()
+}
 
-  window.refreshObserver = function() {
-    observer.disconnect()
-    observerTargeting(observer)
-  }
+export function destroy() {
+  return disconnect(() => (observer = null))
+}
+
+export function refreshObserver() {
+  return disconnect(observerTargeting)
 }

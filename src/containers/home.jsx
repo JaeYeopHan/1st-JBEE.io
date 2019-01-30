@@ -21,12 +21,13 @@ export default class HomeContainer extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener(`scroll`, this.handleScroll, { capture: false })
+    window.addEventListener(`scroll`, this.handleScroll, { passive: false })
     IOManager.init()
   }
 
   componentWillUnmount() {
-    window.removeEventListener(`scroll`, this.handleScroll, { capture: false })
+    window.removeEventListener(`scroll`, this.handleScroll, { passive: false })
+    IOManager.destroy()
   }
 
   handleScroll() {
@@ -57,7 +58,7 @@ export default class HomeContainer extends Component {
           currentCount: prevState.currentCount + 1,
         }),
         () => {
-          window.refreshObserver()
+          IOManager.refreshObserver()
           this.ticking = false
         }
       )
@@ -69,7 +70,7 @@ export default class HomeContainer extends Component {
     const { currentCategory } = this.props
 
     if (prevCategory !== currentCategory) {
-      window.refreshObserver()
+      IOManager.refreshObserver()
     }
   }
 
