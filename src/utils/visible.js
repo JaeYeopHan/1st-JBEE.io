@@ -18,12 +18,11 @@ function observerTargeting() {
   return Dom.getElements(`.${TARGET_CLASS}`).forEach(el => observer.observe(el))
 }
 
-function disconnect(callback = () => {}) {
+function disconnect() {
   if (!observer) {
     throw Error('Not found IntersectionObserver instance')
   }
-  observer.disconnect()
-  return callback()
+  return Promise.resolve(observer.disconnect())
 }
 
 export function init() {
@@ -37,9 +36,9 @@ export function init() {
 }
 
 export function destroy() {
-  return disconnect(() => (observer = null))
+  return disconnect().then(() => (observer = null))
 }
 
 export function refreshObserver() {
-  return disconnect(observerTargeting)
+  return disconnect().then(observerTargeting)
 }
