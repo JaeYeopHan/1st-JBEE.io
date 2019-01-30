@@ -10,7 +10,6 @@
   .author-image {
     margin-top: 12px;
     margin-right: 12px;
-    margin-bottom: 12px;
     margin-bottom: 0;
     min-width: 72px;
     border-radius: 100%;
@@ -22,10 +21,14 @@
   }
 
   .author-name-content {
-    padding: 2px 4px;
+    display: inline-block;
+    font-size: 95%;
+    padding: 2px 6px;
     font-weight: bolder;
     background-color: $category-border-color;
     border-radius: 8px;
+    transform-origin: center;
+    animation: flutter 2s infinite linear;
   }
 
   .author-introduction {
@@ -48,5 +51,46 @@
   a.visited {
     color: $link-color;
     text-decoration: none;
+  }
+}
+
+@-webkit-keyframes flutter {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  65% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes flutter {
+  0% {
+    transform: rotate(0deg);
+  }
+  35% {
+    transform: rotate(0deg);
+  }
+  40% {
+    transform: rotate(-5deg);
+  }
+  60% {
+    transform: rotate(5deg);
+  }
+  65% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
