@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 
 import { ThumbnailItem } from '../components/thumbnail-item'
 import { CATEGORY_TYPE } from '../constants'
-import * as IOManager from '..//utils/visible'
+import * as IOManager from '../utils/visible'
+import * as Storage from '../utils/storage'
 
 const BASE_LINE = 80
 
@@ -13,8 +14,10 @@ export default class HomeContainer extends Component {
     this.totalCount = props.posts.length
     this.countOfInitialPost = props.countOfInitialPost
 
+    const savedCount = Storage.getState()
+
     this.state = {
-      currentCount: 1,
+      currentCount: savedCount || 1,
     }
 
     this.handleScroll = this.handleScroll.bind(this)
@@ -26,6 +29,7 @@ export default class HomeContainer extends Component {
   }
 
   componentWillUnmount() {
+    Storage.setState(this.state.currentCount)
     window.removeEventListener(`scroll`, this.handleScroll, { passive: false })
     IOManager.destroy()
   }
