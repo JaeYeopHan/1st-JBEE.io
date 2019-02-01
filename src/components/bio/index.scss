@@ -34,7 +34,7 @@
     margin-top: 4px;
     font-size: 80%;
     line-height: 1.4;
-    color: $description-color;
+    color: $middle-gray;
   }
 
   .author-socials {
@@ -45,11 +45,11 @@
     margin-right: 8px;
     color: $link-color;
     font-size: 80%;
-  }
 
-  a.visited {
-    color: $link-color;
-    text-decoration: none;
+    &.visited {
+      color: $link-color;
+      text-decoration: none;
+    }
   }
 }
 
@@ -73,6 +73,7 @@
     transform: rotate(0deg);
   }
 }
+
 @keyframes flutter {
   0% {
     transform: rotate(0deg);

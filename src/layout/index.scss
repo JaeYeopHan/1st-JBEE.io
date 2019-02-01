@@ -1,6 +1,17 @@
+@import '../styles/variables.scss';
+
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.3);
+  text-shadow: $default-text-shadow;
   -webkit-text-size-adjust: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: $light-background-color;
+}
+
+body.light {
+  background-color: $light-background-color;
+}
+
+body.dark {
+  background-color: $dark-background-color;
 }
