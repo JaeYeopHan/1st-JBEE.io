@@ -10,6 +10,7 @@ module.exports = {
     medium: ``,
     facebook: `devjbee`,
   },
+  icon: `content/assets/felog.png`,
   keywords: [
     `blog`,
     `javascript`,
@@ -29,4 +30,5 @@ module.exports = {
   share: {
     facebookAppId: '829988527335744', // v3.2
   },
+  ga: 'UA-79845333-3',
 }

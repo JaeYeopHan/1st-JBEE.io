@@ -55,19 +55,19 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: `UA-79845333-1`,
+        trackingId: metaConfig.ga,
       },
     },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Jbee's FELog`,
-        short_name: `FELog`,
+        name: metaConfig.title,
+        short_name: metaConfig.title,
         start_url: `/`,
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/felog.png`,
+        icon: metaConfig.icon,
       },
     },
     {
