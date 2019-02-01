@@ -6,7 +6,7 @@ import { Layout } from '../layout'
 import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { Category } from '../components/category'
-import HomeContainer from '../containers/home'
+import Home from '../templates/home'
 
 import { getElementPosition } from '../utils/dom'
 import { SCROLL_Y, HOME_TITLE, CATEGORY_TYPE } from '../constants'
@@ -57,7 +57,7 @@ export default class BlogIndex extends Component {
           currentCategory={currentCategory}
           selectCategory={this.selectCategory}
         />
-        <HomeContainer
+        <Home
           currentCategory={currentCategory}
           countOfInitialPost={countOfInitialPost}
           posts={posts}
