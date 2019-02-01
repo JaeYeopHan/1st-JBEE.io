@@ -28,10 +28,3 @@ exports.onInitialClientRender = () => {
     fjs.parentNode.insertBefore(js, fjs)
   })(document, 'script', 'facebook-jssdk')
 }
-
-exports.onRouteUpdate = ({ location }) => {
-  if (location.pathname !== '/' || !window.refreshObserver) {
-    return
-  }
-  window.refreshObserver()
-}
