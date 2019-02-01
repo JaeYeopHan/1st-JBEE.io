@@ -7,7 +7,7 @@ import * as Storage from '../utils/storage'
 
 const BASE_LINE = 80
 
-export default class HomeContainer extends Component {
+export default class Home extends Component {
   constructor(props) {
     super(props)
 
