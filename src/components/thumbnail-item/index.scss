@@ -6,48 +6,24 @@
   padding: 4px;
   padding-bottom: 12px;
   box-shadow: none;
-  transition: text-shadow 0.3s;
+  transition: text-shadow 0.3s, opacity 0.4s;
   opacity: 0;
 
   h3 {
     color: $dark-gray;
   }
 
-  small {
-    margin-top: -4px;
-    margin-bottom: 2px;
-    color: $light-gray;
-  }
-
   p {
-    color: $description-color;
+    color: $middle-gray;
     font-size: 90%;
     line-height: 1.4;
   }
 }
 
 .thumbnail:hover {
-  text-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
+  text-shadow: $hover-text-shadow;
 }
 
 .thumbnail.visible {
-  animation: fadein 0.4s forwards;
-}
-
-@-webkit-keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fadein {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  opacity: 1;
 }

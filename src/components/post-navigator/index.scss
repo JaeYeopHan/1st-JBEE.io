@@ -1,18 +1,22 @@
 @import '../../styles/variables.scss';
 
 .navigator {
-  margin-top: 40px;
+  margin: 40px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   list-style: none;
   padding: 0;
 
+  li {
+    margin-bottom: 12px;
+  }
+
   a {
-    padding: 4px 8px;
-    background-color: $inline-dimmed-color;
-    color: $inline-text-color;
-    border-radius: 4px;
+    padding: 7px 16px 8px 16px;
+    background-color: $post-background-color;
+    color: $post-link-color;
+    border-radius: 6px;
     font-size: 12px;
     opacity: 0.8;
   }
