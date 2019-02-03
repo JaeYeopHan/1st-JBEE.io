@@ -8,6 +8,16 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.206/distr/fira_code.css);
 @import './variables.scss';
 
+.gatsby-highlight-code-line {
+  background-color: hsla(207, 95%, 15%, 1);
+  display: block;
+  margin-right: -1.2em;
+  margin-left: -1.2em;
+  padding-right: 1em;
+  padding-left: 0.75em;
+  border-left: 0.35em solid #0687f0;
+}
+
 code[class*='language-'],
 pre[class*='language-'] {
   color: #e0e0e0;
@@ -30,6 +40,13 @@ pre[class*='language-'] {
   -moz-hyphens: none;
   -ms-hyphens: none;
   hyphens: none;
+
+  -ms-overflow-style: none; // IE 10+
+  overflow: -moz-scrollbars-none; // Firefox
+}
+
+pre[class*='language-']::-webkit-scrollbar {
+  display: none; // Safari and Chrome
 }
 
 /* Code blocks */
