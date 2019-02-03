@@ -15,7 +15,7 @@ export function getState() {
 }
 
 export function setState(val) {
-  setValueToSessionStorage(SESSION_STORAGE_KEY, val)
+  return setValueToSessionStorage(SESSION_STORAGE_KEY, val)
 }
 
 export function getData() {
@@ -23,5 +23,5 @@ export function getData() {
 }
 
 export function setData(val) {
-  setValueToLocalStorage(LOCAL_STORAGE_KEY, val)
+  return setValueToLocalStorage(LOCAL_STORAGE_KEY, val)
 }

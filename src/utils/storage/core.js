@@ -1,18 +1,22 @@
+function isEmpty(storage) {
+  return !storage || storage === {}
+}
+
 export function getValueFrom(storage, key) {
-  if (!storage || storage === {}) {
-    return undefined
+  if (isEmpty(storage)) {
+    return
   }
   const rawData = storage.getItem(key)
 
   if (!rawData) {
-    return undefined
+    return
   }
   return JSON.parse(rawData)
 }
 
 export function setValueTo(storage, key, data) {
-  if (!storage || storage === {}) {
-    return undefined
+  if (isEmpty(storage)) {
+    return
   }
-  storage.setItem(key, JSON.stringify(data))
+  return storage.setItem(key, JSON.stringify(data))
 }
