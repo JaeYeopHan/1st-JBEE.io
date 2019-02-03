@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Top } from '../components/top'
 import { Header } from '../components/header'
+import { ThemeSwitch } from '../components/theme-switch'
 import { Footer } from '../components/footer'
 import { rhythm } from '../utils/typography'
 
@@ -21,6 +22,7 @@ export const Layout = ({ location, title, children }) => {
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
+        <ThemeSwitch />
         <Header title={title} location={location} rootPath={rootPath} />
         {children}
         <Footer />
