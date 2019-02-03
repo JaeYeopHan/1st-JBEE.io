@@ -351,7 +351,8 @@ export default {
 
 이렇게 두니 `actions.js`에서 action type이 정의되고 `mutations.js`에서 mutation type이 정의되고 getter type은 `getters.js`에서 정의되니 그 의미가 더욱 명확해졌음. 기존에 괜히 `types.js`에서 정의되고 있던 `NAMESPACE`는 `module/index.js`에서 관리하게 됨.
 
-```js module/indes.js
+```js
+// module/index.js
 import { createNamespacedHelpers } from 'vuex'
 import actions from './actions'
 import mutations from './mutations'
@@ -374,7 +375,6 @@ JavaScript의 `export`와 `export default`를 활용하여 보다 깔끔한 코�
 
 ```js
 // my-component.vue
-
 import * as todoStore from '@/store/todo'
 import * as todoActions from '@/store/todo'
 import * as todoGetters from '@/store/todo/getters'
@@ -402,9 +402,8 @@ export default {
 
 _example_
 
-```js
+```js{6}
 // @/store/todo/index.js
-
 export default {
   // ...
   state: {
