@@ -29,18 +29,17 @@ export class ThemeSwitch extends Component {
   constructor() {
     super()
 
-    const checked = Dom.hasClassOfBody(THEME.DARK)
-    const theme = getTheme(checked)
-
     this.state = {
-      checked,
-      theme,
+      checked: false,
+      theme: '',
     }
     this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
-    Dom.addClassToBody(this.state.theme)
+    const checked = Dom.hasClassOfBody(THEME.DARK)
+
+    this.handleChange(checked)
   }
 
   handleChange(checked) {
