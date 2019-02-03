@@ -8,7 +8,7 @@ import { Head } from '../components/head'
 import { Category } from '../components/category'
 import Home from '../templates/home'
 
-import { getElementPosition } from '../utils/dom'
+import * as Dom from '../utils/dom'
 import { SCROLL_Y, HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
 export default class BlogIndex extends Component {
@@ -21,7 +21,7 @@ export default class BlogIndex extends Component {
   }
 
   componentDidMount() {
-    this.categoryPosition = getElementPosition('#category')(SCROLL_Y)
+    this.categoryPosition = Dom.getElementPosition('#category')(SCROLL_Y)
   }
 
   selectCategory(e, item) {
