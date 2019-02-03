@@ -9,19 +9,10 @@
   transition: text-shadow 0.3s, opacity 0.4s;
   opacity: 0;
 
-  h3 {
-    color: $dark-gray;
-  }
-
   p {
-    color: $middle-gray;
     font-size: 90%;
     line-height: 1.4;
   }
-}
-
-.thumbnail:hover {
-  text-shadow: $hover-text-shadow;
 }
 
 .thumbnail.visible {

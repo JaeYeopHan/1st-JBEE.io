@@ -9,45 +9,26 @@
   overflow-x: scroll;
   -ms-overflow-style: none; // IE 10+
   overflow: -moz-scrollbars-none; // Firefox
-  border-top: 1px solid $category-border-color;
-  border-bottom: 1px solid $category-border-color;
-  border-right: 6px solid $category-border-color;
-  border-left: 6px solid $category-border-color;
-  background-color: $category-background-color;
   z-index: 1;
   padding: 6px 20px;
 
   .item {
     display: inline-block;
     margin: 0.25rem 6px 0.25rem 0;
-    border: 1px solid $category-border-color;
     border-radius: 15px;
-    background-color: #fff;
     white-space: normal;
-    -webkit-box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.1);
     box-sizing: border-box;
 
     a {
       display: block;
       padding: 14px 16px 16px 16px;
       font-size: 13px;
-      color: $category-text-color;
       box-sizing: border-box;
     }
   }
 
   .item:last-child {
     margin-right: 0;
-  }
-
-  .item[aria-selected='true'] {
-    border: 2px solid $category-highlight-border-color;
-    font-weight: bolder;
-  }
-
-  .item[aria-selected='true'] a {
-    color: $category-highlight-text-color;
   }
 }
 
