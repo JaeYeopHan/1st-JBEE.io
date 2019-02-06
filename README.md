@@ -1,4 +1,4 @@
-# [FELog](https://jbee.io)
+# [JBEE.io](https://jbee.io)
 
 Powered by [Gatsby-starter-bee](https://github.com/JaeYeopHan/gatsby-starter-bee)
 
