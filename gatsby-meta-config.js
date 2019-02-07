@@ -27,6 +27,9 @@ module.exports = {
   configs: {
     countOfInitialPost: 10,
   },
+  sponsor: {
+    buyMeACoffeeId: 'jbee',
+  },
   share: {
     facebookAppId: '829988527335744', // v3.2
   },
