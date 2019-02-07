@@ -38,9 +38,12 @@ export default ({ posts, countOfInitialPost, currentCategory }) => {
   const [currentCount, setCurrentCount] = useState(Storage.getState() || 1)
   const prevCount = useRef()
 
-  useEffect(() => {
-    prevCount.current = currentCount
-  })
+  useEffect(
+    () => {
+      prevCount.current = currentCount
+    },
+    [currentCount]
+  )
 
   useEffect(
     () => {
