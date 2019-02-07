@@ -1,11 +1,11 @@
 {
-  "name": "felog",
+  "name": "JBEE.io",
   "private": true,
   "description": "Blog posted about front end development.",
   "version": "0.1.0",
   "author": "Jbee[JaeYeopHan]<ljyhanll@gmail.com>",
   "bugs": {
-    "url": "https://github.com/JaeYeopHan/felog/issues"
+    "url": "https://github.com/JaeYeopHan/JBEE.io/issues"
   },
   "dependencies": {
     "gatsby": "^2.0.76",
@@ -50,7 +50,7 @@
     "eslint-plugin-react-hooks": "^1.0.1",
     "prettier": "^1.14.2"
   },
-  "homepage": "https://github.com/JaeYeopHan/felog#readme",
+  "homepage": "https://github.com/JaeYeopHan/JBEE.io#readme",
   "keywords": [
     "gatsby"
   ],
@@ -58,7 +58,7 @@
   "main": "n/a",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JaeYeopHan/felog.git"
+    "url": "git+https://github.com/JaeYeopHan/JBEE.io.git"
   },
   "scripts": {
     "dev": "gatsby develop",
