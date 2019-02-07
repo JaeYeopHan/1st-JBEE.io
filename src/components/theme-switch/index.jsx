@@ -27,13 +27,11 @@ function toggleTheme(theme) {
 
 export const ThemeSwitch = () => {
   const [checked, setChecked] = useState(false)
-  const [_, setTheme] = useState('')
 
   const handleChange = checked => {
     const theme = getTheme(checked)
 
     setChecked(checked)
-    setTheme(theme)
     toggleTheme(theme)
   }
 
