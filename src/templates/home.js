@@ -31,6 +31,7 @@ export default ({ posts, countOfInitialPost, currentCategory }) => {
   useEffect(
     () => {
       IOManager.refreshObserver()
+      setCurrentCount(1)
     },
     [currentCategory]
   )
