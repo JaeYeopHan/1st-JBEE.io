@@ -8,10 +8,10 @@ import { Head } from '../components/head'
 import { Category } from '../components/category'
 import Home from '../templates/home'
 
-import * as Dom from '../utils/dom'
-import { SCROLL_Y, HOME_TITLE, CATEGORY_TYPE } from '../constants'
+import * as ScrollManager from '../utils/scroll'
+import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
-let categoryPosition
+let destPos = 360
 
 export default ({ data, location }) => {
   const [currentCategory, setCategory] = useState(CATEGORY_TYPE.ALL)
@@ -21,17 +21,17 @@ export default ({ data, location }) => {
   const category = uniq(posts.map(({ node }) => node.frontmatter.category))
 
   useEffect(() => {
-    categoryPosition = Dom.getElementPosition('#category')(SCROLL_Y)
+    ScrollManager.init()
+
+    return () => ScrollManager.destroy()
   }, [])
 
-  const selectCategory = (e, item) => {
-    e.preventDefault()
-
-    if (window.scrollY > categoryPosition) {
-      window.scrollTo(0, categoryPosition)
-    }
-    return setCategory(item)
-  }
+  useEffect(
+    () => {
+      window.scrollY > destPos && ScrollManager.go(destPos)
+    },
+    [currentCategory]
+  )
 
   return (
     <Layout location={location} title={siteMetadata.title}>
@@ -40,7 +40,7 @@ export default ({ data, location }) => {
       <Category
         category={category}
         currentCategory={currentCategory}
-        selectCategory={selectCategory}
+        selectCategory={setCategory}
       />
       <Home
         currentCategory={currentCategory}

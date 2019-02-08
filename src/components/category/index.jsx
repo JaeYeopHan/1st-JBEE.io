@@ -1,5 +1,6 @@
 import React from 'react'
 
+import { Item } from './item'
 import { rhythm } from '../../utils/typography'
 import { CATEGORY_TYPE } from '../../constants'
 
@@ -15,26 +16,18 @@ export const Category = ({ category, selectCategory, currentCategory }) => {
         margin: `0 -${rhythm(3 / 4)}`,
       }}
     >
-      <li
-        className="item"
-        role="listitem"
-        aria-selected={currentCategory === CATEGORY_TYPE.ALL ? 'true' : 'false'}
-      >
-        <a href="#" onClick={e => selectCategory(e, CATEGORY_TYPE.ALL)}>
-          All
-        </a>
-      </li>
+      <Item
+        title={'All'}
+        currentCategory={currentCategory}
+        selectCategory={selectCategory}
+      />
       {category.map((item, idx) => (
-        <li
+        <Item
           key={idx}
-          className="item"
-          role="listitem"
-          aria-selected={currentCategory === item ? 'true' : 'false'}
-        >
-          <a href="#" onClick={e => selectCategory(e, item)}>
-            {item}
-          </a>
-        </li>
+          title={item}
+          currentCategory={currentCategory}
+          selectCategory={selectCategory}
+        />
       ))}
     </ul>
   )
