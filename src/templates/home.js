@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { ThumbnailItem } from '../components/thumbnail-item'
-import { CATEGORY_TYPE } from '../constants'
 import * as IOManager from '../utils/visible'
 import * as Storage from '../utils/storage'
 import * as Dom from '../utils/dom'
+import { CATEGORY_TYPE } from '../constants'
 
 const BASE_LINE = 80
 
@@ -15,6 +15,10 @@ function getDistance(degree) {
 }
 
 export default ({ posts, countOfInitialPost, currentCategory }) => {
+  const saved = Storage.getState()
+  const initialCount = saved ? saved.count : 1
+  const [currentCount, setCurrentCount] = useState(initialCount)
+
   useEffect(() => {
     window.addEventListener(`scroll`, handleScroll, { passive: false })
     IOManager.init()
@@ -24,34 +28,22 @@ export default ({ posts, countOfInitialPost, currentCategory }) => {
         passive: false,
       })
       IOManager.destroy()
-      Storage.setState(prevCount.current)
     }
   }, [])
 
+  useEffect(() => {
+    IOManager.refreshObserver()
+    Storage.setState({
+      count: currentCount,
+      category: currentCategory,
+    })
+  })
+
   useEffect(
     () => {
-      IOManager.refreshObserver()
       setCurrentCount(1)
     },
     [currentCategory]
-  )
-
-  const [currentCount, setCurrentCount] = useState(Storage.getState() || 1)
-  const prevCount = useRef()
-
-  useEffect(
-    () => {
-      prevCount.current = currentCount
-    },
-    [currentCount]
-  )
-
-  useEffect(
-    () => {
-      IOManager.refreshObserver()
-      ticking = false
-    },
-    [currentCount]
   )
 
   const handleScroll = () => {
@@ -72,7 +64,8 @@ export default ({ posts, countOfInitialPost, currentCategory }) => {
       const isNeedLoadMore = posts.length > currentCount * countOfInitialPost
 
       if (isNeedLoadMore && isTriggerPosition) {
-        return setCurrentCount(prevCount.current + 1)
+        ticking = false
+        return setCurrentCount(prevCount => prevCount + 1)
       }
     })
   }

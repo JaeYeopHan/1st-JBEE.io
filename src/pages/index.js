@@ -7,14 +7,16 @@ import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { Category } from '../components/category'
 import Home from '../templates/home'
-
 import * as ScrollManager from '../utils/scroll'
+import * as Storage from '../utils/storage'
 import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
-let destPos = 360
+const DEST_POS = 360
 
 export default ({ data, location }) => {
-  const [currentCategory, setCategory] = useState(CATEGORY_TYPE.ALL)
+  const saved = Storage.getState()
+  const initialCategory = saved.category || CATEGORY_TYPE.ALL
+  const [currentCategory, setCategory] = useState(initialCategory)
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
@@ -23,15 +25,15 @@ export default ({ data, location }) => {
   useEffect(() => {
     ScrollManager.init()
 
-    return () => ScrollManager.destroy()
+    return () => {
+      ScrollManager.destroy()
+    }
   }, [])
 
-  useEffect(
-    () => {
-      window.scrollY > destPos && ScrollManager.go(destPos)
-    },
-    [currentCategory]
-  )
+  const selectCategory = category => {
+    ScrollManager.go(DEST_POS)
+    setCategory(category)
+  }
 
   return (
     <Layout location={location} title={siteMetadata.title}>
@@ -40,7 +42,7 @@ export default ({ data, location }) => {
       <Category
         category={category}
         currentCategory={currentCategory}
-        selectCategory={setCategory}
+        selectCategory={selectCategory}
       />
       <Home
         currentCategory={currentCategory}
