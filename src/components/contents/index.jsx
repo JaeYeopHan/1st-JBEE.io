@@ -3,19 +3,13 @@ import React from 'react'
 import { ThumbnailItem } from '../thumbnail-item'
 import { CATEGORY_TYPE } from '../../constants'
 
-export const Contents = ({
-  posts,
-  countOfInitialPost,
-  currentCount,
-  currentCategory,
-}) => {
+export const Contents = ({ posts, countOfInitialPost, count, category }) => {
   return posts
     .filter(
       ({ node }) =>
-        currentCategory === CATEGORY_TYPE.ALL ||
-        node.frontmatter.category === currentCategory
+        category === CATEGORY_TYPE.ALL || node.frontmatter.category === category
     )
-    .slice(0, currentCount * countOfInitialPost)
+    .slice(0, count * countOfInitialPost)
     .map(({ node }, index) => (
       <ThumbnailItem node={node} key={`item_${index}`} />
     ))

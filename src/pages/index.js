@@ -20,46 +20,39 @@ const BASE_LINE = 80
 
 let ticking = false
 
-function getDistance(degree) {
-  return Dom.getDocumentHeight() - degree
+function getDistance(currentPos) {
+  return Dom.getDocumentHeight() - currentPos
 }
 
 export default ({ data, location }) => {
-  const saved = Storage.getState()
-
-  const initialCount = (saved && saved.count) || 1
-  const [currentCount, setCurrentCount] = useState(initialCount)
-  const previousCount = useRef()
-
-  const initialCategory = (saved && saved.category) || CATEGORY_TYPE.ALL
-  const [currentCategory, setCategory] = useState(initialCategory)
+  const initialCount = Storage.getCount(1)
+  const initialCategory = Storage.getCategory(CATEGORY_TYPE.ALL)
+  const [count, setCount] = useState(initialCount)
+  const countRef = useRef()
+  const [category, setCategory] = useState(initialCategory)
 
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
-  const category = uniq(posts.map(({ node }) => node.frontmatter.category))
+  const categories = uniq(posts.map(({ node }) => node.frontmatter.category))
 
   useEffect(() => {
-    window.addEventListener(`scroll`, handleScroll, { passive: false })
+    window.addEventListener(`scroll`, onScroll, { passive: false })
     IOManager.init()
     ScrollManager.init()
 
     return () => {
-      window.removeEventListener(`scroll`, handleScroll, {
-        passive: false,
-      })
+      window.removeEventListener(`scroll`, onScroll, { passive: false })
       IOManager.destroy()
       ScrollManager.destroy()
     }
   }, [])
 
   useEffect(() => {
-    previousCount.current = currentCount
+    countRef.current = count
     IOManager.refreshObserver()
-    Storage.setState({
-      count: currentCount,
-      category: currentCategory,
-    })
+    Storage.setCount(count)
+    Storage.setCategory(category)
   })
 
   const selectCategory = category => {
@@ -67,27 +60,27 @@ export default ({ data, location }) => {
     ScrollManager.go(DEST_POS)
   }
 
-  const handleScroll = () => {
+  const onScroll = () => {
     if (ticking) {
       return
     }
 
     ticking = true
     requestAnimationFrame(() => {
-      const isTriggerPosition =
-        getDistance(window.scrollY + window.innerHeight) < BASE_LINE
+      const currentPos = window.scrollY + window.innerHeight
+      const isTriggerPos = getDistance(currentPos) < BASE_LINE
 
-      if (!isTriggerPosition) {
+      if (!isTriggerPos) {
         ticking = false
         return
       }
 
       const isNeedLoadMore =
-        posts.length > previousCount.current * countOfInitialPost
+        posts.length > countRef.current * countOfInitialPost
 
-      if (isNeedLoadMore && isTriggerPosition) {
+      if (isNeedLoadMore && isTriggerPos) {
         ticking = false
-        return setCurrentCount(prevCount => prevCount + 1)
+        return setCount(prevCount => prevCount + 1)
       }
     })
   }
@@ -97,15 +90,15 @@ export default ({ data, location }) => {
       <Head title={HOME_TITLE} keywords={siteMetadata.keywords} />
       <Bio />
       <Category
+        categories={categories}
         category={category}
-        currentCategory={currentCategory}
         selectCategory={selectCategory}
       />
       <Contents
         posts={posts}
         countOfInitialPost={countOfInitialPost}
-        currentCount={currentCount}
-        currentCategory={currentCategory}
+        count={count}
+        category={category}
       />
     </Layout>
   )
