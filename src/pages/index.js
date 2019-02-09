@@ -27,7 +27,7 @@ export default ({ data, location }) => {
   const initialCount = Storage.getCount(1)
   const initialCategory = Storage.getCategory(CATEGORY_TYPE.ALL)
   const [count, setCount] = useState(initialCount)
-  const countRef = useRef()
+  const countRef = useRef(count)
   const [category, setCategory] = useState(initialCategory)
 
   const { siteMetadata } = data.site
