@@ -6,7 +6,7 @@ import { CATEGORY_TYPE } from '../../constants'
 
 import './index.scss'
 
-export const Category = ({ category, selectCategory, currentCategory }) => {
+export const Category = ({ categories, category, selectCategory }) => {
   return (
     <ul
       className="category-container"
@@ -16,16 +16,12 @@ export const Category = ({ category, selectCategory, currentCategory }) => {
         margin: `0 -${rhythm(3 / 4)}`,
       }}
     >
-      <Item
-        title={'All'}
-        currentCategory={currentCategory}
-        selectCategory={selectCategory}
-      />
-      {category.map((item, idx) => (
+      <Item title={'All'} category={category} selectCategory={selectCategory} />
+      {categories.map((item, idx) => (
         <Item
           key={idx}
           title={item}
-          currentCategory={currentCategory}
+          category={category}
           selectCategory={selectCategory}
         />
       ))}
