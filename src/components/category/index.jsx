@@ -2,7 +2,6 @@ import React from 'react'
 
 import { Item } from './item'
 import { rhythm } from '../../utils/typography'
-import { CATEGORY_TYPE } from '../../constants'
 
 import './index.scss'
 
@@ -10,7 +9,7 @@ export const Category = ({ categories, category, selectCategory }) => {
   return (
     <ul
       className="category-container"
-      role="list"
+      role="tablist"
       id="category"
       style={{
         margin: `0 -${rhythm(3 / 4)}`,
