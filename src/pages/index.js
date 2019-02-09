@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
-import { uniq } from 'lodash'
+import _ from 'lodash'
 
 import { Layout } from '../layout'
 import { Bio } from '../components/bio'
@@ -33,7 +33,7 @@ export default ({ data, location }) => {
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
-  const categories = uniq(posts.map(({ node }) => node.frontmatter.category))
+  const categories = _.uniq(posts.map(({ node }) => node.frontmatter.category))
 
   useEffect(() => {
     window.addEventListener(`scroll`, onScroll, { passive: false })
