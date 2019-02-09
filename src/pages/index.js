@@ -15,7 +15,7 @@ const DEST_POS = 360
 
 export default ({ data, location }) => {
   const saved = Storage.getState()
-  const initialCategory = saved.category || CATEGORY_TYPE.ALL
+  const initialCategory = (saved && saved.category) || CATEGORY_TYPE.ALL
   const [currentCategory, setCategory] = useState(initialCategory)
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
