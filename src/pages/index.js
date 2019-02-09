@@ -11,14 +11,13 @@ import { Contents } from '../components/contents'
 import * as ScrollManager from '../utils/scroll'
 import * as Storage from '../utils/storage'
 import * as IOManager from '../utils/visible'
+import * as EventManager from '../utils/event-manager'
 import * as Dom from '../utils/dom'
 
 import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
 const DEST_POS = 360
 const BASE_LINE = 80
-
-let ticking = false
 
 function getDistance(currentPos) {
   return Dom.getDocumentHeight() - currentPos
@@ -61,27 +60,14 @@ export default ({ data, location }) => {
   }
 
   const onScroll = () => {
-    if (ticking) {
-      return
-    }
+    const currentPos = window.scrollY + window.innerHeight
+    const isTriggerPos = () => getDistance(currentPos) < BASE_LINE
+    const doesNeedMore = () =>
+      posts.length > countRef.current * countOfInitialPost
 
-    ticking = true
-    requestAnimationFrame(() => {
-      const currentPos = window.scrollY + window.innerHeight
-      const isTriggerPos = getDistance(currentPos) < BASE_LINE
-
-      if (!isTriggerPos) {
-        ticking = false
-        return
-      }
-
-      const isNeedLoadMore =
-        posts.length > countRef.current * countOfInitialPost
-
-      if (isNeedLoadMore && isTriggerPos) {
-        ticking = false
-        return setCount(prevCount => prevCount + 1)
-      }
+    return EventManager.toFit(() => setCount(prev => prev + 1), {
+      dismissCondition: () => !isTriggerPos(),
+      triggerCondition: () => isTriggerPos() && doesNeedMore(),
     })
   }
 
