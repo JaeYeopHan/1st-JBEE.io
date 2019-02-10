@@ -8,6 +8,7 @@ module.exports = {
     graphql: false,
   },
   parserOptions: {
+    ecmaVersion: 2017,
     sourceType: 'module',
     ecmaFeatures: {
       experimentalObjectRestSpread: true,
