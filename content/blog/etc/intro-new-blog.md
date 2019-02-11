@@ -85,8 +85,13 @@ body {
   text-shadow: 0 0 0.1px rgba(0, 0, 0, 0.3);
   -webkit-text-size-adjust: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  text-rendering: optimizelegibility;
 }
 ```
+
+해당 style은 [4 Tips and Tricks for more Legible Content](https://www.uxbooth.com/articles/4-tips-and-tricks-for-more-legible-content/)와 [readable-css](https://github.com/nicokant/readable-css) repository를 참고했습니다.
 
 ### GitHub Style
 
