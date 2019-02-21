@@ -5,9 +5,11 @@ require('typeface-catamaran')
 // polyfill
 require('intersection-observer')
 
+const Sentry = require('@sentry/browser')
 const metaConfig = require('./gatsby-meta-config')
 
 exports.onInitialClientRender = () => {
+  // Initialize facebook sdk
   if (metaConfig.share.facebookAppId) {
     window.fbAsyncInit = function() {
       FB.init({
@@ -28,5 +30,11 @@ exports.onInitialClientRender = () => {
       js.src = 'https://connect.facebook.net/en_US/sdk.js'
       fjs.parentNode.insertBefore(js, fjs)
     })(document, 'script', 'facebook-jssdk')
+  }
+
+  if (metaConfig.sentryDsn) {
+    Sentry.init({
+      dsn: metaConfig.sentryDsn,
+    })
   }
 }
