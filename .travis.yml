@@ -12,12 +12,15 @@ node_js:
 
 env:
   - LIGHTHOUSE_API_KEY=ddbc9a6d3fcf4381a6d3d296d4bf031b
+  - BUNDLESIZE_GITHUB_TOKEN=e1ed6965a5855f6ad4e5247f487f81f3bf4ef0ab
 
 script:
   - npm install
   - npm run lint
+  - npm run build
 
 after_success:
+  - npm run bs
   - npm run lh -- https://jbee.io
 
 branches:
