@@ -56,6 +56,7 @@
     "fs-extra": "^7.0.1",
     "gray-matter": "^4.0.2",
     "inquirer": "^6.2.2",
+    "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "prettier": "^1.14.2",
     "recursive-readdir": "^2.2.2",
     "signale": "^1.3.0"
@@ -72,6 +73,7 @@
   },
   "scripts": {
     "post": "node ./cli/create-new-post.js",
+    "lh": "lighthousebot",
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
