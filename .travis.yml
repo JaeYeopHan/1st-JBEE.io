@@ -10,9 +10,15 @@ node_js:
   - '7'
   - '8'
 
+env:
+  - LIGHTHOUSE_API_KEY=ddbc9a6d3fcf4381a6d3d296d4bf031b
+
 script:
   - npm install
   - npm run lint
+
+after_success:
+  - npm run lh -- https://jbee.io
 
 branches:
   only:
