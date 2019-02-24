@@ -7,8 +7,6 @@ os:
 node_js:
   - 'node'
   - 'lts/*'
-  - '7'
-  - '8'
 
 env:
   - LIGHTHOUSE_API_KEY=ddbc9a6d3fcf4381a6d3d296d4bf031b
