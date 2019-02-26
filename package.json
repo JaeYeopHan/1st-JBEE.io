@@ -59,7 +59,7 @@
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "prettier": "^1.14.2",
     "recursive-readdir": "^2.2.2",
-    "signale": "^1.3.0"
+    "signale": "^1.4.0"
   },
   "homepage": "https://github.com/JaeYeopHan/JBEE.io#readme",
   "keywords": [
