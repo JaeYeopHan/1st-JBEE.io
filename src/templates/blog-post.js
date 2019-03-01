@@ -11,7 +11,7 @@ import { SponsorButton } from '../components/sponsor-button'
 import { Bio } from '../components/bio'
 import { PostNavigator } from '../components/post-navigator'
 import { Disqus } from '../components/disqus'
-import { Utterences } from '../components/utterances'
+import { Utterances } from '../components/utterances'
 import * as ScrollManager from '../utils/scroll'
 
 import '../styles/code.scss'
@@ -47,7 +47,7 @@ export default ({ data, pageContext, location }) => {
           slug={pageContext.slug}
         />
       )}
-      {!!utterances && <Utterences repo={utterances} />}
+      {!!utterances && <Utterances repo={utterances} />}
     </Layout>
   )
 }
