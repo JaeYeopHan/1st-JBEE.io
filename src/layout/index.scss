@@ -5,10 +5,8 @@
 body {
   font-family: 'Noto Sans KR', sans-serif;
   background-color: $light-background-color;
-  -webkit-text-size-adjust: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
   -moz-font-smoothing: antialiased;
-  text-rendering: optimizelegibility;
+  // text-rendering: optimizelegibility;
   transition: background-color 0.3s, color 0.3s;
 }
