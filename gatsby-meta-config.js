@@ -20,6 +20,7 @@ module.exports = {
     `frontend`,
     `development`,
   ],
+  siteUrl: `https://jbee.io`,
   comment: {
     disqusShortName: '',
     utterances: 'JaeYeopHan/JBEE.io',
