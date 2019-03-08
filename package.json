@@ -44,7 +44,7 @@
     "typeface-merriweather": "0.0.54",
     "typeface-montserrat": "0.0.54",
     "typeface-noto-sans-kr": "0.0.63",
-    "typography": "^0.16.17",
+    "typography": "^0.16.19",
     "typography-theme-github": "^0.16.18"
   },
   "devDependencies": {
