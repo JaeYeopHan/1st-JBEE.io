@@ -38,7 +38,7 @@
     "react-dom": "^16.8.1",
     "react-helmet": "^5.2.0",
     "react-switch": "^4.0.1",
-    "react-typography": "^0.16.13",
+    "react-typography": "^0.16.19",
     "smooth-scroll": "^15.0.0",
     "typeface-catamaran": "0.0.54",
     "typeface-merriweather": "0.0.54",
