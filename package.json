@@ -8,7 +8,7 @@
     "url": "https://github.com/JaeYeopHan/JBEE.io/issues"
   },
   "dependencies": {
-    "gatsby": "^2.0.76",
+    "gatsby": "^2.1.30",
     "gatsby-image": "^2.0.32",
     "gatsby-plugin-feed": "^2.0.15",
     "gatsby-plugin-google-analytics": "^2.0.17",
