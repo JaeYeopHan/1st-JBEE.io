@@ -36,7 +36,7 @@
     "prismjs": "^1.15.0",
     "react": "^16.8.6",
     "react-disqus-comments": "^1.4.0",
-    "react-dom": "^16.8.1",
+    "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-switch": "^4.0.1",
     "react-typography": "^0.16.13",
