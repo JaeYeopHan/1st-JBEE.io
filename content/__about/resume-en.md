@@ -21,7 +21,6 @@ I loves TypeScript, VanillaJS and React. I have recently been interested in docu
 | **GitHub** | http://github.com/JaeYeopHan |
 | **E-mail** | ljyhanll@gmail.com           |
 
-
 # 💼 Work Experiences
 
 ## LINE Financial Plus
@@ -49,7 +48,6 @@ I loves TypeScript, VanillaJS and React. I have recently been interested in docu
 | **position** | BackEnd Engineer Intern                                   |
 |  description | Develop redis operation chat-bot based on LINE messenger. |
 |  **project** | REDIS-OPS-BOT(http://bit.ly/2BzJiUl)                      |
-
 
 # 🤖 Tech Experience
 
@@ -109,17 +107,23 @@ It is a blog starter template like [_gatsby-starter-blog_](https://github.com/ga
 
 ## 📣 Presentation
 
+### NAVER Tech Concert: Front End - For growth of junior developer
+
+> https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo
+
+_[2019.04.11]_ This is the material released at the Naver Tech concert. I am concerned about growth as a developer and I share the contents. Growth through side projects is important, but it is also important to share how you can grow in your work.
+
 ### GDG Devfest Seoul 2018 - Web Front-End performance with Chrome Devtools
 
 > https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools
 
-There are two major areas of measurement and improvement associated with Web front-end performance. We've compiled some of the elements that can be used to measure and improve the performance of your web application by using the audits included in Chrome developer tools.
+_[2018.11.10]_ There are two major areas of measurement and improvement associated with Web front-end performance. We've compiled some of the elements that can be used to measure and improve the performance of your web application by using the audits included in Chrome developer tools.
 
 ### GDG Campus 2018.02 Meetup (Korean) - Developers who want to work together
 
 > https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja
 
-Introduce "development" that I learned in the field. I define 'coding' to be narrower and share what I felt that 'coding is only part of the process of developing something.' If possible, I will talk about the direction to move towards 'the developer we want to work with' based on this content.
+_[2018.02.11]_ Introduce "development" that I learned in the field. I define 'coding' to be narrower and share what I felt that 'coding is only part of the process of developing something.' If possible, I will talk about the direction to move towards 'the developer we want to work with' based on this content.
 
 ## ⛑ Communities
 
@@ -130,14 +134,12 @@ Introduce "development" that I learned in the field. I define 'coding' to be nar
 |      period | 17.03 ~ current                                                                                                                                                   |
 | description | I have a Facebook page called FELOG that contains development resources for preliminary and junior developers, as well as tutorials related to the web front end. |
 
-
 ### [FEConf Organizer](https://2017.feconf.kr/)
 
 |             |                                                                                                           |
 | ----------: | --------------------------------------------------------------------------------------------------------- |
 |      period | 18.06. ~ current.                                                                                         |
 | description | One of FEConf's organizers is the front-end conference hosted by Facebook's 'Frontend Development Group'. |
-
 
 ### [TypeScript Korea Organizer](https://www.facebook.com/groups/TSKorea/)
 
@@ -146,7 +148,6 @@ Introduce "development" that I learned in the field. I define 'coding' to be nar
 |      period | 17.11 ~ current                                                                                   |
 | description | I'm one of the leading members of the Facebook group to promote the language typescript to Korea. |
 
-
 ### [React Seoul Organizer](http://seoul.reactjs.kr/)
 
 |             |                                                                                               |
@@ -154,15 +155,16 @@ Introduce "development" that I learned in the field. I define 'coding' to be nar
 |      period | 17.09. ~ 17.12.                                                                               |
 | description | I participated as an organizer to plan and prepare seminar for only React called React Seoul. |
 
-
 ## 📦 Lectures
 
 ### ECMAScript 2016
+
 > https://www.slideshare.net/JaeYeopHan/es6-1-let-const
 
 I taught ECMAScript 2016 in-house study.
 
 ### TypeScript Tutorial
+
 > https://www.slideshare.net/JaeYeopHan/intro-typescript-playground
 
 I taught TypeScript in-house study.
