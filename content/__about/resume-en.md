@@ -10,7 +10,7 @@ lang: 'en'
 
 I'm JaeYeop Han as known as `Jbee`. I'm FrontEnd engineer who create a complete product by creating a user-facing interface.
 
-I loves TypeScript, VanillaJS and React. I have recently been interested in documentation, productivity, and clean code.
+I love TypeScript, VanillaJS and React. I have recently been interested in documentation, productivity, and clean code.
 
 `#TypeScript` `#VanillaJS` `#React` `#Productivity` `#Documentation` `#Clean Code`
 
