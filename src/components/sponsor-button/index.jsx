@@ -7,7 +7,7 @@ export const SponsorButton = ({ sponsorId }) => (
     <a
       className="bmc-button"
       target="_blank"
-      href={`https://www.buymeacoffee.com/${sponsorId}`}
+      href={`http://buymeacoff.ee/${sponsorId}`}
     >
       <img
         src="https://www.buymeacoffee.com/assets/img/BMC-btn-logo.svg"
