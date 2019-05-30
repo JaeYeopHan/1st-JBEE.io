@@ -1,14 +1,16 @@
 ---
-title: 'JavaScript Coding Convention 자동화'
+title: 'Code Formatting 자동화'
 date: 2019-05-29 15:05:49
 category: web
 ---
 
 ![thumbnail](./images/formatting-code/Formatting_code_automatically.png)
 
-개발을 할 때 비즈니스 로직에 집중해야 하고, 구조에 집중해야 하고, 프론트엔드 개발자라면 UX에 신경써야 합니다. 이와 동시에 Coding convention을 하나 하나 신경쓰면서 코드를 작성하기엔 우리 인생은 너무 짧습니다.
+팀 단위로 프로젝트 개발이 이뤄지면서 합의한 Coding convention을 지키며 개발하는 것이 중요해졌습니다. 그러나 여전히 소프트웨어 개발을 할 때, 비즈니스 로직, 구조 설계, UX 등 많은 부분을 고려해야 합니다. 이 와중에 convention을 하나 하나 신경써야 하는데, 그러기엔 **우리 인생은 너무 짧습니다.**
 
-일관된 Coding convention을 위해 이미 많이 보편화되어 있는 eslint나 prettier를 사용할 수 있는데요, 이를 보다 **효율적으로** 적용할 수 있는 여러 가지 방법과 도구를 소개합니다.
+이 글에서는 일관된 convention을 적용할 때 도움이 될 수 있는 여러 도구를 소개합니다.
+
+> Formatting Code automatically! 🤖
 
 ## ToC
 
@@ -19,7 +21,7 @@ category: web
 
 ## [prettier](https://github.com/prettier/prettier), [eslint](https://github.com/eslint/eslint)
 
-두 도구의 성격이 약간 달라 취향에 맞게 선택하여 프로젝트에 적용할 수 있습니다. eslint와 prettier 설정에 대한 설명은 해당 포스팅에서 제외했는데요, 궁금하신 분들은 [velopert님의 리액트 프로젝트에 ESLint와 Prettier 끼얹기 포스팅](https://velog.io/@velopert/eslint-and-prettier-in-react) 을 참고하시면 될 것 같습니다.
+두 도구의 성격이 약간 달릅니다. 취향에 따라 프로젝트에 적용할 수 있습니다. eslint와 prettier 설정에 대한 설명은 이 글에서 제외했습니다. 궁금하신 분들은 [velopert님의 리액트 프로젝트에 ESLint와 Prettier 끼얹기 글](https://velog.io/@velopert/eslint-and-prettier-in-react)을 참고하시면 됩니다.
 
 ## With VSCode
 
@@ -28,7 +30,7 @@ VSCode의 설정을 통해 **저장(save) 시점에** formatting을 트리거 �
 - `formatOnSave: true`
 - `fixOnSave: true`
 
-prettier를 사용하고 계시다면 `formatOnSave` 기능을 활성화시키면 되고 eslint를 사용하고 계신다면 `fixOnSave` 기능을 활성화시키면 됩니다.
+prettier를 사용하고 있다면 `formatOnSave` 기능을 활성화시키면 되고 eslint를 사용하고 있다면 `fixOnSave` 기능을 활성화시키면 됩니다.
 
 저장하기 위해 `command + s`를 누르는 것조차 귀찮으신 분들은 한 가지 설정을 더 해줄 수 있습니다. VSCode 설정 중 바로 **Auto Save** 설정을 통해 저장 기능도 자동화 시킬 수 있습니다. 저장 기능을 실행시킬 여러 가지 시점을 선택할 수 있습니다. 저는 활성화 된 에디터 창이 변경될 때인 `onFocusChange`로 설정을 해뒀습니다.
 
@@ -40,7 +42,7 @@ prettier를 사용하고 계시다면 `formatOnSave` 기능을 활성화시키�
 
 ### [husky](https://github.com/typicode/husky)
 
-husky라는 Git hooks을 지원하는 npm 라이브러리를 통해 commit 전 또는 push 전 script를 실행시킬 수 있습니다.
+Git hooks을 지원하는 `husky` 라이브러리를 통해 commit 전 또는 push 전 특정 script를 실행시킬 수 있습니다.
 
 ```bash
 $ npm install --save-dev husky
