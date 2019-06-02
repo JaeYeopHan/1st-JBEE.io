@@ -19,6 +19,13 @@ category: web
 - With Hooks
 - With GitHub bot
 
+## Why do we need code style?
+
+우선 Code formatting(코드 포맷팅)이 왜 필요한지, 팀 내 정해진 스타일 가이드가 왜 필요한지 의문이 드시는 분들이 계실 수 있을 것 같습니다. 이 포스팅에서는 관련 글을 첨부합니다.
+
+> 코드의 많은 비용은 읽을 때 발생한다. 그러므로 코드는 가독성을 위해 최적화를 해야 한다는 결론, 즉 응용 프로그램의 코드는 모두 같은 스타일로 통일되어야한다는 결정을 이끌어 낼 수 있다. 일반적인 스타일에 맞춤으로써 여러분은 비용을 절감할 수 있다.  
+\- [코딩 스타일에 대해 논쟁하는 이유](http://www.mimul.com/pebble/default/2019/05/31/1559304696070.html) 중
+
 ## [prettier](https://github.com/prettier/prettier), [eslint](https://github.com/eslint/eslint)
 
 두 도구의 성격이 약간 달릅니다. 취향에 따라 프로젝트에 적용할 수 있습니다. eslint와 prettier 설정에 대한 설명은 이 글에서 제외했습니다. 궁금하신 분들은 [velopert님의 리액트 프로젝트에 ESLint와 Prettier 끼얹기 글](https://velog.io/@velopert/eslint-and-prettier-in-react)을 참고하시면 됩니다.
