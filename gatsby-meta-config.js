@@ -11,6 +11,7 @@ module.exports = {
     facebook: `devjbee`,
   },
   icon: `content/assets/blog-favicon.png`,
+  thumbnail: `content/assets/jbee-io.png`,
   keywords: [
     `blog`,
     `javascript`,
