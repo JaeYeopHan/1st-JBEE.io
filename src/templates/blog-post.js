@@ -5,6 +5,7 @@ import * as Elements from '../components/elements'
 import { Layout } from '../layout'
 import { Head } from '../components/head'
 import { PostTitle } from '../components/post-title'
+import { PostDate } from '../components/post-date'
 import { PostContainer } from '../components/post-container'
 import { SocialShare } from '../components/social-share'
 import { SponsorButton } from '../components/sponsor-button'
@@ -31,6 +32,7 @@ export default ({ data, pageContext, location }) => {
     <Layout location={location} title={title}>
       <Head title={post.frontmatter.title} description={post.excerpt} />
       <PostTitle title={post.frontmatter.title} />
+      <PostDate date={post.frontmatter.date} />
       <PostContainer html={post.html} />
       <SocialShare title={post.frontmatter.title} author={author} />
       {!!sponsor.buyMeACoffeeId && (
