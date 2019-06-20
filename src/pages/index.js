@@ -16,7 +16,7 @@ import * as Dom from '../utils/dom'
 
 import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
 
-const DEST_POS = 330
+const DEST_POS = 394
 const BASE_LINE = 80
 
 function getDistance(currentPos) {
