@@ -25,11 +25,11 @@ I love TypeScript, VanillaJS and React. I have recently been interested in docum
 
 ## LINE Financial Plus
 
-|              |                   |
-| -----------: | ----------------- |
-|       period | 18.10 ~ Current   |
-| **position** | FrontEnd Engineer |
-|  description | (in Progress)     |
+|              |                                               |
+| -----------: | --------------------------------------------- |
+|       period | 18.10 ~ Current                               |
+| **position** | FrontEnd Engineer                             |
+|  description | Indonesia Bank, Smart Invest Japan, Mentoring |
 
 ## NAVER Corporation
 
@@ -50,6 +50,13 @@ I love TypeScript, VanillaJS and React. I have recently been interested in docum
 |  **project** | REDIS-OPS-BOT(http://bit.ly/2BzJiUl)                      |
 
 # 🤖 Tech Experience
+
+## [Smart Invest Japan](http://invest.line.me)
+
+- Investment services based on LINE Messenger
+- Base on Vue.js (and vue ecosystem)
+- Participated in this project as a front-end engineer and Development Lead
+- 18.10 ~ current
 
 ## [SmartAround Service](https://s.search.naver.com/p/around/search.naver)
 
@@ -85,6 +92,18 @@ Summarizes the whole development.
 
 # 📊 Projects
 
+## gatsby-starter-bee
+
+- GitHub repository link: https://github.com/JaeYeopHan/gatsby-starter-bee
+
+It is a blog starter template like [_gatsby-starter-blog_](https://github.com/gatsbyjs/gatsby-starter-blog). I made this template with focusing fresh UI, simple, feature as packages. You can see the [demo](https://gatsby-starter-bee.netlify.com/). My [**jbee.io**](https://jbee.io) also created by this template.
+
+### gatsby-remark-images-medium-zoom
+
+- GitHub repository link: https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom
+
+medium-zoom plugin for gatsby with gatsby-remark-images
+
 ## octodirect - chrome extension
 
 - Chrome web store link: http://bit.ly/2wL9Iwv
@@ -96,12 +115,6 @@ It is a chrome extension that allows you to curate the GitHub repository you cre
 Opening the extension through the shortcut key brings up a list of repositories from multiple sources and shows them. Once you enter the name of the repository, you can easily get links to the repository by filtering it, and you can even go straight to the Enter key.
 
 Versioning and distribution of Chrome extensions is cumbersome. So I am using my own deployment script. This script can be found in 'scripts / deploy.js' in this repository.
-
-## gatsby-starter-bee
-
-- GitHub repository link: https://github.com/JaeYeopHan/gatsby-starter-bee
-
-It is a blog starter template like [_gatsby-starter-blog_](https://github.com/gatsbyjs/gatsby-starter-blog). I made this template with focusing fresh UI, simple, feature as packages. You can see the [demo](https://gatsby-starter-bee.netlify.com/). My [**jbee.io**](https://jbee.io) also created by this template.
 
 # 🍭 Activities
 
@@ -119,7 +132,7 @@ _[2019.04.11]_ This is the material released at the Naver Tech concert. I am con
 
 _[2018.11.10]_ There are two major areas of measurement and improvement associated with Web front-end performance. We've compiled some of the elements that can be used to measure and improve the performance of your web application by using the audits included in Chrome developer tools.
 
-### GDG Campus 2018.02 Meetup (Korean) - Developers who want to work together
+### GDG NewYear Meetup 2018.02 - Developers who want to work together
 
 > https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja
 
