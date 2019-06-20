@@ -25,20 +25,21 @@ I love TypeScript, VanillaJS and React. I have recently been interested in docum
 
 ## LINE Financial Plus
 
-|              |                                               |
-| -----------: | --------------------------------------------- |
-|       period | 18.10 ~ Current                               |
-| **position** | FrontEnd Engineer                             |
-|  description | Indonesia Bank, Smart Invest Japan, Mentoring |
+|              |                                                                               |
+| -----------: | ----------------------------------------------------------------------------- |
+|       period | 18.10 ~ Current                                                               |
+| **position** | FrontEnd Engineer                                                             |
+|  description | Develop Web UI of LINE Financial services and bank belonging to Web Dev team. |
+| **projects** | Indonesia Bank, Smart Invest Japan, Mentoring                                 |
 
 ## NAVER Corporation
 
-|              |                                                                                                                                                                                                             |
-| -----------: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|       period | 17.07 ~ 18.10                                                                                                                                                                                               |
-| **position** | FrontEnd Engineer                                                                                                                                                                                           |
-|  description | Develop UI of integrated search section in [Naver](https://www.naver.com) belonging to FE-Platform team. I have developed a service called SmartAround, SmartVoice, development-environment-generator tool. |
-| **projects** | SmartAround, SmartVoice, generator-sau-webpack                                                                                                                                                              |
+|              |                                                                                                          |
+| -----------: | -------------------------------------------------------------------------------------------------------- |
+|       period | 17.07 ~ 18.10                                                                                            |
+| **position** | FrontEnd Engineer                                                                                        |
+|  description | Develop UI of integrated search section in [Naver](https://www.naver.com) belonging to FE-Platform team. |
+| **projects** | SmartAround, SmartVoice, generator-sau-webpack                                                           |
 
 ## LINE Plus
 
@@ -55,7 +56,7 @@ I love TypeScript, VanillaJS and React. I have recently been interested in docum
 
 - Investment services based on LINE Messenger
 - Base on Vue.js (and vue ecosystem)
-- Participated in this project as a front-end engineer and Development Lead
+- Participated in this project as a front-end engineer and DL(Development Lead)
 - 18.10 ~ current
 
 ## [SmartAround Service](https://s.search.naver.com/p/around/search.naver)
