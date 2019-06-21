@@ -9,11 +9,20 @@
   .link {
     display: inline-block;
     font-size: 28px;
-    padding-top: 8px;
+    padding-top: 12px;
     color: $top-header-text-color;
     opacity: 0.7;
     margin-left: 20px;
     font-family: 'Catamaran';
     font-weight: 800;
   }
+}
+
+.top-border-bottom {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0px;
+  height: 8px;
+  background: $theme-gradient;
+  z-index: 2;
 }
