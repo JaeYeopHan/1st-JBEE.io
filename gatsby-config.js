@@ -38,7 +38,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images-medium-zoom`,
             options: {
-              margin: 36,
+              margin: 12,
               scrollOffset: 0,
             },
           },
