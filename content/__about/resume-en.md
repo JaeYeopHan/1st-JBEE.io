@@ -121,6 +121,24 @@ Versioning and distribution of Chrome extensions is cumbersome. So I am using my
 
 ## 📣 Presentation
 
+### GDG Intern Special: Mentos and intern cola
+
+> https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra
+
+_[2019.07.06]_ I shared 1 fail, 1 pass experience in chance internship to Full-time and intern mentor experience. I don't know when I work as an intern, but I share the things I have learned through mentoring to our team intern.
+
+### NAVER Boostcamp: Things you should have known beforehand
+
+> https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul
+
+_[2019.06.24]_ I talk about things I did not know when I was a preliminary developer, and what I learned when I was working in the business.
+
+### GDG Frontendgame: Essential UX of frontend
+
+> https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu
+
+_[2019.06.22]_ I talk about UX, which is the reason for the front-end field, while looking at the process until the front end that was not existed before. UX is not just a designer's area, but an engineer's part that can be involved and controllable. We talk about several cases that take UX into consideration so that it does not become an abstract story.
+
 ### NAVER Tech Concert: Front End - For growth of junior developer
 
 > https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo
@@ -159,7 +177,7 @@ _[2018.02.11]_ Introduce "development" that I learned in the field. I define 'co
 
 |             |                                                                                                   |
 | ----------: | ------------------------------------------------------------------------------------------------- |
-|      period | 17.11 ~ current                                                                                   |
+|      period | 17.11 ~ 19.06                                                                                     |
 | description | I'm one of the leading members of the Facebook group to promote the language typescript to Korea. |
 
 ### [React Seoul Organizer](http://seoul.reactjs.kr/)
