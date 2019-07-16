@@ -102,7 +102,7 @@ React를 학습하셨다면 추가적으로 Redux 또는 MobX 와 같은 **‘�
 
 ### 0. Git 에 대한 이해와 GitHub 사용 경험
 
-Git은 이제 필수입니다. 내부 동작을 깊게 까지 알 필요는 없지만 stage는 무엇인지 등, 기본적인 원리에 대한 이해가 있으면 좋을 것 같네요. 기본적인 Git 명령어는 이 링크(최소한의 Git Command)를 참고하세요. 이 링크의 command와 fast-forward merge / 3-way-merge / rebase vs merge 정도 알면 될 것 같습니다. (사실 Git은 Conflict를 resolve 할 때 시간 여행하면서 배우면 금방 익숙해집니다.)
+Git은 이제 필수입니다. 내부 동작을 깊게 까지 알 필요는 없지만 stage는 무엇인지 등, 기본적인 원리에 대한 이해가 있으면 좋을 것 같네요. 기본적인 Git 명령어는 이 [링크(최소한의 Git Command)](https://github.com/JaeYeopHan/Minimal_Git_command)를 참고하세요. 이 링크의 command와 fast-forward merge / 3-way-merge / rebase vs merge 정도 알면 될 것 같습니다. (사실 Git은 Conflict를 resolve 할 때 시간 여행하면서 배우면 금방 익숙해집니다.)
 
 그리고 GitHub을 사용할 줄 알아야 합니다. clone하고 fork하고 Pull Request 등록하고 까지는 기본일 것 같습니다. 추가적으로 git-flow와 github-flow 정도? 알면 좋을 것 같아요.
 
