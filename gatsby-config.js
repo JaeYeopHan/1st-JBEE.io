@@ -43,6 +43,10 @@ module.exports = {
             },
           },
           {
+            resolve: `my-own-plugin`,
+            options: {},
+          },
+          {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
