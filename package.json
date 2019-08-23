@@ -57,7 +57,7 @@
     "eslint-plugin-react-hooks": "^2.0.0",
     "fs-extra": "^8.1.0",
     "gray-matter": "^4.0.2",
-    "inquirer": "^6.2.2",
+    "inquirer": "^7.0.0",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
     "prettier": "^1.14.2",
     "recursive-readdir": "^2.2.2",
