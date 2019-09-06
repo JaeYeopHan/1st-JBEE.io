@@ -4,7 +4,7 @@ date: 2019-08-30 17:08:91
 category: react
 ---
 
-![](./images/react-ecosystem.png)
+![react-ecosystem](./images/react-ecosystem.png)
 
 > Scaffolding 도구를 사용할 것인가, 하얀 도화지부터 시작할 것인가
 
@@ -67,7 +67,7 @@ CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제
 
 이미 많은 회사, 많은 프로젝트에서 사용되고 있기 때문에 길게 작성할 필요가 없을 것 같다. 1년 전, [달달한 제안, TypeScript](<[https://jbee.io/typescript/you_might_need_typescript/](https://jbee.io/typescript/you_might_need_typescript/)>)라는 글을 썼는데, 이 부분에 대한 의견은 딱히 변함이 없다.
 
-### 수많은 변경이 발생할 때 빛을 발하는 TypeScript.
+### 수많은 변경이 발생할 때 빛을 발하는 TypeScript
 
 프로젝트 초기에 API 응답 포맷이 변경되거나 요구사항이 변경되는 경우가 많았는데, TypeScript의 Type Definition을 수정해준 후, compile error가 변경되는 부분을 잡아주면 변경된 요구 사항을 빠르게 반영할 수 있다. (에러만 발생시키는 것이 이렇게 안정감을 줄 수 있다니.🤔)
 
