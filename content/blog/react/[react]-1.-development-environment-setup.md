@@ -73,7 +73,7 @@ CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제
 
 ## 👉 사소한 부분 미리 챙겨두기
 
-정말 사소한 것들이지만 눈에 거슬릴 수 있는 것들을 정리해두면 불필요한 코드 리뷰로 낭비되는 시간을 절약할 수 있다. 대부분 코딩 컨벤션에 대한 것인데 이러한 부분들을 미리 미리 정해두면 나중에 코드 전체에 대하여 수정하는 작업을 줄일 수 있다. 텍스트로 정리하기 보다는 eslint와 prettier를 사용하면 자동화 시킬 수 있는 부분이기도 하다. prettier 설정과 husky 설정은 [이 글](<[https://jbee.io/web/formatting-code-automatically/](https://jbee.io/web/formatting-code-automatically/)>)을 참고하면 된다.
+정말 사소한 것들이지만 눈에 거슬릴 수 있는 것들을 정리해두면 불필요한 코드 리뷰로 낭비되는 시간을 절약할 수 있다. 대부분 코딩 컨벤션에 대한 것인데 이러한 부분들을 미리 미리 정해두면 나중에 코드 전체에 대하여 수정하는 작업을 줄일 수 있다. 텍스트로 정리하기 보다는 eslint와 prettier를 사용하면 자동화 시킬 수 있는 부분이기도 하다. prettier 설정과 husky 설정은 [이 글](https://jbee.io/web/formatting-code-automatically/)을 참고하면 된다.
 
 ### Convention
 
