@@ -12,6 +12,25 @@ React는 라이브러리이다. 라이브러리와 프레임워크의 가장 큰
 
 React Ecosystem에서의 best practice라고 했지만 이 글은 best practice를 찾아 떠나는 **여정**에 더 가까운 글이며 그 도착지가 정답이 아닐 수 있다. 또 6개월 후에는 아무 의미없는 글이 될 수도 있다. 그러나 고민의 과정은 이미 없지 않을 것 같아서 이렇게 기록한다.
 
+이 시리즈는 다음 version을 기반으로 작성되었다.
+
+```json
+{
+  "react": "^16.8.6",
+  "react-dom": "^16.8.6",
+  "react-i18next": "^10.11.4",
+  "react-redux": "^7.1.0",
+  "react-router-dom": "^5.0.1",
+  "react-scripts": "3.0.1",
+  "react-transition-group": "^4.2.1",
+  "redux": "^4.0.4",
+  "redux-actions": "^2.6.5",
+  "redux-saga": "^1.0.5",
+  "ts-optchain": "^0.1.7",
+  "typescript": "^3.5.3"
+}
+```
+
 ## Table of Contents
 
 ### [1. Development Environment](https://jbee.io/react/[react]-1.-development-environment-setup/)
@@ -27,6 +46,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 고민 1. Context API + Hooks API
 - 고민 2. action, reducer 관리 - module pattern
 - 고민 3. Server Response 관리
+- 고민 4. 올바른 reducer의 단위는 무엇인가?
 - 결과물
 - 마무리
 
