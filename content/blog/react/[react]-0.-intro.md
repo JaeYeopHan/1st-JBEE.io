@@ -41,7 +41,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 프로젝트 세팅
 - 마무리
 
-### 2. [WIP] Redux Architecture
+### [2. Redux Architecture](https://jbee.io/react/[react]-2.-redux-architecture/)
 
 - 고민 1. Context API + Hooks API
 - 고민 2. action, reducer 관리 - module pattern
@@ -50,7 +50,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 결과물
 - 마무리
 
-### 3. [WIP] Redux Architecture
+### 3. [WIP] React Architecture
 
 - 고민 1. Functional vs Class
 - 고민 2. Hooks API 사용
