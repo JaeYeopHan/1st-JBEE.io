@@ -310,3 +310,6 @@ Controller 기준으로 module을 분리하여 관리하고 있다.
 ### 마무리
 
 화면 단의 설명은 다음 react-architecture 부분에서 다룰 예정이다. functional-UI(view) level에서 비즈니스 로직을 최대한 제거한 내용, Container, Presentational의 구분없이 코드를 작성한 내용 등을 다룰 예정이다.
+
+Next: [3. React Architecture]
+Intro: [0. 들어가면서](https://jbee.io/react/[react]-0.-intro/)
