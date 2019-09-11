@@ -14,7 +14,7 @@ category: react
 
 이 부분을 가장 우선적으로 검토했다. [Do React Hooks Replace Redux?](https://medium.com/javascript-scene/do-react-hooks-replace-redux-210bab340672) 라는 글도 있고 [Replacing redux with react hooks and context (part 1)](https://medium.com/octopus-labs-london/replacing-redux-with-react-hooks-and-context-part-1-11b72ffdb533) 라는 글도 있다. React Hooks가 나온 시점부터 많은 사람들이 관심을 가졌던 주제이다.
 
-[간단한 프로토타입](<[https://github.com/JaeYeopHan/react-plate](https://github.com/JaeYeopHan/react-plate)>)을 만들어 ROI를 검증하기도 했다. 결론부터 말하자면 **No**. (위 소개한 두 글 중에는 전자의 의견을 따랐다. [@Eric Elliott](https://twitter.com/_ericelliott)
+[간단한 프로토타입](https://github.com/JaeYeopHan/react-plate)을 만들어 ROI를 검증하기도 했다. 결론부터 말하자면 **No**. (위 소개한 두 글 중에는 전자의 의견을 따랐다. [@Eric Elliott](https://twitter.com/_ericelliott)
 )
 
 ### 굳이?
@@ -58,7 +58,7 @@ Redux를 사용하다보면 action을 정의하고 생성하는 작업에 지칠
 
 #### redux-actions
 
-그리고 action들을 깔끔하게 관리하기 위해 [redux-actions](<[https://github.com/redux-utilities/redux-actions](https://github.com/redux-utilities/redux-actions)>)라는 라이브러리를 사용했고 TypeScript를 사용할 때 유용한 [typesafe-actions](<[https://github.com/piotrwitek/typesafe-actions](https://github.com/piotrwitek/typesafe-actions)>) 를 보조적으로 사용했다.
+그리고 action들을 깔끔하게 관리하기 위해 [redux-actions](https://github.com/redux-utilities/redux-actions)라는 라이브러리를 사용했고 TypeScript를 사용할 때 유용한 [typesafe-actions](https://github.com/piotrwitek/typesafe-actions) 를 보조적으로 사용했다.
 
 아래와 같이 `CounterModule.ts`를 작성할 수 있다.
 
