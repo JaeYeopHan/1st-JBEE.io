@@ -12,6 +12,8 @@ React는 라이브러리이다. 라이브러리와 프레임워크의 가장 큰
 
 React Ecosystem에서의 best practice라고 했지만 이 글은 best practice를 찾아 떠나는 **여정**에 더 가까운 글이며 그 도착지가 정답이 아닐 수 있다. 또 6개월 후에는 아무 의미없는 글이 될 수도 있다. 그러나 고민의 과정은 이미 없지 않을 것 같아서 이렇게 기록한다.
 
+[best_practice](./images/bestpractice.jpeg)
+
 이 시리즈는 다음 version을 기반으로 작성되었다.
 
 ```json
