@@ -20,8 +20,8 @@ Webpack 설정부터 한땀 한땀 할 수 있다. 관련 자료도 많아졌고
 
 #### Tools
 
-- [customize-cra](<[https://github.com/arackaf/customize-cra](https://github.com/arackaf/customize-cra)>)
-- [craco](<[https://github.com/sharegate/craco](https://github.com/sharegate/craco)>)
+- [customize-cra](https://github.com/arackaf/customize-cra)
+- [craco](https://github.com/sharegate/craco)
 
 이번 프로젝트에서 `craco`라는 CRA override 도구를 사용하여 babel plugin을 추가하거나 Webpack plugin들을 추가했다. 생각보다 간단한 코드로 작성할 수 있다.
 
@@ -57,15 +57,15 @@ module.exports = () => {
 
 이번 프로젝트에서는 사용하지 않았지만 craco 자체에서 여러 [craco plugin들](https://github.com/sharegate/craco/tree/master/recipes)을 제공한다.
 
-개발 환경 구축 중 여러 삽질을 했었는데 그 중 하나는 TypeScript 환경에서 absolute path 관련 config를 적용하는 부분이었다. 위 `craco.config.js` 파일에서 7번째에 해당하는 부분이다. 이 부분은 삽질을 너무 많이해서 따로 정리를 해둔 [이슈](<[https://github.com/JaeYeopHan/tip-archive/issues/60](https://github.com/JaeYeopHan/tip-archive/issues/60)>)도 있다. Jest와도 엮이면 문제가 더 골치아파진다.
+개발 환경 구축 중 여러 삽질을 했었는데 그 중 하나는 TypeScript 환경에서 absolute path 관련 config를 적용하는 부분이었다. 위 `craco.config.js` 파일에서 7번째에 해당하는 부분이다. 이 부분은 삽질을 너무 많이해서 따로 정리를 해둔 [이슈](https://github.com/JaeYeopHan/tip-archive/issues/60)도 있다. Jest와도 엮이면 문제가 더 골치아파진다.
 
 ### 후회없는 선택 CRA,
 
-CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제는 반드시 만나게 된다. CRA를 쓰면 그 문제의 수를 줄일 수 있다고 생각한다. 또한 프로젝트가 장기적으로 진행될 경우, 여러 dependency들의 version을 따라가는 것을 생각하면 정말... (CRA를 사용할 때마다 느끼는 거지만 [vue-cli](<[https://github.com/vuejs/vue-cli](https://github.com/vuejs/vue-cli)>)는 참 잘 만들었다.)
+CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제는 반드시 만나게 된다. CRA를 쓰면 그 문제의 수를 줄일 수 있다고 생각한다. 또한 프로젝트가 장기적으로 진행될 경우, 여러 dependency들의 version을 따라가는 것을 생각하면 정말... (CRA를 사용할 때마다 느끼는 거지만 [vue-cli](https://github.com/vuejs/vue-cli)는 참 잘 만들었다.)
 
 ## 👉 TypeScript
 
-이미 많은 회사, 많은 프로젝트에서 사용되고 있기 때문에 길게 작성할 필요가 없을 것 같다. 1년 전, [달달한 제안, TypeScript](<[https://jbee.io/typescript/you_might_need_typescript/](https://jbee.io/typescript/you_might_need_typescript/)>)라는 글을 썼는데, 이 부분에 대한 의견은 딱히 변함이 없다.
+이미 많은 회사, 많은 프로젝트에서 사용되고 있기 때문에 길게 작성할 필요가 없을 것 같다. 1년 전, [달달한 제안, TypeScript](https://jbee.io/typescript/you_might_need_typescript/)라는 글을 썼는데, 이 부분에 대한 의견은 딱히 변함이 없다.
 
 ### 수많은 변경이 발생할 때 빛을 발하는 TypeScript
 
@@ -138,4 +138,5 @@ CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제
 
 처음부터 완벽하게 세팅을 하고 프로젝트를 진행했으면 더 좋았겠지만 진행하면서 필요성을 느낀 부분을 하나씩 하나씩 추가했다.
 
-Next: [2. Redux Architecture]
+Next: [2. Redux Architecture](https://jbee.io/react/[react]-2.-redux-architecture/)
+Intro: [0. 들어가면서](https://jbee.io/react/[react]-0.-intro/)
