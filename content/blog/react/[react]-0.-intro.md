@@ -63,4 +63,4 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 
 ### 4. [WIP] Directory Structure
 
-### 5. [WIP]
+### 5. [WIP] 리액트 애플리케이션에서 중요한 횡단 관심사들
