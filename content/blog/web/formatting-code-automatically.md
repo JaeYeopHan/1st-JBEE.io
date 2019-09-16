@@ -35,13 +35,13 @@ category: web
 VSCode의 설정을 통해 **저장(save) 시점에** formatting을 트리거 할 수 있습니다. 즉 eslint를 실행시키거나 prettier를 실행시켜 미리 설정해둔 coding convention을 적용할 수 있습니다.
 
 - `formatOnSave: true`
-- `fixOnSave: true`
+- `autoFixOnSave: true`
 
 prettier를 사용하고 있다면 `formatOnSave` 기능을 활성화시키면 되고 eslint를 사용하고 있다면 `fixOnSave` 기능을 활성화시키면 됩니다.
 
 저장하기 위해 `command + s`를 누르는 것조차 귀찮으신 분들은 한 가지 설정을 더 해줄 수 있습니다. VSCode 설정 중 바로 **Auto Save** 설정을 통해 저장 기능도 자동화 시킬 수 있습니다. 저장 기능을 실행시킬 여러 가지 시점을 선택할 수 있습니다. 저는 활성화 된 에디터 창이 변경될 때인 `onFocusChange`로 설정을 해뒀습니다.
 
-> `fixOnSave` 기능의 경우 VSCode 하위 버전(1.30.0)에서 제대로 동작하지 않는 버그가 있었습니다. 현재 1.32.3 version 기준 제대로 적용됩니다.
+> `autoFixOnSave` 기능의 경우 VSCode 하위 버전(1.30.0)에서 제대로 동작하지 않는 버그가 있었습니다. 현재 1.32.3 version 기준 제대로 적용됩니다.
 
 ## With Hooks (not React hooks!)
 
