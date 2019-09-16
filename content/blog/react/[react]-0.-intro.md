@@ -64,3 +64,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 ### 4. [WIP] Directory Structure
 
 ### 5. [WIP] 리액트 애플리케이션에서 중요한 횡단 관심사들
+
+## Not tutorial
+
+시리즈로 작성되는 이 글은 튜토리얼이 아닙니다. 프로젝트를 구성하면서 제가 했던 고민들을 거의 의식의 흐름대로 정리한 글입니다. 저와 비슷한 고민을 하시는 분들에게 조금이나마 도움이 되면 의미있는 글이 될 것 같습니다!
