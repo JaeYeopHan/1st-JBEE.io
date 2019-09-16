@@ -51,6 +51,25 @@ module.exports = () => {
         ),
       ],
     },
+    devServer: devServerConfig => {
+      return {
+        ...devServerConfig,
+        proxy: [
+          {
+            context: ['/API_ROOt'],
+            target: 'SERVICE_DOMAIN',
+            changeOrigin: true,
+          },
+        ],
+      }
+    },
+    jest: {
+      configure: {
+        moduleNameMapper: {
+          '^@/(.*)$': '<rootDir>/src/$1',
+        },
+      },
+    },
   }
 }
 ```
@@ -141,4 +160,4 @@ CRA를 사용하든 사용하지 않든 개발 환경 구축과 관련된 문제
 |       |                                                                               |
 | :---: | :---------------------------------------------------------------------------: |
 | Next  | [2. Redux Architecture](https://jbee.io/react/[react]-2.-redux-architecture/) |
-| Intro |              [0. 들어가면서](https://jbee.io/react/[react]-0.-intro/)              |
+| Intro |           [0. 들어가면서](https://jbee.io/react/[react]-0.-intro/)            |
