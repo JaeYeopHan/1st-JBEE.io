@@ -10,7 +10,9 @@ React에서 널리 사용되는 Pattern(?)이라고 하면 [Dan의 Presentationa
 
 ## 👉 고민 1. Function vs Class
 
-우선 모든 컴포넌트를 **함수(Function)로 작성**했다. hooks가 나온 시점에, class component를 사용할 이유가 없었다. 함수로 작성되는 컴포넌트는 dumb component라고 해서 props를 받아 화면만 렌더링하는 컴포넌트였다.
+우선 모든 컴포넌트를 **함수(Function)로 작성**했다. 함수로 작성되는 컴포넌트는 dumb component라고 해서 props를 받아 화면만 렌더링하는 컴포넌트였다. hooks가 나온 시점에, class component를 사용할 이유가 없었다.
+
+> 아직 [Error Boundaries](https://ko.reactjs.org/docs/error-boundaries.html) 스펙에 대해 hooks에서 지원을 하고 있지 않다. reddit에 올라온 글들을 보면 곧 추가될 것처럼 기대하를 하고 있지만 [Dan의 글](https://overreacted.io/why-isnt-x-a-hook/#not-a-hook-usebailout)을 보면 추가될 것 같지 않다. composition을 방해하고 debugging을 어렵게 하기 때문이라고 한다. error 처리는 다른 방법으로 충분히 대응할 수 있으니 이 점은 쿨하게 놓아주었다.
 
 하지만 hooks의 등장으로 functional component로 작성함과 동시에 local state를 유연하게 처리할 수 있게 되었다. 함수형 컴포넌트에서도 해당 컴포넌트에서만 제어되는 상태를 local state로 격리시킬 수 있었다. life cycle 또한 [useEffect hooks API](https://ko.reactjs.org/docs/hooks-effect.html)를 활용하여 제어가 가능했다.
 
@@ -172,7 +174,7 @@ React에서는 `props.children`으로 넘겨지기 때문에 한 번에 두 개�
 
 이러한 방식으로 컴포넌트를 작성하면서 고려해야 하는 부분이 하나 더 생겼는데 바로 디렉토리 구조이다. 알맞은 위치를 잡아주기 쉽지 않았는데 다음 편에 그 내용을 다룰 예정이다.
 
-|       |                                                     |
-| :---: | :-------------------------------------------------: |
-| Next  |              [4. Directory Structure]               |
+|       |                                                          |
+| :---: | :------------------------------------------------------: |
+| Next  |                 [4. Directory Structure]                 |
 | Intro | [0. 들어가면서](https://jbee.io/react/[react]-0.-intro/) |
