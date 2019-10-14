@@ -37,4 +37,19 @@ module.exports = {
   },
   ga: 'UA-79845333-3',
   sentryDsn: 'https://031a7d403c7d43c69b30e8f18c56ced0@sentry.io/1396146',
+  redirectTable: [
+    { fromPath: '/react/[react]-0.-intro/', toPath: '/react/react-0-intro/' },
+    {
+      fromPath: '/react/[react]-1.-development-environment-setup/',
+      toPath: '/react/react-1-development-environment-setup/',
+    },
+    {
+      fromPath: '/react/[react]-2.-redux-architecture/',
+      toPath: '/react/react-2-redux-architecture/',
+    },
+    {
+      fromPath: '/react/[react]-3.-react-architecture/',
+      toPath: '/react/react-3-react-architecture/',
+    },
+  ],
 }
