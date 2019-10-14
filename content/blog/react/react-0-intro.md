@@ -35,7 +35,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 
 ## Table of Contents
 
-### [1. Development Environment](https://jbee.io/react/[react]-1.-development-environment-setup/)
+### [1. Development Environment](https://jbee.io/react/react-1-development-environment-setup/)
 
 - CRA?
 - TypeScript
@@ -43,7 +43,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 프로젝트 세팅
 - 마무리
 
-### [2. Redux Architecture](https://jbee.io/react/[react]-2.-redux-architecture/)
+### [2. Redux Architecture](https://jbee.io/react/react-2-redux-architecture/)
 
 - 고민 1. Context API + Hooks API
 - 고민 2. action, reducer 관리 - module pattern
@@ -52,7 +52,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 결과물
 - 마무리
 
-### 3. [WIP] React Architecture
+### 3. [React Architecture](https://jbee.io/react/react-3-react-architecture/)
 
 - 고민 1. Functional vs Class
 - 고민 2. Hooks API 사용
@@ -61,10 +61,8 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 결과물
 - 마무리
 
-### 4. [WIP] Directory Structure
-
-### 5. [WIP] 리액트 애플리케이션에서 중요한 횡단 관심사들
-
 ## Not tutorial
 
 시리즈로 작성되는 이 글은 튜토리얼이 아닙니다. 프로젝트를 구성하면서 제가 했던 고민들을 거의 의식의 흐름대로 정리한 글입니다. 저와 비슷한 고민을 하시는 분들에게 조금이나마 도움이 되면 의미있는 글이 될 것 같습니다!
+
+> 추가로 연재할 내용들은 2부로 찾아뵙겠습니다!
