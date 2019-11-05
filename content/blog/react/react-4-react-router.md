@@ -18,7 +18,7 @@ CRA로 프로젝트를 처음 스캐폴팅하게 되면 기초적인 부분만 s
 
 그런데 이렇게 하는 일이 딱히 없는 코드들이 top level의 directory position을 가져가는 것이 마음에 들지 않았다. 보낼 곳은 `components` directory 한 곳 뿐이었고 directory 구조만으로 route를 구성할 수 있지 않을까 하는 생각이 들었다. 어떻게 잘 풀어볼까 고민 끝에 `index.ts` 파일을 잘 활용해보기로 하였다.
 
-## `/components`
+### /components
 
 ```
 components
@@ -40,7 +40,7 @@ components
 
 `index.tsx` 파일에 `Switch`, `Route` 등 routing 관련된 코드들이 들어간다. 중첩된 라우터가 존재한다면 이와 동일하게 진행한다. 공통적으로 사용되는 컴포넌트를 모아둔 `common` directory를 제외하고 `components` 디렉토리 하위로 자연스럽게 트리가 형성된다.
 
-### localhost:3000/routeA
+#### localhost:3000/routeA
 
 `index.tsx` 파일에 routing을 정의하다보니 정작 `routeA` routing에 해당하는 view 컴포넌트가 갈 곳이 없어졌고 이를 대체하기 위해 routing을 따라 PascalCase 파일을 작성하기로 정했다.
 
@@ -50,11 +50,11 @@ components
 
 ## 그 외 directory
 
-### `/domains`
+### /domains
 
 그리고 module 단위에 맞춰 사용되는 entity type, 상수들을 domain directory에 module 단위로 정의해두었다.
 
-### `/configs`
+### /configs
 
 컴파일 타임에서 필요한 것들을 정의해두는 directory로 Phase 별로 달라질 수 있는 상수들을 정리해두었다. Phase마다 달라질 수 있는 것으로는 API의 base url, phase 상수, static resource path 등이 존재한다. 이러한 값들을 phase에 따라 다른 값으로 컴파일한다. [1편 개발 환경 세팅](https://jbee.io/react/react-1-development-environment-setup/#-%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8-%EC%84%B8%ED%8C%85)에서 가볍게 언급하고 넘어간 phase 관련 내용이다. 이 부분은 [Webpack의 DefinePlugin](https://webpack.js.org/plugins/define-plugin/)을 이용했다.
 
@@ -62,15 +62,15 @@ components
 
 세 가지 비슷한 역할을 수행하지만 성격이 다르기 때문에 별도의 directory로 구분했다.
 
-#### `/hooks`
+#### /hooks
 
 우선 hooks API는 React Component에서만 사용되는 function이다. util과 비슷한 느낌이기 때문에 utils directory 로 관리할 수 있었지만 성격이 다르기 때문에 별도로 관리했다. 컴포넌트간 중복되는 로직을 custom hooks로 관리하고 있으며 이 디렉토리에는 `use-*` prefix가 추가된 함수들이 위치한다.
 
-#### `/api`
+#### /api
 
 api 요청하는 함수들이 위치한다. 이 함수들은 일반 util과 다르게 phase에 따른 분기가 들어가고 API versioning 정보들이 위치하게 된다. axios 라이브러리를 사용하는데, 공통 header를 Interceptor하여 axios instance를 공통으로 사용할 수 있도록 하였다.
 
-#### `/utils`
+#### /utils
 
 utils 디렉토리는 범용적인 util 함수들이 위치하게 된다. `actionUtils.ts`, `currencyUtils.ts`, `formatUtils.ts` 등이 위치한다.
 
