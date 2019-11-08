@@ -52,7 +52,7 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 결과물
 - 마무리
 
-### 3. [React Architecture](https://jbee.io/react/react-3-react-architecture/)
+### [3. React Architecture](https://jbee.io/react/react-3-react-architecture/)
 
 - 고민 1. Functional vs Class
 - 고민 2. Hooks API 사용
@@ -60,6 +60,12 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - 고민 4. Cross Cutting Concern
 - 결과물
 - 마무리
+
+### [4. React Router 다루기](https://jbee.io/react/react-4-react-router/)
+
+- Directory 구조
+- History 주입
+- With hooks
 
 ## Not tutorial
 
