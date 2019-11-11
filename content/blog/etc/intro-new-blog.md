@@ -156,7 +156,7 @@ GDG Devfest 2018 에서 Lighthouse로 [발표](https://slides.com/jbee/devfest_s
 
 `hexo`에서는 `hexo new ~` command를 제공해줘서 `.md` template 파일을 손쉽게 생성할 수 있었습니다. 이 점을 가져와서 이 템플릿에 맞는 script를 만들어 npm script로 추가했습니다.
 
-```sh
+```bash
 $ npm run post
 ```
 
