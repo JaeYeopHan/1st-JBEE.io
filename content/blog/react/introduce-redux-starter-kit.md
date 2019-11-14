@@ -4,11 +4,11 @@ date: 2019-10-25 14:10:47
 category: react
 ---
 
-![redux-toolkit](./images/redux-starter-kit.png)
+![redux-toolkit](./images/redux-toolkit.png)
 
-> [1.0.4 version] 기준으로 redux-starter-kit이 `redux-toolkit`으로 이름이 변경되었습니다.
+> [1.0.4 version](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.0.4) 기준으로 redux-starter-kit이 `redux-toolkit`으로 이름이 변경되었습니다. 이 포스팅은 redux-starter-kit이라는 이름으로 공개되었을 때 작성됐습니다.
 
-(이제서야...) [redux-toolkit](https://github.com/reduxjs/redux-toolkit)의 [1.0version
+[redux-toolkit](https://github.com/reduxjs/redux-toolkit)의 [1.0version
 ](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.0.0)이 공개됐습니다. `RSK` 라고 줄여부르네요. 자신들이 생각하는 redux best practice라고 생각하는 것들로 구성한 것 같습니다. 늦은 감이 좀 있지만 많은 부분을 커버하고 있고 redux 작성에 painful한 부분을 거의 대부분 해소했다고 생각합니다.
 
 일전에 공유한 [Redux Architecture](https://jbee.io/react/react-2-redux-architecture/) 글에서 다뤘던 내용들 중 많은 내용을 starter-kit이 다루고 있어 소개합니다.
