@@ -1,13 +1,15 @@
 ---
-title: redux-starter-kit을 소개합니다.
+title: redux-toolkit을 소개합니다.
 date: 2019-10-25 14:10:47
 category: react
 ---
 
-![redux-starter-kit](./images/redux-starter-kit.png)
+![redux-toolkit](./images/redux-starter-kit.png)
 
-(이제서야...) [redux-starter-kit](https://github.com/reduxjs/redux-starter-kit)의 [1.0version
-](https://github.com/reduxjs/redux-starter-kit/releases/tag/v1.0.0)이 공개됐습니다. `RSK` 라고 줄여부르네요. 자신들이 생각하는 redux best practice라고 생각하는 것들로 구성한 것 같습니다. 늦은 감이 좀 있지만 많은 부분을 커버하고 있고 redux 작성에 painful한 부분을 거의 대부분 해소했다고 생각합니다.
+> [1.0.4 version] 기준으로 redux-starter-kit이 `redux-toolkit`으로 이름이 변경되었습니다.
+
+(이제서야...) [redux-toolkit](https://github.com/reduxjs/redux-toolkit)의 [1.0version
+](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.0.0)이 공개됐습니다. `RSK` 라고 줄여부르네요. 자신들이 생각하는 redux best practice라고 생각하는 것들로 구성한 것 같습니다. 늦은 감이 좀 있지만 많은 부분을 커버하고 있고 redux 작성에 painful한 부분을 거의 대부분 해소했다고 생각합니다.
 
 일전에 공유한 [Redux Architecture](https://jbee.io/react/react-2-redux-architecture/) 글에서 다뤘던 내용들 중 많은 내용을 starter-kit이 다루고 있어 소개합니다.
 
@@ -31,7 +33,7 @@ category: react
 
 기존에 store를 생성하는 함수를 만들어 내부에서 `createStore`를 하고 middleware를 추가하고 귀찮은 작업들을 했었습니다.
 
-이제는 RSK에서 지원하는 [configureStore](https://redux-starter-kit.js.org/api/configurestore)로 귀찮음에서 해방될 수 있습니다.
+이제는 RSK에서 지원하는 [configureStore](https://redux-toolkit.js.org/api/configurestore)로 귀찮음에서 해방될 수 있습니다.
 
 ```ts
 const store = configureStore({
@@ -42,10 +44,10 @@ const store = configureStore({
 
 ## redux-actions 포용
 
-[redux-actions](https://github.com/redux-utilities/redux-actions)에서 지원하는 API 중 `createAction`을 RSK에서도 [동일한 이름으로 공식 지원](https://redux-starter-kit.js.org/api/createaction)합니다. 또한 [handleAction](https://redux-actions.js.org/api/handleaction)라는 API로 initialState와 reducer를 조합했는데요, 이 부분 또한 [createReducer](https://redux-starter-kit.js.org/api/createreducer)라는 API로 지원합니다.
+[redux-actions](https://github.com/redux-utilities/redux-actions)에서 지원하는 API 중 `createAction`을 RSK에서도 [동일한 이름으로 공식 지원](https://redux-toolkit.js.org/api/createaction)합니다. 또한 [handleAction](https://redux-actions.js.org/api/handleaction)라는 API로 initialState와 reducer를 조합했는데요, 이 부분 또한 [createReducer](https://redux-toolkit.js.org/api/createreducer)라는 API로 지원합니다.
 
 ```ts
-import { createAction, createReducer } from 'redux-starter-kit'
+import { createAction, createReducer } from 'redux-toolkit'
 
 const increment = createAction('INCREMENT')
 const decrement = createAction('DECREMENT')
@@ -62,7 +64,7 @@ const store = configureStore({
 
 ## Ducks Patterns 공식 지원
 
-[ducks pattern](https://github.com/erikras/ducks-modular-redux) 또한 slice라는 이름으로 공식 지원합니다. [createSlice](https://redux-starter-kit.js.org/api/createslice) 라는 API로 지원합니다.
+[ducks pattern](https://github.com/erikras/ducks-modular-redux) 또한 slice라는 이름으로 공식 지원합니다. [createSlice](https://redux-toolkit.js.org/api/createslice) 라는 API로 지원합니다.
 
 아주 괜찮은 API라고 생각하는데요, createSlice는 `name` , `initialState`, `reducers` 세 가지를 넘겨주게 됩니다.
 
@@ -108,12 +110,12 @@ export interface Action<Payload> extends AnyAction {
 
 ## Reselect 포용
 
-[createSelector](https://redux-starter-kit.js.org/api/createselector)로 selector를 생성할 수 있습니다. reselect라는 라이브러리에서 지원하고 있던 API인데요, store의 어떤 값에 접근할 때 memoization을 통해 접근할 수 있도록 도와주는 helper 함수 라이브러리입니다. [Vue 진영의 Vuex getter](https://vuex.vuejs.org/guide/getters.html), [MobX의 computed](https://mobx.js.org/refguide/computed-decorator.html) 등 다른 라이브러리에서는 기본적으로 지원되고 있는 feature라서 starter-kit에도 포함된 것 같습니다.
+[createSelector](https://redux-toolkit.js.org/api/createselector)로 selector를 생성할 수 있습니다. reselect라는 라이브러리에서 지원하고 있던 API인데요, store의 어떤 값에 접근할 때 memoization을 통해 접근할 수 있도록 도와주는 helper 함수 라이브러리입니다. [Vue 진영의 Vuex getter](https://vuex.vuejs.org/guide/getters.html), [MobX의 computed](https://mobx.js.org/refguide/computed-decorator.html) 등 다른 라이브러리에서는 기본적으로 지원되고 있는 feature라서 starter-kit에도 포함된 것 같습니다.
 
 convention은 `get-*` 대신 `select-*` 을 권장하고 있습니다.
 
 ```ts
-import { createSelector } from 'redux-starter-kit'
+import { createSelector } from 'redux-toolkit'
 
 const selectVisibleTodos = createSelector(
   [selectTodos, selectFilter],
@@ -138,7 +140,7 @@ TypeScript와 redux를 사용하다보면, RootState에 대한 타입, action pa
 
 ## 아쉬운 점
 
-기본으로 지원하는 middleware 중 async를 위한 미들웨어가 thunk인 부분은 조금 아쉽습니다. 하지만 redux-saga의 러닝 커브, redux-observable의 러닝커브를 생각하면 starter-kit에 포함되는 것은 무리가 있을 것 같고 redux-promise보다는 redux-thunk가 나은 선택임에는 분명한 것 같습니다. 이 부분에 대한 내용은 [Why Use Thunks?](https://redux-starter-kit.js.org/tutorials/advanced-tutorial#why-use-thunks) 내용을 참고하면 좋을 것 같습니다.
+기본으로 지원하는 middleware 중 async를 위한 미들웨어가 thunk인 부분은 조금 아쉽습니다. 하지만 redux-saga의 러닝 커브, redux-observable의 러닝커브를 생각하면 starter-kit에 포함되는 것은 무리가 있을 것 같고 redux-promise보다는 redux-thunk가 나은 선택임에는 분명한 것 같습니다. 이 부분에 대한 내용은 [Why Use Thunks?](https://redux-toolkit.js.org/tutorials/advanced-tutorial#why-use-thunks) 내용을 참고하면 좋을 것 같습니다.
 
 ## 단상
 
@@ -146,4 +148,4 @@ react 생태계에서 선택의 폭이 넓다는 것은 양날의 검이라고 �
 
 ## Reference
 
-[https://github.com/reduxjs/redux-starter-kit](https://github.com/reduxjs/redux-starter-kit)
+[https://github.com/reduxjs/redux-toolkit](https://github.com/reduxjs/redux-toolkit)
