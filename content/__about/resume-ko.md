@@ -6,29 +6,29 @@ lang: 'ko'
 
 # 한재엽 (Jbee)
 
-저는 `______` 하는 엔지니어입니다.
+**저는 `______` 하는 엔지니어입니다.**
 
 1. 테스트가 가능한 설계를 하려고 노력하며 지속 가능한 프로덕트를 개발하는데 집중하는
-2. 자동화를 통한 생산성 향상과 업무 프로세스 그리고 이를 뒷받침하는 조직 문화에 대한 관심이 많은
+2. 자동화를 통한 생산성 향상과 업무 프로세스 그리고 이를 뒷받침하는 조직 문화에 관심이 많은
 3. 생각을 정리할 때 주로 글을 작성하며 이 글들을 블로그에 기고하는
 
-저는 `______` 을 선호합니다.
+**저는 `______` 는 조직을 선호합니다.**
 
-1. 투명한 의사결정이 이루어지는 조직을
-2. 구성원간 신뢰를 기반으로 일하는 조직을
-3. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖게 되는지 고민하는 조직을
+1. 투명한 의사결정이 이루어지고 공유되는
+2. 구성원 간 신뢰를 기반으로 일하는
+3. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖게 되는지 고민하는
 
-|            |                              |
-| :--------: | ---------------------------- |
-| **GitHub** | http://github.com/JaeYeopHan |
-|  **Blog**  | https://jbee.io              |
-| **E-mail** | ljyhanll@gmail.com           |
+|            |                               |
+| :--------: | ----------------------------- |
+| **GitHub** | https://github.com/JaeYeopHan |
+|  **Blog**  | https://jbee.io               |
+| **E-mail** | ljyhanll@gmail.com            |
 
 <br />
 
 # Work Experiences
 
-## LINE Financial+
+## LINE Financial Plus
 
 |              |                                                    |
 | -----------: | -------------------------------------------------- |
@@ -38,11 +38,12 @@ lang: 'ko'
 
 Web Dev 2 팀에서 인도네시아 은행 애플리케이션의 웹뷰 영역, 일본 파이낸셜 서비스 중 투자 서비스를 개발하고 운영했습니다. 담당한 업무 외 인턴 분들 멘토링, 채용 설명을 담당했습니다.
 
-### Indonesia Bank
+### Indonesia Bank (웹뷰 영역 개발)
 
-- 인도네시아 국가를 대상으로 하나은행과 진행하는 은행 애플리케이션.
-- 19.02 ~ current / 인도네시아 대상 은행 애플리케이션의 웹뷰 영역 개발, 웹뷰 파트 리드
-- TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook
+인도네시아 국가를 대상으로 하나은행과 진행하는 은행 애플리케이션.
+
+- 19.02 ~ current
+- _TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook_
 
 * 프로젝트 초기 React Application Architecture 설계
   - 새로운 프로젝트 개발 환경 및 구조를 담당하여 연구하고 설계
@@ -52,13 +53,14 @@ Web Dev 2 팀에서 인도네시아 은행 애플리케이션의 웹뷰 영역, 
   - 관련 자료: [https://github.com/JaeYeopHan/ux-lab](https://github.com/JaeYeopHan/ux-lab)
 * redux-saga Unit 테스트를 강화
   - 프론트엔드에서의 비즈니스 로직 등을 redux-saga라는 미들웨어에서 처리하면서 테스트를 작성.
-* 프로젝트의 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 커뮤니케이션 포인트 정리
+* 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 커뮤니케이션 포인트 정리
 
-### Invest-JP
+### Smart Invest (Front-End 개발 담당)
 
-- LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 플랫폼.
-- 18.11 ~ 19.09 / Product의 Front-End 영역 담당
-- Vue, Vuex, vue-router, vue-i18n
+LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 플랫폼.
+
+- 18.11 ~ 19.09
+- _Vue, Vuex, vue-router, vue-i18n_
 
 - 서비스의 성격이 투자 중개 플랫폼이므로 새로운 플랫폼이 추가되기 쉽도록 구조를 개선.
   - 외부 외주 인력에 의해 개발 및 유지 보수된 서비스를 2개월 동안 마이그레이션 작업 및 내재화 진행.
@@ -86,10 +88,13 @@ Web Dev 2 팀에서 인도네시아 은행 애플리케이션의 웹뷰 영역, 
 
 SmartAround라는 서비스의 프론트엔드를 개발했으며, 팀 내 개발 환경을 관리하고 이를 구축하는 도구를 개발했습니다.
 
-### SmartAround
+### SmartAround Service (Front-End 개발)
 
-- 사용자의 위치를 기반으로 맛집, 액티비티, 방문할만한 곳 등 다양항 정보를 제공해주는 서비스.
-- TypeScript, jQuery, lerna
+사용자의 위치를 기반으로 맛집, 액티비티, 방문할만한 곳 등 다양항 정보를 제공해주는 서비스.
+
+- 18.02 ~ 18.10
+- _TypeScript, jQuery, lerna_
+
 - 팀 내 TypeScript 도입
   - 복잡한 UI를 여러 Layer로 나누어 설계 후, 각 Layer 간의 interface를 강제하기 위해 TypeScript를 도입.
   - 도입 후, 팀 내 TypeScript 전파를 위해 스터디 진행.
@@ -101,7 +106,7 @@ SmartAround라는 서비스의 프론트엔드를 개발했으며, 팀 내 개�
 - 프로젝트 회고에 대한 연구 및 진행
   - 팀 내 회고 문화를 전파 ([http://bit.ly/2oL6OUX](http://bit.ly/2oL6OUX))
 
-### Generator-sau-webpack Tool 개선 및 유지보수
+### 개발 환경 구축 도구 개선 및 유지보수
 
 - Yeoman Generator 기반의 개발 환경 scaffolding 도구.
 - 프로젝트의 기반이 되는 TypeScript 기반의 template을 제작 및 유지보수.
