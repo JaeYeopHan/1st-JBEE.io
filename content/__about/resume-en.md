@@ -173,20 +173,6 @@ _[2018.02.11]_ Introduce "development" that I learned in the field. I define 'co
 |      period | 18.06. ~ current.                                                                                         |
 | description | One of FEConf's organizers is the front-end conference hosted by Facebook's 'Frontend Development Group'. |
 
-### [TypeScript Korea Organizer](https://www.facebook.com/groups/TSKorea/)
-
-|             |                                                                                                   |
-| ----------: | ------------------------------------------------------------------------------------------------- |
-|      period | 17.11 ~ 19.06                                                                                     |
-| description | I'm one of the leading members of the Facebook group to promote the language typescript to Korea. |
-
-### [React Seoul Organizer](http://seoul.reactjs.kr/)
-
-|             |                                                                                               |
-| ----------: | --------------------------------------------------------------------------------------------- |
-|      period | 17.09. ~ 17.12.                                                                               |
-| description | I participated as an organizer to plan and prepare seminar for only React called React Seoul. |
-
 ## 📦 Lectures
 
 ### ECMAScript 2016
