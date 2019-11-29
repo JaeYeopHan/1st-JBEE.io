@@ -20,6 +20,8 @@ lang: 'ko'
 3. 불필요한 커뮤니케이션을 줄여 효율적으로 움직이는
 4. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖는지 고민하는
 
+## Links
+
 |            |                               |
 | :--------: | ----------------------------- |
 | **GitHub** | https://github.com/JaeYeopHan |
@@ -28,7 +30,7 @@ lang: 'ko'
 
 <br />
 
-# Work Experiences
+# Experience
 
 ## LINE Financial Plus
 
@@ -47,15 +49,15 @@ Web Dev 2 팀에서 인도네시아 은행 애플리케이션의 웹뷰 영역, 
 - 19.02 ~ current
 - _TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook_
 
-* 프로젝트 초기 React Application Architecture 설계
+- 프로젝트 초기 React Application Architecture 설계
   - 새로운 프로젝트 개발 환경 및 구조를 담당하여 연구하고 설계
-* Storybook을 통한 UI 검증 프로세스 간소화
+- Storybook을 통한 UI 검증 프로세스 간소화
   - 페이지 단위로 사용하여 UI가 제대로 노출되는지 검증하는 단계를 간소화.
-* App like UI를 위한 시도
+- App like UI를 위한 시도
   - 관련 자료: [https://github.com/JaeYeopHan/ux-lab](https://github.com/JaeYeopHan/ux-lab)
-* redux-saga Unit 테스트를 강화
+- redux-saga Unit 테스트를 강화
   - 프론트엔드에서의 비즈니스 로직 등을 redux-saga라는 미들웨어에서 처리하면서 테스트를 작성.
-* 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 커뮤니케이션 포인트 정리
+- 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 커뮤니케이션 포인트 정리
 
 ### Smart Invest (Front-End 개발 담당)
 
@@ -108,7 +110,7 @@ SmartAround라는 서비스의 프론트엔드를 개발했으며, 팀 내 개�
 - 프로젝트 회고에 대한 연구 및 진행
   - 팀 내 회고 문화를 전파 ([http://bit.ly/2oL6OUX](http://bit.ly/2oL6OUX))
 
-### 개발 환경 구축 도구 개선 및 유지보수
+### Project Generator
 
 - Yeoman Generator 기반의 개발 환경 scaffolding 도구.
 - 프로젝트의 기반이 되는 TypeScript 기반의 template을 제작 및 유지보수.
@@ -146,54 +148,54 @@ medium-zoom 이라는 오픈소스를 Gatsby에서 쉽게 사용할 수 있도�
 
 <br />
 
-# Activities
+# Community
 
 ## Presentations
 
-### GDG Intern Special: Mentos and intern cola
+### GDG Intern Special: 멘토스와 인턴콜라
 
 > https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra
 
 _[2019.07.06]_ 인턴십에서 1번의 실패와 1번의 성공의 경험을 공유합니다. 더 나아가 멘토링했던 경험까지 공유합니다.
 
-### NAVER Boostcamp: Things you should have known beforehand
+### NAVER Boostcamp: 미리 알았다면 좋았을 것 들
 
 > https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul
 
 _[2019.06.24]_ 업무를 진행하면서 알게 된 부분, 개발자가 되기 전에 알았으면 좋았을 부분들을 공유합니다.
 
-### GDG Frontendgame: Essential UX of frontend
+### GDG Frontendgame: UX빼면 시체 프런트엔드
 
 > https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu
 
 _[2019.06.22]_ 프론트엔드 영역이 존재하는 이유라고 말할 수 있는 UX에 대해 이야기했습니다. UX는 디자이너의 영역일 뿐만 아니라 개발자의 영역이며 신경써야하는 부분 중 하나라는 내용입니다. 추상적인 이야기가 되지 않도록 구체적인 여러 예시를 통해 발표를 풀어나갔습니다.
 
-### NAVER Tech Concert: Front End - For growth of junior developer
+### NAVER Tech Concert: 주니어 개발자의 성장에 대한 뻔하지만 뻔하지 않은 이야기
 
 > https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo
 
 _[2019.04.11]_ 네이버 Tech Concert 프론트엔드 행사에서 발표한 자료입니다. 개발자로서의 성장에 대한 내용입니다. 사이드 프로젝트를 통한 성장 뿐만 아니라 회사에서의 업무를 통한 성장 또한 중요하다는 내용을 구체적인 예시와 함께 전달합니다.
 
-### GDG Devfest Seoul 2018 - Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선
+### GDG Devfest Seoul 2018: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선
 
 > https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools
 
 _[2018.11.10]_ 웹 프론트엔드 성능과 관련하여 크게 측정과 개선 두 부분을 다뤘습니다. 크롬 개발자 도구에 포함되어 있는 audits를 활용하여 웹 애플리케이션의 성능을 측정하고 개선할 수 있는 몇몇의 요소들을 정리했습니다.
 
-### GDG Campus 2018.02 Meetup (Korean) - Developers who want to work together
+### GDG Campus Meetup(2018): 함께 일하고 싶은 개발자
 
 > https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja
 
 _[2018.02.11]_ 현업에서 배운 '개발'을 소개했습니다. '코딩'을 좁은 범위로 정의하고 개발이라는 과정에 있어서 코딩은 일부분이라는 내용입니다. 여기서 다 나아가 함께 일하고 싶은 개발자는 무엇일까에 대해 이야기를 나눴습니다.
 
-## Activities
+## Activity
 
 ### [FELOG Facebook page](https://www.facebook.com/Jbee.dev/)
 
-|                 |                                                                                                                              |
-| --------------: | ---------------------------------------------------------------------------------------------------------------------------- |
-|      **period** | 17.03 ~ current                                                                                                              |
-| **description** | FELOG라는 이름의 페이스북 페이지를 운영하고 있습니다. 주로 주니어 개발자, 프론트엔드 개발자를 위한 좋은 자료들을 공유합니다. |
+|                 |                                                                                                                         |
+| --------------: | ----------------------------------------------------------------------------------------------------------------------- |
+|      **period** | 17.03 ~ current                                                                                                         |
+| **description** | FELOG라는 이름의 페이스북 페이지를 운영하고 있습니다. 주로 주니어 개발자, 프론트엔드 개발자를 위한 자료들을 공유합니다. |
 
 ### [FEConf Organizer](https://2017.feconf.kr/)
 
@@ -202,7 +204,7 @@ _[2018.02.11]_ 현업에서 배운 '개발'을 소개했습니다. '코딩'을 �
 |      **period** | 18.06. ~ current.                                                                           |
 | **description** | 페이스북 그룹인 '프론트엔드 개발 그룹'의 운영진이며 FEConf라는 컨퍼런스의 오거나이저입니다. |
 
-## Lectures
+## Lecture
 
 ### ECMAScript 2016
 
@@ -232,6 +234,6 @@ _감사합니다._
 
 <br/>
 
-<sub><sup>Front-End Engineer, <a href="https://github.com/JaeYeopHan">@Jbee</a></sup></sub><small>✌</small>
+<sub><sup>Front-End Engineer, <a href="https://github.com/JaeYeopHan">@Jbee</a></sup></sub>
 
 </div>
