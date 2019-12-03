@@ -8,10 +8,11 @@ lang: 'ko'
 
 **저는 `______` 하는 엔지니어입니다.**
 
-1. 테스트가 가능한 설계를 하려고 노력하는
+1. 좋은 설계를 하려고 고민하는
 2. 지속 가능한 프로덕트를 개발하는데 집중하는
 3. 자동화를 통한 생산성 향상에 신경쓰는
 4. 업무 프로세스 그리고 이를 뒷받침하는 조직 문화에 관심이 많은
+5. 커뮤니티를 좋아하고 글쓰기를 좋아하는
 
 **저는 `______` 하는 조직을 선호합니다.**
 
@@ -19,6 +20,7 @@ lang: 'ko'
 2. 구성원 간 신뢰를 기반으로 자율적으로 일하는
 3. 불필요한 커뮤니케이션을 줄여 효율적으로 움직이는
 4. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖는지 고민하는
+5. 기술이 비즈니스의 핵심 동력이며 제 코드가 비즈니스에 도움이 될 수 있는
 
 ## Links
 
@@ -36,7 +38,7 @@ lang: 'ko'
 
 |              |                                                    |
 | -----------: | -------------------------------------------------- |
-|       period | 18.10 ~ current                                    |
+|   **period** | 18.10 ~ current                                    |
 | **position** | Web Dev 2 team / Front-End Engineer                |
 | **projects** | LINE Indonesia Bank, Smart Invest Japan, Mentoring |
 
@@ -108,14 +110,14 @@ SmartAround라는 서비스의 프론트엔드를 개발했으며, 팀 내 개�
 - 팀 내 모듈들을 관리하기 위해 lerna 도입
   - 팀 내에서 사용할 수 있는 컴포넌트, 모듈들을 사내 npm registry에 배포 및 관리.
 - 프로젝트 회고에 대한 연구 및 진행
-  - 팀 내 회고 문화를 전파 ([http://bit.ly/2oL6OUX](http://bit.ly/2oL6OUX))
+  - 팀 내 회고 문화를 전파 ([블로그 글](https://jbee.io/essay/about_retrospective/))
 
 ### Project Generator
 
 - Yeoman Generator 기반의 개발 환경 scaffolding 도구.
 - 프로젝트의 기반이 되는 TypeScript 기반의 template을 제작 및 유지보수.
 - 팀 내에서 사용되는 프로젝트 구조를 템플릿화 하여 create-react-app 같은 CLI 도구 제작
-- 개인 토이 프로젝트 용으로도 만들어서 사용. ([https://github.com/JaeYeopHan/generat](https://github.com/JaeYeopHan/generat)or-toy-project)
+- 개인 토이 프로젝트 용으로도 만들어서 사용. ([GitHub Repository](https://github.com/JaeYeopHan/generator-toy-project))
 
 <br />
 
@@ -197,7 +199,7 @@ _[2018.02.11]_ 현업에서 배운 '개발'을 소개했습니다. '코딩'을 �
 |      **period** | 17.03 ~ current                                                                                                         |
 | **description** | FELOG라는 이름의 페이스북 페이지를 운영하고 있습니다. 주로 주니어 개발자, 프론트엔드 개발자를 위한 자료들을 공유합니다. |
 
-### [FEConf Organizer](https://2017.feconf.kr/)
+### [FEConf Organizer](https://2019.feconf.kr/)
 
 |                 |                                                                                             |
 | --------------: | ------------------------------------------------------------------------------------------- |
@@ -222,11 +224,11 @@ _[2018.02.11]_ 현업에서 배운 '개발'을 소개했습니다. '코딩'을 �
 
 ### NHN NEXT
 
-|            |                    |
-| ---------: | ------------------ |
-| **period** | 16.03 ~ 17.09      |
-|  **major** | Web UI programming |
-| **status** | 수료               |
+|            |               |
+| ---------: | ------------- |
+| **period** | 16.03 ~ 17.09 |
+|  **major** | Web           |
+| **status** | 수료          |
 
 <div align="center" class="final">
 
