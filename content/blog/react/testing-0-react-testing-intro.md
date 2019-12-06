@@ -18,30 +18,23 @@ category: react
 
 ## Table of Contents
 
-### 1. 프론트엔드, 무엇을 테스트 할 것인가 (Coming soon)
+### Part 1. 프론트엔드, 무엇을 테스트 할 것인가 (Coming soon)
 
 - 이 앱, 지금 제대로 동작하니?
 - 무언가 잘못되었다.
 - UI 검증
 - 왜 테스트해야 하는지 명심하기
-- '동작'에 집중하자
-- Store?
 - 그래서 무엇을 테스트하는가?
-- 무엇을 테스트하지 않을 것인가?
 
-### 2. 어떻게 테스트 할 것인가 (Coming soon)
+### Part 2. 어떻게 테스트 할 것인가 (Coming soon)
 
 - 테스트의 기본
 - 테스트 분류
 - 비즈니스 로직과 렌더링의 분리
 - 테스트 케이스 만들기
-- store에 대한 단위 테스트
-- UI 검증을 위한 Storybook 활용
-- component에 대한 통합 테스트
 
-### 3. 여러 테스팅에 대한 생각 (Coming soon)
+### Part 3. Store와 로직 테스트 (Coming soon)
 
-- snapshot 테스트에 대한 생각
-- E2E Test에 대한 생각
-- Coverage에 대한 생각
-- Storybook에 대한 생각
+### Part 4. 컴포넌트 테스트와 검증 (Coming soon)
+
+### Part 5. 여러 테스팅에 대한 생각 (Coming soon)
