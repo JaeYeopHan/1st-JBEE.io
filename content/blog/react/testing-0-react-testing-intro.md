@@ -1,6 +1,6 @@
 ---
 title: '[Testing] 0. React Testing 시리즈를 들어가며'
-date: 2019-12-05 21:12:98
+date: 2019-12-09 21:12:98
 category: react
 ---
 
