@@ -5,6 +5,21 @@
 
   .author-description {
     display: flex;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      z-index: 999;
+      background: url('../../../content/assets/hat.png');
+      display: inline-block;
+      width: 39px;
+      background-size: contain;
+      height: 39px;
+      content: "";
+      transform: rotate(-27deg);
+      top: -6px;
+      left: -11px;
+    }
   }
 
   .author-image {
@@ -53,18 +68,23 @@
   0% {
     transform: rotate(0deg);
   }
+
   35% {
     transform: rotate(0deg);
   }
+
   40% {
     transform: rotate(-5deg);
   }
+
   60% {
     transform: rotate(5deg);
   }
+
   65% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
@@ -74,18 +94,23 @@
   0% {
     transform: rotate(0deg);
   }
+
   35% {
     transform: rotate(0deg);
   }
+
   40% {
     transform: rotate(-5deg);
   }
+
   60% {
     transform: rotate(5deg);
   }
+
   65% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(0deg);
   }
