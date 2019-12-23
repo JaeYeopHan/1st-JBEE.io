@@ -102,7 +102,7 @@ test('should $1', () => {
 
 이번 편에서도 말만 많았다. 다음 장부터는 진짜 코드로 살펴보기로 하자.
 
-|       |                                                                              |
-| :---: | :--------------------------------------------------------------------------: |
-| Next  |                      [3. Store와 비즈니스 로직 테스트]                       |
-| Intro | [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/) |
+|       |                                                                         |
+| :---: | :---------------------------------------------------------------------: |
+| Next  | [3. Store와 비즈니스 로직 테스트](https://jbee.io/react/testing-3-react-testing/) |
+| Intro |  [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/)   |
