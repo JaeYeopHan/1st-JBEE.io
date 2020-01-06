@@ -1,6 +1,6 @@
 ---
 title: '[Testing] 1. 프론트엔드, 무엇을 테스트 할 것인가'
-date: 2019-12-10 10:12:69
+date: 2019-01-02 10:12:69
 category: react
 ---
 
@@ -109,7 +109,7 @@ export const Button = (props: IButtonProps) => {
 
 다음 편에서는 테스트 관점에서 설계를 다시 바라보면서 어떻게 구체화할 수 있을지 이야기 할 예정이다.
 
-|       |                                                                                          |
-| :---: | :--------------------------------------------------------------------------------------: |
+|       |                                                                           |
+| :---: | :-----------------------------------------------------------------------: |
 | Next  | [2. 프론트엔드, 어떻게 테스트 할 것인가](https://jbee.io/react/testing-2-react-testing/) |
-| Intro |       [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/)       |
+| Intro |   [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/)    |
