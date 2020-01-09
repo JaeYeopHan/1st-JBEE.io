@@ -70,53 +70,110 @@ test('should return', () => {
 
 redux-saga는 공식 문서에서도 테스트하기 쉽다고 나와 있고 그렇게 소문이 나있다. 하지만 늘 그렇듯, 실제로 saga로 작성한 로직을 테스트하려면 손이 정말 많이 간다. 그래서 인지 redux-saga 테스트를 돕는 helper 라이브러리가 이미 여러 종류 있다. (그리고 이것들을 면밀히 [분석한 글](https://blog.scottlogic.com/2018/01/16/evaluating-redux-saga-test-libraries.html)도 많다.)
 
-결론부터 말하자면 이번 프로젝트에서는 [redux-saga-testing-plan 라이브러리](https://github.com/jfairbank/redux-saga-test-plan)를 사용했다. 이 라이브러리를 사용하여 테스트 코드를 작성하는 것과 사용하지 않고 테스트 코드를 작성하는 것의 차이는 다음과 같다.
+결론부터 말하자면 이번 프로젝트에서는 [redux-saga-testing-plan 라이브러리](https://github.com/jfairbank/redux-saga-test-plan)를 사용했다. 이 라이브러리를 사용하여 테스트 코드를 작성하는 것과 사용하지 않고 테스트 코드를 작성하는 것의 차이를 코드를 통해 살펴보면 다음과 같다.
 
-#### 사용하기 전
+아래와 같은 간단한 saga 함수를 테스트한다고 가정해보자.
 
 ```ts
-test('run fetchScheduleTransfers saga', () => {
+export function* initializeAddresses() {
+  try {
+    yield put(loadingActions.start(DEBIT_CARD_ISSUE_SHIPPING))
+
+    const { home, biz }: IUserProfile = yield call(fetchProfile)
+    const [isDisableHome, isDisableBiz] = yield all([
+      call(check, { code: home.code }),
+      call(check, { code: biz.code }),
+    ])
+
+    yield put(debitCardIssueShippingActions.setAddresses({ home, biz }))
+
+    if (isDisableHome && isDisableBiz) {
+      yield put(
+        debitCardIssueActions.setView({
+          selectedAddress: AddressType.ETC,
+        })
+      )
+    }
+  } catch (e) {
+    console.error(e)
+  } finally {
+    yield put(loadingActions.finish(DEBIT_CARD_ISSUE_SHIPPING))
+  }
+}
+```
+
+집과 직장의 주소를 가져오고 각각의 주소가 배송 가능한지에 대한 여부를 다시 한 번 api 호출을 통해서 확인하는 함수이다. 주소와 관련된 정보들이 Store에 저장되고 배송이 불가능한 지역이면 새로운 주소를 입력할 수 있도록 해준다. 이러한 일련의 비즈니스 로직을 saga 함수에서 처리했다. 이 코드를 테스트한다고 가정했을 때, 다음과 같이 작성될 수 있다.
+
+```ts
+test('run initializeAddresses initialize disable address and setView', async done => {
   // Given
-  const payload = {}
-  const gen = fetchScheduleTransfers(schedulePaymentAsync.fetch(payload))
+  const home = { cityCode: '123' }
+  const biz = { cityCode: '345' }
+  const etcOption = { selectedAddress: AddressType.ETC }
+
+  // When
+  const gen = initializeAddresses()
+
+  expect(gen.next().value).toEqual(
+    put(loadingActions.start('DebitCardIssueShipping'))
+  )
+  expect(gen.next().value).toEqual(call(fetchProfile))
+  expect(gen.next({ code: home.code }).value).toEqual(
+    call(checkAvailableDelivery)
+  )
+  expect(gen.next({ code: biz.code }).value).toEqual(
+    call(checkAvailableDelivery)
+  )
+  expect(gen.next({ home, biz }).value).toEqual(
+    put('DebitCardIssueShipping/setAddresses')
+  )
+  expect(gen.next(etcOption).value).toEqual(
+    put('DebitCardIssueShipping/setView')
+  )
+  expect(gen.next().value).toEqual(
+    put(loadingActions.finish('DebitCardIssueShipping'))
+  )
 
   // Then
-  expect(gen.next().value).toEqual(put(startLoading(schedulePaymentAsync.TYPE)))
-  expect(gen.next().value).toEqual(call(fetchScheduleList as any, payload))
-  expect(gen.next().value).toEqual(put(schedulePaymentAsync.success()))
-  expect(gen.next().value).toEqual(put(finishLoading(schedulePaymentAsync.TYPE)))
+  expect(gen.next().done).toBeTruthy()
 })
 ```
 
-#### 테스트 헬퍼 적용
+제너레이터를 단계별로 하나씩 테스트할 수 있다. 각 응답값을 mocking하는 것이 아닌 다음 generator 에 원하는 값을 넣어줄 수 있다.
+그리고 위 테스트 코드를 Helper 라이브러리를 사용한다면 다음과 같이 작성할 수 있다.
 
 ```ts
-test('run with expectSaga', async (done) => {
+test('run initializeAddresses initialize disable address and setView', async done => {
   // Given
-  const payload = {}
+  const homeAddress = { cityCode: '123' }
+  const bizAddress = { cityCode: '345' }
 
   // When
-  const { effects } = await expectSaga(fetchScheduleTransfers, schedulePaymentAsync.fetch(payload))
+  const { effects } = await expectSaga(initializeAddresses)
     .provide([
-      [matchers.call.fn(fetchScheduleList), payload],
+      [matchers.call.fn(fetchProfile), { home, biz }],
+      [matchers.call.fn(checkAvailableDelivery), true],
     ])
-    .put(startLoading(schedulePaymentAsync.TYPE))
-    .call(fetchScheduleList, payload)
-    .put(schedulePaymentAsync.success(payload))
-    .put(finishLoading(schedulePaymentAsync.TYPE))
-  .run()
+    .put(loadingActions.start('DebitCardIssueShipping'))
+    .call.fn(fetchProfile)
+    .call.fn(checkAvailableDelivery)
+    .call.fn(checkAvailableDelivery)
+    .put.actionType('DebitCardIssueShipping/setAddresses')
+    .put.actionType('DebitCardIssue/setView')
+    .put(loadingActions.finish('DebitCardIssueShipping'))
+    .run(false)
 
   // Then
   expect(effects).toEqual({})
   done()
-});
+})
 ```
 
 테스트 헬퍼에서 가장 많이 사용했던 기능은 `provide` 이다. 발생할 수 있는 상황에 따른 테스트를 작성할 때, 적절한 mocking을 해줄 때 사용했다. `expectSaga`를 위 예제 코드처럼 사용할 수 있고, 반환하는 generator를 이용하여 helper 라이브러리 사용하기 전처럼 단계별로 테스트를 진행할 수도 있다.
 
 이번 프로젝트에서는 금융과 관련된 인증 처리나 고객의 상태에 따른 복잡한 분기 처리 로직을 미들웨어 함수에서 처리했다. 그러다보니 여러 비동기 호출 로직을 유연하게 처리할 수 있는 saga generator의 도움을 많이 받았다.
 
-redux-saga의 또다른 단점은 Redux 액션을 호출한다던가, state에 접근하는 로직을 **effect로 처리**하고, 그 effect를 mocking 함으로써 테스트 코드를 보다 빠르게 작성할 수 있다는 것이다.
+redux-saga의 또다른 단점은 Redux 액션을 호출(put)한다던가, state에 접근(select)하는 로직을 **effect로 처리**하고, 그 effect를 mocking 함으로써 테스트 코드를 빠르게 작성할 수 있다는 것이다.
 
 ## 마무리
 
@@ -124,7 +181,7 @@ Store에서 상태를 관리하고 그 상태에 대한 테스트 코드를 작�
 
 다음 장에서는 Component에 대한 부분을 살펴볼 예정이다.
 
-|       |                                                                      |
-| :---: | :------------------------------------------------------------------: |
-| Next  |                       [4. React Component 테스트]                       |
+|       |                                                                              |
+| :---: | :--------------------------------------------------------------------------: |
+| Next  |                         [4. React Component 테스트]                          |
 | Intro | [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/) |
