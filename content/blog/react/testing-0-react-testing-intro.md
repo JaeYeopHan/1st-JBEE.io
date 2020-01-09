@@ -26,14 +26,17 @@ category: react
 - 왜 테스트해야 하는지 명심하기
 - 그래서 무엇을 테스트하는가?
 
-### Part 2. 어떻게 테스트 할 것인가 (Coming soon)
+### [Part 2. 어떻게 테스트 할 것인가](https://jbee.io/react/testing-2-react-testing/)
 
 - 테스트의 기본
 - 테스트 분류
 - 비즈니스 로직과 렌더링의 분리
 - 테스트 케이스 만들기
 
-### Part 3. Store와 로직 테스트 (Coming soon)
+### [Part 3. Store와 로직 테스트](https://jbee.io/react/testing-3-react-testing/)
+
+- Store
+- Store에 대한 단위 테스트
 
 ### Part 4. 컴포넌트 테스트와 검증 (Coming soon)
 
