@@ -13,7 +13,7 @@ category: react
 ### 🚧 알려드립니다.
 
 - React 구조 시리즈와 마찬가지로 이 글은 테스트에 대한 튜토리얼 글이 아닙니다.
-- Testing의 정석도 당연히 아닙니다. (따라하지 마시오.)
+- Testing의 정석도 당연히 아닙니다. (함부로 따라하지 마시오.)
 - 프로젝트를 진행하면서 느꼈던 것들, 적용해본 것들에 대해 이야기 합니다.
 
 ## Table of Contents
@@ -38,6 +38,6 @@ category: react
 - Store
 - Store에 대한 단위 테스트
 
-### Part 4. 컴포넌트 테스트와 검증 (Coming soon)
+### [Part 4. 컴포넌트 테스트와 검증]((https://jbee.io/react/testing-4-react-testing/))
 
 ### Part 5. 여러 테스팅에 대한 생각 (Coming soon)
