@@ -38,6 +38,6 @@ category: react
 - Store
 - Store에 대한 단위 테스트
 
-### [Part 4. 컴포넌트 테스트와 검증]((https://jbee.io/react/testing-4-react-testing/))
+### [Part 4. 컴포넌트 테스트와 검증](https://jbee.io/react/testing-4-react-testing/)
 
 ### Part 5. 여러 테스팅에 대한 생각 (Coming soon)
