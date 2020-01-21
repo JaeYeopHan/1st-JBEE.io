@@ -14,7 +14,7 @@ category: react
 
 ## UI 검증을 위한 Storybook 활용
 
-![storybook](storybook.png)
+![storybook](./images/storybook.png)
 
 이번 프로젝트에서는 이미 많이 알려진 Storybook을 활용했다. 테스트라고 하기에는 개발자에게 피드백을 주는 기능이 없는 이 Storybook은 그저 **컴포넌트 시각화 도구**이다.
 
@@ -22,7 +22,7 @@ category: react
 
 그러나 이번 프로젝트에서는 조금 다르게 사용했다. 각각의 공통 컴포넌트(Element 단위의 컴포넌트)들은 Storybook 코드를 작성하지 않았다. 대신에 페이지 단위로 스토리(Storybook 코드)를 작성했다. 즉 Store의 특정 상황에 대한 화면 렌더링 상태를 페이지 통째로 스토리를 그려준 것이다.
 
-![storybook_example](storybook_example.png)
+![storybook_example](./images/storybook_example.png)
 
 ### Why 1. Mobile Web
 
