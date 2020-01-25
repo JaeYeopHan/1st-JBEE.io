@@ -15,6 +15,7 @@ h1 {
   margin-top: 2em;
   font-size: 2.15em;
   letter-spacing: -1px;
+  border-bottom: transparent !important;
 }
 
 h2 {
@@ -22,9 +23,23 @@ h2 {
   margin-bottom: 0px;
   font-size: 1.5em;
   letter-spacing: -1px;
+  border-bottom: transparent !important;
 }
 
 h3 {
   font-size: 1.25em;
   letter-spacing: -1px;
+}
+
+td:first-child {
+  text-align: right !important;
+  font-weight: bolder !important;
+}
+
+th {
+  padding: 0 !important;
+}
+
+code {
+  font-weight: 500 !important;
 }
