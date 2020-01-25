@@ -15,6 +15,7 @@ export default ({ data }) => {
 
   return (
     <div
+      className="about"
       style={{
         marginLeft: `auto`,
         marginRight: `auto`,

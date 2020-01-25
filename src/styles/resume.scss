@@ -1,21 +1,12 @@
-h1,
-h2 {
-  border-bottom: transparent !important;
-}
+.about {
+  h1 {
+    border-left: 8px solid #da3a6a;
+    padding-left: 8px;
+    padding-bottom: 0px;
+    line-height: 1.05;
+  }
 
-td:first-child {
-  text-align: right !important;
-  font-weight: bolder !important;
-}
-
-th {
-  padding: 0 !important;
-}
-
-code {
-  font-weight: 500 !important;
-}
-
-div.final {
-  margin-top: 5em !important;
+  div.final {
+    margin-top: 5em !important;
+  }
 }
