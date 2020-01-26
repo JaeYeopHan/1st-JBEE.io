@@ -40,4 +40,10 @@ category: react
 
 ### [Part 4. 컴포넌트 테스트와 검증](https://jbee.io/react/testing-4-react-testing/)
 
-### Part 5. 여러 테스팅에 대한 생각 (Coming soon)
+- UI 검증을 위한 Storybook 활용
+
+### [Part 5. 여러 테스팅에 대한 생각](https://jbee.io/react/testing-5-react-testing/)
+
+- snapshot 테스트에 대한 생각
+- E2E Test에 대한 생각
+- Coverage에 대한 생각
