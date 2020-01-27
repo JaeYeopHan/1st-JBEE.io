@@ -131,7 +131,7 @@ class Developer extends Person {
 
 `[!] Types of property 'sayName' are incompatible.`라는 에러가 발생합니다. 자식 클래스에서 부모 클래스와 메소드의 이름은 동일하고 signature가 다른 메소드는 정의할 수 없습니다. 이미 부모 클래스에 `sayName`이라는 메소드가 존재하기 때문에 해당 메소드와 동일한 signature로 override하지 않는 이상, 다른 signature로 또다른 메소드를 정의할 수 없습니다.
 
-> **[!]** 하지만 `any`라는 타입과 함께 오버로딩을 메소드 내부에서 if 문 또는 switch 문으로 분기하여 비슷하게 구현할 수 있습니다. **바로 다음에 다룰 Function 포스팅에서 다루겠습니다.**
+> **[!]** 하지만 `any`라는 타입과 함께 오버로딩을 메소드 내부에서 if 문 또는 switch 문으로 분기하여 비슷하게 구현할 수 있습니다. **바로 다음에 다룰 Function 포스팅에서 다루겠습니다.**
 
 ## 3. Access Modifier
 
