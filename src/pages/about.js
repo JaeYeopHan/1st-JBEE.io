@@ -21,7 +21,7 @@ export default ({ data }) => {
     <>
       <Head
         title={'About Jbee'}
-        description={'어느 한 웹 엔지니어의 이력서'}
+        description={'어느 웹 엔지니어의 이력서'}
         thumbnail={'/about_thumbnail.png'}
       />
       <div
