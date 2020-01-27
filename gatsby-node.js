@@ -59,14 +59,16 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField, createRedirect } = actions
 
-  redirectTable.forEach(({ fromPath, toPath }) =>
-    createRedirect({
-      fromPath,
-      toPath,
-      isPermanent: true,
-      redirectInBrowser: true,
-    })
-  )
+  if (!redirectTable) {
+    redirectTable.forEach(({ fromPath, toPath }) =>
+      createRedirect({
+        fromPath,
+        toPath,
+        isPermanent: true,
+        redirectInBrowser: true,
+      })
+    )
+  }
 
   if (node.internal.type === `MarkdownRemark`) {
     const value = createFilePath({ node, getNode })
