@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 
+import { Head } from '../components/head'
 import { rhythm } from '../utils/typography'
 import * as Lang from '../constants'
 
@@ -8,25 +9,31 @@ import '../styles/resume.scss'
 
 export default ({ data }) => {
   const resumes = data.allMarkdownRemark.edges
-
   const resume = resumes
     .filter(({ node }) => node.frontmatter.lang === Lang.KOREAN)
     .map(({ node }) => node)[0]
 
   return (
-    <div
-      className="about"
-      style={{
-        marginLeft: `auto`,
-        marginRight: `auto`,
-        maxWidth: rhythm(28),
-        padding: `${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(
-          3 / 4
-        )}`,
-      }}
-    >
-      <div dangerouslySetInnerHTML={{ __html: resume.html }} />
-    </div>
+    <>
+      <Head
+        title={'About Jbee'}
+        description={'어느 한 웹 엔지니어의 이력서'}
+        thumbnail={'/about_thumbnail.png'}
+      />
+      <div
+        className="about"
+        style={{
+          marginLeft: `auto`,
+          marginRight: `auto`,
+          maxWidth: rhythm(28),
+          padding: `${rhythm(0.5)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(
+            3 / 4
+          )}`,
+        }}
+      >
+        <div dangerouslySetInnerHTML={{ __html: resume.html }} />
+      </div>
+    </>
   )
 }
 
