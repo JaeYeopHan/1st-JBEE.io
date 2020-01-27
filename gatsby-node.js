@@ -59,7 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField, createRedirect } = actions
 
-  if (!redirectTable) {
+  if (redirectTable) {
     redirectTable.forEach(({ fromPath, toPath }) =>
       createRedirect({
         fromPath,
