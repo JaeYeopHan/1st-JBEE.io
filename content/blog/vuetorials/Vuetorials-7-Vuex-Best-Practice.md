@@ -316,7 +316,7 @@ methods: {
 
 ### 3. Nested Modules namespace
 
-child module에서 parent module의 namespace 상수를 import하여 `createNamespaceHelpers`에 넘겨줄 namespace를 지정해주려고 했는데, 에러가 발생함. 아직 원인을 모르겠음. 보다 자세한 내용은 [Vuex nested modules createNamespaceHelpers Issue](https://github.com/JaeYeopHan/tip-archive/issues/35)를 참고.
+child module에서 parent module의 namespace 상수를 import하여 `createNamespaceHelpers`에 넘겨줄 namespace를 지정해주려고 했는데, 에러가 발생함. 아직 원인을 모르겠음. 보다 자세한 내용은 [Vuex nested modules createNamespaceHelpers Issue](https://github.com/JaeYeopHan/tip-archive/issues/35)를 참고.
 
 ## Final Step. Seperate action type and mutation type
 
