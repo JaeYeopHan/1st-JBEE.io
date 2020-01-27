@@ -1,6 +1,6 @@
 ---
 title: '[Testing] 0. React Testing 시리즈를 들어가며'
-date: 2019-12-09 21:12:98
+date: 2020-01-01 21:12:98
 category: react
 ---
 
@@ -13,7 +13,7 @@ category: react
 ### 🚧 알려드립니다.
 
 - React 구조 시리즈와 마찬가지로 이 글은 테스트에 대한 튜토리얼 글이 아닙니다.
-- Testing의 정석도 당연히 아닙니다. (따라하지 마시오.)
+- Testing의 정석도 당연히 아닙니다. (함부로 따라하지 마시오.)
 - 프로젝트를 진행하면서 느꼈던 것들, 적용해본 것들에 대해 이야기 합니다.
 
 ## Table of Contents
@@ -26,15 +26,18 @@ category: react
 - 왜 테스트해야 하는지 명심하기
 - 그래서 무엇을 테스트하는가?
 
-### Part 2. 어떻게 테스트 할 것인가 (Coming soon)
+### [Part 2. 어떻게 테스트 할 것인가](https://jbee.io/react/testing-2-react-testing/)
 
 - 테스트의 기본
 - 테스트 분류
 - 비즈니스 로직과 렌더링의 분리
 - 테스트 케이스 만들기
 
-### Part 3. Store와 로직 테스트 (Coming soon)
+### [Part 3. Store와 로직 테스트](https://jbee.io/react/testing-3-react-testing/)
 
-### Part 4. 컴포넌트 테스트와 검증 (Coming soon)
+- Store
+- Store에 대한 단위 테스트
+
+### [Part 4. 컴포넌트 테스트와 검증](https://jbee.io/react/testing-4-react-testing/)
 
 ### Part 5. 여러 테스팅에 대한 생각 (Coming soon)

@@ -88,7 +88,7 @@ useLayoutEffect(() => {
 
 ## 👉 고민 2. Container and Dumb?
 
-컴포넌트와 store를 연결할 때 react-redux의 hooks interface를 사용(자세한 내용은 [2편](https://jbee.io/react/[react]-2.-redux-architecture/)참고)했다. 즉 컨테이너(container) 컴포넌트가 아니더라도 store에 접근할 수 있는 것이었다. 그렇기 때문에 컨테이너 컴포넌트에서 필요한 state를 모두 끌어오고 자식 컴포넌트들에게 props로 전달하는 노가다는 하지 않아도 된 것이다.
+컴포넌트와 store를 연결할 때 react-redux의 hooks interface를 사용(자세한 내용은 [2편](https://jbee.io/react/react-2-redux-architecture/)참고)했다. 즉 컨테이너(container) 컴포넌트가 아니더라도 store에 접근할 수 있는 것이었다. 그렇기 때문에 컨테이너 컴포넌트에서 필요한 state를 모두 끌어오고 자식 컴포넌트들에게 props로 전달하는 노가다는 하지 않아도 된 것이다.
 
 ### All Dumb Components!
 
