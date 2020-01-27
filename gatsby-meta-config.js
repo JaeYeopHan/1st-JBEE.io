@@ -11,17 +11,22 @@ module.exports = {
     facebook: `devjbee`,
   },
   icon: `content/assets/blog-favicon.png`,
-  thumbnail: `content/assets/jbee-io.png`,
+  thumbnail: `https://jbee.io/jbee-io.png`,
+  resume: {
+    title: 'About Jbee',
+    description: 'docs: Update RESUME.md for introducing myself',
+    thumbnail: 'https://jbee.io/about_thumbnail.png',
+  },
   keywords: [
     `blog`,
     `javascript`,
+    `typescript`,
     `web`,
     `react`,
     `vue`,
     `frontend`,
     `development`,
   ],
-  siteUrl: `https://jbee.io`,
   comment: {
     disqusShortName: '',
     utterances: 'JaeYeopHan/JBEE.io',
@@ -37,19 +42,4 @@ module.exports = {
   },
   ga: 'UA-79845333-3',
   sentryDsn: 'https://031a7d403c7d43c69b30e8f18c56ced0@sentry.io/1396146',
-  redirectTable: [
-    { fromPath: '/react/[react]-0.-intro/', toPath: '/react/react-0-intro/' },
-    {
-      fromPath: '/react/[react]-1.-development-environment-setup/',
-      toPath: '/react/react-1-development-environment-setup/',
-    },
-    {
-      fromPath: '/react/[react]-2.-redux-architecture/',
-      toPath: '/react/react-2-redux-architecture/',
-    },
-    {
-      fromPath: '/react/[react]-3.-react-architecture/',
-      toPath: '/react/react-3-react-architecture/',
-    },
-  ],
 }

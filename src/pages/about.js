@@ -8,6 +8,7 @@ import * as _ from '../constants'
 import '../styles/resume.scss'
 
 export default ({ data }) => {
+  const resumeData = data.site.siteMetadata.resume
   const resumes = data.allMarkdownRemark.edges
   const resume = resumes
     .filter(({ node }) => node.frontmatter.lang === _.KOREAN)
@@ -20,9 +21,9 @@ export default ({ data }) => {
   return (
     <>
       <Head
-        title={'About Jbee'}
-        description={'어느 웹 엔지니어의 이력서'}
-        thumbnail={'https://jbee.io/about_thumbnail.png'}
+        title={resumeData.title}
+        description={resumeData.description}
+        thumbnail={resumeData.thumbnail}
       />
       <div
         className="about"
@@ -43,6 +44,15 @@ export default ({ data }) => {
 
 export const pageQuery = graphql`
   query {
+    site {
+      siteMetadata {
+        resume {
+          title
+          description
+          thumbnail
+        }
+      }
+    }
     allMarkdownRemark(filter: { frontmatter: { category: { eq: null } } }) {
       edges {
         node {
