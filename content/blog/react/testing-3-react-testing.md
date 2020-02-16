@@ -2,6 +2,7 @@
 title: '[Testing] 3. Store와 비즈니스 로직 테스트'
 date: 2020-01-04 14:12:99
 category: react
+thumbnail: './images/react-testing-logo.png'
 ---
 
 ![react-testing-logo](./images/react-testing-logo.png)
