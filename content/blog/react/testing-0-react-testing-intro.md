@@ -2,6 +2,7 @@
 title: '[Testing] 0. React Testing 시리즈를 들어가며'
 date: 2020-01-01 21:12:98
 category: react
+thumbnail: './images/react-testing-logo.png'
 ---
 
 ![react-testing-logo](./images/react-testing-logo.png)
