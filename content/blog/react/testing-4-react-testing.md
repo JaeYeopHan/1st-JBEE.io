@@ -2,6 +2,7 @@
 title: '[Testing] 4. 컴포넌트 테스트와 검증'
 date: 2020-01-09 22:01:96
 category: react
+thumbnail: './images/react-testing-logo.png'
 ---
 
 ![react-testing-logo](./images/react-testing-logo.png)

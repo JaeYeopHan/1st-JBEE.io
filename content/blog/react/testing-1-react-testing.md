@@ -2,6 +2,7 @@
 title: '[Testing] 1. 프론트엔드, 무엇을 테스트 할 것인가'
 date: 2020-01-02 10:12:69
 category: react
+thumbnail: './images/react-testing-logo.png'
 ---
 
 ![react-testing-logo](./images/react-testing-logo.png)

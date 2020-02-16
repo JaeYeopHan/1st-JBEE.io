@@ -2,6 +2,7 @@
 title: '[Testing] 5. 여러 테스팅에 대한 단상'
 date: 2020-01-26 17:01:77
 category: react
+thumbnail: './images/react-testing-logo.png'
 ---
 
 ![react-testing-logo](./images/react-testing-logo.png)
