@@ -43,7 +43,7 @@ category: react
 
 수많은 페이지 중 한 페이지를 확인할 때, 하나 하나 mock data로 고칠 필요없이 스토리를 페이지 별로 한 번만 작성해둔다면 이 수고에 드는 비용을 크게 절약할 수 있다.
 
-- PC 화면의 웹 페이지는 너무 크고 필요한 상태도 너무 많아서 이 방법이 적절하지 않을 것 같다. 모바일 웹 페이지는 화면의 크기가 작아서 필요한 상태도 적어 이 방법을 적용하기 알맞다고 생각했다.
+> PC 화면의 웹 페이지는 너무 크고 필요한 상태도 너무 많아서 이 방법이 적절하지 않을 것 같다. 모바일 웹 페이지는 화면의 크기가 작아서 필요한 상태도 적어 이 방법을 적용하기 알맞다고 생각했다.
 
 ### Why 2. 빠른 대응
 
@@ -59,25 +59,31 @@ category: react
 
 ```ts
 storiesOf('Issue Flow | Step 3> Address', module)
-  .addDecorator(withRedux({
-    [DEBIT_CARD_ISSUE]: mock.issue,
-    [DEBIT_CARD_ISSUE_SHIPPING]: mock.issueShipping,
-  }))
+  .addDecorator(
+    withRedux({
+      [DEBIT_CARD_ISSUE]: mock.issue,
+      [DEBIT_CARD_ISSUE_SHIPPING]: mock.issueShipping,
+    })
+  )
   .add('Normal mode', () => <DebitCardIssueAddress />)
 
 storiesOf('Issue Flow | Step 3> Address', module)
-  .addDecorator(withRedux({
-    [DEBIT_CARD_ISSUE]: {
-      ...mock.issue,
-      mode: {
-        isEdit: true,
-        isReissue: false,
-      }
-    },
-    [DEBIT_CARD_ISSUE_SHIPPING]: mock.issueShipping,
-  }))
+  .addDecorator(
+    withRedux({
+      [DEBIT_CARD_ISSUE]: {
+        ...mock.issue,
+        mode: {
+          isEdit: true,
+          isReissue: false,
+        },
+      },
+      [DEBIT_CARD_ISSUE_SHIPPING]: mock.issueShipping,
+    })
+  )
   .add('Edit Mode', () => <DebitCardIssueAddress />)
 ```
+
+> Storybook 5.2.x version부터 Component Story Format (CSF)라는 방식으로 Story 작성을 권장하고 있다. 위 예제는 StoriesOf API로 작성되었다.
 
 ## 마무리
 
@@ -93,7 +99,7 @@ Storybook은 이미 수많은 addon들을 제공하고 있어서 화면을 구�
 - [https://hyunseob.github.io/2018/01/08/storybook-beginners-guide/](https://hyunseob.github.io/2018/01/08/storybook-beginners-guide/)
 - [https://meetup.toast.com/posts/178](https://meetup.toast.com/posts/178)
 
-|       |                                                                      |
-| :---: | :------------------------------------------------------------------: |
-| Next  |                          [5. 여러 테스트에 대한 단상]                          |
+|       |                                                                              |
+| :---: | :--------------------------------------------------------------------------: |
+| Next  | [5. 여러 테스트에 대한 단상](https://jbee.io/react/testing-5-react-testing/) |
 | Intro | [0. 시리즈를 들어가며](https://jbee.io/react/testing-0-react-testing-intro/) |

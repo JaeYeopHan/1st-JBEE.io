@@ -196,6 +196,8 @@ export const VeryDumbComponent = () => {
 
 이전 1,2,3 시리즈와 마찬가지로 고민들을 주로 다뤘다. react-router는 route를, 브라우저 history를 좀 더 쉽게 다루기 위한 라이브러리라서 별 내용은 없었다. router 이야기보다 directory 구조잡는 이야기가 더 많았던 것 같다. directory 구조는 시간을 들여 고민해줘야 할 정도로 중요한 것 같다. 특히 top level의 directory 구조는 프로젝트를 한 눈에 파악하는데 많은 정보를 가지고 있기 때문에 많은 시간을 들였다. (시간을 들이기 싫다면 angular...)
 
+[_> React 테스트 시리즈 보러가기_](https://jbee.io/react/testing-0-react-testing-intro/)
+
 |       |                                                       |
 | :---: | :---------------------------------------------------: |
 | Intro | [0. 들어가면서](https://jbee.io/react/react-0-intro/) |
