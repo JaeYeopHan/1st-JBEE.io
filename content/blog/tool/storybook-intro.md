@@ -5,7 +5,7 @@ category: tool
 thumbnail: './images/storybook_intro_thumbnail.png'
 ---
 
-[storybook_intro_thumbnail](./images/storybook_intro_thumbnail.png)
+![storybook_intro_thumbnail](./images/storybook_intro_thumbnail.png)
 
 > Storybook is a user interface development environment and playground for UI components.
 
@@ -21,7 +21,7 @@ Storybook은 UI 개발 환경이며 동시에 UI 컴포넌트 플레이그라운
 
 ## Quick Start
 
-빠르게 Storybook 개발 환경을 구축한다. 예제 코드는 CRA 기반이라서`--type react_scripts` 와 함께 `init` 커맨드를 실행한다.
+빠르게 Storybook 개발 환경을 구축한다. CRA 기반에서는 `--type react_scripts` 와 함께 `init` 커맨드를 실행한다.
 
 ```sh
 npx -p @storybook/cli sb init --type react_scripts
@@ -96,7 +96,7 @@ Storybook은 단지 독립된 환경을 제공할 뿐이라 활용할 수 있는
 
 Storybook에는 addon이라는 plugin 시스템이 있다. 여러 가지 addon을 register하여 Storybook의 기본 기능에 여러 가지 기능들을 추가할 수 있다.
 
-[storybook_area_description](./images/storybook_area_description.png)
+![storybook_area_description](./images/storybook_area_description.png)
 
 Storybook은 **Manager 영역**과 **Preview 영**역으로 나뉘어 렌더링 된다. Preview 영역이 iframe으로 되어 있기 때문에 Manager 영역과 Preview 영역은 별도의 Storybook Communication Channel을 통해 데이터를 주고 받는다.
 
@@ -124,9 +124,9 @@ Item.story = {
 
 `title` 그리고 `export` 하게 되는 부분으로 Storybook의 Manager Area를 제어할 수 있다.
 
-[storybook_area_description](./images/storybook_area_description.png)
+![storybook_area_description](./images/storybook_area_description.png)
 
-Storybook의 addon들과 story 작성하는 부분은 몇번 작성해보면 금방 작성할 수 있다. 보다 자세한 포스팅은 velopert님이 작성하신 [이 글](https://velog.io/@velopert/start-storybook)을 참고하면 좋을 것 같다.
+Storybook의 addon들을 적용하는 것과 story를 작성하는 부분은 몇번만 작성해보면 금방 작성할 수 있다. 보다 자세한 포스팅은 velopert님이 작성하신 [이 글](https://velog.io/@velopert/start-storybook)을 참고하면 좋을 것 같다.
 
 ## Store connected component
 
@@ -156,29 +156,26 @@ export const withRedux = <R extends Reducer>(rootReducer: R) => (
 }
 ```
 
+Storybook에서 렌더링하는 컴포넌트를 `storyFn`로 전달받아 `<Provider>` 컴포넌트로 wrapping하여 렌더링하게 된다. 그리고 이 Provider에는 독립된 Storybook 환경에서 사용할 store를 별도로 생성하여 전달해준다.
+
 ### With data fetching
 
-그러나 컴포넌트에서 data fetching이 이루어질 경우, mocking한 state가 story에 제대로 반영되지 않는 문제가 발생했다. 이를 위해서 redux middleware에서 발생하는 action을 disable하는 로직을 추가해줬다.
+그러나 컴포넌트에서 **data fetching이 이루어질 경우**, mocking한 state가 story에 제대로 반영되지 않는 문제가 발생했다. 이를 위해서 redux middleware에서 발생하는 action을 disable하는 로직을 추가해줬다.
 
 ```ts
 import { Action, Middleware, MiddlewareAPI } from 'redux'
 
 export type ActionsPreventMiddlewareOptionType = {
-  allowedNamespaces?: string[]
+  allowedActions?: string[]
   debug?: boolean
 }
 
 export const preventActions = (option: ActionsPreventMiddlewareOptionType) => {
   const actionPreventMiddleware: Middleware = (store: MiddlewareAPI) => {
-    option.debug && console.log(`[ACTION_PREVENT] Applied!`)
-
     return next => <A extends Action>(action: A) => {
-      const namespace = action.type.split('/')[0]
-
-      if (option.allowedNamespaces.indexOf(namespace) > -1) {
+      if (option.allowedActions.indexOf(action) > -1) {
         return next(action)
       }
-      option.debug && console.log(`[ACTION_PREVENT] Prevent ${action.type}!`)
 
       return store.getState()
     }
@@ -187,6 +184,8 @@ export const preventActions = (option: ActionsPreventMiddlewareOptionType) => {
   return actionPreventMiddleware
 }
 ```
+
+`allowedActions`를 통해 action 배열을 option으로 전달하여 필요한 action만 dispatch하도록 하였다.
 
 직접 만든 middleware를 Storybook 환경에 주입되는 store에 추가해줬고 이를 통해 mocking되는 경우에는 `withState`라는 별도 API를 util로 만들어 사용했다.
 
@@ -202,11 +201,11 @@ Story는 다음과 같이 작성되었다.
 ```ts
 Item.story = {
   decorators: [withState({
-    // Something
+    // Something state
   })],
 }
 ```
 
 ## 마무리
 
-UI를 검증하는데 있어서 화면이 많고 여러 단계를 거쳐야 하는 모바일 페이지 작업을 할 때 유용하게 사용했던 도구, Storybook에 대해 소개했다.
+UI를 검증하는데 있어서 화면이 많고 여러 단계를 거쳐야 하는 모바일 페이지 작업을 할 때 유용하게 사용했던 도구, Storybook에 대해 소개했다. 이번 프로젝트에서도 잘 사용하고 있고 도입하기 참 잘했다고 생각이 되는 도구 중 하나이다.
