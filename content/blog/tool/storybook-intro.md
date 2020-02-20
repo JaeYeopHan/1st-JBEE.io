@@ -124,7 +124,7 @@ Item.story = {
 
 `title` 그리고 `export` 하게 되는 부분으로 Storybook의 Manager Area를 제어할 수 있다.
 
-![storybook_manager_area](./images/storybook_area_description.png)
+![storybook_manager_area](./images/storybook_manager_area.png)
 
 Storybook의 addon들을 적용하는 것과 story를 작성하는 부분은 몇번만 작성해보면 금방 작성할 수 있다. 보다 자세한 포스팅은 velopert님이 작성하신 [이 글](https://velog.io/@velopert/start-storybook)을 참고하면 좋을 것 같다.
 
