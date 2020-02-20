@@ -82,6 +82,8 @@ module.exports = {
 }
 ```
 
+관련 설정은 [cra-template-unicorn](https://github.com/JaeYeopHan/cra-template-unicorn)에 추가될 예정이다.
+
 ## Before
 
 Storybook은 단지 독립된 환경을 제공할 뿐이라 활용할 수 있는 방법이 많다. 즉 개발자가 Storybook을 어떻게 사용할 것인지에 따라 구성을 다르게 가져갈 수 있다. 다음과 같이 사용할 수 있을 것 같다.
@@ -94,7 +96,7 @@ Storybook은 단지 독립된 환경을 제공할 뿐이라 활용할 수 있는
 
 ## Addons
 
-Storybook에는 addon이라는 plugin 시스템이 있다. 여러 가지 addon을 register하여 Storybook의 기본 기능에 여러 가지 기능들을 추가할 수 있다.
+Storybook에는 **addon**이라는 plugin 시스템이 있다. 공식적으로 지원하고 있는 addon 뿐만 아니라 여러 오픈소스 addon들이 존재한다. ([참고](https://storybook.js.org/addons/)) 여러 가지 addon을 register하여 Storybook의 기본 기능에 여러 가지 기능들을 추가할 수 있다.
 
 ![storybook_area_description](./images/storybook_area_description.png)
 
@@ -102,7 +104,7 @@ Storybook은 **Manager 영역**과 **Preview 영**역으로 나뉘어 렌더링 
 
 ## Writing Stories
 
-공식 문서에서는 `storiesOf` 라는 API 대신 Storybook 5.3 version부터 지원하기 시작한 Component Story Format(CSF)가 권장되고 있다.
+공식 문서에서는 `storiesOf` 라는 API 대신 Storybook 5.3 version부터 지원하기 시작한 [Component Story Format(CSF)](https://storybook.js.org/docs/formats/component-story-format/)가 권장되고 있다.
 
 ```ts
 import React from 'react'
@@ -126,7 +128,9 @@ Item.story = {
 
 ![storybook_manager_area](./images/storybook_manager_area.png)
 
-Storybook의 addon들을 적용하는 것과 story를 작성하는 부분은 몇번만 작성해보면 금방 작성할 수 있다. 보다 자세한 포스팅은 velopert님이 작성하신 [이 글](https://velog.io/@velopert/start-storybook)을 참고하면 좋을 것 같다.
+Storybook의 addon들을 적용하는 것과 story를 작성하는 부분은 몇번만 작성해보면 금방 작성할 수 있다. 다만 Manager 영역을 어떻게 구성할지 사전에 프로젝트 이해 관계자들 간의 의사결정이 필요하다.
+
+보다 자세한 포스팅은 velopert님이 작성하신 [이 글](https://velog.io/@velopert/start-storybook)을 참고하면 좋을 것 같다.
 
 ## Store connected component
 
