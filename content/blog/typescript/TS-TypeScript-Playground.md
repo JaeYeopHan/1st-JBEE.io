@@ -2,17 +2,16 @@
 title: '[TS] TypeScript Playground'
 date: 2017-12-06 20:17:18
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] TypeScript Playground 만들기
+![typescript_banner](./images/typescript_banner.png)
 
 최소한의 npm 과 설정으로 TypeScript playground 만들기를 진행해보겠습니다. 사실 가장 빠른 playground 세팅은 [이 저장소](https://github.com/JaeYeopHan/typescript_playground)를 clone 하면 됩니다!ㅎㅎ
 
 우선적으로 `TypeScript`님부터 모셔오도록 합시다 :)
 
-```bash
+```sh
 $ npm install -g typescript
 ```
 
@@ -20,7 +19,7 @@ $ npm install -g typescript
 
 디렉토리를 하나 만들고 `npm init`을 통해 `package.json` 설정을 해줍니다.
 
-```bash
+```sh
 $ mkdir typescript_playground && cd typescript_playground
 $ npm init
 # set configuration of npm
@@ -28,7 +27,7 @@ $ npm init
 
 transpiler 를 태울 webpack 이 필요한데 그 config 파일과 TypeScript 설정파일인 `tsconfig.json`파일을 생성해줍니다. 그리고 타입스크립트 문법을 익히기 위해 tslint 를 사용할건데 tslint 설정 파일인 `tslint.json`파일도 생성합니다.
 
-```bash
+```sh
 $ touch webpack.config.js tsconfig.json
 $ touch index.html
 $ mkdir src
@@ -37,7 +36,7 @@ $ touch src/index.ts
 
 다음은 개인 취향에 따른 optional 한 세팅 파일들입니다.
 
-```bash
+```sh
 # And create optional files...
 $ touch .editorconfig
 $ touch .gitignore
@@ -48,7 +47,7 @@ $ touch README.md
 
 이젠 필요한 npm 모듈들을 설치합니다.
 
-```bash
+```sh
 $ npm install webpack webpack-dev-server --save-dev
 $ npm install awesome-typescript-loader --save-dev
 ```
@@ -143,7 +142,7 @@ console.log(`hello typescript world`)
 
 그리고 start!
 
-```bash
+```sh
 $ npm start
 ```
 

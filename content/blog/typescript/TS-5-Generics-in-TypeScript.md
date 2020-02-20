@@ -2,15 +2,14 @@
 title: '[TS] 5. Generics in TypeScript'
 date: 2017-12-30 16:11:41
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 5. Generics in TypeScript
+![typescript_banner](./images/typescript_banner.png)
 
 `Generics`는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 Generics syntax에 대해 알아봅니다.
 
-#### Contents
+### Table of Contents
 
 - Generics?
 - Generics to Class
@@ -97,8 +96,6 @@ const data: DataFormat = await fetchDataOf<string, DataFormat>(baseUrl)
 
 실제 개발해서보다는 라이브러리를 개발할 때 많이 사용할 수 있는 Generics에 대해 알아봤습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 [여기](https://github.com/JaeYeopHan/typescript_tutorial_docs)에서 보실 수 있으며 예제에 사용된 코드는 [여기](https://github.com/JaeYeopHan/typescript_playground)에서 확인하실 수 있습니다.
 감사합니다.
-
-_5. Generic in TypeScript end_
 
 ### Reference
 

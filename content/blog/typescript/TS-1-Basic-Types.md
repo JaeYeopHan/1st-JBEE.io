@@ -2,11 +2,10 @@
 title: '[TS] 1. Basic Types'
 date: 2017-04-23 16:12:08
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 1. Basic Types
+![typescript_banner](./images/typescript_banner.png)
 
 TypeScript에서는 JavaScript에서 사용했었던 `number`, `string`, `boolean`과 같은 데이터 타입을 기반으로 `정적 타이핑`을 지원합니다.
 
@@ -248,8 +247,6 @@ lengthOfGreet = (greet as string).length
 `<>`를 사용하는 방법과 `as`를 사용하는 두 가지 방법이 존재합니다. 선호도에 따라 어떻게 사용할지 결정할 수 있지만 `JSX`와 함께 사용하는 경우에는 `as`를 사용하는 방법만 허용됩니다.
 
 감사합니다 :)
-
-_1. Basic Type end_
 
 ### Reference
 

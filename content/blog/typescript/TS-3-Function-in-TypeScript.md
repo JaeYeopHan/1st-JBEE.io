@@ -2,15 +2,14 @@
 title: '[TS] 3. Function in TypeScript'
 date: 2017-12-18 12:15:32
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 3. Function in TypeScript
+![typescript_banner](./images/typescript_banner.png)
 
 TypeScript에서 함수를 정의하는데 있어서 몇 가지 추가된 기능에 대해 살펴봅니다.
 
-#### Table of Contents
+### Table of Contents
 
 - Return type, Parameter type
 - Default Parameter / Rest Parameter
@@ -165,8 +164,6 @@ TypeScript 좀 더 안정성 있는, 간결한, 가독성이 좋은 함수를 �
 해당 포스팅 외 다른 타입스크립트 포스팅은 [여기](https://github.com/JaeYeopHan/typescript_tutorial_docs)에서 보실 수 있으며 예제에 사용된 코드는 [여기](https://github.com/JaeYeopHan/typescript_playground)에서 확인하실 수 있습니다.
 감사합니다.
 
-_3. Function in TypeScript end_
-
-### Reference
+### References
 
 [TypeScript Official Document - Function](https://www.typescriptlang.org/docs/handbook/functions.html)

@@ -2,15 +2,14 @@
 title: '[TS] 4. Interface in TypeScript'
 date: 2017-12-28 10:10:52
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 4. Interface in TypeScript
+![typescript_banner](./images/typescript_banner.png)
 
 `interface`는 자바스크립트 개발자에게 친숙하지 않은 용어일꺼라고 생각됩니다. 하지만 정적 타이핑에 있어서 큰 부분을 차지하고 있는 syntax에 대해 알아봅니다.
 
-#### Contents
+### Table of Contents
 
 - Interface?
 - Useful Interface
@@ -300,8 +299,6 @@ TypeScript Official Document에 `Interfaces describe the public side of the clas
 
 인터페이스를 통해 보다 세밀한 구조 설계와 추상화가 가능해졌습니다. 해당 포스팅 외 다른 타입스크립트 포스팅은 [여기](https://github.com/JaeYeopHan/typescript_tutorial_docs)에서 보실 수 있으며 예제에 사용된 코드는 [여기](https://github.com/JaeYeopHan/typescript_playground)에서 확인하실 수 있습니다.
 감사합니다.
-
-_3. Interface in TypeScript end_
 
 ### Reference
 

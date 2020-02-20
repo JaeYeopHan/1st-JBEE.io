@@ -2,15 +2,14 @@
 title: '[TS] 2. Class in TypeScript'
 date: 2017-12-13 15:56:11
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 2. Class in TypeScript
+![typescript_banner](./images/typescript_banner.png)
 
 이번 포스팅에서는 TypeScript에서의 클래스(class)에 대해 다뤄보겠습니다.
 
-#### Table of contents
+### Table of contents
 
 - Constructor
 - extend를 통한 상속
@@ -292,8 +291,6 @@ TypeScript에서 사용하는 클래스에 대해 알아봤습니다. 잘 사용
 
 해당 포스팅 외 다른 타입스크립트 포스팅은 [여기](https://github.com/JaeYeopHan/typescript_tutorial_docs)에서 보실 수 있으며 예제에 사용된 코드는 [여기](https://github.com/JaeYeopHan/typescript_playground)에서 확인하실 수 있습니다.
 감사합니다.
-
-_2. Class in TypeScript end_
 
 ### Reference
 
