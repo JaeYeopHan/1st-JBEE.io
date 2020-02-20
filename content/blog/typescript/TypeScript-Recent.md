@@ -2,11 +2,10 @@
 title: 'TypeScript 근황'
 date: 2017-04-19 13:39:38
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# TypeScript 근황
+![typescript_banner](./images/typescript_banner.png)
 
 얼마 전, 구글의 발표에 타입스크립트에 관심을 갖게 되었습니다. 기술적인 내용보다는 여러 기술 소식이 담긴 포스팅입니다.
 이 포스팅은 17년 4월 중순 경에 작성되었으며 작성되는 시점의 TypeScript version은 `2.2 version`입니다.

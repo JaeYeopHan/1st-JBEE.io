@@ -1,16 +1,15 @@
 ---
-title: '[TS] 6. Decorator'
+title: '[TS] 6. Decorator in TypeScript'
 date: 2018-01-09 09:59:14
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 6. Decorators
+![typescript_banner](./images/typescript_banner.png)
 
 이번 포스팅에서는 현재 JavaScript에서도 [ts39/proposal stage-2](https://github.com/tc39/proposal-decorators)에 올라와있는 `Decorator`에 대해 알아보겠습니다.
 
-### Table of contents
+### Table of Contents
 
 - Setup
 - Intro
@@ -232,8 +231,6 @@ class Pet {
 target을 ES5로 지정해야 제대로 된 데코레이터를 사용할 수 있어서 아직 한계가 있는 Decorator지만 React에서는 HOC(High-Order-Component)에 많이 사용하고 있는 Decorator 였습니다!
 
 감사합니다.
-
-_6. Decorator in TypeScript end_
 
 ### Reference
 

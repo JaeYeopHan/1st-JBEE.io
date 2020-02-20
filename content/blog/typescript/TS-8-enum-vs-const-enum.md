@@ -2,11 +2,10 @@
 title: '[TS] 8. enum vs const enum'
 date: 2018-06-16 15:02:44
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 8. enum vs const enum
+![typescript_banner](./images/typescript_banner.png)
 
 TypeScript 문법 중 `enum` 이라는 것이 있다. 주로 상수를 선언할 때 namespace 를 줘서 상수끼리의 응집도를 높이고 그 의미를 더할 수 있으며 VSCode 의 auto complete 의 지원을 받을 때 유용하다. 이 `enum` 키워드를 사용하는 방법에는 두 가지가 존재한다. 그냥 `enum` 키워드를 사용해 선언할 수 있으며 `const` 키워드와 함께 사용하여 `const enum`으로 선언할 수 있다.
 
@@ -98,7 +97,7 @@ console.log(ConstEnumNumber) // [ERROR] 'const' enums can only be used in proper
 console.log(JustEnumNumber[JustEnumNumber.one]) // one
 ```
 
-상수만으로 로그가 찍히면 알아보기 힘드니 reverse 참조를 하여 로그를 찍을 수 있다. lookup object 로 사용하는 것이다. 하지만 이렇게 선언된 enum 은 런타임에 이 lookup object 를 통해 참조가 이루어지므로 조심해야 한다. 물론 webpack 환경에서는
+상수만으로 로그가 찍히면 알아보기 힘드니 reverse 참조를 하여 로그를 찍을 수 있다. lookup object 로 사용하는 것이다. 하지만 이렇게 선언된 enum은 런타임에 이 lookup object 를 통해 참조가 이루어지므로 조심해야 한다. 물론 webpack 환경에서는
 
 ```javascript
 (function(module, exports, __webpack_require__) {

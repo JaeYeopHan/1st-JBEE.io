@@ -4,7 +4,7 @@ date: 2018-7-17 16:21:13
 category: 'typescript'
 ---
 
-![](./images/you_might_need_typescript_0.png)
+![you_might_need_typescript_0](./images/you_might_need_typescript_0.png)
 
 TypeScript에 대해 이야기해보려고 합니다. 기술적인 내용보다는 TypeScript 도입 시 고민할 수 있는 내용들을 중점적으로 정리했습니다.
 TypeScript 문법에 대한 내용은 이 글의 맨 아래 Reference 에 걸린 링크들을 확인해주시면 됩니다.
@@ -13,7 +13,7 @@ TypeScript 문법에 대한 내용은 이 글의 맨 아래 Reference 에 걸린
 
 > TypeScript를 도입하지 않은 이유는 무엇인가요?
 
-![](./images/you_might_need_typescript_1.png)
+![you_might_need_typescript_1](./images/you_might_need_typescript_1.png)
 
 Facebook '프론트엔드 개발 그룹' 설문 조사 결과총 **197표**가 나뉘어졌고 중복 투표하신 분들도 계시기 때문에 약 150~160분께서 답변을 해주셨습니다. 낮은 표를 받은 순서대로 하나씩 짚어보겠습니다. (설문에 참여해주신 분들, 댓글로 소중한 의견을 남겨주신 분들 모두 감사드립니다. 위 페이스북 [링크](https://www.facebook.com/groups/webfrontend/permalink/1366303896847675/)에서 본 설문과 댓글을 보실 수 있습니다.)
 
@@ -62,7 +62,7 @@ TypeScript Design Goals 6. Align with current and future ECMAScript proposals.
 JavaScript 라이브러리를 TypeScript 프로젝트에서 사용하려고 할 때 .d.ts로 정의된 타입 정의 파일이 필요합니다. TypeScript를 사용하면서 얻는 이득들은 TSC(TypeScript Compiler)의 마법이 아니라 타입이 정의되었기 때문인데요, TSC가 사용하고자 하는 라이브러리의 API를 판단할 때, .d.ts를 바라보기 때문에 이 파일이 필요합니다.
 물론 compiler option에서 skipLibCheck option을 꺼주면 됩니다. 하지만 이 옵션을 끄게 되면 TypeScript가 가져다 주는 이점이 반으로 줄어들기 때문에 아쉬움이 많이 남는 선택입니다.
 
-![](./images/you_might_need_typescript_2.png)
+![you_might_need_typescript_2](./images/you_might_need_typescript_2.png)
 
 > DefinitelyTyped GitHub Repository
 
@@ -70,13 +70,13 @@ JavaScript 라이브러리를 TypeScript 프로젝트에서 사용하려고 할 
 
 ### 2. 긍정적인 개발자들의 인식
 
-![](./images/you_might_need_typescript_3.png)
+![you_might_need_typescript_3](./images/you_might_need_typescript_3.png)
 
 > The State of JavaScript
 
 많이 사용해야 그 만큼 생태계가 발전할 수 있다고 생각합니다. 최신에 진행된 JavaScript 관련 설문조사인 The State of JavaScript 2017를 살펴보면 그만큼 사용자 수가 많이 늘어난 것을 확인하실 수 있습니다. 또한 다른 정적 타이핑을 위한 도구, 언어보다 압도적인 지지와 관심을 받고 있습니다.
 
-![](./images/you_might_need_typescript_4.png)
+![you_might_need_typescript_4](./images/you_might_need_typescript_4.png)
 
 StackOverflow surveyStackOverflow에서 진행한 Survey Result에서는 가장 사랑하는 언어 4위로 뽑혔네요.
 
@@ -84,7 +84,7 @@ StackOverflow surveyStackOverflow에서 진행한 Survey Result에서는 가장 
 
 MS라는 빵빵한 메인테이너가 있으니, 믿을만 합니다. 얼마 전, Seattle에서는 TSConf도 열렸습니다.
 
-![](./images/you_might_need_typescript_5.png)
+![you_might_need_typescript_5](./images/you_might_need_typescript_5.png)
 
 TSConf 2018이러한 것들로 100% 증명할 수는 없겠지만 점점 발전하고 있는 TypeScript 라고 생각합니다. TypeScript Korea 에서는 정기적인 Meetup을 통해 TypeScript 사용자 간의 기술 공유의 장을 마련하고 블로깅을 통해 TypeScript 생태계를 발전시키기 위해 노력하고 있습니다! :)
 
@@ -107,7 +107,7 @@ _**단연컨대 이런 부분에 있어서 JavaScript는 매우 부족합니다.
 
 ### 에러 발생 확률이 적은 코드
 
-![](./images/you_might_need_typescript_6.png)
+![you_might_need_typescript_6](./images/you_might_need_typescript_6.png)
 
 자바스크립트 개발을 하다보면 한 번 쯤은, (또는 하루에 한 번 쯤) 마주한 에러 메세지 일텐데요, 이런 개발자의 실수 때문에 쓸데없이 시간을 뺏기면 그만큼 **생산성이 떨어지게 됩니다.** TypeScript에서는 100%까진 아니더라도 컴파일 단계에서 이런 버그를 잡아낼 수 있습니다.
 
@@ -244,7 +244,7 @@ TypeScript에 대해 부담이 없을 정도로 간단한 문법을 살펴보았
 
 TypeScript는 '단순히 안전하고 증명 가능한 올바른 타입시스템'이 목표가 아닙니다. **올바름과 생산성 사이에 균형을 잡는 것**이 목표인 것입니다. 이 목표를 달성하는데 있어서 TypeScript가 적절하다면 도입을 고려해봐도 좋을 것 같습니다.
 
-![](./images/you_might_need_typescript_7.png)
+![you_might_need_typescript_7](./images/you_might_need_typescript_7.png)
 
 > Ryan Dahl said, https://www.youtube.com/watch?v=M3BM9TB-8yA&t=1194s
 

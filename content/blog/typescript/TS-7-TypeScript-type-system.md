@@ -2,11 +2,10 @@
 title: '[TS] 7. TypeScript type system'
 date: 2018-01-10 13:31:30
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
-
-# [TS] 7. Typescript's Type System
+![typescript_banner](./images/typescript_banner.png)
 
 ### Table of Contents
 
@@ -257,7 +256,7 @@ function isA(arg: any): arg is A {
 
 한국어로 번역하게 되면 **타입 호환성** 정도로 할 수 있겠는데요, TypeScript는 위에서 언급했듯이 **Structural subtyping**을 기반으로 Type checking을 하기 때문에 이를 기반으로 타입 간의 호환성을 고려할 수 있습니다.
 
-#### 1. Comparing two Objects
+### 1. Comparing two Objects
 
 ```ts
 let x = { name: `Jbee` }
@@ -269,7 +268,7 @@ y = x // Error!
 
 위 코드에서 `x`는 `{name: string}` 타입으로 추론되며, `y`는 `{name: string, age: number}`로 추론됩니다. 이 경우 `x = y`는 `y`에 `name`이라는 속성이 있으므로 가능하지만 `y = x`의 경우, `x`에는 `age`라는 속성이 없으므로 에러가 발생합니다.
 
-#### 2. Comparing two functions
+### 2. Comparing two functions
 
 ```ts
 let x = (a: number) => 0

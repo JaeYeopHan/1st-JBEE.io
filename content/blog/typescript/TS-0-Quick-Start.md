@@ -2,13 +2,12 @@
 title: '[TS] 0. Quick Start'
 date: 2017-04-19 13:49:15
 category: 'typescript'
+thumbnail: './images/typescript_banner.png'
 ---
 
-![](./typescript.png)
+![typescript_banner](./images/typescript_banner.png)
 
-# [TS] 0. Quick Start
-
-이 포스팅은 TypeScript Official Document를 번역 및 의역한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요.
+이 포스팅은 TypeScript Official Document를 참고하여 작성한 자료입니다. 직접 타이핑 해본 결과 5분정도 소요되는 짧은 Quick start 입니다:) 가볍게 봐주세요.
 
 ## Install TypeScript
 
@@ -73,7 +72,7 @@ document.body.innerHTML = greeter(user)
 
 error:
 
-```
+```js
 greeter.ts(7,26): Supplied parameters do not match any signature of call target
 ```
 
@@ -117,5 +116,3 @@ var user = new Student('Jane', 'M.', 'User')
 ES6의 `Class`와는 약간 다른 모습을 보입니다. 바로 Class 내부에서 `field member`를 갖게 된 것입니다. 하지만 그 근본은 ES6의 `Class`와 같습니다. JavaScript에서 프로토타입을 통해 구현했던 OOP를 보다 간결한 방법으로 문법을 제공하는 것입니다.
 
 공식 문서에서 제공하는 Quick Start를 통해서 TypeScript 맛보기를 해봤습니다. 감사합니다.
-
-_0. Quick start end_
