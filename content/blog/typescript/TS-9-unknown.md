@@ -89,6 +89,38 @@ type stringType = unknown & string // string
 
 `any`가 사용될 곳이라면 `unknown` 타입으로 대체할 수 있다. 위 예제 코드에서도 살펴봤듯이 `unknown` 타입으로 지정된 값은 타입을 먼저 확인 후에 무언가를 할 수 있기 때문에 안전하다.
 
+### Type Guard
+
+`isOfType`이라는 어떤 객체의 프로퍼티로 타입을 판단하는 util function에 `unknown` type을 사용할 수 있다.
+
+```ts
+const isOfType = <T>(
+  varToBeChecked: unknown,
+  propertyToCheckFor: keyof T
+): varToBeChecked is T =>
+  (varToBeChecked as T)[propertyToCheckFor] !== undefined;
+```
+
+`varToBeChecked` 인자로 어떤 타입의 값이 전달될지 알 수 없으므로 무한 유니온 타입(`string | number | boolean | ...`)으로 선언하던가 `any` 타입으로 선언해야 할텐데, 이 때 `unknown` 타입을 사용할 수 있다. 위 type guard util function은 다음과 같이 사용할 수 있다.
+
+```ts
+interface SomethingType {
+  foo: string
+  bar: number
+  zoo: boolean
+}
+
+const anything = {
+  foo: ''
+}
+
+console.log(isOfType<SomethingType>(anything, 'foo')) // true
+```
+
+## 마무리
+
+`any`를 조금이라도 덜 쓰기 위해 tsc에 `strict: true`을 주고 컴파일 단계에서 발생할 수 있는 버그를 하나 둘씩 해결해 나가길 바란다.
+
 ## References
 
 - [https://mariusschulz.com/blog/the-unknown-type-in-typescript](https://mariusschulz.com/blog/the-unknown-type-in-typescript)
