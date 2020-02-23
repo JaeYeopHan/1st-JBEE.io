@@ -1,14 +1,11 @@
 ---
-title: '[TS] 9. Unknown Type'
+title: '[TS] 9. unknown Type'
 date: 2020-02-21 15:02:44
 category: 'typescript'
 thumbnail: './images/typescript_banner.png'
 ---
 
 ![typescript_banner](./images/typescript_banner.png)
-TypeScript 9번째 포스트에서는 2.x version 부터 추가된 `never`와 3.x version부터 추가된 `unknown` 타입에 대해 다룬다.
-
-## unknown Type
 
 TypeScript 3.0 version부터 `unknown`이라는 새로운 타입이 추가됐다.
 
@@ -48,21 +45,21 @@ let objectType: object = variable
 ```ts
 let variable: unknown
 
-variable.foo.bar;  // Error: Object is of type 'unknown'.(2571)
-variable[0];    // Error
-variable.trigger();   // Error
-variable();        // Error
-new variable();    // Error
+variable.foo.bar // Error: Object is of type 'unknown'.(2571)
+variable[0] // Error
+variable.trigger() // Error
+variable() // Error
+new variable() // Error
 ```
 
 다음과 같이 **Type Guard**와 함께라면 가능하다. ([https://jbee.io/typescript-tutorials/TS-7-TypeScript-type-system/#type-guards](https://jbee.io/typescript-tutorials/TS-7-TypeScript-type-system/#type-guards))
 
 ```ts
-let variable: unknown;
-declare function isFunction(x: unknown): x is Function;
+let variable: unknown
+declare function isFunction(x: unknown): x is Function
 
 if (isFunction(variable)) {
-  variable(); // OK
+  variable() // OK
 }
 ```
 
@@ -98,7 +95,7 @@ const isOfType = <T>(
   varToBeChecked: unknown,
   propertyToCheckFor: keyof T
 ): varToBeChecked is T =>
-  (varToBeChecked as T)[propertyToCheckFor] !== undefined;
+  (varToBeChecked as T)[propertyToCheckFor] !== undefined
 ```
 
 `varToBeChecked` 인자로 어떤 타입의 값이 전달될지 알 수 없으므로 무한 유니온 타입(`string | number | boolean | ...`)으로 선언하던가 `any` 타입으로 선언해야 할텐데, 이 때 `unknown` 타입을 사용할 수 있다. 위 type guard util function은 다음과 같이 사용할 수 있다.
@@ -111,7 +108,7 @@ interface SomethingType {
 }
 
 const anything = {
-  foo: ''
+  foo: '',
 }
 
 console.log(isOfType<SomethingType>(anything, 'foo')) // true
