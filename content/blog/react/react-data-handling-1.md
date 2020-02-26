@@ -183,7 +183,8 @@ entity로 정규화가 되면 문자열 타입의 키를 갖는 객체 형식(`{
 
 `IEntityTypeOf<M>`에서 `M`에는 `IPost`가 들어오게 되고 이 타입은 정규화의 결과값 중 `entities`에 해당하는 객체의 타입이 된다.
 
-> `infer`, Conditional Type (WIP)
+> Conditional Type and infer (WIP)
+
 > [Generic in TypeScript](https://jbee.io/typescript/TS-5-Generics-in-TypeScript/)
 
 ## Profits
