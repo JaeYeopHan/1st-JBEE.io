@@ -8,7 +8,7 @@ category: react
 
 웹이 복잡해질수록 프런트엔드(자바스크립트 환경)에서 다뤄야 하는 상태가 많아진다. 그 종류도 점점 다양해지면서 UI의 상태와 도메인 데이터에 대한 값들도 함께 다뤄야 한다. UI도 중요하지만 React Application의 상태를 '잘' **설계(Design)**해야 한다.
 
-자연스럽게 상태 관리를 위한 라이브러리가 많이 등장했다. `Redux`를 시작으로 `MobX`, `xstate` 등 여러 라이브러리가 존재한다. 이번 포스팅에서는 redux 라이브러리를 중심으로 상태 설계에 대한 내용을 다룬다.
+자연스럽게 상태 관리를 위한 라이브러리가 많이 등장했다. `Redux`를 시작으로 `MobX`, `xstate` 등 여러 라이브러리가 존재한다. 이번 포스팅에서는 redux 라이브러리와 normalizr 라이브러리를 중심으로 상태 설계에 대한 내용을 다룬다.
 
 ### Table of Contents
 
@@ -20,9 +20,9 @@ category: react
 
 # Normalize
 
-직역하자면 '정규화'라고 할 수 있다.
+보통 '정규화' 과정이라고 불린다. 데이터의 구조를 가공하는 방법 중 하나이며 데이터베이스에서 많이 사용된다. ([참고](https://github.com/JaeYeopHan/Interview_Question_for_Beginner/tree/master/Database#%EC%A0%95%EA%B7%9C%ED%99%94%EC%97%90-%EB%8C%80%ED%95%B4%EC%84%9C))
 
-보통 상태 관리 라이브러리에서 지원을 하는 경우도 있고 [normalizr](https://github.com/paularmstrong/normalizr)라는 라이브러리를 통해 정규화를 진행한다. 최근에는 redux-toolkit이라는 상태 관리 라이브러리에 관련 API로 `createEntityAdapter`가 추가됐다. ([1.3.0 version Release Note](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.3.0-alpha.9))
+웹 프런트엔드에서는 상태 관리 라이브러리에서 지원을 하는 경우도 있고 보통 [normalizr](https://github.com/paularmstrong/normalizr)라는 라이브러리를 통해 정규화를 진행한다. 최근에는 [redux-toolkit](https://github.com/reduxjs/redux-toolkit)이라는 상태 관리 라이브러리에 관련 API로 `createEntityAdapter`가 추가됐다. ([1.3.0 version Release Note](https://github.com/reduxjs/redux-toolkit/releases/tag/v1.3.0-alpha.9))
 
 ## Designing a Normalized State
 
@@ -73,7 +73,7 @@ export function normalizePost(data: IPost[]): INormalizedPosts {
 
 실제 데이터가 변환되는 것을 테스트 코드로 살펴보면 다음과 같다.
 
-```ts
+```ts{3,36,80}
 test('should return normalized post data', () => {
   // Given (정규화 이전의 데이터)
   const data = [
@@ -166,7 +166,7 @@ test('should return normalized post data', () => {
 
 예제 코드에서 TypeScript가 사용되었는데 normalize 결과물에 대한 타입을 정의해줘야 한다. 위 코드에서는 다음과 같은 타입을 적용하였다.
 
-```ts
+```ts{8}
 export interface IndexSignatureStringType<V> {
   [key: string]: V
 }
@@ -234,4 +234,6 @@ entity로 정규화가 되면 문자열 타입의 키를 갖는 객체 형식(`{
 
 ### References
 
+- https://ngrx.io/guide/entity
+- https://github.com/paularmstrong/normalizr
 - https://medium.com/@jmsoliv95/normalizing-your-data-with-normalizr-d0e95a1b16ea
