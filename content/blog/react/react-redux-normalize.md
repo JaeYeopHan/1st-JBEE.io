@@ -2,6 +2,7 @@
 title: 'Redux에서 Normalize 다루기'
 date: 2020-02-25 16:02:99
 category: react
+banner: './images/redux_app_data.png'
 ---
 
 ![redux_app_data](./images/redux_app_data.png)
