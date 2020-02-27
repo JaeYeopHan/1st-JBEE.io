@@ -17,7 +17,7 @@ thumbnail: './images/redux_app_data.png'
 - Profit
 - When
 
-> 사용된 예제코드는 [normalize-example](https://github.com/JaeYeopHan/normalize-example)에서 확인할 수 있다.
+> 사용된 예제 코드는 [react-data-handling-lab](https://github.com/JaeYeopHan/react-data-handling-lab)에서 확인할 수 있다.
 
 # Normalize
 
@@ -232,7 +232,7 @@ entity로 정규화가 되면 문자열 타입의 키를 갖는 객체 형식(`{
 
 일반적인 컨테이너-프레젠테이션 컴포넌트 구조에서는 상태 관리 시스템(store)과 연결된 컨테이너가 적고 UI를 담당하는 컴포넌트가 많은 양의 데이터를 props로 전달받는다. 상태 구조, 데이터를 정규화하는 것은 이와 반대이다. 상태 관리 시스템과 더 많은 컴포넌트가 연결되고 각 컴포넌트가 자체적으로 데이터를 조회하게 된다. 올바른 상황에 적절히 적용하면 아주 좋은 방법이 될 수 있는 방법이다.
 
-> 사용된 예제코드는 [normalize-example](https://github.com/JaeYeopHan/normalize-example)에서 확인할 수 있다.
+> 사용된 예제 코드는 [react-data-handling-lab](https://github.com/JaeYeopHan/react-data-handling-lab)에서 확인할 수 있다.
 
 ### References
 
