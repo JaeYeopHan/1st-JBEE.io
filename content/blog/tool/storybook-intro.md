@@ -45,7 +45,7 @@ module.exports = {
     '@storybook/addon-actions',
     '@storybook/addon-links',
   ],
-};
+}
 ```
 
 ### TypeScript
@@ -120,7 +120,9 @@ export const Index = () => <LabelIndex />
 export const Item = () => <Label id={'post2'} />
 
 Item.story = {
-  decorators: [/* something */],
+  decorators: [
+    /* something */
+  ],
 }
 ```
 
@@ -204,12 +206,16 @@ Story는 다음과 같이 작성되었다.
 
 ```ts
 Item.story = {
-  decorators: [withState({
-    // Something state
-  })],
+  decorators: [
+    withState({
+      // Something state
+    }),
+  ],
 }
 ```
 
 ## 마무리
 
 UI를 검증하는데 있어서 화면이 많고 여러 단계를 거쳐야 하는 모바일 페이지 작업을 할 때 유용하게 사용했던 도구, Storybook에 대해 소개했다. 이번 프로젝트에서도 잘 사용하고 있고 도입하기 참 잘했다고 생각이 되는 도구 중 하나이다.
+
+> 포스트에서 사용된 코드는 [react-data-handling-lab Repository](https://github.com/JaeYeopHan/react-data-handling-lab)에서 확인하실 수 있습니다.
