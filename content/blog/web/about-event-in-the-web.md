@@ -1,7 +1,8 @@
 ---
-title: '스펙 살펴보기: Document Object Model Events'
+title: '스펙 살펴보기: Document Object Model Event'
 date: 2020-03-11 13:03:05
 category: web
+thumbnail: './images/dom_object_model_event.png'
 ---
 
 이벤트를 빼놓고는 프런트엔드 프로그래밍을 이야기할 수 없다. 이 포스팅에서는 웹 문서에서 이벤트가 어떻게 흘러가는지를 살펴본다.
