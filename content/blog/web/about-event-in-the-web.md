@@ -5,6 +5,8 @@ category: web
 thumbnail: './images/dom_object_model_event.png'
 ---
 
+![dom_object_model_event](./images/dom_object_model_event.png)
+
 이벤트를 빼놓고는 프런트엔드 프로그래밍을 이야기할 수 없다. 이 포스팅에서는 웹 문서에서 이벤트가 어떻게 흘러가는지를 살펴본다.
 
 ### Table of Contents
@@ -93,7 +95,7 @@ element.dispatchEvent(boom) // boom!!!
 
 ### Event Phase
 
-![](./images/dom_event_flow.png)
+![dom_event_flow](./images/dom_event_flow.png)
 
 전파 경로가 결정되고 나면 이벤트 객체는 하나 이상의 event phase를 따라서 전달된다. 브라우저에서는 총 세 단계의 event phase를 지원하고 있으며 그 세 가지는 다음과 같다.
 
@@ -151,7 +153,7 @@ aTag.addEventListener('click', e => {
 })
 ```
 
-이렇게 되면 `a` 태그를 클릭할 경우, `href` attribute에 정의된 URL로 이동하지 않게 된다. 이 `preventDefault`는 Event 객체의 `cancelable` 값이 true일 경우에만 호출되며 이 메서드는 Event 객체의 defaultPrevented 값을 `true`로 변경하게 된다. 이벤트가 dispatch 될 때, 기본 동작을 할 것인지에 대한 기준을 defaultPrevented 값으로 판단하므로 기본 동작이 발생하지 않는 것이다.
+이렇게 되면 `a` 태그를 클릭할 경우, `href` attribute에 정의된 URL로 이동하지 않는다. 이 `preventDefault` 메서드는 Event 객체의 `cancelable` property 값이 `true` 일 때만 호출할 수 있으며 이 메서드는 Event 객체의 `defaultPrevented` 값을 `true`로 변경하게 된다. 이벤트가 dispatch 될 때, 기본 동작을 할 것인지에 대한 기준을 defaultPrevented 값으로 판단하므로 기본 동작이 발생하지 않는 것이다.
 
 addEventListener의 `option.passive`는 default 값으로 `false`값을 가지며 `true`로 지정할 경우, 이벤트가 발생되는 시점에서 [defaultPrevented](https://dom.spec.whatwg.org/#dom-event-defaultprevented) 값을 무시하게 된다. 이벤트가 발생할 때, event.defaultPrevented를 매번 검사하는 비용이 없어지므로 성능 향상에 이점이 있다.
 
