@@ -9,6 +9,8 @@ thumbnail: './images/dom_object_model_event.png'
 
 이벤트를 빼놓고는 프런트엔드 프로그래밍을 이야기할 수 없다. 이 포스팅에서는 웹 문서에서 이벤트가 어떻게 흘러가는지를 살펴본다.
 
+> 이 포스팅에서 사용된 코드 조각들은 [CodeSandbox Workspace](https://codesandbox.io/s/about-event-in-the-web-bw006)에서 실행해보실 수 있습니다.
+
 ### Table of Contents
 
 - Event
@@ -74,7 +76,7 @@ element.dispatchEvent(boom) // boom!!!
 
 ### Propagation path
 
-전파 경로는 **자기 자신(current event target)을 포함**하여 그 **부모 엘리먼트에 의존**한다. 이를 기반으로 경로가 리스트 형식으로 구성되며 이 리스트의 마지막 값은 **Event Phase에 따라** 달라진다. 그리고 **실제로 event 가 targeting 된 DOM 엘리먼트**에 의해 그 리스트가 결정된다.
+전파 경로는 **자기 자신을 포함**하여 그 **부모 엘리먼트에 의존**한다. 이를 기반으로 경로가 리스트 형식으로 구성되며 이 리스트의 마지막 값은 **Event Phase에 따라** 달라진다. 그리고 **실제로 event 가 targeting 된 DOM 엘리먼트**에 의해 그 리스트가 결정된다.
 
 이때 이벤트가 등록된 DOM 엘리먼트를 [current event target](https://www.w3.org/TR/uievents/#current-event-target)이라고 한다. Event handler에서 전달되는 Event 객체에서 접근할 수 있는 프로퍼티 중 `currentTarget`이 바로 이 값이다. 그리고 실제로 Event가 targeting된 DOM 엘리먼트를 [event target](https://www.w3.org/TR/uievents/#event-target)이라고 부르며 Event handler에서 전달되는 Event 객체에서 접근할 수 있는 프로퍼티 중 `target`이 바로 이 값이다.
 
@@ -138,8 +140,8 @@ element.dispatchEvent(boom) // boom!!!
 </div>
 <script>
   const parent = $('#input-wrapper')
-  parent.on('focus', e => console.log('parent focusing'))
-  parent.on('click', e => console.log('parent clicked'))
+  parent.on('focus', () => console.log('parent focusing'))
+  parent.on('click', () => console.log('parent clicked'))
 </script>
 ```
 
@@ -149,9 +151,9 @@ element.dispatchEvent(boom) // boom!!!
 
 버블링으로 이벤트를 등록한다는 것은 무슨 말인가?
 
-### addEventListener
+### Add Event Listener
 
-addEventListener 세 번째 인자로 option이 전달된다.
+`addEventListener` 세 번째 인자로 option이 전달되며 그 [명세](https://dom.spec.whatwg.org/#interface-eventtarget)는 다음과 같다.
 
 ```ts
 interface AddEventListenerOption {
@@ -171,7 +173,7 @@ element.addEventListener(
 
 이벤트 핸들러는 등록될 때 어느 Event phase에서 실행할지 결정된다. `option`으로 전달되는 값 중, `option.capture`로 실행될 Event phase를 결정하며 이 값이 `false`일 경우, Capturing phase 때 이벤트 핸들러가 trigger 되지 않는다.
 
-`option.capture`는 `false` 가 기본값이다. 즉, 이벤트 핸들러는 기본적으로 bubbling phase 때 발생하도록 등록되며 버블링으로 이벤트를 등록한다는 것은 이벤트가 전파되는 단계 중 Bubbling Phase에서 핸들러를 실행하는 방식으로 등록하는 것을 말한다.
+`option.capture`는 `false` 가 기본값이다. 즉, 이벤트 핸들러는 기본적으로 Bubbling phase 때 발생하도록 등록되며 버블링으로 이벤트를 등록한다는 것은 이벤트가 전파되는 단계 중 Bubbling Phase에서 핸들러를 실행하는 방식으로 등록하는 것을 말한다.
 
 ## Cancelable Event
 
@@ -217,7 +219,6 @@ element.addEventListener('click', e => {
 
 ```html
 <div id="parent" onclick="console.log('Hello, i want to logging!')">
-  <div>Parent Element's event handler does not trigger</div>
   <button id="bubbling-stop-button-1">Stop</button>
 </div>
 <script>
@@ -228,15 +229,14 @@ element.addEventListener('click', e => {
 </script>
 ```
 
-위 상황에서 `#parent`에 등록된 이벤트 핸들러는 실행되지 않는다.
+위 상황에서 `div#parent`에 등록된 이벤트 핸들러는 실행되지 않는다.
 
-어느 phase에 핸들러를 실행시킬지 명시하지 않았기 때문에 `div#parent` 엘리먼트의 이벤트 핸들러는 Bubbling Phase에 실행된다. 그러나 `div#parent` 엘리먼트의 자식인 `button#bubbling-stop-button-1` 엘리먼트에서 이벤트 핸들러가 실행된 후, 전파를 멈췄기 때문에 상위 엘리먼트에서는 `click` 이벤트를 전파받을 수 없다.
+어느 phase에 핸들러를 실행시킬지 명시하지 않았기 때문에 `div#parent` 엘리먼트의 이벤트 핸들러는 Bubbling Phase에 실행된다. 그러나 `div#parent` 엘리먼트의 자식인 `button#bubbling-stop-button-1` 엘리먼트에서 이벤트 핸들러가 실행된 후, 전파를 중단했기 때문에 상위 엘리먼트에서는 `click` 이벤트를 전파받을 수 없다.
 
 ### Case 2
 
 ```html
 <div id="capture">
-  <div>Parent Element's event handler will trigger</div>
   <button id="bubbling-stop-button-2">Stop</button>
 </div>
 <script>
@@ -267,7 +267,6 @@ element.addEventListener('click', e => {
 
 ```html
 <div id="capture-stop">
-  <div>4. Parent Element stop event propagation</div>
   <button id="prevented-button">Stop</button>
 </div>
 <script>
