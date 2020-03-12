@@ -319,9 +319,7 @@ preventedButton.click()
 </script>
 ```
 
-위 예제에서는 이벤트가 등록된 순서대로 이벤트 핸들러가 호출되는데, 호출되는 이벤트 핸들러 내에서 `stopImmediatePropagation`가 호출되는 경우, 그 뒤의 이벤트 핸들러는 동작하지 않으며 이벤트 전파가 멈추게 된다.
-
-[https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation)
+위 예제에서는 이벤트가 등록된 순서대로 이벤트 핸들러가 호출되는데, 호출되는 이벤트 핸들러 내에서 [stopImmediatePropagation](https://developer.mozilla.org/en-US/docs/Web/API/Event/stopImmediatePropagation)가 호출되는 경우, 그 뒤의 이벤트 핸들러는 동작하지 않으며 이벤트 전파가 멈추게 된다.
 
 ## 마무리
 
