@@ -35,7 +35,7 @@ element.addEventListener('click', () => {
 })
 ```
 
-위 예제 코드에선 `element`라는 DOM Element에 `addEventListener`을 통해 `click` 액션에 대한 핸들러를 추가해줬다. 사용자가 `element`를 클릭했을 때, 핸들러로 등록한 `() => console.log('clicked')`가 실행되는 것이다.
+위 예제 코드에선 `element`라는 DOM Element에 `addEventListener`을 통해 `click` 액션에 핸들러를 추가해줬다. 사용자가 `element`를 클릭했을 때, 핸들러로 등록한 `() => console.log('clicked')`가 실행되는 것이다.
 
 위 click 이벤트는 다음과 같이도 실행(trigger)될 수 있다.
 
@@ -63,7 +63,7 @@ element.dispatchEvent(boom) // boom!!!
 
 ## Event Flow
 
-여러 DOM Element로 구성된 하나의 웹 페이지는 `Window`를 최상위로 하는 트리를 생성하게 된다. 결론부터 말하자면 이벤트는 이벤트 각각이 갖게 되는 **전파 경로(propagation path)**를 따라 전파된다. 그리고 이 전파 경로는 **DOM Tree 구조에서 Element의 위상**에 의해 결정이 된다.
+여러 DOM Element로 구성된 하나의 웹 페이지는 `Window`를 최상위로 하는 트리를 생성하게 된다. 결론부터 말하자면 이벤트는 이벤트 각각이 갖게 되는 **전파 경로(propagation path)**를 따라 전파된다. 그리고 이 전파 경로는 **DOM Tree 구조에서 Element의 위상(hierarchy)**에 의해 결정이 된다.
 
 ### Propagation path
 
@@ -97,15 +97,15 @@ element.dispatchEvent(boom) // boom!!!
 
 ![dom_event_flow](./images/dom_event_flow.png)
 
-전파 경로가 결정되고 나면 이벤트 객체는 하나 이상의 event phase를 따라서 전달된다. 브라우저에서는 총 세 단계의 event phase를 지원하고 있으며 그 세 가지는 다음과 같다.
+전파 경로가 결정되고 나면 이벤트 객체는 Event phase를 따라서 전달된다. 브라우저에서는 총 세 단계의 Event phase를 지원하고 있으며 그 세 가지는 다음과 같다.
 
 #### 1. Capture phase
 
-이벤트 객체가 `Window`부터 event current target까지 전달되는 단계이다. 이때 전파 경로의 시작은 `Window`가 되며 마지막은 current event target이 된다.
+이벤트 객체가 `Window`부터 이벤트가 등록된 요소(element)까지 전달되는 단계이다. 이때 전파 경로의 시작은 `Window`가 되며 마지막은 이벤트가 등록된 요소가 된다.
 
 #### 2. Target phase
 
-이벤트 객체가 event target에 도달한 단계를 말한다. 만약에 event type이 다음 phase를 지원하지 않는 경우, 다음 단계는 넘어가고 전파가 종료된다.
+이벤트 객체가 event target에 도달한 단계를 말한다. 만약에 Event type이 다음 phase를 지원하지 않는 경우, 다음 단계는 넘어가고 전파가 종료된다.
 
 #### 3. Bubble phase
 
@@ -113,7 +113,30 @@ element.dispatchEvent(boom) // boom!!!
 
 이벤트는 위 세 단계로 전파되며 세 단계 중 어느 단계에서 이벤트 핸들러를 발생(trigger)시킬 것인가에 따라 그 목적이 달라질 수 있다.
 
+#### Not support phase
+
 이벤트에 따라 지원하는 phase가 있고, 지원하지 않는 phase가 존재한다. 그래서 위 단계별로 이벤트가 전달될 때, 지원되지 않는 phase는 건너뛰게 된다. 그 외 전파되는 이벤트 객체는 개발자가 강제로 멈추지 않는 이상 결정된 전파 경로를 따라 전파된다.
+
+예를 들면 타입이 `focus`인 Event는 bubbling 되지 않는다.
+
+```html
+<div id="parent">
+  <label for="inner">Inner :</label>
+  <input
+    id="inner"
+    type="text"
+    onfocus="console.log('inner input focusing')"
+    onclick="console.log('inner input clicked')"
+  />
+</div>
+<script>
+  const parent = $('#input-wrapper')
+  parent.on('focus', e => console.log('parent focusing'))
+  parent.on('click', e => console.log('parent clicked'))
+</script>
+```
+
+`input#inner` 엘리먼트에서 `focus`, `click` 이벤트가 발생했을 때, `click` 이벤트만 버블링되어 `div#parent` 엘리먼트에 등록된 click 이벤트 핸들러만 실행되는 것을 확인할 수 있다.
 
 ## Bubbling Event
 
@@ -129,23 +152,23 @@ interface AddEventListenerOption {
   once?: boolean
   passive?: boolean
 }
-const options = {}
+const option = {}
 element.addEventListener(
   'click',
   () => {
     console.log(`boom`)
   },
-  options
+  option
 )
 ```
 
-`option.capture`는 `false` 가 default 값이다. `false`일 경우, capturing phase 때 callback이 trigger 되지 않는다. 발생한 Event 객체에서 관리되는 phase 값을 보고 등록된 핸들러를 호출해야 할지 말아야 할지를 결정하게 된다.
+이벤트 핸들러는 등록될 때 어느 Event phase에서 실행할지 결정된다. `option`으로 전달되는 값 중, `option.capture`로 실행될 Event phase를 결정하며 이 값이 `false`일 경우, Capturing phase 때 이벤트 핸들러가 trigger 되지 않는다.
 
-즉, 이벤트 핸들러는 기본적으로 bubbling phase 때 발생하도록 등록되며 버블링으로 이벤트를 등록한다는 것은 이벤트가 전파되는 단계 중 Bubbling Phase에서 핸들러를 실행하는 방식으로 등록하는 것을 말한다.
+`option.capture`는 `false` 가 기본값이다. 즉, 이벤트 핸들러는 기본적으로 bubbling phase 때 발생하도록 등록되며 버블링으로 이벤트를 등록한다는 것은 이벤트가 전파되는 단계 중 Bubbling Phase에서 핸들러를 실행하는 방식으로 등록하는 것을 말한다.
 
 ## Cancelable Event
 
-`a` 태그를 사용했지만 `a` 태그가 지원하는 기본적인 동작을 막기 위해 `preventDefault` 를 호출한다.
+`a` 태그를 사용했지만 `a` 태그가 지원하는 기본적인 동작을 막고 싶은 경우, `preventDefault` 를 호출한다.
 
 ```js
 aTag.addEventListener('click', e => {
@@ -153,9 +176,11 @@ aTag.addEventListener('click', e => {
 })
 ```
 
-이렇게 되면 `a` 태그를 클릭할 경우, `href` attribute에 정의된 URL로 이동하지 않는다. 이 `preventDefault` 메서드는 Event 객체의 `cancelable` property 값이 `true` 일 때만 호출할 수 있으며 이 메서드는 Event 객체의 `defaultPrevented` 값을 `true`로 변경하게 된다. 이벤트가 dispatch 될 때, 기본 동작을 할 것인지에 대한 기준을 defaultPrevented 값으로 판단하므로 기본 동작이 발생하지 않는 것이다.
+이렇게 되면 `a` 태그를 클릭할 경우, `href` attribute에 정의된 URL로 이동하지 않는다. 즉 `a` 엘리먼트의 기본 동작이 수행되지 않는 것이다.
 
-addEventListener의 `option.passive`는 default 값으로 `false`값을 가지며 `true`로 지정할 경우, 이벤트가 발생되는 시점에서 [defaultPrevented](https://dom.spec.whatwg.org/#dom-event-defaultprevented) 값을 무시하게 된다. 이벤트가 발생할 때, event.defaultPrevented를 매번 검사하는 비용이 없어지므로 성능 향상에 이점이 있다.
+이 `preventDefault` 메서드는 Event 객체의 `cancelable` property 값이 `true` 일 때만 호출할 수 있으며 이 메서드는 내부적으로 Event 객체의 `defaultPrevented` 값을 `true`로 변경하게 된다. 이벤트가 dispatch 될 때 기본 동작을 할 것인지에 대한 기준을 `defaultPrevented` 값으로 판단하는데, 이 값으 `true`일 때 기본 동작을 발생시키지 않는다.
+
+addEventListener의 `option.passive`는 default 값으로 `false`값을 가진다. 이 옵션 값을 `true`로 지정할 경우, 이벤트가 발생되는 시점에서 [defaultPrevented](https://dom.spec.whatwg.org/#dom-event-defaultprevented) 값을 무시하게 된다. 이것은 이벤트가 발생할 때마다 매번 확인했던 `defaultPrevented`를 더이상 확인하지 않아도 된다는 것을 의미하며 이 비용을 줄여 이벤트의 성능을 향상시킬 수 있다.
 
 ## Stop propagation
 
@@ -186,7 +211,7 @@ element.addEventListener('click', e => {
 
 위 상황에서 `#parent`에 등록된 이벤트 핸들러는 실행되지 않는다.
 
-어느 phase에 핸들러를 실행시킬지 명시하지 않았기 때문에 `#parent` 엘리먼트의 이벤트 핸들러는 Bubbling Phase에 실행된다. 그러나 `#parent` 엘리먼트의 자식인 `#bubbling-stop-button-1` 엘리먼트에서 이벤트 핸들러가 실행된 후, 전파를 멈췄기 때문에 상위 엘리먼트에서는 `click` 이벤트를 전파받을 수 없다.
+어느 phase에 핸들러를 실행시킬지 명시하지 않았기 때문에 `div#parent` 엘리먼트의 이벤트 핸들러는 Bubbling Phase에 실행된다. 그러나 `div#parent` 엘리먼트의 자식인 `button#bubbling-stop-button-1` 엘리먼트에서 이벤트 핸들러가 실행된 후, 전파를 멈췄기 때문에 상위 엘리먼트에서는 `click` 이벤트를 전파받을 수 없다.
 
 ### Case 2
 
@@ -210,7 +235,7 @@ element.addEventListener('click', e => {
 </script>
 ```
 
-상위 엘리먼트의 이벤트 핸들러를 실행시키기 위해서 `capture: true`를 통해 Capturing Phase 때 이벤트 핸들러를 실행시키도록 할 수 있다. 이 상황에서 `bubbling-stop-button-2`를 클릭하게 되면 다음과 같이 로그가 찍히는 것을 확인할 수 있다.
+상위 엘리먼트의 이벤트 핸들러를 실행시키기 위해서 `capture: true`를 통해 Capturing Phase 때 이벤트 핸들러가 실행되도록 할 수 있다. 이 상황에서 `button#bubbling-stop-button-2`를 클릭하게 되면 다음과 같이 로그가 찍히는 것을 확인할 수 있다.
 
 ```
 // Hello!
@@ -251,7 +276,7 @@ preventedButton.click()
 
 ### Case 4
 
-`stopPropagation`메서드는 다음 Phase에 대해서 이벤트 전파를 막는다. Event Phase 중 Target Phase에서 이벤트 전파를 막기 위해서는 `stopImmediatePropagation` 메서드를 사용할 수 있다.
+`stopPropagation`메서드는 다음 Phase로의 이벤트 전파를 막는다. Event Phase 중 Target Phase에서 이벤트 전파를 막기 위해서는 `stopImmediatePropagation` 메서드를 사용할 수 있다.
 
 ```html
 <button id="multiclick-button">multi</button>
