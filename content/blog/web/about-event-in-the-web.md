@@ -15,11 +15,12 @@ thumbnail: './images/dom_object_model_event.png'
 - Event Flow
 - Bubbling Event
 - Cancelable Event
+- Trusted Event
 - Stop propagation
 
 ## Event
 
-웹에서는 수많은 이벤트(Event)가 발생한다.
+웹에서는 수많은 이벤트(Event)가 발생하고 흐른다.
 
 - 브라우저(user agent)로부터 발생하는 이벤트
 - 사용자의 행동(interaction)에 의해 발생하는 이벤트
@@ -27,7 +28,7 @@ thumbnail: './images/dom_object_model_event.png'
 
 발생하는 이벤트는 그저 **자바스크립트 객체**일 뿐이다. 브라우저의 [Event interface](https://dom.spec.whatwg.org/#interface-event)에 맞춰 구현된 객체인 것이다.
 
-`click`이라는 이벤트를 예를 들어보자.
+가장 쉽게 접할 수 있는 `click`이라는 액션을 예를 들어보자.
 
 ```js
 element.addEventListener('click', () => {
@@ -35,7 +36,7 @@ element.addEventListener('click', () => {
 })
 ```
 
-위 예제 코드에선 `element`라는 DOM Element에 `addEventListener`을 통해 `click` 액션에 핸들러를 추가해줬다. 사용자가 `element`를 클릭했을 때, 핸들러로 등록한 `() => console.log('clicked')`가 실행되는 것이다.
+위 예제 코드에선 `element`라는 DOM Element에 `addEventListener`을 통해 `click` 액션에 핸들러를 추가해줬다. 사용자가 `element`를 클릭했을 때, 이벤트 핸들러로 등록한 `() => console.log('clicked')`가 실행되도록 코드를 작성한 것이다.
 
 위 click 이벤트는 다음과 같이도 실행(trigger)될 수 있다.
 
@@ -43,7 +44,13 @@ element.addEventListener('click', () => {
 element.click()
 ```
 
-위 두 방법으로 발생(trigger)한 **Click Event**는 Event interface기반으로 구현된 type이 `click`인 Event 객체를 의미한다. 정의된 이벤트뿐만 아니라 자바스크립트 코드로 자신만의 이벤트를 정의하고 만들 수 있다.
+### Event, Event Handler
+
+위 두 방법으로 발생(trigger)한 **Click Event**는 Event interface기반으로 구현된 type이 `click`인 Event 객체를 의미한다. 이 이벤트는 발생하여 웹 문서에 **전파**될 것이고 전파되는 이벤트 객체가 `element`라는 DOM Element에 **도달**했을 때, 이벤트 핸들러가 **실행**된다.
+
+### Custom Event
+
+정의된 이벤트뿐만 아니라 자바스크립트 코드로 자신만의 이벤트를 정의하고 만들 수 있다.
 
 ```js
 const boom = new CustomEvent('boom')
@@ -57,9 +64,9 @@ element.dispatchEvent(boom) // boom!!!
 
 위 예제 코드에서는 boom이라는 이벤트를 만들고, `element`에 **boom 이벤트를 등록**한 후, boom이라는 이벤트를 `dispatch` 하였다.
 
-즉, DOM Element는 사용자가 element를 클릭했을 때, ClickEvent를 `dispatchEvent` 해주는 역할을 하고 `addEventListener`는 Event와 handler를 연결하는 메서드인 것이다.
+즉, DOM Element는 사용자가 '클릭'했을 때, '클릭 Event'를 `dispatch` 해주는 역할을 하고 `addEventListener`는 전파되는 Event 객체들 중 특정 type에 대해서만 구독하는 Element의 메서드인 것이다.
 
-이때 `dispatchEvent()` 에 의해 발생한 이벤트는 어디로 어떻게 흘러가게 될까?
+이때 발생한 이벤트는 어디로 어떻게 흘러가게 될까?
 
 ## Event Flow
 
@@ -181,6 +188,18 @@ aTag.addEventListener('click', e => {
 이 `preventDefault` 메서드는 Event 객체의 `cancelable` property 값이 `true` 일 때만 호출할 수 있으며 이 메서드는 내부적으로 Event 객체의 `defaultPrevented` 값을 `true`로 변경하게 된다. 이벤트가 dispatch 될 때 기본 동작을 할 것인지에 대한 기준을 `defaultPrevented` 값으로 판단하는데, 이 값으 `true`일 때 기본 동작을 발생시키지 않는다.
 
 addEventListener의 `option.passive`는 default 값으로 `false`값을 가진다. 이 옵션 값을 `true`로 지정할 경우, 이벤트가 발생되는 시점에서 [defaultPrevented](https://dom.spec.whatwg.org/#dom-event-defaultprevented) 값을 무시하게 된다. 이것은 이벤트가 발생할 때마다 매번 확인했던 `defaultPrevented`를 더이상 확인하지 않아도 된다는 것을 의미하며 이 비용을 줄여 이벤트의 성능을 향상시킬 수 있다.
+
+## Trusted Event
+
+사용자에 의해 발생한 이벤트인지 브라우저(user agent)에 의해 발생한 이벤트인지 Event 객체의 속성을 통해 판단할 수 있다.
+
+![sample-1](./images/sample-1.png)
+
+Element의 `.click()` 메서드를 통해 호출된 이벤트 객체의 `isTrusted` 값은 `false`가 된다.
+
+![sample-2](./images/sample-2.png)
+
+그리고 사용자 클릭에 의해 발생한 이벤트 객체의 `isTrusted` 값은 `true`가 된다.
 
 ## Stop propagation
 
