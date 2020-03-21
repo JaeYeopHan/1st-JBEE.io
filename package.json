@@ -59,7 +59,7 @@
     "gray-matter": "^4.0.2",
     "inquirer": "^7.0.0",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
-    "prettier": "^1.14.2",
+    "prettier": "^2.0.0",
     "recursive-readdir": "^2.2.2",
     "signale": "^1.3.0"
   },
