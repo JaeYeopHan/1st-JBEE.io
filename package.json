@@ -74,7 +74,7 @@
     "url": "git+https://github.com/JaeYeopHan/JBEE.io.git"
   },
   "scripts": {
-    "post": "node ./cli/create-new-post.js",
+    "create": "gatsby-post-gen",
     "lh": "lighthousebot",
     "dev": "gatsby develop",
     "lint": "eslint --ext .js,.jsx --ignore-pattern public .",
