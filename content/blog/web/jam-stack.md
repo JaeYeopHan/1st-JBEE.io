@@ -5,13 +5,13 @@ category: web
 thumbnail: './images/jamstack_thumbnail.png'
 ---
 
-![](./images/jamstack_thumbnail.png)
+![jamstack_thumbnail](./images/jamstack_thumbnail.png)
 
 MEAN 스택이라는 용어를 기억하는 사람이 있을 것 같습니다. MongoDB, Express, AngularJS, NodeJS의 각 앞 글자만 따서 MEAN 스택이라 칭했습니다. React가 인기를 끌면서 MEAN 스택 중 AngularJS가 React로 대체되고 mern이라는 것도 등장했었습니다. 조금 더 전에는 [LAMP](<https://en.wikipedia.org/wiki/LAMP_(software_bundle)>)(Linux, Apaache, MySQL, PHP)이란 것도 있었습니다.
 
 그리고 요즘 **JAM Stack**이라는 용어가 심심치 않게 보입니다.
 
-[JAM Stack 공식 문서](<[https://jamstack.org/](https://jamstack.org/)>)에서는 다음과 같이 정의하고 있습니다.
+[JAM Stack 공식 문서](https://jamstack.org/)에서는 다음과 같이 정의하고 있습니다.
 
 > Fast and secure sites and apps delivered by pre-rendering files and serving them directly from a CDN, removing the requirement to manage or run web servers.
 
