@@ -56,6 +56,7 @@
     "eslint-plugin-react": "^7.11.1",
     "eslint-plugin-react-hooks": "^3.0.0",
     "fs-extra": "^8.1.0",
+    "gatsby-post-gen": "^1.0.0",
     "gray-matter": "^4.0.2",
     "inquirer": "^7.0.0",
     "lighthousebot": "git+https://github.com/GoogleChromeLabs/lighthousebot.git",
