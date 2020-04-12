@@ -68,11 +68,6 @@ body.dark {
   }
 
   // post
-  blockquote {
-    border-left: 4px solid rgba(255, 255, 255, 0.822);
-    color: $dark-middle-font-color;
-  }
-
   h1,
   h2 {
     border-bottom-color: rgba(255, 255, 255, 0.3);
@@ -87,5 +82,12 @@ body.dark {
 
   td {
     border-bottom: 1px solid #eee;
+  }
+
+  blockquote {
+    color: $dark-blockquote-quote-color;
+    &::before {
+      background-image: $dark-blockquote-quote-image;
+    }
   }
 }

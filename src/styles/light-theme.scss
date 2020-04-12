@@ -73,4 +73,10 @@ body.light {
       color: $navigator-text-color;
     }
   }
+  blockquote {
+    color: $light-blockquote-quote-color;
+    &::before {
+      background-image: $light-blockquote-quote-image;
+    }
+  }
 }
