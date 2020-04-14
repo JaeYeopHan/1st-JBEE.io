@@ -44,7 +44,7 @@ lang: 'ko'
 
 인도네시아 국가를 대상으로 하나은행과 함께 진행하는 은행 애플리케이션.
 
-- 19.02 ~ current
+- 19.02 ~ 20.04
 - TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook
 
 #### Description
@@ -63,7 +63,7 @@ lang: 'ko'
 
 LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 플랫폼.
 
-- 18.11 ~ current
+- 18.11 ~ 20.04
 - Vue, Vuex, vue-router, vue-i18n, jest
 
 #### Description
