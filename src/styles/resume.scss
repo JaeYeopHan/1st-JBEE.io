@@ -1,12 +1,33 @@
 .about {
   h1 {
-    border-left: 8px solid #da3a6a;
+    border-left: 12px solid #0f6ae5;
     padding-left: 8px;
     padding-bottom: 0px;
     line-height: 1.05;
   }
 
+  h2 {
+    position: relative;
+    display: inline-block;
+    &::after {
+      position: absolute;
+      display: inline-block;
+      top: 0;
+      right: -14px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background-color: #0f6ae5;
+      content: '';
+    }
+  }
+
   div.final {
     margin-top: 5em !important;
+  }
+
+  code.language-text {
+    color: #0f6ae5;
+    border: 1.4px solid #0f6ae5;
   }
 }
