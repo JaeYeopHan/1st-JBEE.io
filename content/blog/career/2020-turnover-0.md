@@ -16,7 +16,7 @@ draft: false
 
 ### Table of Contents
 
-1. 준비하기 전에 (coming soon)
+1. [준비하기 전에](https://jbee.io/career/2020-turnover-1/)
    1. 왜 이직하는가
    2. 원하는 회사는 어떤 회사인가
    3. 실제로 만나고 다니기
