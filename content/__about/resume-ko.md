@@ -1,6 +1,6 @@
 ---
 title: 'about'
-date: 2019-1-27 16:21:13
+date: 2020-4-14 13:21:13
 lang: 'ko'
 ---
 
@@ -22,11 +22,11 @@ lang: 'ko'
 4. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖는지 고민하는
 5. 기술이 비즈니스의 핵심 동력이며 제 코드가 비즈니스에 도움이 될 수 있는
 
-|             |                               |
-| :---------: | ----------------------------- |
-| **GitHub**  | https://github.com/JaeYeopHan |
-|  **Blog**   | https://jbee.io               |
-| **Contact** | ljyhanll@gmail.com            |
+|             |                                 |
+| :---------: | ------------------------------- |
+| **GitHub**  | <https://github.com/JaeYeopHan> |
+|  **Blog**   | <https://jbee.io>               |
+| **Contact** | <ljyhanll@gmail.com>            |
 
 <br />
 
@@ -36,7 +36,7 @@ lang: 'ko'
 
 |              |                                                                 |
 | -----------: | --------------------------------------------------------------- |
-|   **period** | 18.11 ~ **current**                                             |
+|   **period** | 18.11 ~ 20.04                                                   |
 | **position** | Web Dev 2 / Front-End Engineer                                  |
 | **projects** | LINE Indonesia Bank, Smart Invest Japan, Webview SDK, Mentoring |
 
@@ -124,24 +124,32 @@ LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 �
 
 ## gatsby-starter-bee
 
-- GitHub Repository link: https://github.com/JaeYeopHan/gatsby-starter-bee
+- GitHub: <https://github.com/JaeYeopHan/gatsby-starter-bee>
 - _React, Gatsby_
 
 Gatsby를 기반으로 만든 블로그 템플릿. 기존에 흔히 볼 수 있는 블로그 템플릿이 아닌 산뜻한 UI를 만들기 위해 고민.
 
 ### gatsby-remark-images-medium-zoom
 
-- GitHub Repository link: https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom
+- GitHub: <https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom>
 
 medium-zoom 이라는 오픈소스를 Gatsby에서 쉽게 사용할 수 있도록 plugin 형식으로 wrapping한 오픈소스 라이브러리.
 
 ## octodirect - chrome extension
 
-- Chrome web store link: http://bit.ly/2wL9Iwv
-- GitHub Repository link: https://github.com/JaeYeopHan/octodirect
+- Chrome web store link: <http://bit.ly/2wL9Iwv>
+- GitHub: <https://github.com/JaeYeopHan/octodirect>
 - _React, TypeScript, Redux, Redux-saga_
 
 자신이 생성했거나, 관리하고 있는 저장소, 이전에 방문했던 저장소, 자신이 star를 누른 저장소 등을 curating하여 단축키를 통해 바로 이동할 수 있는 chrome extension. 크롬 익스텐션의 versioning, 배포 부분을 나름의 배포 스크립트 자동화.
+
+## cra-template-unicorn
+
+- GitHub: <https://github.com/JaeYeopHan/cra-template-unicorn>
+- _React, create-react-app, craco, redux-toolkit, emotion_
+- Managed by _GitHub Action, semantic-release, NPM package_
+
+create-react-app을 사용할 때, template으로 사용할 수 있는 오픈소스 프로젝트입니다. VSCode 개발 환경 구축, Prettier, react-redux, react-router 등 React Application 프로젝트를 시작하기 위한 기본적인 개발 환경을 담고 있습니다.
 
 <br />
 
@@ -151,37 +159,37 @@ medium-zoom 이라는 오픈소스를 Gatsby에서 쉽게 사용할 수 있도�
 
 ### GDG Intern Special: 멘토스와 인턴콜라
 
-> https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra
+<https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra>
 
 _[2019.07.06]_ 인턴십에서 1번의 실패와 1번의 성공의 경험을 공유. 추가적으로 멘토링했던 경험을 함께 공유.
 
 ### NAVER Boostcamp: 미리 알았다면 좋았을 것 들
 
-> https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul
+<https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul>
 
 _[2019.06.24]_ 업무를 진행하면서 알게 된 부분, 개발자가 되기 전에 알았으면 좋았을 부분들을 공유.
 
 ### GDG Frontendgame: UX빼면 시체 프런트엔드
 
-> https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu
+<https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu>
 
 _[2019.06.22]_ 프론트엔드 영역이 존재하는 이유라고 말할 수 있는 UX에 대한 이야기를 공유.
 
 ### NAVER Tech Concert: 주니어 개발자의 성장에 대한 뻔하지만 뻔하지 않은 이야기
 
-> https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo
+<https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo>
 
 _[2019.04.11]_ 개발자로서의 성장에 대한 내용으로 사이드 프로젝트를 통한 성장 뿐만 아니라 회사에서의 업무를 통한 성장 또한 중요하다는 내용을 구체적인 예시와 함께 공유.
 
 ### GDG Devfest Seoul 2018: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선
 
-> https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools
+<https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools>
 
 _[2018.11.10]_ 웹 프론트엔드 성능과 관련하여 크게 측정과 개선 두 부분에 대한 내용을 공유.
 
 ### GDG Campus Meetup(2018): 함께 일하고 싶은 개발자
 
-> https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja
+<https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja>
 
 _[2018.02.11]_ 현업에서 배운 '개발'을 소개하며 함께 일하고 싶은 개발자는 무엇일까에 대한 이야기를 공유.
 
@@ -198,13 +206,13 @@ _[2018.02.11]_ 현업에서 배운 '개발'을 소개하며 함께 일하고 싶
 
 ### ECMAScript 2016
 
-> https://www.slideshare.net/JaeYeopHan/es6-1-let-const
+<https://www.slideshare.net/JaeYeopHan/es6-1-let-const>
 
 사내에서 진행한 자바스크립트 강의 자료.
 
 ### TypeScript Tutorial
 
-> https://www.slideshare.net/JaeYeopHan/intro-typescript-playground
+<https://www.slideshare.net/JaeYeopHan/intro-typescript-playground>
 
 사내에서 진행한 타입스크립트 강의 자료.
 
