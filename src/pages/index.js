@@ -1,21 +1,18 @@
-import React, { useEffect, useMemo } from 'react'
 import { graphql } from 'gatsby'
 import _ from 'lodash'
-
-import { Layout } from '../layout'
+import React, { useMemo } from 'react'
 import { Bio } from '../components/bio'
-import { Head } from '../components/head'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
-import { useCategory } from '../hooks/useCategory'
-import { useRenderedCount } from '../hooks/useRenderedCount'
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
-import { useScrollEvent } from '../hooks/useScrollEvent'
-
-import * as EventManager from '../utils/event-manager'
-import * as Dom from '../utils/dom'
-
+import { Head } from '../components/head'
 import { HOME_TITLE } from '../constants'
+import { useCategory } from '../hooks/useCategory'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { useRenderedCount } from '../hooks/useRenderedCount'
+import { useScrollEvent } from '../hooks/useScrollEvent'
+import { Layout } from '../layout'
+import * as Dom from '../utils/dom'
+import * as EventManager from '../utils/event-manager'
 
 const BASE_LINE = 80
 
