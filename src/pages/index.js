@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import { graphql } from 'gatsby'
 import _ from 'lodash'
 
@@ -7,16 +7,15 @@ import { Bio } from '../components/bio'
 import { Head } from '../components/head'
 import { Category } from '../components/category'
 import { Contents } from '../components/contents'
+import { useCategory } from '../hooks/useCategory'
+import { useRenderedCount } from '../hooks/useRenderedCount'
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
 
-import * as ScrollManager from '../utils/scroll'
-import * as Storage from '../utils/storage'
-import * as IOManager from '../utils/visible'
 import * as EventManager from '../utils/event-manager'
 import * as Dom from '../utils/dom'
 
-import { HOME_TITLE, CATEGORY_TYPE } from '../constants'
+import { HOME_TITLE } from '../constants'
 
-const DEST_POS = 394
 const BASE_LINE = 80
 
 function getDistance(currentPos) {
@@ -24,40 +23,26 @@ function getDistance(currentPos) {
 }
 
 export default ({ data, location }) => {
-  const initialCount = Storage.getCount(1)
-  const initialCategory = Storage.getCategory(CATEGORY_TYPE.ALL)
-  const [count, setCount] = useState(initialCount)
-  const countRef = useRef(count)
-  const [category, setCategory] = useState(initialCategory)
+  const [count, countRef, increaseCount] = useRenderedCount()
+  const [category, selectCategory] = useCategory()
 
   const { siteMetadata } = data.site
   const { countOfInitialPost } = siteMetadata.configs
   const posts = data.allMarkdownRemark.edges
-  const categories = _.uniq(posts.map(({ node }) => node.frontmatter.category))
+  const categories = useMemo(
+    () => _.uniq(posts.map(({ node }) => node.frontmatter.category)),
+    []
+  )
+
+  useIntersectionObserver()
 
   useEffect(() => {
     window.addEventListener(`scroll`, onScroll, { passive: false })
-    IOManager.init()
-    ScrollManager.init()
 
     return () => {
       window.removeEventListener(`scroll`, onScroll, { passive: false })
-      IOManager.destroy()
-      ScrollManager.destroy()
     }
   }, [])
-
-  useEffect(() => {
-    countRef.current = count
-    IOManager.refreshObserver()
-    Storage.setCount(count)
-    Storage.setCategory(category)
-  })
-
-  const selectCategory = category => {
-    setCategory(category)
-    ScrollManager.go(DEST_POS)
-  }
 
   const onScroll = () => {
     const currentPos = window.scrollY + window.innerHeight
@@ -65,7 +50,7 @@ export default ({ data, location }) => {
     const doesNeedMore = () =>
       posts.length > countRef.current * countOfInitialPost
 
-    return EventManager.toFit(() => setCount(prev => prev + 1), {
+    return EventManager.toFit(increaseCount, {
       dismissCondition: () => !isTriggerPos(),
       triggerCondition: () => isTriggerPos() && doesNeedMore(),
     })()
