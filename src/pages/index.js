@@ -10,6 +10,7 @@ import { Contents } from '../components/contents'
 import { useCategory } from '../hooks/useCategory'
 import { useRenderedCount } from '../hooks/useRenderedCount'
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver'
+import { useScrollEvent } from '../hooks/useScrollEvent'
 
 import * as EventManager from '../utils/event-manager'
 import * as Dom from '../utils/dom'
@@ -35,16 +36,7 @@ export default ({ data, location }) => {
   )
 
   useIntersectionObserver()
-
-  useEffect(() => {
-    window.addEventListener(`scroll`, onScroll, { passive: false })
-
-    return () => {
-      window.removeEventListener(`scroll`, onScroll, { passive: false })
-    }
-  }, [])
-
-  const onScroll = () => {
+  useScrollEvent(() => {
     const currentPos = window.scrollY + window.innerHeight
     const isTriggerPos = () => getDistance(currentPos) < BASE_LINE
     const doesNeedMore = () =>
@@ -54,7 +46,7 @@ export default ({ data, location }) => {
       dismissCondition: () => !isTriggerPos(),
       triggerCondition: () => isTriggerPos() && doesNeedMore(),
     })()
-  }
+  })
 
   return (
     <Layout location={location} title={siteMetadata.title}>
