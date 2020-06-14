@@ -15,7 +15,9 @@ function observeCallback(entries) {
 }
 
 function observerTargeting() {
-  return Dom.getElements(`.${TARGET_CLASS}`).forEach(el => observer.observe(el))
+  return Dom.getElements(`.${TARGET_CLASS}`).forEach((el) =>
+    observer.observe(el)
+  )
 }
 
 function disconnect() {
