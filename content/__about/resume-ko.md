@@ -1,10 +1,12 @@
 ---
 title: 'about'
-date: 2020-6-20 13:21:13
+date: 2020-6-28 13:21:13
 lang: 'ko'
 ---
 
 # 한재엽 (Jbee)
+
+<div align="right"><sub><i>Last updated: 2020.06.28</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
