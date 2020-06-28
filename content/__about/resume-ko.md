@@ -1,6 +1,6 @@
 ---
 title: 'about'
-date: 2020-4-14 13:21:13
+date: 2020-6-20 13:21:13
 lang: 'ko'
 ---
 
@@ -31,6 +31,16 @@ lang: 'ko'
 <br />
 
 # Experiences
+
+## Toss (Viva Republica)
+
+|              |                                                                 |
+| -----------: | --------------------------------------------------------------- |
+|   **period** | 20.04 ~ current                                                   |
+| **position** | Toss Core / Front-End Engineer                                  |
+| **projects** | (TBD) |
+
+(TBD)
 
 ## LINE Financial Plus
 
