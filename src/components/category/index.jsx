@@ -5,17 +5,17 @@ import { Item } from './item'
 
 export const Category = ({ categories, category, selectCategory }) => {
   const tabContainerRef = useRef(null)
-  const viewPortWidth = useMemo(() => document.documentElement.clientWidth);
+
 
   const scrollToCenter = useCallback(tabRef => {
     const tabWidth = tabRef.current.offsetWidth
     const tabLeft = tabRef.current.getBoundingClientRect().left;
     const { scrollLeft } = tabContainerRef.current
-
+    const viewPortWidth = document.documentElement.clientWidth
     const targetScollX = scrollLeft + tabLeft - tabWidth / 2 - viewPortWidth / 4
 
     tabContainerRef.current.scrollTo(targetScollX, 0)
-  }, [viewPortWidth, tabContainerRef])
+  }, [tabContainerRef])
 
   return (
     <ul
