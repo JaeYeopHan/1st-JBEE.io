@@ -11,6 +11,8 @@
   overflow: -moz-scrollbars-none; // Firefox
   z-index: 1;
   padding: 6px 20px;
+  
+  scroll-behavior: smooth;
 
   .item {
     display: inline-block;
