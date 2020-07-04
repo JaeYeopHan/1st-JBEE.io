@@ -1,4 +1,4 @@
-import React, { useRef, useMemo } from 'react'
+import React, { useCallback, useMemo, useRef } from 'react'
 import { rhythm } from '../../utils/typography'
 import './index.scss'
 import { Item } from './item'
@@ -7,15 +7,15 @@ export const Category = ({ categories, category, selectCategory }) => {
   const tabContainerRef = useRef(null)
   const viewPortWidth = useMemo(() => document.documentElement.clientWidth);
 
-  const scrollToCenter = tabRef => {
-    const { offsetWidth } = tabRef.current
-    const { left } = tabRef.current.getBoundingClientRect();
+  const scrollToCenter = useCallback(tabRef => {
+    const tabWidth = tabRef.current.offsetWidth
+    const tabLeft = tabRef.current.getBoundingClientRect().left;
     const { scrollLeft } = tabContainerRef.current
 
-    const targetScollX = scrollLeft + left - offsetWidth / 2 - viewPortWidth / 4
+    const targetScollX = scrollLeft + tabLeft - tabWidth / 2 - viewPortWidth / 4
 
     tabContainerRef.current.scrollTo(targetScollX, 0)
-  }
+  }, [viewPortWidth, tabContainerRef])
 
   return (
     <ul
@@ -27,13 +27,13 @@ export const Category = ({ categories, category, selectCategory }) => {
         margin: `0 -${rhythm(3 / 4)}`,
       }}
     >
-      <Item title={'All'} category={category} selectCategory={selectCategory} scrollToCenter={scrollToCenter} />
-      {categories.map((item, idx) => (
+      <Item title={'All'} selectedCategory={category} onClick={selectCategory} scrollToCenter={scrollToCenter} />
+      {categories.map((title, idx) => (
         <Item
           key={idx}
-          title={item}
-          category={category}
-          selectCategory={selectCategory}
+          title={title}
+          selectedCategory={category}
+          onClick={selectCategory}
           scrollToCenter={scrollToCenter}
         />
       ))}
