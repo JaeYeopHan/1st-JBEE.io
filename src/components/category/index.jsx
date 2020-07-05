@@ -1,25 +1,25 @@
-import React, { useCallback, useMemo, useRef } from 'react'
+import React, { useCallback, useRef } from 'react'
 import { rhythm } from '../../utils/typography'
 import './index.scss'
 import { Item } from './item'
 
 export const Category = ({ categories, category, selectCategory }) => {
-  const tabContainerRef = useRef(null)
-
+  const containerRef = useRef(null)
 
   const scrollToCenter = useCallback(tabRef => {
-    const tabWidth = tabRef.current.offsetWidth
-    const tabLeft = tabRef.current.getBoundingClientRect().left;
-    const { scrollLeft } = tabContainerRef.current
-    const viewPortWidth = document.documentElement.clientWidth
-    const targetScollX = scrollLeft + tabLeft - tabWidth / 2 - viewPortWidth / 4
+    const { offsetWidth: tabWidth } = tabRef.current
+    const { scrollLeft, offsetWidth: containerWidth } = containerRef.current
+    const tabLeft = tabRef.current.getBoundingClientRect().left
+    const containerLeft = containerRef.current.getBoundingClientRect().left
+    const refineLeft = tabLeft - containerLeft
+    const targetScollX = scrollLeft + refineLeft - (containerWidth / 2) + (tabWidth / 2)
 
-    tabContainerRef.current.scrollTo(targetScollX, 0)
-  }, [tabContainerRef])
+    containerRef.current.scrollTo(targetScollX, 0)
+  }, [containerRef])
 
   return (
     <ul
-      ref={tabContainerRef}
+      ref={containerRef}
       className="category-container"
       role="tablist"
       id="category"
