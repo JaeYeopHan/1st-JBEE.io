@@ -1,12 +1,12 @@
 ---
 title: 'about'
-date: 2020-6-28 13:21:13
+date: 2020-7-23 13:21:13
 lang: 'ko'
 ---
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2020.06.28</i></sub></div>
+<div align="right"><sub><i>Last updated: 2020.07.23</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
@@ -39,7 +39,7 @@ lang: 'ko'
 |              |                                                                 |
 | -----------: | --------------------------------------------------------------- |
 |   **period** | 20.04 ~ current                                                   |
-| **position** | Toss Core / Front-End Engineer                                  |
+| **position** | Web Platform Team, Inflow Silo / Front-End Developer                                  |
 | **projects** | (TBD) |
 
 (TBD)
