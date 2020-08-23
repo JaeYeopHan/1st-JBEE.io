@@ -193,19 +193,20 @@ const Container = () => {
 }
 ```
 
-store에서는 특정 action에 middleware를 추가하여 해결할 수 있었다. 그러나 각각의 handler가 button 내부에서 처리될 경우에는 어쩔 수 없이 다음과 같은 작업이 필요해진다.
+store에서는 특정 action에 middleware를 추가하여 해결할 수 있었다.
 
-```jsx
-const SubmitButton = (props) => {
-  const handleClick = () => {
-    props.onClick?.()
-    alert('submit')
-  }
-  return <button onClick={handleClick}>submit</button>
+`SubmitButton`에는 logging을 위한 handler가 추가적으로 props로 전달되어야 하며 이는 모든 컴포넌트에 반복되게 된다. 좀 더 좋은 방법이 없을까 고민하게 만드는 코드가 작성된다.
+
+```tsx
+const Container = () => {
+  return (
+    <>
+      <SubmitButton data="submit" onLogging={() => log('submit logging')} />
+      <ClearButton data="clear" onLogging={() => log('clear logging')} />
+    </>
+  )
 }
 ```
-
-본래 의도했던 click handler가 실행될 때, `props`에서 `onClick`을 내려받아 호출해줘야 하는 것이다. `SubmitButton`에는 logging을 위한 handler가 추가적으로 props로 전달되어야 하며 이는 모든 컴포넌트에 반복되게 된다. 좀 더 좋은 방법이 없을까 고민하게 만드는 코드이다.
 
 ### cloneElement
 
@@ -215,7 +216,7 @@ logging이라는 함수를 반복적으로 생성하여 전달해줘야 하는 �
 const Container = () => {
   return (
     <WithLogging log="submit logging">
-      <SubmitButton />
+      <SubmitButton onClick={() => alert('submit')} />
     </WithLogging>
   )
 }
@@ -226,11 +227,13 @@ React에서 제공하는 cloneElement라는 API를 통해서 응집도가 높은
 ```jsx
 const WithLogging = ({ children, log }) => {
   const child = Children.only(children)
-  const sendLog = () => {
-    console.log(log)
-  }
+  const logging = (log: string) => console.log(log)
+
   return cloneElement(child, {
-    onClick: sendLog,
+    onClick: () => {
+      child.props.onClick() // 본래 의도한 동작
+      logging(log) // logging
+    },
   })
 }
 ```
