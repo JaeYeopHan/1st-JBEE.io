@@ -67,6 +67,12 @@ React Ecosystem에서의 best practice라고 했지만 이 글은 best practice�
 - History 주입
 - With hooks
 
+### [5. 컴포넌트 디자인하기](https://jbee.io/react/react-5-component/)
+
+- 로직의 재사용성
+- 상태 접근
+- 횡단 관심사 확장
+
 ## Not tutorial
 
 시리즈로 작성되는 이 글은 튜토리얼이 아닙니다. 프로젝트를 구성하면서 제가 했던 고민들을 거의 의식의 흐름대로 정리한 글입니다. 저와 비슷한 고민을 하시는 분들에게 조금이나마 도움이 되면 의미있는 글이 될 것 같습니다!
