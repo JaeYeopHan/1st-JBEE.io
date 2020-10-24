@@ -72,8 +72,6 @@ function a(m, pe) {
 
 또한 코드를 작성하는 시점에는 작성한 코드에 대한 이해가 100%이기 때문에 아무리 '읽기 쉽게' 작성하고자 노력해도 한계가 있을 수밖에 없다.
 
-(그 땐 잘 읽혔는데...🤔)
-
 ### 읽기 쉬우면 끝인가?
 
 읽기만 쉬우면 될까? 너무 원초적이고 당연한 이야기이기에 와 닿지 않는다. 읽기 쉽다는 것은 단순히 코드를 읽는 것만 의미하는 것이 아니라 **이해하는 것**까지 포함하기 때문에 나무뿐만 아니라 숲을 볼 때도 쉬워야 한다.
@@ -146,11 +144,17 @@ function getWage(name) {
 
 `getWage`란 함수는 `name`이라는 입력 외에도 `getMySalary`라는 입력으로 정의되지 않은 입력이 존재하며 `new Date()`라는 항상 변하는 값에 의존하고 있다.
 
-### 응급 처치를 한 코드
+### 응급처치를 한 코드
 
 중복으로 빼뒀지만 사용하는 곳에서 다른 로직을 추가해줘야 할 때를 종종 마주한다. 이 때 수정으로 인한 Side effect가 두려워 함수에 입력을 추가하던가 옵션 값을 추가하여 내부에서 억지로 처리할 때 그 코드는 좋지 않은 코드가 된다.
 
-이렇게 응급 처치가 몇 번 이뤄지면 누구도 알아보기 어려운 함수가 탄생한다. 당연히 이런 함수는 우리가 고민하는 좋은 코드라고 할 수 없다.
+이렇게 응급처치가 몇 번 이뤄지면 누구도 알아보기 어려운 함수가 탄생한다. 당연히 이런 함수는 우리가 고민하는 좋은 코드라고 할 수 없다.
+
+#### 기술부채
+
+응급처치가 무조건 나쁘다는 말이 아니다. 당장 문제 해결을 하는데에 이만큼 빠른 대응이 없다. 현재 서비스에서 발생하는 버그를 잡아야 하는데, 전체적인 구조 리팩토링을 할 수 없기 때문이다. 다만 이런 응급처치한 코드들은 부채가 되고 상환의 의무를 가져야만 한다.
+
+자금이 필요하여 은행에서 대출을 받았다면 대출받은 금액을 언젠가 상환해야 하는 것과 동일한 이치이다. 적절한 대출로 자금을 보다 융통성있게 사용할 수 있다. 마찬가지로 잠시 기술 부채를 두고 문제를 해결하는 것도 중요하다. 과도한 대출은 이자의 부담이 심한 것처럼 기술 부채가 많아질수록 그 코드를 유지보수 하는데 더 많은 비용이 들어가기 때문에 적정선을 찾는 것 또한 중요하다.
 
 # 좋지 않은 코드를 줄이기
 
@@ -193,17 +197,7 @@ const Spagetti = () => {
   };
 
   useEffect(() => {
-    (aysnc (() => {
-      setLoading(true)
-      try {
-        const data = await fetchData();
-        setData(data)
-      } catch (e) {
-      //
-      } finally {
-        setLoading(false)
-      }
-    })()
+    // data fetch
   }, [])
 
   return (
@@ -230,16 +224,7 @@ function useSpagettiData(initialPage: number, fetchFunction: () => Promise<Data>
   const handlePage = () => { ... };
 
   useEffect(() => {
-    (aysnc (() => {
-      try {
-        const data = await fetchData();
-        setData(data)
-      } catch (e) {
-        //
-      } finally {
-        setLoading(false)
-      }
-    })()
+    // data fetch
   }, [])
 
   return {
@@ -281,16 +266,7 @@ function useFetch<T>(fetchFunction: () => Promise<T>, intialValue = null) {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    (aysnc (() => {
-      try {
-        const data = await fetchData();
-        setData(data)
-      } catch (e) {
-        //
-      } finally {
-        setLoading(false)
-      }
-    })()
+    // data fetch
   }, [])
 
   return { data, isLoading, isError };
@@ -371,7 +347,9 @@ const onClickButton = () => {}
 
 ### 2. Directory 구조
 
-우선 디렉터리 구조와 아키텍처는 비교 대상이 아니다. (가끔 아키텍처를 디렉터리 구조라고 생각하는 사람들을 만나서 하는 말) 일관된 디렉터리 구조는 전체적인 구조를 파악하는 데 큰 도움이 되고 컴포넌트 간의 관계를 파악하는데에도 도움을 준다.
+디렉터리 구조는 위에서 말한 '어디에 분리할지'와 관련이 있다.
+
+우선 디렉터리 구조와 아키텍처는 비교 대상이 아니다. (아키텍처 !== 디렉터리 구조) 일관된 디렉터리 구조는 전체적인 구조를 파악하는 데 큰 도움이 되고 컴포넌트 간의 관계를 파악하는데에도 도움을 준다.
 
 Top Level의 directory 구성에 따라 어느 곳에 어떤 모듈 또는 컴포넌트들이 위치할지 예측이 된다면 코드를 빠르게 이해할 수 있다.
 
@@ -442,8 +420,6 @@ const Input = ({
 
 이 컴포넌트는 확장에 닫혀있다. (다행히 `type`은 props로 받았다.) 확장에 닫혀있다는 뜻은 이 Input 컴포넌트에 새로운 이벤트 핸들러나 값을 전달하기 어려운 구조라는 뜻이다. `ref`를 전달할 수도 있고 focus, blur 이벤트에 핸들러를 추가할 수도 있다. 이러한 변경이 발생할 때마다 props를 추가해줘야 하기 때문이다.
 
-props를 추가하는게 당연하다고 생각한다면 확장성 있는 코드에 대해 관심이 없었다는 뜻이다.
-
 이 Input 컴포넌트 목적에 따라 달라지겠지만 정말 (굳이) 스타일링만 추가된 Input 컴포넌트를 별도로 만든다면 다음과 같이 만들어야 한다.
 
 ```tsx
@@ -461,6 +437,10 @@ const Input = (props: HTMLAttributes<HTMLInputElement>) => {
 기존 `input` HTML Element가 받을 수 있는 attribute들을 그대로 받을 수 있어야 하는 것이다. 이 컴포넌트가 의미있는 컴포넌트가 되려면 validator에 대한 처리가 추가되면 좀 더 의미있어진다.
 
 ```tsx
+const Input = styled.input<{ isValid?: boolean }>`
+  // styling
+  // error styling
+`;
 interface Props extends HTMLAttributes<HTMLInputElement> {
   isValid?: boolean;
 }
@@ -473,7 +453,7 @@ const Input = ({ isValid, ...props }: Props) => {
 
 확장성의 가장 간단한 예시로 살펴봤다. 이 컴포넌트는 validate를 외부에 위임하고 있지만 이렇게 하면 재사용성이 떨어진다. validator에 대한 부분을 함께 추상화한다면 좀 더 응집도가 높은 컴포넌트를 만들 수 있을 것이다.
 
-(확장 가능하고 재사용 가능한 컴포넌트 만드는 부분은 이 글에서 다루기 보다는 다른 글에서 좀 더 다뤄볼 예정이다.)
+확장에 너무 많이 열려있으면 내부 API를 수정하기 어려워지는 문제도 발생할 수 있다. 라이브러리의 경우 확장성이 높으면 많은 use-case를 대응할 수 있겠지만 내부적으로 큰 변화가 있을 때, Breacking Change가 생길 가능성이 높아진다. 이 또한 적정선을 찾아가는 것이 무엇보다 중요하다.
 
 ## 결론
 
@@ -481,7 +461,7 @@ const Input = ({ isValid, ...props }: Props) => {
 
 - 의존성을 고민하자.
 - 일관성있게 작성하자.
-- 확장 가능하도록 설계하자.
+- 적절하게 확장 가능하도록 설계하자.
 - 어쩔 수 없는 코드는 주석과 함께 격리하자.
 
 좋은 코드를 왜 작성해야 하는지부터 고민했던 과정을 글로 정리해보았다. 결국 투입되는 비용 대비 결과물이 있어야 하는 엔지니어링의 영역이기 때문에 상황에 따라 트레이드 오프를 고민하여 코드를 관리해나가는 것이 무엇보다 중요하다고 생각한다.
