@@ -64,7 +64,7 @@ const initialState: PostState = {
 만약 null로 지정한다면 다음과 같은 이슈가 발생한다.
 
 ```ts
-type Mayby<T> = T | null
+type Maybe<T> = T | null
 ```
 
 즉, 각 상태들이 `null`일 가능성이 존재하기 되는 것이다. 때문에 값에 안전하게(safety) 접근하기 위해서는 optional chaining 등의 syntax를 활용하여 접근해야 한다.
