@@ -174,7 +174,7 @@ test('run initializeAddresses initialize disable address and setView', async don
 
 이번 프로젝트에서는 금융과 관련된 인증 처리나 고객의 상태에 따른 복잡한 분기 처리 로직을 미들웨어 함수에서 처리했다. 그러다보니 여러 비동기 호출 로직을 유연하게 처리할 수 있는 saga generator의 도움을 많이 받았다.
 
-redux-saga의 또다른 단점은 Redux 액션을 호출(put)한다던가, state에 접근(select)하는 로직을 **effect로 처리**하고, 그 effect를 mocking 함으로써 테스트 코드를 빠르게 작성할 수 있다는 것이다.
+redux-saga의 또다른 장점은 Redux 액션을 호출(put)한다던가, state에 접근(select)하는 로직을 **effect로 처리**하고, 그 effect를 mocking 함으로써 테스트 코드를 빠르게 작성할 수 있다는 것이다.
 
 ## 마무리
 
