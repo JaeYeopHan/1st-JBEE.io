@@ -2,11 +2,11 @@
 title: '전역 상태 관리에 대한 단상 (stale-while-revalidate)'
 date: 2020-12-20 19:12:65
 category: react
-thumbnail: './images/thinking-about-global-state.png'
+thumbnail: './images/thinking-about-global-state-thumbnail.png'
 draft: false
 ---
 
-![thinking-about-global-state](./images/thinking-about-global-state.png)
+![thinking-about-global-state-thumbnail](./images/thinking-about-global-state-thumbnail.png)
 
 이 글의 부제는 **Stop Using Redux for Caching for API Response**이다. 한 때 전역 상태 관리 도구로 [Redux](https://github.com/reduxjs/redux)를 즐겨썼던 개발자로서 이제 더이상 Redux를 사용하지 않게 된 이유와 회고를 담은 글이다.
 
