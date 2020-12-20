@@ -13,7 +13,7 @@ draft: false
 ### Table of Contents
 
 - 전역 상태 (Global State)
-- Manage State
+- Server cache
 - 다시 전역 상태
 
 # 전역 상태 (Global State)
@@ -71,9 +71,7 @@ React에서는 상태(state)를 다음과 같이 정의하고 있다.
 
 > 애플리케이션을 구성하고 있는 코드 어디에서든지 접근이 가능하며, 변화에 따라 렌더링에 영향을 줘야하는 값
 
-그렇다면 이 전역 상태를 어떻게 활용할 수 있을지 살펴보자.
-
-# Manage State
+### 프런트엔드 애플리케이션의 상태
 
 보통 애플리케이션에서 관리하는 상태는 다음 두 가지로 나눌 수 있다.
 
@@ -82,7 +80,9 @@ React에서는 상태(state)를 다음과 같이 정의하고 있다.
 
 렌더링하기 위한 동적인 데이터나 사용자 액션을 제어하기 위한 UI 상태 두 종류이다. 전자에 비해 후자는 컴포넌트 내에서만 사용되는 경우가 많기 때문에 관리하기가 상대적으로 쉽다.
 
-## Server cache
+이 상태를 관리하기 위한 방안으로 전역 상태를 어떻게 활용할 수 있을지 살펴보자.
+
+# Server cache
 
 대부분의 프런트엔드 애플리케이션은 서버 API로부터 데이터를 받아 렌더링하는 부분이 존재하고 다음과 같이 작성할 수 있다.
 
@@ -97,7 +97,7 @@ React에서는 상태(state)를 다음과 같이 정의하고 있다.
 - 1번) 언제 불러오는가?
 - 2번) 어디서? 어느 컴포넌트에서 state로 정의하는가
 
-### 데이터를 호출해야 하는데, 언제 어디서 호출할 것인가
+## 데이터를 호출해야 하는데, 언제 어디서 호출할 것인가
 
 불필요한 네트워크 비용을 줄이기 위해서 **필요한 시점**에 데이터를 불러오는 것이 맞다. 그리고 데이터를 필요로 하는 컴포넌트에서 데이터를 호출하는 것이 응집도가 높아지는 방향이다. 여기서 발생하는 문제점은 API의 응답 구조와 컴포넌트 트리가 일치하리라는 보장이 없다는 것이다.
 
@@ -240,13 +240,13 @@ Redux에서 서버 데이터를 관리함으로써 데이터에 접근하는 시
 
 이미 동일한 데이터를 두 군데에서 관리한다는 것에서 Single source of Truth 원칙을 위배한다. 위 예제 코드에서는 거래내역이라는 데이터를 서버에서도 저장하고 있고 클라이언트의 메모리에도 저장하는 것이다. 호출한 시점에서는 동일한 내용의 데이터겠지만 다시 서버 API를 호출하기 전에 어떤 변화가 있을지 알 수 없기 때문에 두 데이터가 동일하다는 것을 보장할 수 없게 된다.
 
-## Cause
+## 문제 해결하기
 
 Redux를 서버 데이터 캐싱에 사용했던 이유가 무엇이었나 되돌아보면 '네트워크 비용이 한번더 발생'하기 때문이었다. 이 문제를 해결하기 위해 여러 부작용이 발생한 것을 보면 올바른 접근이라 생각되지 않는다.
 
 데이터가 필요할 때마다 서버 API를 호출하고 그 비용을 없애면 되지 않을까?
 
-## Caching in memory
+### Caching in memory
 
 Redux에서 캐싱해두는 것처럼 단순히 메모리에 캐시를 해두면 되지 않을까? React 16.8에서 소개된 hooks API를 통해 간단한 메모리 캐시를 만들 수 있다.
 
@@ -298,7 +298,7 @@ export interface CacheInterface {
 
 그러나 서버의 데이터가 클라이언트에 중복으로 저장되어 캐싱된 데이터가 out-of-date 되는 문제는 아직 해결하지 못했다.
 
-## stale-while-revalidte
+### stale-while-revalidte
 
 [HTTP Spec RFC 5861](https://tools.ietf.org/html/rfc5861)에서 stale Content에 대한 [Cache-Control](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cache-Control) 확장이 있다.
 
@@ -319,6 +319,13 @@ Cache-Control: max-age=<seconds>, stale-while-revalidate=<seconds>
 - [swr](https://github.com/vercel/swr)
 - [rtk-query](https://github.com/rtk-incubator/rtk-query)
 
+React 생태계에서는 위 세 라이브러리를 참고할 수 있다. 서버 응답을 메모리에 캐싱하면서 재검증(revalidate) 로직과 함께 비용을 줄인다. 이 라이브러리는 여태 언급한 문제들을 우아하게 해결한다.
+
+- 서버로부터 데이터를 가져오는 코드와 데이터에 접근하는 인터페이스가 동일하다. 때문에 개발하는데 고려해야 할 것이 더 적어진다.
+- 주기적으로 revalidate하여 캐생된 데이터가 out-of-date 될 걱정을 할 필요없다.
+
+이 뿐만이 아니라 비동기 요청에 따른 status 처리, 실패에 따른 retry 처리 등 프런트엔드의 비동기와 관련된 부가 기능을 제공한다. 또한 손이 많이가는 pagination 또는 infinite API 처리 등에 대한 지원도 있다.
+
 (세 라이브러리를 비교한 문서는 [여기](https://react-query.tanstack.com/comparison)를 참고하면 된다.)
 
 react-query를 사용하여 아까 예제 코드 중 `TransactionList` 를 rewrite 해보면 다음과 같다.
@@ -333,13 +340,79 @@ function TransactionListA() {
 }
 ```
 
+# UI state
+
+대부분의 UI 상태는 자연스럽게 컴포넌트 내에 위치하게 된다. 그래서 거의 대부분의 UI state는 Redux에서 관리하지 않는다. 그러나 Toast, Modal, Dialog 등 컴포넌트 트리를 벗어나 노출되는 컴포넌트들은 보통 상태를 어디에선가 주입받는 형식으로 노출 여부가 결정된다.
+
+```tsx
+function Modal({ open }) {
+  if (open) {
+    return <div>모달 컴포넌트</div>
+  }
+  return null
+}
+
+function MyPage() {
+  const [isOpen, setOpen] = useState(false)
+
+  return (
+    <>
+      <section>
+        <h1>Modal Example</h1>
+        <button onCllick={() => setOpen(true)}>열기</button>
+      </section>
+      <Modal open={isOpen} />
+    </>
+  )
+}
+```
+
+`Modal` 컴포넌트의 노출 여부를 `MyPage` 컴포넌트에서 제어하고 있다. 그러나 `MyPage`가 아닌 다른 컴포넌트에서도 이 `Modal` 컴포넌트에 대한 노출 여부를 제어해야 하는 경우가 발생하면 어떻게 될까? 아까와 똑같이 Lifting state 작업이 필요하다. 이 문제는 간단하게 Context API로 해결할 수 있다.
+
+## Context API
+
+`Modal` 컴포넌트는 컴포넌트 트리와는 별개로 노출되는 컴포넌트이기 때문에 특정 페이지에 의존되어 mount될 필요가 없다. 그렇기 때문에 Modal을 제어해야 하는 컴포넌트의 상단에서 `ModalProvider`로 `Modal`에 대한 제어와 정보를 주입할 수 있다.
+
+간단하게 Modal을 위한 Context를 만들어보면 다음과 같다.
+
+```tsx
+const ModalContext = createContext(null)
+
+export function ModalProvider({ children }) {
+  const isOpen = /*  */
+  const open = /*  */
+  const close = /*  */
+
+  return (
+    <ModalContext.Provider value={{ open, close }}>
+      {children}
+      <Modal open={open} />
+    </ModalContext.Provider>
+  )
+}
+
+export function useModal() {
+  return useContext(ModalContext)
+}
+```
+
+사용하는 곳에선 `useModal` hooks를 통해 Modal을 열고 닫을 수 있다.
+
+## Context API는 성능에...
+
+Context API와 Redux를 비교하는 글들이 많다. 이 둘은 비교 대상이 애초에 아니지만 Redux는 항상 react-redux와 함께 사용하다보니 맡고 있는 역할이 비슷하여 비교하는 글들이 많은 것 같다.
+
+대부분 Context API로 전역 상태를 관리할 수 있지 않냐는 물음을 던지고 re-render되는 퍼포먼스 때문에 전역 상태를 관리하기에 적합하지 않다는 결론을 내리고 있다. react-redux는 re-render를 방지하기 위한 최적화가 들어가 있어 전역 상태로 인한 성능 이슈가 없는 것이다.
+
+하지만 이 글에서 정의한 전역 상태로 본다면, 전역 상태로 관리해야 하는 대상이 아닌 것을 전역 상태로 관리하다보니 애플리케이션 전반의 성능에 영향을 미치고 있다는 것을 알 수 있다. 전역으로 관리하고 있는 상태는 애플리케이션 전반에 리렌더링을 발생시켜야 한다.
+
 # 다시 전역 상태
 
 이 글에서는 전역 상태를 다음과 같이 정의했다.
 
 > 애플리케이션을 구성하고 있는 코드 어디에서든지 접근이 가능하며 변화에 따라 렌더링에 영향을 줘야하는 상태값이며 그 값은 상수가 아닌 변수.
 
-그렇다면 그 값이 변경되었을 때, 모든 컴포넌트의 렌더링에 영향을 줘야하는 값에는 어떤 것이 있을까?
+서버의 응답값, UI 상태 두 가지의 상태는 전역 상태와 어울리지 않는다는 판단을 내렸다. 그렇다면 정말 전역 상태에 어울리는 상태는 없는 것일까? 그 값이 변경되었을 때, 모든 컴포넌트의 렌더링에 영향을 줘야하는 값에는 어떤 것이 있을까?
 
 ### 테마
 
@@ -349,15 +422,9 @@ function TransactionListA() {
 
 다국어 처리가 되어 있는 애플리케이션에서 위치 기반으로 맞는 언어를 보여주거나 사용자가 임의로 언어를 설정할 수 있다. 이 때 텍스트가 존재하는 모든 컴포넌트는 다시 렌더링 되어야 할 것이다. 거의 전역으로 볼 수 있지 않을까?
 
-애플리케이션의 특성에 따라서 전역 상태를 정의하기 나름이지만 이 이외에 일반적인 애플리케이션의 경우에는 전역 상태에 저장할 상태는 없다고 생각한다. 애플리케이션의 크기가 커지면 커질수록 전역에서 관리해야 하는 상태는 없어진다.
-
-## Context API
-
-Context API와 Redux를 비교하는 글들이 많다. 이 둘은 비교 대상이 애초에 아니지만 하는 역할이 비슷하다보니 비교하는 글들이 많은 것 같다. 대부분 Context API로 전역 상태를 관리할 수 있지 않냐는 물음을 던지고 re-render되는 퍼포먼스 때문에 전역 상태를 관리하기에 적합하지 않다는 결론을 내리고 있다.
-
-이 글에서 정의한 전역 상태로 본다면, 전역 상태로 관리해야 하는 값이 아닌 값을 전역 상태로 관리하다보니 애플리케이션 전반의 성능에 영향을 미치고 있다는 것을 알 수 있다. 전역으로 관리하고 있는 상태는 애플리케이션 전반에 리렌더링을 발생시켜야 한다. 그렇기 때문에 위에서 언급한 두 경우에 대해선 Context API로 충분하다는 결론을 내릴 수 있다.
-
 # Summary
+
+애플리케이션의 특성에 따라서 전역 상태를 정의하기 나름이지만 이 이외에 일반적인 애플리케이션의 경우에는 전역 상태에 저장할 상태는 없다고 생각한다. 애플리케이션의 크기가 커지면 커질수록 전역에서 관리해야 하는 상태는 없어진다.
 
 서버의 응답을 캐싱하기 위한 목적으로 Redux는 어울리지 않는다. 위에서 언급한 두 가지 상태, 외부 데이터 그리고 UI 상태만 잘 분리해서 관리해도 애플리케이션의 완성도가 높아진다. 그 중 전자에 해당하는 외부에서 주입되는 동적인 데이터는 캐싱에 기반하여 서버 API를 바라보도록 하고 UI 상태들은 필요한 컴포넌트에 정의되어 있어야 한다. 그래야 응집도가 높고 재사용성이 높아진다.
 
