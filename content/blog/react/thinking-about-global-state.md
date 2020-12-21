@@ -14,6 +14,7 @@ draft: false
 
 - 전역 상태 (Global State)
 - Server cache
+- UI state
 - 다시 전역 상태
 
 # 전역 상태 (Global State)
@@ -47,7 +48,7 @@ React에서는 상태(state)를 다음과 같이 정의하고 있다.
 
 ## 전역(Global)
 
-보여지고 있는 문서의 어떤 곳에서라도 접근할 수 있는 영역을 '전역'이라고 할 수 있다. HTML 문서에 script 태그로 변수를 선언하면 저 script 태그가 load 된 이후에 업로드 된 JavaScript 코드에 `foo` 라는 변수에 접근할 수 있다.
+문서의 어떤 곳에서라도 접근할 수 있는 영역을 '전역'이라고 할 수 있다. HTML 문서에 script 태그로 변수를 선언하면 그 script가 load 된 이후의 모든 JavaScript 코드에서 `foo` 라는 변수에 접근할 수 있다.
 
 ```tsx
 <!DOCTYPE>
@@ -198,9 +199,9 @@ function TransactionListA() {
 ## 응답값을 redux에서 관리할 때 발생하는 문제들
 
 1. 필요로 하는 값은 redux에 존재한다는 가정
-2. 서버에서 값이 변한다면
+2. 특정 시점에 capture된 데이터
 
-### 필요로 하는 값은 redux에 존재한다는 가정하에?
+### 필요로 하는 값은 redux에 존재한다는 가정
 
 위 예제 코드에서 `TransactionListA` 컴포넌트를 다시 살펴보자.
 
@@ -232,7 +233,7 @@ Redux에서 서버로부터 값을 가져오는 액션이 dispatch 되지 않는
 
 Redux에서 서버 데이터를 관리함으로써 데이터에 접근하는 시점에 데이터가 있음을 보장할 수 없게 되었고 애플리케이션의 크기가 커지면 커질수록 데이터의 흐름을 따라가기 힘들게 된다.
 
-### 서버에서 값이 변한다면?
+### 특정 시점에 capture된 데이터
 
 서버로부터 값을 가져와 redux에 저장(또는 캐시라는 표현을 사용할 수 있겠다.)하기 위해선 특정 시점에 액션이 dispatch되어야 한다. 결국 액션이 dispatch 되는 시점에 **캡쳐(capture)된** 데이터가 저장되는 것이다. 이 시점 이후에 변경된 서버의 값은 액션을 다시 dispatch 하기 전까지 반영되지 않는다.
 
@@ -315,7 +316,9 @@ Cache-Control: max-age=<seconds>, stale-while-revalidate=<seconds>
 - HTTP 요청이 1 ~ 60 초 사이에 반복적으로 발생할 경우, 캐시된 값은 이미 낡았지만(out-of-date) 캐싱된 값을 반환한다. 이와 동시에 백그라운드에서 향후 사용을 위해 캐시를 새로운 값으로 채우도록 재검증 요청이 이루어진다.
 - 60초 이후에 들어온 HTTP 요청에 대해선 다시 서버에 요청을 보낸다.
 
-이 state-whilte-revalidate 로직을 메모리 캐시에도 적용할 수 있지 않을까? 이미 많은 구현체가 있다.
+이 state-while-revalidate 로직을 메모리 캐시에도 적용할 수 있지 않을까?
+
+위에서 언급한 메모리 캐시와 아쉬웠던 부분을 모두 구현하면서 이 swr 컨셉을 적용 구현체가 이미 많다.
 
 - [react-query](https://github.com/tannerlinsley/react-query)
 - [swr](https://github.com/vercel/swr)
@@ -326,7 +329,7 @@ React 생태계에서는 위 세 라이브러리를 참고할 수 있다. 서버
 - 서버로부터 데이터를 가져오는 코드와 데이터에 접근하는 인터페이스가 동일하다. 때문에 개발하는데 고려해야 할 것이 더 적어진다.
 - 주기적으로 revalidate하여 캐생된 데이터가 out-of-date 될 걱정을 할 필요없다.
 
-이 뿐만이 아니라 비동기 요청에 따른 status 처리, 실패에 따른 retry 처리 등 프런트엔드의 비동기와 관련된 부가 기능을 제공한다. 요청하는 단위에 동적인 `id`를 정의하여 refetch하는 로직을 선언적으로 작성하는 것 또한 매우 유용하며 손이 많이 가는 pagination API 또는 infinite API 처리 등에 대한 지원도 있다.
+이 뿐만이 아니라 비동기 요청에 따른 status 처리, 실패에 따른 retry 처리 등 프런트엔드에서 처리해야 하는 비동기와 관련된 부가 기능을 제공한다. 요청하는 단위에 동적인 `id`를 정의하여 refetch하는 로직을 **선언적**으로 작성하는 것 또한 매우 유용하며 손이 많이 가는 pagination API 또는 infinite API 처리 등에 대한 지원도 있다.
 
 (세 라이브러리를 비교한 문서는 [여기](https://react-query.tanstack.com/comparison)를 참고하면 된다.)
 
@@ -341,6 +344,22 @@ function TransactionListA() {
   return isLoading ? <Loading> : <ul>{/* render transaction */}</ul>;
 }
 ```
+
+이 부분을 다음과 같이 다시 작성할 수 있다.
+
+```ts
+function useTransactions() {
+ return useQuery('transaction', () => axios.get('/api/transactions'));
+}
+
+function TransactionListA() {
+  const { data: transactions, isLoading } = useTransactions();
+
+  return isLoading ? <Loading> : <ul>{/* render transaction */}</ul>;
+}
+```
+
+'거래내역 목록'이라는 도메인을 기반으로 hooks를 만들어 컴포넌트에서 데이터에 접근하는 부분을 일관된 인터페이스로 가져갈 수 있게 되었고 데이터가 있다는 것과 최신 데이터 임을 보장하며 어느 컴포넌트에서든 재사용 할 수 있게 되었다.
 
 # UI state
 
@@ -400,7 +419,7 @@ export function useModal() {
 
 사용하는 곳에선 `useModal` hooks를 통해 Modal을 열고 닫을 수 있다.
 
-## Context API는 성능에...
+## Context API는 성능에
 
 Context API와 Redux를 비교하는 글들이 많다. 이 둘은 비교 대상이 애초에 아니지만 Redux는 항상 react-redux와 함께 사용하다보니 맡고 있는 역할이 비슷하여 비교하는 글들이 많은 것 같다.
 
@@ -416,15 +435,15 @@ Context API와 Redux를 비교하는 글들이 많다. 이 둘은 비교 대상�
 
 서버의 응답값, UI 상태 두 가지의 상태는 전역 상태와 어울리지 않는다는 판단을 내렸다. 그렇다면 정말 전역 상태에 어울리는 상태는 없는 것일까? 그 값이 변경되었을 때, 모든 컴포넌트의 렌더링에 영향을 줘야하는 값에는 어떤 것이 있을까?
 
-### 테마
+### 테마 (Theme)
 
 웹 페이지가 테마를 가지고 있어서 테마에 따라서 다른 색상으로 보여져야 한다면 이 '테마'라는 값은 모든 컴포넌트에 영향을 줘야 하고 컴포넌트들은 테마가 달라질 경우 다시 렌더링 되어야 할 것이다.
 
-### 다국어 처리
+### 다국어 처리 (i18n)
 
 다국어 처리가 되어 있는 애플리케이션에서 위치 기반으로 맞는 언어를 보여주거나 사용자가 임의로 언어를 설정할 수 있다. 이 때 텍스트가 존재하는 모든 컴포넌트는 다시 렌더링 되어야 할 것이다. 거의 전역으로 볼 수 있지 않을까?
 
-## 그리고?
+## 그리고
 
 애플리케이션의 특성에 따라서 전역 상태를 정의하기 나름이지만 이 이외에 일반적인 애플리케이션의 경우에는 전역 상태에서 관리할 상태는 없다고 생각한다. 애플리케이션의 크기가 커지면 커질수록 전역에서 관리해야 하는 상태는 없어진다. 여러 컴포넌트가 상태를 공유해야 하는 경우, 상태를 공유해야 하는 컴포넌트를 Provider로 묶어줘서 해결할 수 있다.
 
@@ -443,7 +462,7 @@ Context API로 한계가 있을 수 있기 때문에 이 글에서 언급한 Red
 
 ## Inspired by
 
-이 글은 위에서 소개한 라이브러리들과 아래 글들에 영향을 받았습니다.
+이 글은 위에서 소개한 라이브러리들과 아래 글들에 영향을 받았습니다. 다른 의견이나 모든 피드백은 환영합니다.
 
 - [https://kentcdodds.com/blog/application-state-management-with-react](https://kentcdodds.com/blog/application-state-management-with-react)
 - [https://web.dev/stale-while-revalidate/](https://web.dev/stale-while-revalidate/)
