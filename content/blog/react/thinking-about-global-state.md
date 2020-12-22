@@ -149,7 +149,7 @@ function DailyTransaction() {
       <Suspense fallback={/* loader */}>
         <TransactionListA />
       </Suspense>
-      <TransactionListAnother /> {/* <- 이 컴포넌트에서 거래내역을 보여줘야 하는 경우 */}
+      <TransactionListB /> {/* <- 이 컴포넌트에서도 거래내역을 보여줘야 하는 경우 */}
     </main>
   )
 }
