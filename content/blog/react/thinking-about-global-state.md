@@ -54,7 +54,7 @@ React에서는 상태(state)를 다음과 같이 정의하고 있다.
 <!DOCTYPE>
 <html>
 <body>
-  <h1>What is Global State<h2>
+  <h1>What is Global State<h1>
   <script>
     var foo = 'me';
   </script>
@@ -188,7 +188,7 @@ function DailyTransaction() {
 }
 
 function TransactionListA() {
-  const transactions = useSelector((state) => state.transaction)
+  const transactions = useSelector(state => state.transaction)
 
   return <ul>{/* render transaction */}</ul>
 }
@@ -207,7 +207,7 @@ function TransactionListA() {
 
 ```tsx
 function TransactionListA() {
-  const transactions = useSelector((state) => state.transaction)
+  const transactions = useSelector(state => state.transaction)
 
   return <ul>{/* render transaction */}</ul>
 }
@@ -270,9 +270,9 @@ function useTransaction() {
       setData(CACHE[cacheID]);
     }
 
-    fetchTransaction().then(response => {
-      CACHE[cacheID] = response.data;
-      setData(response.data);
+    fetchTransaction().then(data => {
+      CACHE[cacheID] = data;
+      setData(data);
     });
   }, [url]);
 
@@ -341,7 +341,7 @@ function fetchTransactions(): Promise<Transaction[]> { ... }
 function TransactionListA() {
   const { data: transactions, isLoading } = useQuery('transaction', fetchTransactions);
 
-  return isLoading ? <Loading> : <ul>{/* render transaction */}</ul>;
+  return isLoading ? <Loading /> : <ul>{/* render transaction */}</ul>;
 }
 ```
 
@@ -355,7 +355,7 @@ function useTransactions() {
 function TransactionListA() {
   const { data: transactions, isLoading } = useTransactions();
 
-  return isLoading ? <Loading> : <ul>{/* render transaction */}</ul>;
+  return isLoading ? <Loading /> : <ul>{/* render transaction */}</ul>;
 }
 ```
 
@@ -407,7 +407,7 @@ export function ModalProvider({ children }) {
   return (
     <ModalContext.Provider value={{ open, close }}>
       {children}
-      <Modal open={open} />
+      <Modal open={isOpen} />
     </ModalContext.Provider>
   )
 }
