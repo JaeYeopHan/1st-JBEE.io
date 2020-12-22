@@ -120,7 +120,7 @@ function fetchTransactions(): Promise<Transaction[]> { ... }
 거래내역 목록을 보여주는 컴포넌트를 만들어야 할 때, 거래내역 목록 API를 호출해야 한다. 그리고 이 API는 `TransactionList` 라는 컴포넌트에서 호출하는 것이 가장 이상적이다. (cc. [좋은 코드란 무엇인가](https://jbee.io/etc/what-is-good-code/#where))
 
 ```tsx
-function TransactionList() {
+function TransactionListA() {
   const [transactions, setTransaction] = useState()
 
   useEffect(() => {
@@ -147,15 +147,15 @@ function DailyTransaction() {
   return (
     <main>
       <Suspense fallback={/* loader */}>
-        <TransactionList />
+        <TransactionListA />
       </Suspense>
-      <MainAccount /> {/* <- 이 컴포넌트에서 나의 주계좌를 보여줘야 하는 경우 */}
+      <TransactionListAnother /> {/* <- 이 컴포넌트에서 거래내역을 보여줘야 하는 경우 */}
     </main>
   )
 }
 ```
 
-`DailyTransaction` 컴포넌트 에서도 다시 한번 거래내역 목록 API를 호출하게 되면 네트워크 비용이 한번 더 발생하기 때문에 낭비가 된다. 그렇기 때문에 `DailyTransaction` 컴포넌트에서 거래내역 목록 API를 호출하고 `TransactionList` 컴포넌트와 `MainAccount` 컴포넌트에 데이터를 내려주게 된다.
+`TransactionListAnother` 컴포넌트 에서도 다시 한번 거래내역 목록 API를 호출하게 되면 네트워크 비용이 한번 더 발생하기 때문에 낭비가 된다. 그렇기 때문에 `DailyTransaction` 컴포넌트에서 거래내역 목록 API를 호출하고 `TransactionListA` 컴포넌트와 `TransactionListB` 컴포넌트에 데이터를 내려주게 된다.
 
 ```tsx
 function DailyTransaction() {
