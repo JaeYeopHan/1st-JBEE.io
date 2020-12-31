@@ -36,11 +36,11 @@ lang: 'ko'
 
 ## Toss (Viva Republica)
 
-|              |                                                                 |
-| -----------: | --------------------------------------------------------------- |
-|   **period** | 20.04 ~ current                                                   |
-| **position** | Web Platform Team, Inflow Silo / Front-End Developer                                  |
-| **projects** | (TBD) |
+|              |                                                            |
+| -----------: | ---------------------------------------------------------- |
+|   **period** | 20.04 ~ current                                            |
+| **position** | Web Platform Team, Inflow Silo / Front-End Engineer        |
+| **projects** | Tuba, 로그센터, 숨은정부지원금찾기, 반짝특가, 매일행운상자 |
 
 (TBD)
 
