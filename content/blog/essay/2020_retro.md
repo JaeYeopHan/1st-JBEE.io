@@ -145,6 +145,7 @@ FEConf2020 모든 세션은 [Youtube 공식 채널](https://www.youtube.com/chan
 
 - Rome은 babel을 비롯한 FE 개발 환경을 단순화할 수 있을까?
 - 리브랜딩된 ReScript는 FE 개발 파이를 어디까지 잡아먹을까?
+- Deno FE 개발 파이를 어디까지 잡아먹을까?
 - React의 Server Component는 FE 개발을 얼마나 바꿀까?
 - Vercel은 얼마나 내 개발을 편하게 해주려나?
 - 누가 monorepo 도구 제대로 좀 만들어줬으면 좋겠는데 언제 나올까?
