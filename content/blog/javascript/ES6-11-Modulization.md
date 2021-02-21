@@ -4,7 +4,7 @@ date: 2017-05-04 15:22:01
 category: 'javascript'
 ---
 
-![](/images/javascript_es6.png)
+![javascript_es6](/images/javascript_es6.png)
 
 ES6에서 추가된 import/export 구문을 9가지 Case로 나누어 정리해봤습니다.
 
@@ -20,13 +20,13 @@ ES6에서는 이러한 문제점을 인식하고 `import`라는 구문을 통해
 
 함수를 다른 자바스크립트 파일에서 불러와 실행해야 하는 경우에 대한 예제 코드입니다.
 
-```js module1.js
+```js
 export function hello() {
   console.log(`module1`)
 }
 ```
 
-```js index.js
+```js
 import { hello } from './module1'
 hello() //module1
 ```
@@ -36,13 +36,13 @@ hello() //module1
 
 ### Case 2
 
-```js module1.js
+```js
 export default function hello() {
   console.log(`module1`)
 }
 ```
 
-```js index.js
+```js
 import module1 from './module1'
 module1() // module1
 ```
@@ -53,14 +53,14 @@ module1() // module1
 
 `export default`로 이미 export를 한 후에 다른 함수나 변수를 export하기 위해서는 import할 때 다음과 같은 방법을 사용해야 합니다.
 
-```js module1.js
+```js
 export default function hello() {
   console.log(`module1`)
 }
 export let name = 'jbee'
 ```
 
-```js index.js
+```js
 import module1, { name } from './module1'
 module1() // module1
 console.log(name) // jbee
@@ -70,7 +70,7 @@ console.log(name) // jbee
 
 #### Case 3-1
 
-```js index.js
+```js
 import module1, { name } from './module1'
 module1() // module1
 console.log(name) // jbee
@@ -81,11 +81,11 @@ import한 name을 다시 정의하려고 하면 SyntaxError가 발생합니다. 
 
 #### Case 3-2
 
-```js module1.js
+```js
 export const name = 'jbee'
 ```
 
-```js module2.js
+```js
 export const name = 'newName'
 ```
 
@@ -102,7 +102,7 @@ default로 export되지 않은 함수 또는 변수에 대해서는 반드시 �
 
 위에서 발생한 문제를 해결하기 위한 첫번째 방법입니다.
 
-```js index.js
+```js
 import { name as module1Name } from './module1'
 import { name as module2Name } from './module2'
 
@@ -116,7 +116,7 @@ console.log(module2Name)
 
 위의 문제를 조금 더 개선해보겠습니다:)
 
-```js index.js
+```js
 import * as Module1 from './module1'
 import * as Module2 from './module2'
 
@@ -128,14 +128,14 @@ console.log(Module2.name)
 
 ### Case 6
 
-```js module1.js
+```js
 export const obj = {
   name: 'Jbee',
   age: 25,
 }
 ```
 
-```js index.js
+```js
 import { obj } from './module1'
 
 console.log(obj.name) // Jbee
@@ -149,7 +149,7 @@ console.log(obj.name) // newName
 
 여태까지 정의함과 동시에 export를 할지 말지 결정했는데요, 자바스크립트 코드의 마지막에서 이를 정의해줄 수 있습니다.
 
-```js module1.js
+```js
 const obj = {
   name: 'Jbee',
   age: 25,
@@ -158,7 +158,7 @@ const obj = {
 export { obj }
 ```
 
-```js index.js
+```js
 import { obj } from './module1'
 
 console.log(obj.name) // Jbee
@@ -168,7 +168,7 @@ console.log(obj.name) // Jbee
 
 Object 또는 변수를 export하는 경우 `default`키워드를 붙일 수 없습니다. 대신 다른 방법이 존재합니다.
 
-```js module1.js
+```js
 const obj = {
   name: 'Jbee',
   age: 25,
@@ -177,7 +177,7 @@ const obj = {
 export { obj as default }
 ```
 
-```js index.js
+```js
 import obj from './module1'
 
 console.log(obj.name) // Jbee
@@ -189,7 +189,7 @@ console.log(obj.name) // Jbee
 
 import 구문을 class에도 물론 적용할 수 있습니다.
 
-```js module1.js
+```js
 export default class Component {
   constructor() {
     console.log(`create component!`)
@@ -197,24 +197,29 @@ export default class Component {
 }
 ```
 
-```js index.js
+```js
 import Component from './module1'
 new Component()
 //create component!
 ```
 
 <br/>
+
 ## import/export 5 convention from [Airbnb ES6 Convention](https://github.com/JaeYeopHan/javascript)
-1) Wildcard(`*`) 사용을 자제하세요!
+
+### 1) Wildcard(`*`) 사용을 자제하세요
+
 ```js
 // bad
-import * as AirbnbStyleGuide from './AirbnbStyleGuide';
+import* as AirbnbStyleGuide from './AirbnbStyleGuide';
 
 // good
 import AirbnbStyleGuide from './AirbnbStyleGuide';
 
 ````
-2) import함과 동시에 export를 하지 말고 코드의 마지막에서 따로 export하세요!
+
+### 2) import함과 동시에 export를 하지 말고 코드의 마지막에서 따로 export하세요
+
 ```js
 // bad
 // filename es6.js
@@ -226,7 +231,7 @@ import { es6 } from './AirbnbStyleGuide';
 export default es6;
 ````
 
-3. 동일한 path를 import하는 경우에는 한 줄에서 모두 import하세요!
+### 3. 동일한 path를 import하는 경우에는 한 줄에서 모두 import하세요
 
 ```js
 // bad
@@ -238,7 +243,7 @@ import { named1, named2 } from 'foo'
 import foo, { named1, named2 } from 'foo'
 ```
 
-4. import 구문은 호이스팅 됩니다. 그러므로 import문은 모두 상단에 위치시키세요!
+### 4. import 구문은 호이스팅 됩니다. 그러므로 import문은 모두 상단에 위치시키세요
 
 ```js
 // bad
@@ -254,7 +259,7 @@ import bar from 'bar'
 foo.init()
 ```
 
-5. 하나만 export하는 경우에는 default 키워드를 붙여주세요!
+### 5. 하나만 export하는 경우에는 default 키워드를 붙여주세요
 
 ```js
 // bad
@@ -264,7 +269,7 @@ export function foo() {}
 export default function foo() {}
 ```
 
-#### 마무리
+## 마무리
 
 이상 9가지의 case로 ES6의 import와 export를 정리해봤습니다 :D
 
