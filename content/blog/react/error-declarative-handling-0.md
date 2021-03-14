@@ -2,15 +2,15 @@
 title: '효율적인 프런트엔드 에러 핸들링'
 date: 2021-03-13 18:03:28
 category: react
-thumbnail: './images/error-handling-thumbnail.png'
+thumbnail: './images/error-handling-thumbnail-0.png'
 draft: false
 ---
 
-![thumbnail](./images/error-handling-thumbnail.png)
+![thumbnail](./images/error-handling-thumbnail-0.png)
 
 제품을 개발한다면 에러 처리(Error Handling)는 반드시 마주하는 일이고 피할 수 없는 관심사라고 생각합니다. 에러를 어떻게 분류할 수 있는지 그리고 어떻게 처리할 수 있는지 고민을 해봤습니다. 좀 더 나아가 에러를 처리하는데 있어서 사용자 경험을 고려하며 우아하게 처리할 수 있도록 시도한 경험을 공유합니다.
 
-### [1. React에서 선언적으로 비동기 다루기](https://jbee.io/react/error-declarative-handling-1/)
+### 1. [React에서 선언적으로 비동기 다루기](https://jbee.io/react/error-declarative-handling-1/)
 
 에러를 효율적으로 다루기 위해 선언적으로 비동기를 정의하고 처리하는 방법을 고민했고 그 결과물을 공유합니다. Suspense와 ErrorBoundary를 사용하여 비동기 컴포넌트를 보다 효율적으로 처리하는 컴포넌트를 소개합니다.
 
