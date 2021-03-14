@@ -106,7 +106,7 @@ function useUser() {
 
 Suspense는 비동기를 명령형으로 처리하고 있던 부분 중 `loading`을 담당하게 된다.
 
-[swr](https://github.com/vercel/swr), [react-query](https://github.com/tannerlinsley/react-query) 등을 사용하면 다음과 같이 간단하게 처리할 수 있다. 이번 포스팅의 예제는 react-query로 suspense 옵션과 함께 작성할 예정이다.
+[swr](https://github.com/vercel/swr), [react-query](https://github.com/tannerlinsley/react-query) 등을 사용하면 다음과 같이 간단하게 처리할 수 있다. 이번 포스팅의 예제는 컴포넌트를 Suspended 상태로 만들어주는 suspense 옵션과 함께 작성할 예정이다.
 
 ```tsx{4}
 function useUser() {
@@ -136,7 +136,9 @@ function UserDropDown() {
 }
 ```
 
-현재 비동기 호출의 상태가 로딩(pending) 상태인지 판단할 필요없이 Suspense의 fallback props로 컴포넌트를 전달하여 로딩 상태에 따른 렌더링을 처리할 수 있다. 데이터 로드가 완료되는 시점(fulfilled)에 `UserDropDown` 컴포넌트가 렌더링 되는 것이다. 좀 더 나아가 fallback 으로 전달되는 컴포넌트를 기준으로 한 단계 더 추상화하여 로딩 상태를 처리할 수도 있다.
+현재 비동기 호출의 상태가 로딩(pending) 상태인지 판단할 필요없이 Suspense의 fallback props로 컴포넌트를 전달하여 로딩 상태에 따른 렌더링을 처리할 수 있다. 데이터 로드가 완료되는 시점(fulfilled)에 `UserDropDown` 컴포넌트가 렌더링 되는 것이다. 즉 `<UserDropDown />` 컴포넌트는 데이터 로드가 완료된 시점만 고려하면 되는 것이다. 좀 더 나아가 fallback 으로 전달되는 컴포넌트를 기준으로 한 단계 더 추상화하여 로딩 상태를 처리할 수도 있다.
+
+사실 이 내용은 React 공식 문서에서 자세하게 다루고 있던 부분을 짧게 요약한 것이다. ([Concurrent Mode Suspense](https://reactjs.org/docs/concurrent-mode-suspense.html))
 
 ### Server Side Rendering
 
@@ -228,7 +230,7 @@ type RenderFallbackProps<ErrorType extends Error = Error> = {
   error: ErrorType;
 };
 
-export type RenderFallbackType = <ErrorType extends Error>(
+type RenderFallbackType = <ErrorType extends Error>(
   props: RenderFallbackProps<ErrorType>
 ) => ReactNode;
 ```
@@ -237,7 +239,7 @@ export type RenderFallbackType = <ErrorType extends Error>(
 
 ### reset
 
-ErrorBoundary 내부 상태에 `hasError` 값이 존재하기 때문에 이를 다시 초기화해줄 인터페이스가 필요하다. 부모 컴포넌트를 다시 mount 시키지 않는 이상, ErrorBoundary에서 capture 된 에러는 다시 초기값으로 돌이가지 않기 때문이다.
+ErrorBoundary 내부 상태에 `hasError` 값이 **상태로 존재하기 때문에** 이를 다시 초기화해줄 인터페이스가 필요하다. 부모 컴포넌트를 다시 mount 시키지 않는 이상, ErrorBoundary에서 capture 된 에러는 다시 초기값으로 돌이가지 않기 때문이다.
 
 인터페이스를 고민하기 앞서 어떤 시점에 초기화가 필요할지 정리해보면 다음과 같다.
 
@@ -268,6 +270,7 @@ type RenderFallbackProps<ErrorType extends Error = Error> = {
 
 ```tsx{9}
 interface Props {
+  // ...
   resetKeys: unknown[]
 }
 
@@ -310,7 +313,7 @@ render() {
 
 ### 확장된 ErrorBoundary
 
-에러를 선언적으로 정의할 인터페이스를 설계하고 이를 구현까지 해봤다. 소개한 기능들은 [react-error-boundary](https://github.com/bvaughn/react-error-boundary)에 구현되어 있다. 정말 유용한 라이브러리이지만 개인적으로 아쉬운 부분이 있어 이 컴포넌트를 한번 더 확장하여 사용하고 있다.
+에러를 선언적으로 정의할 인터페이스를 설계하고 이를 구현까지 해봤다. 소개한 기능들은 [react-error-boundary](https://github.com/bvaughn/react-error-boundary)에 구현되어 있다. 정말 유용한 라이브러리이지만 개인적으로 아쉬운 부분이 있어 이 컴포넌트를 한번 더 확장하여 사용하고 있다. (3장에서 추가로 다룰 예정)
 
 # 비동기 컴포넌트 Wrapper
 
@@ -340,7 +343,7 @@ function AsyncBoundary({
       {...errorBoundaryProps}
     >
       <SSRSafeSuspense fallback={pendingFallback}>
-        {children}
+        {children} {/* <- fulfilled */}
       </SSRSafeSuspense>
     </ErrorBoundary>
   );
@@ -367,7 +370,7 @@ function UserList() {
   )
 }
 
-
+// Suspended Component
 function UserDropDown() {
   const { data: user } = useUser(); // async call
 
@@ -375,11 +378,11 @@ function UserDropDown() {
 }
 ```
 
-데이터가 로드되기 전(pending)엔 pendingFallback으로 전달한 `<Loading />` 컴포넌트가 렌더링 될 것이고 비동기 작업 도중 에러가 발생할 경우, `<Error />` 컴포넌트가 렌더링 될 것이다. 우리가 의도한 `<UserDropdown />` 컴포넌트는 데이터가 로드된 이후 렌더링 된다.
+데이터가 로드되기 전(pending)엔 pendingFallback으로 전달한 `<Loading />` 컴포넌트가 렌더링 될 것이고, 비동기 작업 도중 에러가 발생할 경우 `<Error />` 컴포넌트가 렌더링 될 것이다. 우리가 의도한 `<UserDropdown />` 컴포넌트는 데이터가 로드된 이후 렌더링 된다.
 
 ## 마무리
 
-비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다. 현재 위에서 소개한 기능에서 개발 편의성을 위해 몇 가지 기능을 더 추가해서 사용하고 있다. (3장에서 추가로 다룰 예정)
+비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다.
 
 다음 장에서는 에러를 다루는 도구를 만들었는데, 우리는 평소에 어떤 에러에 대해서 처리를 하고 있는지 에러 자체에 대해 알아본다.
 
