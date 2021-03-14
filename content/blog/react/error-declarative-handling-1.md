@@ -1,5 +1,5 @@
 ---
-title: 'React에서 선언적으로 에러 다루기'
+title: 'React에서 선언적으로 비동기 다루기'
 date: 2021-03-14 18:03:28
 category: react
 thumbnail: './images/error-handling-thumbnail-1.png'
@@ -37,7 +37,7 @@ async function getUser() {
 
 이런 간단한 호출의 경우에도 비동기 상태에 따른 별도 처리가 필요하다. 그리고 try-catch statement로 감싸서 에러에 대한 처리가 필요하다.
 
-```tsx
+```tsx{3,8}
 async function getUser() {
   try {
     // start loading
@@ -145,7 +145,7 @@ function UserDropDown() {
 
 Suspense는 서버 사이드 렌더링 환경에서 지원하지 않는다. 이를 대응하기 위해 서버 사이드 환경에선 전달받은 fallback 컴포넌트를 렌더링 할 수 있도록 기존의 Suspense 컴포넌트를 확장하여 사용해야 한다.
 
-```tsx{17,20}
+```tsx{16,19}
 function useMounted() {
   const [mounted, setMounted] = useState(false);
 
@@ -256,7 +256,7 @@ ErrorBoundary 내부 상태에 `hasError` 값이 존재하기 때문에 이를 �
 
 위에서 정의한 renderFallback props의 타이핑을 다음과 같이 수정해야 에러 상황에서 렌더링하는 컴포넌트에 reset handler를 전달해줄 수 있다.
 
-```tsx
+```tsx{3}
 type RenderFallbackProps<ErrorType extends Error = Error> = {
   error: ErrorType;
   reset: (...args: unknown[]) => void;
@@ -267,9 +267,9 @@ type RenderFallbackProps<ErrorType extends Error = Error> = {
 
 특정 상황에서 에러가 발생했다면, 다른 상황일 때는 에러를 초기화 해주고 다시 에러가 발생하는지 catch해야 할 것이다. 즉 상황에 대한 정의를 ErrorBoundary에 전달함으로써 선언적으로 에러를 초기화해줄 수 있다.
 
-`useEffect` hooks처럼 dependency array를 전달하여 특정 값이 변경되는 경우, 상황이 바뀌었으니 에러를 초기화 하면 된다. 이 방법은 react-query, swr 등에서도 사용하는 방법으로 [queryKey](https://react-query.tanstack.com/guides/query-keys)를 기반으로 데이터 캐싱 여부를 판단한다. 우리가 확장하는 ErrorBoundary에서는 `resetKeys`라는 것으로 에러 초기화 여부를 판단한다.
+`useEffect` hooks처럼 dependency array 같은 것을 만들 수 있지 않을까? 배열을 전달하여 값이 변경되는 경우, 상황이 바뀌었으니 에러를 초기화 하면 된다. 이 방법은 react-query, swr 등에서도 사용하는 방법으로 react-query에서는 [queryKey](https://react-query.tanstack.com/guides/query-keys)를 기반으로 데이터 캐싱 여부를 판단한다. 우리가 확장하는 ErrorBoundary에서는 `resetKeys`라는 것으로 에러 초기화 여부를 판단한다.
 
-```tsx
+```tsx{9}
 interface Props {
   resetKeys: unknown[]
 }
@@ -284,13 +284,17 @@ componentDidUpdate(prevProps: Props) {
 }
 ```
 
+`componentDidUpdate`에서 resetKeys 배열의 변경을 감자하여 에러를 초기화해준다.
+
 ### reset 구현
 
 인터페이스를 만들어뒀으니 이제 ErrorBoundary 안에서 reset을 구현하면 된다.
 
-```tsx
-resetErrorBoundary = () => { // error fallback에 전달할 reset handler
-  this.setState(initialState); // ErrorBoundary state를 초기화
+```tsx{14}
+// error fallback에 전달할 reset handler
+resetErrorBoundary = () => {
+  // ErrorBoundary state를 초기화
+  this.setState(initialState);
 };
 
 render() {
@@ -324,20 +328,18 @@ type ErrorBoundaryProps = ComponentProps<typeof ErrorBoundary>;
 
 interface Props extends Omit<ErrorBoundaryProps, 'renderFallback'> {
   pendingFallback: ComponentProps<typeof SSRSuspense>['fallback'];
-  children: ReactNode;
-  errorFallback: ErrorBoundaryProps['renderFallback'];
+  rejectedFallback: ErrorBoundaryProps['renderFallback'];
 }
 
 function AsyncBoundary({
   pendingFallback,
-  errorFallback,
+  rejectedFallback,
   children,
   ...errorBoundaryProps,
 }: Props) {
   return (
     <ErrorBoundary
-      ref={ref}
-      renderFallback={errorFallback}
+      renderFallback={rejectedFallback}
       {...errorBoundaryProps}
     >
       <SSRSuspense fallback={pendingFallback}>
@@ -349,6 +351,8 @@ function AsyncBoundary({
 
 export default AsyncBoundary;
 ```
+
+Promise의 상태를 기준으로 fallback 컴포넌트들의 네이밍을 해줬다. 로딩 상태에 대한 fallback을 **pendingFallback**, 에러 상태에 대한 fallback을 **rejectedFallback**으로 지정하였다.
 
 ### Usage
 
