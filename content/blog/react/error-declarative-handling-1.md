@@ -31,7 +31,7 @@ draft: false
 async function getUser() {
   const response = await apiClient.get<User>(`URL`);
 
-  return rsponse;
+  return response;
 }
 ```
 
@@ -43,14 +43,14 @@ async function getUser() {
     // start loading
     const response = await apiClient.get<User>(`URL`);
 
-    return rsponse;
+    return response;
   } catch (error) {
     // handle error
   }
 }
 ```
 
-이 함수를 함수 컴포넌트에서 사용하기 위해선 `useState`, `useEffect` 등의 hooks들을 이용해 리액트 컴포넌트의 상태로 데이터를 관리하기 하는 방법으로 진행하기 때문에 손이 많이 간다.
+이 함수를 함수 컴포넌트에서 사용하기 위해선 `useState`, `useEffect` 등의 hooks를 이용해 리액트 컴포넌트의 상태로 데이터를 관리해야 한다.
 
 ### 문제점
 
@@ -63,8 +63,8 @@ async function getUser() {
 ```tsx
 function useUser() {
   const [data, setData] = useState<User | null>(null);
-  // loading
-  // error
+  // loading state
+  // error state
 
   useEffect(() => {
     let isCancelled = false;
@@ -87,16 +87,13 @@ function useUser() {
 }
 ```
 
-위 hooks에서 `getUserInfo` 부분만 extract 한다면 쓸만한 hooks가 될 것 같다.
+위 hooks에서 try-catch를 통해 로딩 상태와 에러 상태를 정의한 뒤, `getUserInfo` 부분만 extract 한다면 쓸만한 hooks가 될 것 같다.
 
 보통의 비동기 처리에 대한 값을 반환할 때는 `loading`, `error` 등의 비동기 처리에 따른 상태(state) 값들도 함께 전달하게 되는데, 이 값들에 따른 처리가 필요하기 때문이다.
 
 ### 문제점
 
-- 로딩 상태인지 매번 확인하고 정의해줘야 한다.
-- 마찬가지로 에러 상태인지를 매번 확인하고 이에 따른 UI 또는 처리를 매번 정의해줘야 한다.
-
-발생하는 수많은 에러들을 아무리 함수로 관리해도 각각의 컴포넌트 또는 hooks에서 처리를 해줘야 하기 때문에 손이 많이 간다.
+- 로딩 상태인지, 에러 상태인지 매번 확인하고 정의해줘야 한다. 발생하는 수많은 에러들을 각각의 컴포넌트 또는 hooks에서 처리를 해줘야 하기 때문에 손이 많이 간다.
 
 > 비즈니스 로직을 구현하기도 시간이 부족한데 에러 처리까지 신경을 써야 할까?<br />
 > 수많은 비동기 요청에 전부 비슷한 에러 핸들링 처리 코드가 필요할까?
@@ -107,11 +104,11 @@ function useUser() {
 
 ## Suspense
 
-이 suspense는 명령형으로 처리하고 있던 부분 중 `loading`을 담당하게 된다.
+Suspense는 비동기를 명령형으로 처리하고 있던 부분 중 `loading`을 담당하게 된다.
 
-[swr](https://github.com/vercel/swr), [react-query](https://github.com/tannerlinsley/react-query) 등을 사용하면 다음과 같이 간단하게 처리할 수 있다. 이번 포스팅의 예제는 React의 Suspense와 함께 react-query로 작성할 예정이다.
+[swr](https://github.com/vercel/swr), [react-query](https://github.com/tannerlinsley/react-query) 등을 사용하면 다음과 같이 간단하게 처리할 수 있다. 이번 포스팅의 예제는 react-query로 suspense 옵션과 함께 작성할 예정이다.
 
-```tsx
+```tsx{4}
 function useUser() {
   return useQuery(`getUser`, () =>{
     return apiClient.get<User>(`URL`)
@@ -139,7 +136,7 @@ function UserDropDown() {
 }
 ```
 
-현재 비동기 호출의 상태가 로딩(pending) 상태인지 판단할 필요없이 Suspense의 fallback props로 컴포넌트를 전달하여 로딩 상태에 따른 렌더링을 처리할 수 있다. fallback 으로 전달되는 컴포넌트를 기준으로 한 단계 더 추상화하여 로딩 상태를 처리할 수 있다.
+현재 비동기 호출의 상태가 로딩(pending) 상태인지 판단할 필요없이 Suspense의 fallback props로 컴포넌트를 전달하여 로딩 상태에 따른 렌더링을 처리할 수 있다. 데이터 로드가 완료되는 시점(fulfilled)에 `UserDropDown` 컴포넌트가 렌더링 되는 것이다. 좀 더 나아가 fallback 으로 전달되는 컴포넌트를 기준으로 한 단계 더 추상화하여 로딩 상태를 처리할 수도 있다.
 
 ### Server Side Rendering
 
@@ -168,7 +165,7 @@ export default function SSRSafeSuspense(
 }
 ```
 
-mount 되는 시점을 Client 환경이라는 조건으로 가정하고 해당 시점을 알기 위한 hooks를 추가해준다. 기존 Suspense 컴포넌트의 props를 그대로 확장하며 서버 사이드 환경에서만 fallback 컴포넌트를 렌더링 해주면 된다.
+컴포넌트가 mount 되는 시점을 Client 환경이라는 조건으로 가정하고 해당 시점을 알기 위한 hooks를 추가해준다. 기존 Suspense 컴포넌트의 props를 그대로 확장하며 서버 사이드 환경에서만 fallback 컴포넌트를 렌더링 해주면 된다.
 
 ### 해결한 부분
 
@@ -327,7 +324,7 @@ render() {
 type ErrorBoundaryProps = ComponentProps<typeof ErrorBoundary>;
 
 interface Props extends Omit<ErrorBoundaryProps, 'renderFallback'> {
-  pendingFallback: ComponentProps<typeof SSRSuspense>['fallback'];
+  pendingFallback: ComponentProps<typeof SSRSafeSuspense>['fallback'];
   rejectedFallback: ErrorBoundaryProps['renderFallback'];
 }
 
@@ -342,9 +339,9 @@ function AsyncBoundary({
       renderFallback={rejectedFallback}
       {...errorBoundaryProps}
     >
-      <SSRSuspense fallback={pendingFallback}>
+      <SSRSafeSuspense fallback={pendingFallback}>
         {children}
-      </SSRSuspense>
+      </SSRSafeSuspense>
     </ErrorBoundary>
   );
 });
@@ -352,7 +349,7 @@ function AsyncBoundary({
 export default AsyncBoundary;
 ```
 
-Promise의 상태를 기준으로 fallback 컴포넌트들의 네이밍을 해줬다. 로딩 상태에 대한 fallback을 **pendingFallback**, 에러 상태에 대한 fallback을 **rejectedFallback**으로 지정하였다.
+Promise의 상태를 기준으로 fallback props 네이밍을 했다. 로딩 상태에 대한 fallback을 **pendingFallback**, 에러 상태에 대한 fallback을 **rejectedFallback**으로 지정하였다.
 
 ### Usage
 
@@ -363,7 +360,7 @@ function UserList() {
   return (
     <AsyncBoundary
       pendingFallback={<Loading />}
-      errorFallback={<Error />}
+      rejectedFallback={<Error />}
     >
       <UserDropDown />
     </AsyncBoundary>
@@ -372,21 +369,17 @@ function UserList() {
 
 
 function UserDropDown() {
-  const { data: user } = useUser();
+  const { data: user } = useUser(); // async call
 
   return <div>{user!.name}</div>
 }
 ```
 
+데이터가 로드되기 전(pending)엔 pendingFallback으로 전달한 `<Loading />` 컴포넌트가 렌더링 될 것이고 비동기 작업 도중 에러가 발생할 경우, `<Error />` 컴포넌트가 렌더링 될 것이다. 우리가 의도한 `<UserDropdown />` 컴포넌트는 데이터가 로드된 이후 렌더링 된다.
+
 ## 마무리
 
-비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다.
-
-현재 위에서 소개한 기능에서 세 가지 기능을 더 추가해서 사용하고 있다. (3장에서 추가로 다룰 예정)
-
-1. 인증과 같이 전역에서 처리해줘야 하는 error를 전역 ErrorBoundary로 throw하는 props
-2. reset 시 동작을 정의할 수 있는 onReset props 세 가지 기능을 더 추가한다면 좀 더 유연하게 비동기 컴포넌트를 다룰 수 있다.
-3. 명령형 방식으로 에러를 reset 할 수 있는 인터페이스 (with ref)
+비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다. 현재 위에서 소개한 기능에서 개발 편의성을 위해 몇 가지 기능을 더 추가해서 사용하고 있다. (3장에서 추가로 다룰 예정)
 
 다음 장에서는 에러를 다루는 도구를 만들었는데, 우리는 평소에 어떤 에러에 대해서 처리를 하고 있는지 에러 자체에 대해 알아본다.
 
