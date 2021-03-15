@@ -157,13 +157,13 @@ HTTP Status를 기준으로 처리되는 에러에는 이것이 합의된 에러
 
 #### 사전에 알려줄 수도 있는 에러
 
-네트워크 상태를 미리 파악하고 사용자에게 미리 경고를 해주는 것도 에러를 사전에 방지하기 위한 방법 중 하나가 될 수 있다. 웹 브라우저에도 해당 스펙이 존재한다. [window.navigator.connection](https://developer.mozilla.org/ko/docs/Web/API/Navigator/connection)라는 것이 있는데 물론 브라우저 지원은 형편없는 수준이다. 일부 디바이스에서 빠르게 테스트해보려면 [GoogleChromeLabs/react-adptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks#network)를 사용하여 네트워크 상태가 좋지 않은 경우, 응답이 지연될 수 있다는 메세지를 노출시켜봐도 좋을 것 같다.
+네트워크 상태를 미리 파악하고 사용자에게 미리 경고를 해주는 것도 에러를 사전에 방지하기 위한 방법 중 하나가 될 수 있다. 웹 브라우저에도 해당 스펙이 존재한다. [window.navigator.connection](https://developer.mozilla.org/ko/docs/Web/API/Navigator/connection)라는 것이 있는데 물론 브라우저 지원은 형편없는 수준이다. 일부 디바이스에서 빠르게 테스트해보려면 [GoogleChromeLabs/react-adaptive-hooks](https://github.com/GoogleChromeLabs/react-adaptive-hooks#network)를 사용하여 네트워크 상태가 좋지 않은 경우, 응답이 지연될 수 있다는 메세지를 노출시켜봐도 좋을 것 같다.
 
 ## 마무리
 
 다음 포스팅에서는 상황에 따라 분류한 에러들을 앞서 살펴본 [AsyncBoundary](/react/error-declarative-handling-1/#asyncboundary)를 사용하여 어떻게 다룰지 살펴본다.
 
-|       |                                                                              |
-| :---: | :--------------------------------------------------------------------------: |
-| Next  | 3. 선언적으로 에러 상황 제어하기 (WIP)  |
+|       |                                                 |
+| :---: | :---------------------------------------------: |
+| Next  |     3. 선언적으로 에러 상황 제어하기 (WIP)      |
 | Intro | [0. Intro](/react/error-declarative-handling-0) |
