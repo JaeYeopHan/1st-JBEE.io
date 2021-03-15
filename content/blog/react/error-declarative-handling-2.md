@@ -109,7 +109,7 @@ draft: false
 
 이 에러는 대부분 비즈니스 로직의 일부로 개발자가 이미 알고 있는 에러들이 속한다.
 
-- 로그인이 필요한 401 Unauthroize Error
+- 로그인이 필요한 401 Unauthorized Error
 - 잘못된 페이지로 접근한 404 Not Found Error
 - 그 외 비즈니스 로직으로 정의한 에러들
 
