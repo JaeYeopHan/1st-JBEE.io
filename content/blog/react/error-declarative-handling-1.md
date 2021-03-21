@@ -29,9 +29,9 @@ draft: false
 
 ```tsx
 async function getUser() {
-  const response = await apiClient.get<User>(`URL`);
+  const response = await apiClient.get<User>(`URL`)
 
-  return response;
+  return response
 }
 ```
 
@@ -41,9 +41,9 @@ async function getUser() {
 async function getUser() {
   try {
     // start loading
-    const response = await apiClient.get<User>(`URL`);
+    const response = await apiClient.get<User>(`URL`)
 
-    return response;
+    return response
   } catch (error) {
     // handle error
   }
@@ -62,28 +62,28 @@ async function getUser() {
 
 ```tsx
 function useUser() {
-  const [data, setData] = useState<User | null>(null);
+  const [data, setData] = useState<User | null>(null)
   // loading state
   // error state
 
   useEffect(() => {
-    let isCancelled = false;
-    (async () => {
-      const user = await getUserInfo();
+    let isCancelled = false
+    ;(async () => {
+      const user = await getUserInfo()
 
       if (isCancelled) {
-        return;
+        return
       }
 
-      setData(user);
-    })();
+      setData(user)
+    })()
 
     return () => {
-      isCancelled = true;
-    };
-  }, []);
+      isCancelled = true
+    }
+  }, [])
 
-  return { data, /* loading, error */ };
+  return { data /* loading, error */ }
 }
 ```
 
@@ -110,9 +110,13 @@ Suspense는 비동기를 명령형으로 처리하고 있던 부분 중 `loading
 
 ```tsx{4}
 function useUser() {
-  return useQuery(`getUser`, () =>{
-    return apiClient.get<User>(`URL`)
-  }, { suspense: true });
+  return useQuery(
+    `getUser`,
+    () => {
+      return apiClient.get<User>(`URL`)
+    },
+    { suspense: true }
+  )
 }
 ```
 
@@ -126,11 +130,11 @@ function Main() {
         <UserDropDown />
       </Suspense>
     </main>
-  );
+  )
 }
 
 function UserDropDown() {
-  const { data: user } = useUser();
+  const { data: user } = useUser()
 
   return <div>{user.name}</div>
 }
@@ -146,24 +150,24 @@ Suspense는 서버 사이드 렌더링 환경에서 지원하지 않는다. 이�
 
 ```tsx{16,19}
 function useMounted() {
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
-  return mounted;
+  return mounted
 }
 
 export default function SSRSafeSuspense(
   props: ComponentProps<typeof Suspense>
 ) {
-  const isMounted = useMounted();
+  const isMounted = useMounted()
 
   if (isMounted) {
-    return <Suspense {...props} />;
+    return <Suspense {...props} />
   }
-  return <>{props.fallback}</>;
+  return <>{props.fallback}</>
 }
 ```
 
@@ -185,24 +189,24 @@ error 상황에 대한 처리를 ErrorBoundary에게 위임해보자. React 공�
 ```tsx
 class ErrorBoundary extends React.Component {
   constructor(props) {
-    super(props);
-    this.state = { hasError: false };
+    super(props)
+    this.state = { hasError: false }
   }
 
   static getDerivedStateFromError(error) {
-    return { hasError: true };
+    return { hasError: true }
   }
 
   componentDidCatch(error, errorInfo) {
-    logErrorToMyService(error, errorInfo);
+    logErrorToMyService(error, errorInfo)
   }
 
   render() {
     if (this.state.hasError) {
-      return <h1>Something went wrong.</h1>;
+      return <h1>Something went wrong.</h1>
     }
 
-    return this.props.children; 
+    return this.props.children
   }
 }
 ```
@@ -216,23 +220,23 @@ class ErrorBoundary extends React.Component {
 ```tsx{2}
 <ErrorBoundary
   renderFallback={({ error }) => {
-
-    return <ErrorAlert error={error} />;
-  }}>
+    return <ErrorAlert error={error} />
+  }}
+>
   {children}
-</ErrorBoundary>;
+</ErrorBoundary>
 ```
 
 renderFallback props의 type은 간단하다.
 
 ```tsx
 type RenderFallbackProps<ErrorType extends Error = Error> = {
-  error: ErrorType;
-};
+  error: ErrorType
+}
 
 type RenderFallbackType = <ErrorType extends Error>(
   props: RenderFallbackProps<ErrorType>
-) => ReactNode;
+) => ReactNode
 ```
 
 이렇게 전달받은 fallback을 `hasError`일 때 렌더링만 해주면 된다.
@@ -257,9 +261,9 @@ ErrorBoundary 내부 상태에 `hasError` 값이 **상태로 존재하기 때문
 
 ```tsx{3}
 type RenderFallbackProps<ErrorType extends Error = Error> = {
-  error: ErrorType;
-  reset: (...args: unknown[]) => void;
-};
+  error: ErrorType
+  reset: (...args: unknown[]) => void
+}
 ```
 
 #### reset을 선언적으로 호출할 수 있는 인터페이스
@@ -361,10 +365,7 @@ Promise의 상태를 기준으로 fallback props 네이밍을 했다. 로딩 상
 ```tsx
 function UserList() {
   return (
-    <AsyncBoundary
-      pendingFallback={<Loading />}
-      rejectedFallback={<Error />}
-    >
+    <AsyncBoundary pendingFallback={<Loading />} rejectedFallback={<Error />}>
       <UserDropDown />
     </AsyncBoundary>
   )
@@ -372,7 +373,7 @@ function UserList() {
 
 // Suspended Component
 function UserDropDown() {
-  const { data: user } = useUser(); // async call
+  const { data: user } = useUser() // async call
 
   return <div>{user!.name}</div>
 }
@@ -384,9 +385,11 @@ function UserDropDown() {
 
 비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다.
 
-다음 장에서는 에러를 다루는 도구를 만들었는데, 우리는 평소에 어떤 에러에 대해서 처리를 하고 있는지 에러 자체에 대해 알아본다.
+이 글에선 react-query를 사용하여 쉽게 Suspense를 사용했는데, `fetch` API로도 사용할 수 있다. [이 글](https://charles-stover.medium.com/react-suspense-with-the-fetch-api-a1b7369b0469)을 참고해보면 Suspense 내부 원리를 이해하고 어떻게 활용할 수 있는지 알 수 있다.
 
-|       |                                                                              |
-| :---: | :--------------------------------------------------------------------------: |
-| Next  | [2. 클라이언트의 사용자 중심 예외 처리](/react/error-declarative-handling-2/)  |
-| Intro | [0. Intro](/react/error-declarative-handling-0) |
+다음 장에서는 우리가 평소에 어떤 에러들을 처리를 하고 있는지 에러 자체에 대해 알아본다.
+
+|       |                                                                               |
+| :---: | :---------------------------------------------------------------------------: |
+| Next  | [2. 클라이언트의 사용자 중심 예외 처리](/react/error-declarative-handling-2/) |
+| Intro |   [0. 효율적인 프런트엔드 에러 핸들링](/react/error-declarative-handling-0)   |

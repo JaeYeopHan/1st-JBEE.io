@@ -22,13 +22,12 @@ draft: false
 - 에러를 어떻게 대응할 수 있을까
 - 현실 속의 에러
 
-### 3. 선언적으로 에러 상황 제어하기
+### 3. [선언적으로 에러 상황 제어하기](/react/error-declarative-handling-3/)
 
-(WIP) 1장에서 만들어 둔 AsyncBoundary를 사용하여 2장에서 알아본 에러를 직접 대응해봅니다.
+1장에서 만들어 둔 AsyncBoundary를 사용하여 2장에서 알아본 에러를 직접 대응해봅니다.
 
-- 에러를 다루기 위한 준비
-- AsyncBoundary 확장하기
-- 서비스 코드에서 사용해보기
+- 비동기 컴포넌트를 다루기 위한 준비
+- API call Error Handling
 
 <br />
 
