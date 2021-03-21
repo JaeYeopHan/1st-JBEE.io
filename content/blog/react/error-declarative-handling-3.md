@@ -102,9 +102,7 @@ export default function AsyncBoundaryWithQuery({ ...props }: Props) {
       onReset={reset}
       ignoreError={(error) => isGlobalError(error)}
       {...props}
-    >
-      {children}
-    </ExtendsAsyncBoundary>
+    />
   )
 }
 ```
