@@ -30,7 +30,7 @@ pre[class*='language-'] {
   word-break: normal;
   word-wrap: normal;
   line-height: 1.6;
-  font-size: 13px;
+  font-size: 1em;
 
   -moz-tab-size: 2;
   -o-tab-size: 2;
@@ -52,7 +52,7 @@ pre[class*='language-']::-webkit-scrollbar {
 /* Code blocks */
 pre[class*='language-'] {
   padding: 1.2em;
-  margin: 1.5em 0;
+  margin: 1.5em -3em;
   overflow: auto;
   border-radius: 0.6em;
 }
