@@ -59,13 +59,14 @@ pre[class*='language-'] {
 
 @media screen and (max-width: 730px) {
   pre[class*='language-'] {
-    margin: 1.5em 0em;
+    margin: 1.5em -1.2rem;
+    border-radius: 0;
   }
 }
 
 :not(pre) > code[class*='language-'],
 pre[class*='language-'] {
-  background: #212121;
+  background: #242323;
 }
 
 /* Inline code */
