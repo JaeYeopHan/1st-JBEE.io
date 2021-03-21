@@ -163,7 +163,7 @@ HTTP Status를 기준으로 처리되는 에러에는 이것이 합의된 에러
 
 다음 포스팅에서는 상황에 따라 분류한 에러들을 앞서 살펴본 [AsyncBoundary](/react/error-declarative-handling-1/#asyncboundary)를 사용하여 어떻게 다룰지 살펴본다.
 
-|       |                                                 |
-| :---: | :---------------------------------------------: |
-| Next  |     3. 선언적으로 에러 상황 제어하기 (WIP)      |
-| Intro | [0. Intro](/react/error-declarative-handling-0) |
+|       |                                                                           |
+| :---: | :-----------------------------------------------------------------------: |
+| Next  | [3. 선언적으로 에러 상황 제어하기](/react/error-declarative-handling-3/)  |
+| Intro | [0. 효율적인 프런트엔드 에러 핸들링](/react/error-declarative-handling-0) |
