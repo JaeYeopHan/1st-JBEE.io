@@ -50,7 +50,7 @@ try-catch statement의 `catch` 에서 전달받는 error를 이 함수로 예상
 
 ### ExtendsAsyncBoundary
 
-```tsx{9-15}
+```tsx{9-14}
 export default function ExtendsAsyncBoundary({
   pendingFallback = defaultPendingFallback,
   rejectedFallback = defaultRejectedFallback,

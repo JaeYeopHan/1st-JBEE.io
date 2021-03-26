@@ -108,7 +108,7 @@ Suspense는 비동기를 명령형으로 처리하고 있던 부분 중 `loading
 
 [swr](https://github.com/vercel/swr), [react-query](https://github.com/tannerlinsley/react-query) 등을 사용하면 다음과 같이 간단하게 처리할 수 있다. 이번 포스팅의 예제는 컴포넌트를 Suspended 상태로 만들어주는 suspense 옵션과 함께 작성할 예정이다.
 
-```tsx{4}
+```tsx{7}
 function useUser() {
   return useQuery(
     `getUser`,
@@ -122,7 +122,7 @@ function useUser() {
 
 이제 컴포넌트에서 가져다 쓰는 코드는 다음과 같이 작성할 수 있다.
 
-```tsx
+```tsx{4}
 function Main() {
   return (
     <main>
@@ -218,11 +218,7 @@ class ErrorBoundary extends React.Component {
 위 예제 코드에서 `hasError` 일 경우, 렌더링하는 컴포넌트를 props로 받아 좀 더 유연한 ErrorBoundary를 정의할 수 있다. 다음과 같이 error 객체를 받는 컴포넌트를 props로 전달해주면 상황에 맞게 fallback UI를 지정할 수 있다.
 
 ```tsx{2}
-<ErrorBoundary
-  renderFallback={({ error }) => {
-    return <ErrorAlert error={error} />
-  }}
->
+<ErrorBoundary renderFallback={({ error }) => <ErrorAlert error={error} />}>
   {children}
 </ErrorBoundary>
 ```
