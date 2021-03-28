@@ -182,6 +182,10 @@ export default function SSRSafeSuspense(
 
 - loading 상태에 대한 부분은 Suspense를 통해 처리했지만 아직 error 상황에 대한 처리는 하지 못했다.
 
+### Render as you fetch
+
+React 공식 문서에서도 다루고 있는 내용이라 깊게 더 들여다보지 않고 이 정도로만 정리하고 넘어간다. 좀 더 자세한 내용이 궁금한 분은 React 공식 문서 [Traditional Approaches vs Suspense](https://reactjs.org/docs/concurrent-mode-suspense.html#traditional-approaches-vs-suspense)를 살펴보면 된다.
+
 ## ErrorBoundary
 
 error 상황에 대한 처리를 ErrorBoundary에게 위임해보자. React 공식 문서에서 소개하고 있는 ErrorBoundary 코드이다.
