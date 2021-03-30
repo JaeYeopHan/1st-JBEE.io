@@ -383,7 +383,7 @@ function UserDropDown() {
 
 ## 마무리
 
-비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 비동기 컴포넌트를 다루기 위한 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다.
+비동기 컴포넌트를 다루는 일은 굉장히 많이 있지만 손이 많이 가는 작업이며 이를 선언적으로 처리하는 것은 쉽지 않다. Suspense와 ErrorBoundary를 적절히 조합하여 만들어봤는데 사용자 경험 입장에서도 개발 생산성에서도 좋은 효과를 보이고 있다.
 
 이 글에선 react-query를 사용하여 쉽게 Suspense를 사용했는데, `fetch` API로도 사용할 수 있다. [이 글](https://charles-stover.medium.com/react-suspense-with-the-fetch-api-a1b7369b0469)을 참고해보면 Suspense 내부 원리를 이해하고 어떻게 활용할 수 있는지 알 수 있다.
 
