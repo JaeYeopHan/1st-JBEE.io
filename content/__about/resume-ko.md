@@ -1,12 +1,12 @@
 ---
 title: 'about'
-date: 2020-7-23 13:21:13
+date: 2021-4-17 13:21:13
 lang: 'ko'
 ---
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2020.07.23</i></sub></div>
+<div align="right"><sub><i>Last updated: 2021.04.17</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
@@ -34,15 +34,67 @@ lang: 'ko'
 
 # Experiences
 
+## TossPayments
+
+|              |                                                          |
+| -----------: | -------------------------------------------------------- |
+|   **period** | 20.10 ~ current                                          |
+| **position** | Dashboard Silo Frontend Engineer, Frontend Platform Team |
+| **projects** | 가맹점 정산/매출 대시보드 / 프런트엔드 배포 어드민       |
+
+### 가맹점 정산/매출 대시보드
+
+- 20.10 ~ current
+- TypeScript, Next.js, react-query, react-hook-form, emotion, react-calendar, react-table
+
+#### Description
+
+- 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
+  - 프런트엔드 개발에서 어려운 부분 중 하나인 비동기 처리에 대한 연구를 정리하여 공유하고 쉽게 사용할 수 있도록 라이브러리로 만들어 공유
+- 달력 UI 제품을 위한 Headless UI 라이브러리 개발하여 어느 제품에서라도 재사용 가능하도록 개발 ([react-calendar](https://github.com/veccu/react-calendar))
+
+### CI/CD 구성 및 프런트엔드 배포 어드민
+
+- 20.10 ~ current
+- aws-sdk, terraform, TypeScript, Next.js, react-query
+
+#### Description
+
+- Amazon Web Service 리소스들을 Terraform으로 관리
+- Amazon Web Service의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
+- GitHub Action을 기반으로 CI/CD 구성
+- 원버튼 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
+
 ## Toss (Viva Republica)
 
-|              |                                                            |
-| -----------: | ---------------------------------------------------------- |
-|   **period** | 20.04 ~ current                                            |
-| **position** | Web Platform Team, Inflow Silo / Front-End Engineer        |
-| **projects** | Tuba, 로그센터, 숨은정부지원금찾기, 반짝특가, 매일행운상자 |
+|              |                                                      |
+| -----------: | ---------------------------------------------------- |
+|   **period** | 20.04 ~ 20.10                                        |
+| **position** | Web Platform Team, Inflow Silo / Front-End Engineer  |
+| **projects** | 로그센터, 숨은정부지원금찾기, 반짝특가, 매일행운상자 |
 
-(TBD)
+### Log Center (로그센터) / Logging SDK
+
+토스앱 내에서 사용자의 행동을 추적할 수 있는 로그들을 쉽게 관리할 수 있는 웹 애플리케이션 제품 / 제품에서 사용할 수 있는 로깅 SDK
+
+- 20.02 ~ 20.10
+- TypeScript, Next.js, swr, react-hook-form, emotion
+
+#### Description
+
+- 복잡한 Form을 Uncontrolled, Controlled의 조합으로 설계 및 개발
+- DX를 고려한 로깅 SDK 인터페이스 설계 및 개발
+
+### 토스앱 인플로우 제품
+
+토스앱에 신규 유저를 유치하기 위한 제품들을 개발 (숨은정부지원금찾기, 반짝특가, 매일행운상자)
+
+- 20.04 ~ 20.10
+- TypeScript, Next.js, emotion
+
+#### Description
+
+- 초대 Scheme, 공유 Scheme, 혜택 Scheme등을 적용하여 여러 제품을 짧은 주기로 실험
 
 ## LINE Financial Plus
 
@@ -133,6 +185,13 @@ LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 �
 <br />
 
 # Open Source Projects
+
+## @veccu/react-calendar
+
+- GitHub: <https://github.com/veccu/react-calendar>
+- React
+
+달력을 만들기 위한 Headless UI 라이브러리
 
 ## gatsby-starter-bee
 
