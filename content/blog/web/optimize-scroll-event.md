@@ -9,7 +9,7 @@ category: web
 우리는 아래처럼 브라우저의 스크롤에 이벤트를 추가할 수 있습니다.
 
 ```js
-window.addEventListenr('scroll', onScroll)
+window.addEventListener('scroll', onScroll)
 ```
 
 `onScroll` 함수에 `console.log('scrolled')` 를 추가해보겠습니다.
@@ -95,7 +95,7 @@ window.addEventListener('scroll', toFit(onScroll))
 
 바로 `onScroll`을 이벤트에 등록하지 않고 `toFit`으로 한 번 감싸줬습니다. 지금부터 이 `toFit` util이 하는 일에 대해 알아보겠습니다.
 
-## What happend?
+## What happened?
 
 간소화 된 형태를 먼저 살펴보겠습니다.
 
@@ -138,7 +138,7 @@ export function toFitSimple(cb) {
 
 실제로 호출되어야 하는 `cb`가 `rAF`에 의해 비동기로 처리되고 `tick`에 의해 브라우저 렌더링 범위 내에서 animation frame에 들어가게 되므로 스크롤 이벤트를 최적화 할 수 있습니다.
 
-> `toFit`은 이 `toFitSimple`에 triggr 조건과 dismiss 조건을 추가한 함수일 뿐 입니다.
+> `toFit`은 이 `toFitSimple`에 trigger 조건과 dismiss 조건을 추가한 함수일 뿐 입니다.
 
 ## Passive Event
 
