@@ -1,0 +1,250 @@
+---
+title: 'Stop Using Atomic Design Pattern'
+date: 2021-08-21 23:08:16
+category: react
+thumbnail: './images/stop-using-atomic-design.jpg'
+draft: false
+---
+
+![stop-using-atomic-design](./images/stop-using-atomic-design.jpg)
+
+요즘에 이름 들어본 회사들은 다들 저마다 디자인 시스템이라는 것을 운영하는 것 같다. 그러면서 함께 들리는 용어 중 하나는 바로 [Atomic Design Pattern](https://atomicdesign.bradfrost.com/table-of-contents/) 이다. 디자인 시스템을 만들고 이를 제품에서 사용할 때 발생하는 문제를 해결하기 위해서 회자되는 것 같다. 사실 이 아토믹 디자인 패턴이라는 개념에 대한 생각을 정리해봤다.
+
+> 🙋‍♂️ 모든 문제를 전부 해결해줄 수 있는 도구는 없습니다. 아토믹 디자인 패턴 또한 어느 문제를 해결하지만 해결하지 못하는 영역이 있고 이 한계를 중심으로 작성된 글이기에 마지막에 첨부한 글들을 함께 보시는 것을 권합니다.
+
+## TL;DR
+
+- 순수하지 않은 패턴은 혼란을 야기한다.
+- 유용하지 않은 패턴은 나쁜 코드를 생산하도록 한다.
+- 애매한 기준으로 분류하면 Component Driven Development 이점을 얻을 수 없다.
+
+### Table of Contents
+
+- Atomic Design Pattern?
+- 순수한 패턴인가?
+- 유용한 패턴인가?
+- 마무리
+
+## Atomic Design Pattern?
+
+이것이 무엇인지는 이미 많은 글들이 있어서 생략한다. 간단하게 요약하자면 컴포넌트를 5가지 레벨로 패턴화 한 것이다.
+
+- atom (원자)
+- molcules (분자)
+- organism (유기체)
+- template (템플릿)
+- page (페이지)
+
+![atomic_design_pattern_picture](/images/atomic_design_pattern_picture.jpg)
+
+가장 널리 쓰이는 사진을 가져왔는데, 사진만 봐서는 molecules, organisms 차이가 무엇인지 와닿지 않고 templates, pages가 무엇인지 잘 와닿지가 않는다.
+
+## 순수한 패턴인가?
+
+'패턴'이라고 하면 무엇이 떠오르나? 가장 먼저 디자인 패턴이 생각나는데, 아토믹 디자인을 과연 패턴이라고 할 수 있을까?
+
+### 순수하다
+
+동일한 입력에 동일한 출력을 하는 함수를 순수 함수라고 한다. 아토믹 디자인 패턴이라는 입력(기준)에 동일한 출력(대답)이 나오는지에 대한 의문으로, 이 패턴이 순수한가?라는 의문이 생겼다.
+
+### Pattern?
+
+패턴이라 함은 상호간의 약속을 정의한 것이다. 보통 제품은 여러 명의 개발자가 만들기 때문에 일종의 약속이 필요하다. 이 약속은 제품의 특성에 따라 최소한의 약속만을 가져갈 수도 있고, 구조를 강력하게 제한하기도 한다. 이런 약속들이 널리 쓰이고 패턴이 되곤 한다.
+
+쉽게 접할 수 있는 패턴 중 ESLint도 일종의 패턴으로 볼 수 있다.
+
+```jsx
+'@typescript-eslint/no-unused-vars': [
+  'error',
+  { argsIgnorePattern: '^_', ignoreRestSiblings: true },
+],
+```
+
+규칙은 사용하지 않는 변수는 에러로 취급하겠다. 라는 규칙인데, config 파일에 이 규칙을 정의해두면 도구를 통해 이 규칙을 강제할 수 있다. 이것을 에러로 취급할지 말지를 논의하여 이것을 에러로 취급하기로 했다면 이것은 에러인 것이다. 사용하지 않는 변수이지만 어떤 때는 에러가 아니다. 라는 것도 `argsIgnorePattern` 로 명시를 해뒀다. 이 규칙이 적용된 프로젝트를 운영하는 모두에게 동일한 기준으로 패턴이 적용된 것이다.
+
+여기에서 중요한 것은 **'모두에게 동일한 기준'**이라는 것이다. 그 기준이 객관적이고 명료하여 개인마다 해석의 여지에 따라 달라질 수 없어야 하는 것이 중요하다. 그리고 문제는 이 부분에서 발생한다.
+
+### 분자와 유기체
+
+아토믹 디자인 패턴의 프로젝트에 리스트 엘리먼트를 컴포넌트화 하여 `ListItem`라는 원자 타입의 컴포넌트를 만들어 추가해보자.
+
+```tsx
+interface Prop extends LiHTMLAttributes<HTMLLIElement> {}
+
+export function ListItem(props: Props) {
+  return <Li {...props} />
+}
+
+cosnt Li = styled('li', { /* custom styles */ });
+
+```
+
+`/* custom styles */` 라는 스타일 요소가 들어간 것을 제외하고 HTML의 `li` 태그를 그대로 렌더링하는 컴포넌트이다.
+
+이 `ListItem` 컴포넌트는 굉장히 여러 곳에서 사용될 수 있을 것이다. 프로필 목록에서도 사용할 수 있을 것이고, 약관 동의를 받는 목록에서도 체크박스와 함께 사용된다. 즉 이 컴포넌트를 활용한 다양한 케이스가 존재한다.
+
+- 텍스트 좌측에 **프로필 사진**이 추가되어야 한다.
+- 텍스트 좌측에 **체크박스**가 추가되어야 한다.
+- 텍스트 우측 끝에 **뱃지 아이콘(>)**이 추가되어야 한다.
+- 텍스트 **하단에 작은 글씨**로 텍스트가 추가되어야 한다.
+
+이러한 것들은 아토믹 디자인 패턴에서 어떻게 처리될까? 위 상황에서 볼드체로 처리된 요소들은 우선 원자 컴포넌트로 정의되어야 한다. 그리고 이것들을 잘 조립해서 분자 컴포넌트를 만들 수 있다.
+
+### OOO OO 분자와 유기체 구분하기
+
+원자(Atom)는 사람마다 기준이 비슷할 수 있지만 분자(Molecules)와 유기체(Organisms)는 사람마다 다를 수 있지 않을까?
+
+#### 좌측에 **프로필 사진** 추가
+
+`ProfileImage` 라는 원자 컴포넌트와 `ListItem`이라는 컴포넌트를 조립하여 이 케이스를 대응해보자.
+
+```tsx
+interface Props {
+  imageSrc: string
+  imageAlt: string
+  contents: string
+}
+
+export function ProfileListItem({ imageSrc, imageAlt, contents }: Props) {
+  return (
+    <ListItem css={{ display: 'flex' }}>
+      <ProfileImage src={imageSrc} alt={imageAlt} />
+      {contents}
+    </ListItem>
+  )
+}
+```
+
+첫번째 케이스를 대응하기 위해 `ProfileListItem`라는 분자 컴포넌트를 만들었다. 원자 컴포넌트 두 가지를 조립하여 간단하게 만들 수 있다. 위에서 살펴본 케이스들도 쉽게 만들 수 있다. ( `CheckBoxListItem`, `ListItemWithBadge`,...)
+
+#### 좌측에 **프로필 사진** 추가 받고 우측에 아이콘
+
+방금 만든 프로필 사진 목록 아이템에서 우측에 'NEW'라는 뱃지아이콘을 특정 조건에 따라 추가해줘야 하는 상황이 발생했다. 이번엔 분자와 원자를 조합하여 '유기체'로 만들어 대응을 하면 될 것 같다. 만들어둔 `Badge` 원자 컴포넌트와 `ProfileListItem` 컴포넌트를 바로 재사용 할 수 있다.
+
+```tsx
+interface Props {
+  imageSrc: string
+  imageAlt: string
+  contents: string
+  badgeName?: string
+  badgeCondition?: boolean
+}
+
+export function ProfileListItemWithBadge({
+  imageSrc,
+  imageAlt,
+  contents,
+  badgeName,
+  badgeCondition,
+}: Props) {
+  return (
+    <div css={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <ProfileListItem
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+        contents={contents}
+      />
+      {badgeCondition === true ? <Badge name={badgeName!} size={24} /> : null}
+    </div>
+  )
+}
+```
+
+비슷하게 여러 유기체 컴포넌트들이 만들어질 것이다. (`CheckboxListItemWithArrow` , `CheckboxListItemWithBadge`)
+
+이 때 `ProfileListItemWithBadge` 컴포넌트는 '분자'라고 말하는 팀원이 등장할 수 있지 않을까?
+
+> 이 컴포넌트는 유기체에 비해 덜 복잡하니까 분자 아닌가요? UI 상으로는 원자끼리의 조합으로도 볼 수 있잖아요?
+
+유기체 정도 되려면 `ul` 태그로 감싸진 `li` 태그들의 집합으로, 각 `ListItem` 컴포넌트들의 '레이아웃'을 잡아야 한다는 것이다. 이 `ProfileListItemWithBadge` 컴포넌트는 단순히 작은 단위의 컴포넌트이기 때문에 유기체가 아닌 분자라는 다른 기준으로 해석된 것이다.
+
+하지만 컴포넌트의 구현은 분자 컴포넌트와 원자 컴포넌트의 조합이기 때문에 유기체로 볼 수 있지 않을까? 또 `ProfileListItem`과 `Badge` 컴포넌트 간의 간격, 즉 컴포넌트들의 레이아웃을 결정하기 때문에 유기체라고 볼 수도 있지 않을까 (잠깐 레이아웃이면 템플릿아냐?)
+
+### 저마다 다른 분자와 유기체 구분하기
+
+팀원 코드 리뷰 과정이 있다면 또는 논의할 수 있는 시간이 있다면 문제가 발생할 때마다 '이것은 유기체이다.', '이것은 분자이다.' 의사결정을 내리고 이를 문서화 해둘 수 있다. 또는 어느 디렉토리에 있는 것이 뭐가 중요하냐 유연하게 가자. 라고 의사결정하여 작성자 마음대로 작성할 수도 있다.
+
+이러한 이유로 순수하지 않다. 라는 결론을 내렸고 오히려 혼란을 야기할 수 있다고 생각한다. 혼란을 합의로 이끌어내기 위한 커뮤니케이션, 합의를 이루는 과정도 비용이라고 생각한다.
+
+> 여러분은 어떻게 생각하시나요?
+
+## 유용한 패턴인가?
+
+아토믹 디자인 패턴은 웹 애플리케이션을 5단계로 구분한다. 이 5단계가 유용한가? 유용하다는 것은 무엇인가? 이야기해보려고 한다.
+
+### 유용하다
+
+어떤 패턴의 유용함을 판단하려면 무엇을 고민해봐야 할까? 이것은 좋은 코드에 대한 고민에서 힌트를 얻을 수 있다. 소프트웨어는 끊임없이 변하기 때문에 변경에 유연하게 대응하는 코드를 작성해야 한다. 자연스럽게 변경에 잘 대응하고 변경에 따른 영향 범위를 최소화 할 수 있도록 컴포넌트를 디자인해야 한다.
+
+### Reusable
+
+`ProfileListItemWithBadge` 를 잘 쓰고 있던 와중에, 뱃지 아이콘이 우측 끝이 아닌 텍스트 바로 우측에 12px 떨어진 간격으로 그려져야 하는 요구 사항이 등장했다고 가정해보자. `ProfileListItemWithBadge` 이 컴포넌트를 재사용하기 어려운 상황이라 props를 하나 추가할지 새로 만들지 고민이 된다.
+
+- props를 추가하면 컴포넌트 내부가 너무 복잡해지지 않을까?
+- 따로 컴포넌트를 만들게 되면 `CheckboxListItemWithBadge` 도 대응해줘야 하나?
+- 아니 그나저나 이름은 뭘로 짓지? 지금도 좀 긴데...
+- ...
+
+예상치 못했던 케이스가 발생하자 적절한 대응이 어려워졌다. 그 땐 재사용이 가능했지만 지금은 다시 만들거나 유기체 컴포넌트에도 변경이 필요해진 것이다.
+
+### Scalable
+
+처음에 살펴본 ListItem 케이스 중 "텍스트 **하단에 작은 글씨**로 텍스트가 추가되어야 한다." 케이스는 아직 대응하지도 않았는데 수많은 유기체 컴포넌트(아, 누군가에겐 분자 컴포넌트)들이 생겨났다. 대응해야 하는 상황이 생길 때마다 새로운 컴포넌트를 정의하게 되는 것이 과연 확장 가능한 컴포넌트일까?
+
+사실 컴포넌트의 확장 가능성은 재사용성의 또 다른 이름일 수 있다. 기본적으로 확장 가능해야 가져다 사용하고 필요에 따라 기능을 추가할 수 있다.
+
+하단에 작은 글씨의 텍스트가 추가되어야 한다면 만들어 두었던 `ProfileListItemWithBadge` 컴포넌트를 재사용할 수 없다. 물론 `bottomText` 라는 props를 하나 추가해서 다음과 같이 만들 수도 있긴 하다.
+
+```tsx
+interface Props {
+  imageSrc: string
+  imageAlt: string
+  contents: string
+  badgeName?: string
+  badgeCondition?: boolean
+  bottomText?: string
+}
+
+export function ProfileListItemWithBadgeText({
+  imageSrc,
+  imageAlt,
+  contents,
+  badgeName,
+  badgeCondition,
+  bottomText,
+}: Props) {
+  return (
+    <div css={{ display: 'flex' }}>
+      <div css={{ display: 'flex', justifyContent: 'flex-end' }}>
+        <ProfileListItem
+          imageSrc={imageSrc}
+          imageAlt={imageAlt}
+          contents={contents}
+        />
+        {badgeCondition === true ? <Badge name={badgeName!} size={24} /> : null}
+      </div>
+      <span>{bottomText}</span>
+    </div>
+  )
+}
+```
+
+지금도 충분히 복잡하지만 곧 이 컴포넌트는 내부적으로 수많은 분기를 계산하는 몬스터 컴포넌트(Monster Component)가 된다. 이미 이름으로부터 bottomText props가 정의될 수 있는지 알 수 없고 bottomText에 조금이라도 새로운 요구사항(정렬, 애니메이션)이 생기면 재사용이 어려워진다.
+
+예제 코드에서는 데이터를 보여주는 것만 신경을 썼다. 하지만 컴포넌트는 데이터를 보여주는 역할 뿐만 아니라 사용자의 입력을 받는 것도 정의되어야 한다. 사용자의 입력까지 고려하게 되면 더욱 변경에 취약한 컴포넌트들이 되지 않을까 생각한다.
+
+## 마무리
+
+어쩌다가 오래 전에 나온 Atomic Design Pattern이 유행된 것일까? 이 방법론, 패턴이 매력적으로 다가온 이유에는 여러 가지가 있겠지만 그 중 하나는 애플리케이션의 복잡함을 해결해줄 무언가가 필요했기 때문일 것이다. 아토믹 디자인 패턴을 잘 활용한다면 이 문제를 잘 해결할 수 있을 것이다.
+
+웹 애플리케이션이 점점 많은 일을 처리할 수 있게 되면서 복잡해지고 있는데 React는 이를 (전혀) 제어하지 않는다.(방관) 그러다보니 컴포넌트를 어떻게 나눠야 하는지 기준이 딱히 없고 급한 일정에 (무지성으로) 개발을 하다보니 확장이 어렵고 재사용이 불가능한 컴포넌트들로 프로젝트가 이루어져 있다.
+
+1. 분자와 유기체, 템플릿과 페이지 등 어떤 두 가지 유형을 구분짓는 것보다 컴포넌트들을 서로 조합 가능하도록 만드는 것이 중요하다.
+2. 변경 가능성을 고려해 변경에 유연하게 대응할 수 있도록 컴포넌트를 설계하고 디자인해야 한다.
+
+말은 쉽지만 구체적으로 어떻게 해야하는지 정말 어렵다. 이런 고민에 대한 내용은 이 글이 너무 길어질 것 같아 다른 글을 통해 정리해보려고 한다.
+
+### 아토믹 디자인 패턴 관련 좋은 글
+
+- (영어) [https://atomicdesign.bradfrost.com/](https://atomicdesign.bradfrost.com/)
+- (한글) [https://kciter.so/posts/effective-atomic-design](https://kciter.so/posts/effective-atomic-design)
