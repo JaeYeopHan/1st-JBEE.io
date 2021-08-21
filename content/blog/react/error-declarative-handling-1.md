@@ -19,11 +19,11 @@ draft: false
 - 비동기 컴포넌트 Wrapper
   - AsyncBoundary
 
-# 명령형으로 처리하기
+## 명령형으로 처리하기
 
 우리에게 익숙한 명령형으로 비동기 처리와 에러 처리하는 부분에 대해 먼저 살펴보려고 한다.
 
-## try-catch statement
+### try-catch statement
 
 먼저 일반적인 비동기 처리를 살펴보자.
 
@@ -52,11 +52,11 @@ async function getUser() {
 
 이 함수를 함수 컴포넌트에서 사용하기 위해선 `useState`, `useEffect` 등의 hooks를 이용해 리액트 컴포넌트의 상태로 데이터를 관리해야 한다.
 
-### 문제점
+#### 문제점
 
 - 컴포넌트에서 그대로 가져다 쓰기에는 불편한 '비동기' 함수다.
 
-## Hooks
+### Hooks
 
 위와 같은 API를 컴포넌트에서 사용하기 위해 공통 부분을 보통 hooks로 추상화 하곤 한다. 흔하디 흔한 예제 코드를 살펴보면 보통 다음과 같은 Hooks를 소개하곤 한다.
 
@@ -91,18 +91,18 @@ function useUser() {
 
 보통의 비동기 처리에 대한 값을 반환할 때는 `loading`, `error` 등의 비동기 처리에 따른 상태(state) 값들도 함께 전달하게 되는데, 이 값들에 따른 처리가 필요하기 때문이다.
 
-### 문제점
+#### 문제점
 
 - 로딩 상태인지, 에러 상태인지 매번 확인하고 정의해줘야 한다. 발생하는 수많은 에러들을 각각의 컴포넌트 또는 hooks에서 처리를 해줘야 하기 때문에 손이 많이 간다.
 
 > 비즈니스 로직을 구현하기도 시간이 부족한데 에러 처리까지 신경을 써야 할까?<br />
 > 수많은 비동기 요청에 전부 비슷한 에러 핸들링 처리 코드가 필요할까?
 
-# 선언적으로 처리하기
+## 선언적으로 처리하기
 
 이 귀찮은 비동기 에러 핸들링을 선언적으로 처리할 수 있도록 **Suspense**와 **ErrorBoundary**를 이용하여 비동기 컴포넌트를 만들어보자.
 
-## Suspense
+### Suspense
 
 Suspense는 비동기를 명령형으로 처리하고 있던 부분 중 `loading`을 담당하게 된다.
 
@@ -173,16 +173,16 @@ export default function SSRSafeSuspense(
 
 컴포넌트가 mount 되는 시점을 Client 환경이라는 조건으로 가정하고 해당 시점을 알기 위한 hooks를 추가해준다. 기존 Suspense 컴포넌트의 props를 그대로 확장하며 서버 사이드 환경에서만 fallback 컴포넌트를 렌더링 해주면 된다.
 
-### 해결한 부분
+#### 해결한 부분
 
 - `loading`이라는 상태 값을 따로 관리하지 않게 되었다.
 - `loading`일 때 특정 컴포넌트를 보여줘야 하는 분기 처리를 공통 컴포넌트로 추상화 할 수 있게 되었다.
 
-### 아직 해결하지 못한 부분
+#### 아직 해결하지 못한 부분
 
 - loading 상태에 대한 부분은 Suspense를 통해 처리했지만 아직 error 상황에 대한 처리는 하지 못했다.
 
-### Render as you fetch
+#### Render as you fetch
 
 React 공식 문서에서도 다루고 있는 내용이라 깊게 더 들여다보지 않고 이 정도로만 정리하고 넘어간다. 좀 더 자세한 내용이 궁금한 분은 React 공식 문서 [Traditional Approaches vs Suspense](https://reactjs.org/docs/concurrent-mode-suspense.html#traditional-approaches-vs-suspense)를 살펴보면 된다.
 
