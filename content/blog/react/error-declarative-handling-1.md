@@ -319,11 +319,11 @@ render() {
 
 에러를 선언적으로 정의할 인터페이스를 설계하고 이를 구현까지 해봤다. 소개한 기능들은 [react-error-boundary](https://github.com/bvaughn/react-error-boundary)에 구현되어 있다. 정말 유용한 라이브러리이지만 개인적으로 아쉬운 부분이 있어 이 컴포넌트를 한번 더 확장하여 사용하고 있다. (3장에서 추가로 다룰 예정)
 
-# 비동기 컴포넌트 Wrapper
+## 3 비동기 컴포넌트 Wrapper
 
 이제 Server Side Rendering Safe한 Suspense와 에러를 reset 할 수 있는 ErrorBoundary를 조합하여 비동기 컴포넌트를 처리하기 위한 Wrapper 컴포넌트를 만들 수 있다.
 
-## AsyncBoundary
+### AsyncBoundary
 
 이름은 비동기 환경을 가둔다고 해서 AsyncBoundary라고 지었다. 단순히 Suspense와 ErrorBoundary를 조합한 Wrapper 컴포넌트이다.
 
@@ -358,7 +358,7 @@ export default AsyncBoundary;
 
 Promise의 상태를 기준으로 fallback props 네이밍을 했다. 로딩 상태에 대한 fallback을 **pendingFallback**, 에러 상태에 대한 fallback을 **rejectedFallback**으로 지정하였다.
 
-### Usage
+#### Usage
 
 비동기로 데이터를 가져오는 컴포넌트를 다룰 때, AsyncBoundary를 사용할 수 있다. `User`라는 컴포넌트에서 비동기 호출을 하고 있다면 부모 컴포넌트에서 AsyncBoundary로 감싸주면 된다.
 
