@@ -21,3 +21,11 @@ blockquote {
     content: '';
   }
 }
+
+.flex {
+  display: flex;
+
+  &.end {
+    justify-content: flex-end;
+  }
+}
