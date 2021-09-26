@@ -6,8 +6,6 @@ thumbnail: './images/components-should-be-flexible.jpg'
 draft: false
 ---
 
-![components-should-be-flexible](./images/components-should-be-flexible.jpg)
-
 이번 포스트에서는 변경에 유연하게 대응할 수 있는 컴포넌트에 대해 이야기해보려고 한다
 
 > Tip: 이 글은 사실 Stop Using Atomic Design Pattern의 후속 글이다.
@@ -438,11 +436,11 @@ ListItem 컴포넌트를 사용하는 입장에선 내부 구현을 보지 않�
 
 HTML에서 `li` 엘리먼트에는 `button` 이라는 attribute가 없기 때문에 ListItem 컴포넌트의 역할로부터 props 네이밍을 다시 고민해볼 필요가 있다.
 
-`flex` 스타일로 `button` 엘리먼트는 우측에 렌더링 되기 때문에 `right` 라는 표현을 통해 역할을 드러낼 수 있지 않을까? button 이라는 제약 사항을 제거함으로써 button 타입의 컴포넌트가 아닌 다른 컴포넌트도 전달받을 수 있어 확장 가능하도록 수정할 수 있을 것이다. *(*부록 A. right라는 이름의 Prop 참고)\*
+`flex` 스타일로 `button` 엘리먼트는 우측에 렌더링 되기 때문에 `right` 라는 표현을 통해 역할을 드러낼 수 있지 않을까? button 이라는 제약 사항을 제거함으로써 button 타입의 컴포넌트가 아닌 다른 컴포넌트도 전달받을 수 있어 확장 가능하도록 수정할 수 있을 것이다. ([\*부록 A. right라는 이름의 Prop 참고](#부록-a-right라는-이름의-prop))
 
 #### 3. 널리 사용되는 네이밍
 
-디자인 시스템 오픈소스 라이브러리를 참고해보는 것이 도움이 된다. 여러 가지 디자인 시스템에서 사용되는 네이밍을 혼용하는 것은 일관성이 깨질 수 있지만 특정 상황에 대한 네이밍을 참고한다면 좀 더 일반적인 인터페이스로 Props를 디자인할 수 있다.
+디자인 시스템 오픈소스 라이브러리를 참고해보는 것이 도움이 된다. 여러 가지 디자인 시스템에서 사용되는 네이밍을 혼용하는 것은 일관성이 깨질 수 있지만 특정 상황에 대한 네이밍을 참고한다면 좀 더 일반적인 인터페이스로 Props를 디자인할 수 있다. ([\*부록 C. 참고하기 좋은 디자인 시스템](#부록-c-참고하기-좋은-디자인-시스템))
 
 - 역할은 드러내고 구현은 감추어 일반적인 인터페이스를 설계하자.
 
@@ -522,7 +520,7 @@ function AddressList() {
 
 **추상화**란 불필요한 정보를 **제거**하고 문제 해결에 필요한 정보만 **남기는** 작업이다. AddressListItem을 ListItem으로 변경하면서 ListItem 컴포넌트는 자연스럽게 레이아웃이라는 **하나의 문제에 집중**했다. 그리고 그 외의 것들은 제거하고 외부에 위임하였다. 그 결과 ListItem은 요소 간 레이아웃을 담당하게 된 것이다.
 
-추상화가 성급했다고 결론이 나는 상황들은 이와는 다른 방향으로 작업이 이뤄졌다. 역할을 기준으로 추상화한 것이 아니라 중복을 기반으로 추출한 것이다. *(*부록 A. 성급한 추상화와 잘못된 추출)\*
+추상화가 성급했다고 결론이 나는 상황들은 이와는 다른 방향으로 작업이 이뤄졌다. 역할을 기준으로 추상화한 것이 아니라 중복을 기반으로 추출한 것이다. ([\*부록 B. 성급한 추상화와 잘못된 추출](#부록-b-성급한-추상화와-잘못된-추출))
 
 > 성급한 추상화라는 것은 없다. 잘못된 추출만 있을 뿐.
 
@@ -604,7 +602,12 @@ ListItem 컴포넌트의 props 중 `right` 라는 것을 만들었다. 추상화
 
 시간이 지날수록 Item 컴포넌트는 몬스터 컴포넌트가 될 것이다.
 
-### 부록 C. 더 읽어보기
+### 부록 C. 참고하기 좋은 디자인 시스템
+
+- [chakra-ui](https://chakra-ui.com/)
+- [react-spectrum](https://react-spectrum.adobe.com/react-spectrum/)
+
+### 부록 D. 더 읽어보기
 
 - [좋은 코드란 무엇일까](https://jbee.io/etc/what-is-good-code/)
 - [프로그래머를 위한 이름 짓는 원리](https://green-labs.github.io/programmers-naming?fbclid=IwAR2CpVpWykLS64dJUsmQSiTdqZ0T10XI_7HNLeiIwDnVUfeIx8odsCG5ujw)
