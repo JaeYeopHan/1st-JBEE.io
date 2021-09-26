@@ -1,6 +1,6 @@
 ---
 title: '변경에 유연한 컴포넌트'
-date: 2021-09-26 21:09:34
+date: 2021-09-27 09:00:00
 category: web
 thumbnail: './images/components-should-be-flexible.jpg'
 draft: false
