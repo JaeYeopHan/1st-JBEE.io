@@ -215,7 +215,7 @@ function AddressItem({ id, address, saved }: 주소) {
 
 props도 주소 데이터를 전부 받을 수 있도록 수정되었다. 공통의 주소 모델을 기준으로 인터페이스가 설계되었기 때문에 보여줘야 하는 주소 데이터가 추가된다면 AddressItem 컴포넌트만 수정하면 된다.
 
-여기서 한 가지 살펴볼 수 있었던 것은 데이터 중심의 설계를 하기 위해선 데이터 모델이 Single Sourth of Truth로 관리되어야 한다는 부분이다.
+여기서 한 가지 살펴볼 수 있었던 것은 데이터 중심의 설계를 하기 위해선 데이터 모델이 Single Source of Truth로 관리되어야 한다는 부분이다.
 
 이 AddressItem을 사용하는 AddressList 컴포넌트는 다음과 같이 재작성된다.
 
