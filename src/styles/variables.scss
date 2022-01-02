@@ -32,8 +32,10 @@ $light-blockquote-quote-image: url('/images/quote-black.png');
 $light-blockquote-quote-color: #000;
 
 // code
-$inline-dimmed-color: rgba(175, 184, 193, 0.2);
-$inline-text-color: #212429;
+$light-inline-dimmed-color: rgba(175, 184, 193, 0.2);
+$light-inline-text-color: #212429;
+$dark-inline-dimmed-color: rgba(175, 184, 193, 0.2);
+$dark-inline-text-color: #d8d8d8;
 
 // category
 $light-category-border-color: #ecf0f2;
