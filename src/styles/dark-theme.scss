@@ -90,4 +90,10 @@ body.dark {
       background-image: $dark-blockquote-quote-image;
     }
   }
+
+  /* Inline code */
+  :not(pre) > code[class*='language-'] {
+    background: $dark-inline-dimmed-color;
+    color: $dark-inline-text-color;
+  }
 }

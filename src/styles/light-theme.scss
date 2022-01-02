@@ -79,4 +79,10 @@ body.light {
       background-image: $light-blockquote-quote-image;
     }
   }
+
+  /* Inline code */
+  :not(pre) > code[class*='language-'] {
+    background: $light-inline-dimmed-color;
+    color: $light-inline-text-color;
+  }
 }
