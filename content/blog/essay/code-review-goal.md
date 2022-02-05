@@ -179,9 +179,9 @@ Pull Request를 등록하는 개발자는 이 Pull Request를 통해 성장하�
 
 ## 마무리
 
-코드 리뷰에 대한 이야기를 해봤다. 물론 이 이야기는 조직 내 코드 리뷰에 한해서이고 오픈소스에서 이뤄지는 코드 리뷰는 이야기가 조금 다르다. (코드에 대한 리뷰를 해야 하고 경험상 더 빡세다.)
+코드 리뷰에 대한 이야기를 해봤다. 물론 이 이야기는 '제품 조직 내 코드 리뷰'에 한해서이고 오픈소스에서 이뤄지는 코드 리뷰는 이야기가 조금 다르다. (코드에 대한 리뷰를 해야만 하고 경험상 테스트가 더 빡세다.)
 
-[![opensource-codereview--examples](opensource-codereview.png)](https://github.com/tannerlinsley/react-query/pull/3093)
+[![opensource-codereview--examples](./images/opensource-codereview.png)](https://github.com/tannerlinsley/react-query/pull/3093)
 
 <div style="opacity: 0.5" align="right">
     <sup>https://github.com/tannerlinsley/react-query/pull/3093</sup>
@@ -197,5 +197,9 @@ Pull Request를 등록하는 개발자는 이 Pull Request를 통해 성장하�
 - 먼저 테스트를 작성해보면 어떨까?
 
 여러 조직에서 서로의 성장을 위하는 코드 리뷰로 함께 성장하면 좋겠다.
+
+### So What?
+
+그렇다면 성장을 위한 코드 리뷰는 무엇인가? 필자가 속해있는 팀에서 이런 관점으로 리뷰를 하려고 노력하고 있다. 실제로 챕터에서 이뤄지고 있는 코드 리뷰와 그 과정을 소개하며 글을 마무리한다.
 
 [👉 토스페이먼츠 프런트엔드 챕터의 코드 리뷰 문화 보러가기](https://tosspayments-dev.oopy.io/chapters/frontend/about)
