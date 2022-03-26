@@ -6,23 +6,19 @@ lang: 'ko'
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2021.04.17</i></sub></div>
+<div align="right"><sub><i>Last updated: 2022.03.26</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
-1. 좋은 코드와 설계를 고민하는
-2. 지속 가능한 프로덕트를 개발하는데 집중하는
-3. 자동화를 통한 생산성 향상에 신경쓰는
-4. 업무 프로세스 그리고 이를 뒷받침하는 조직 문화에 관심이 많은
-5. 커뮤니티를 좋아하고 글쓰기를 좋아하는
+1. 지속 가능한 제품을 개발하는데 집중하는
+2. 개인과 조직의 생산성에 신경쓰는
+3. 채용을 비롯한 개발 문화에 관심이 많은
 
 **저는 `______` 하는 조직을 선호합니다.**
 
-1. 투명한 의사결정이 이루어지고 공유되는
+1. 의사결정이 투명하게 이뤄지고 공유되는
 2. 구성원 간 신뢰를 기반으로 자율적으로 일하는
-3. 불필요한 커뮤니케이션을 줄여 효율적으로 움직이는
-4. 하는 일이 조직의 밸류 체인에서 어떠한 임팩트를 갖는지 고민하는
-5. 기술이 비즈니스의 핵심 동력이며 제 코드가 비즈니스에 도움이 될 수 있는
+3. 조직의 비전을 구성원들이 모두 알고 있고 공감하는
 
 |             |                                 |
 | :---------: | ------------------------------- |
@@ -40,25 +36,21 @@ lang: 'ko'
 | -----------: | -------------------------------------------------------- |
 |   **period** | 20.10 ~ current                                          |
 | **position** | Dashboard Silo Frontend Engineer, Frontend Platform Team |
-| **projects** | 가맹점 정산/매출 대시보드 / 프런트엔드 배포 어드민       |
+| **projects** | 가맹점 대시보드 / 프런트엔드 배포 어드민       |
+|    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
 
-### 가맹점 정산/매출 대시보드
+### 가맹점 대시보드 (20.10 ~ current)
 
-- 20.10 ~ current
-- TypeScript, Next.js, react-query, react-hook-form, emotion, react-calendar, react-table
-
-#### Description
-
+- 사업자가 사업을 하는데 있어서 결제와 관련되어 필요한 모든 것을 할 수 있는 제품
 - 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
-  - 프런트엔드 개발에서 어려운 부분 중 하나인 비동기 처리에 대한 연구를 정리하여 공유하고 쉽게 사용할 수 있도록 라이브러리로 만들어 공유
-- 달력 UI 제품을 위한 Headless UI 라이브러리 개발하여 어느 제품에서라도 재사용 가능하도록 개발 ([react-calendar](https://github.com/veccu/react-calendar))
+- Headless UI 라이브러리 개발하여 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
 
-### CI/CD 구성 및 프런트엔드 배포 어드민
+### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ current)
 
-- 20.10 ~ current
-- aws-sdk, terraform, TypeScript, Next.js, react-query
+- 신규 가맹점을 데려오기 위한 수단 중 하나로 제안서 성격의 홈페이지 제품
+- 기획 단계에서부터 개발, AB 테스트를 통한 전환율 개선까지 참여
 
-#### Description
+### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
 
 - Amazon Web Service 리소스들을 Terraform으로 관리
 - Amazon Web Service의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
@@ -73,27 +65,19 @@ lang: 'ko'
 | **position** | Web Platform Team, Inflow Silo / Front-End Engineer  |
 | **projects** | 로그센터, 숨은정부지원금찾기, 반짝특가, 매일행운상자 |
 
-### Log Center (로그센터) / Logging SDK
+### Log Center (로그센터) / Logging SDK (20.02 ~ 20.10)
 
-토스앱 내에서 사용자의 행동을 추적할 수 있는 로그들을 쉽게 관리할 수 있는 웹 애플리케이션 제품 / 제품에서 사용할 수 있는 로깅 SDK
+> TypeScript, Next.js, swr, react-hook-form, emotion
 
-- 20.02 ~ 20.10
-- TypeScript, Next.js, swr, react-hook-form, emotion
-
-#### Description
-
+- 토스앱 내에서 사용자의 행동을 추적할 수 있는 로그들을 쉽게 관리할 수 있는 웹 애플리케이션 제품 / 제품에서 사용할 수 있는 로깅 SDK
 - 복잡한 Form을 Uncontrolled, Controlled의 조합으로 설계 및 개발
 - DX를 고려한 로깅 SDK 인터페이스 설계 및 개발
 
-### 토스앱 인플로우 제품
+### 토스앱 인플로우 제품 (20.04 ~ 20.10)
 
-토스앱에 신규 유저를 유치하기 위한 제품들을 개발 (숨은정부지원금찾기, 반짝특가, 매일행운상자)
+> TypeScript, Next.js, emotion
 
-- 20.04 ~ 20.10
-- TypeScript, Next.js, emotion
-
-#### Description
-
+- 토스앱에 신규 유저를 유치하기 위한 제품들을 개발 (숨은정부지원금찾기, 반짝특가, 매일행운상자)
 - 초대 Scheme, 공유 Scheme, 혜택 Scheme등을 적용하여 여러 제품을 짧은 주기로 실험
 
 ## LINE Financial Plus
@@ -114,13 +98,9 @@ lang: 'ko'
 #### Description
 
 - 프로젝트 초기 React Application Architecture 설계
-  - 새로운 프로젝트 개발 환경 및 구조를 담당하여 연구하고 설계
 - Storybook을 통한 UI 검증 프로세스 간소화
-  - 페이지 단위로 사용하여 UI가 제대로 노출되는지 검증하는 단계를 간소화.
-- App like UI를 위한 시도
-  - 관련 자료: [https://github.com/JaeYeopHan/ux-lab](https://github.com/JaeYeopHan/ux-lab)
+- App like UI를 위한 시도 (https://github.com/JaeYeopHan/ux-lab)
 - redux-saga Unit 테스트를 강화
-  - 프론트엔드에서의 비즈니스 로직 등을 redux-saga라는 미들웨어에서 처리하면서 테스트를 작성.
 - 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 일정, 커뮤니케이션 포인트 정리
 
 ### Smart Invest (Front-End 개발 담당)
@@ -186,41 +166,9 @@ LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 �
 
 # Open Source Projects
 
-## @veccu/react-calendar
-
-- GitHub: <https://github.com/veccu/react-calendar>
-- React
-
-달력을 만들기 위한 Headless UI 라이브러리
-
-## gatsby-starter-bee
-
-- GitHub: <https://github.com/JaeYeopHan/gatsby-starter-bee>
-- _React, Gatsby_
-
-Gatsby를 기반으로 만든 블로그 템플릿. 기존에 흔히 볼 수 있는 블로그 템플릿이 아닌 산뜻한 UI를 만들기 위해 고민.
-
-### gatsby-remark-images-medium-zoom
-
-- GitHub: <https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom>
-
-medium-zoom 이라는 오픈소스를 Gatsby에서 쉽게 사용할 수 있도록 plugin 형식으로 wrapping한 오픈소스 라이브러리.
-
-## octodirect - chrome extension
-
-- Chrome web store link: <http://bit.ly/2wL9Iwv>
-- GitHub: <https://github.com/JaeYeopHan/octodirect>
-- _React, TypeScript, Redux, Redux-saga_
-
-자신이 생성했거나, 관리하고 있는 저장소, 이전에 방문했던 저장소, 자신이 star를 누른 저장소 등을 curating하여 단축키를 통해 바로 이동할 수 있는 chrome extension. 크롬 익스텐션의 versioning, 배포 부분을 나름의 배포 스크립트 자동화.
-
-## cra-template-unicorn
-
-- GitHub: <https://github.com/JaeYeopHan/cra-template-unicorn>
-- _React, create-react-app, craco, redux-toolkit, emotion_
-- Managed by _GitHub Action, semantic-release, NPM package_
-
-create-react-app을 사용할 때, template으로 사용할 수 있는 오픈소스 프로젝트입니다. VSCode 개발 환경 구축, Prettier, react-redux, react-router 등 React Application 프로젝트를 시작하기 위한 기본적인 개발 환경을 담고 있습니다.
+- react-query contributions ([PRs](tannerlinsley/react-query))
+- [h6s](https://github.com/h6s-dev/h6s): Serve headless component development kit for React production apps
+- [gatsby-starter-bee template](https://github.com/JaeYeopHan/gatsby-starter-bee)
 
 <br />
 
@@ -228,64 +176,22 @@ create-react-app을 사용할 때, template으로 사용할 수 있는 오픈소
 
 ## Presentations
 
-### GDG Intern Special: 멘토스와 인턴콜라
-
-<https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra>
-
-_[2019.07.06]_ 인턴십에서 1번의 실패와 1번의 성공의 경험을 공유. 추가적으로 멘토링했던 경험을 함께 공유.
-
-### NAVER Boostcamp: 미리 알았다면 좋았을 것 들
-
-<https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul>
-
-_[2019.06.24]_ 업무를 진행하면서 알게 된 부분, 개발자가 되기 전에 알았으면 좋았을 부분들을 공유.
-
-### GDG Frontendgame: UX빼면 시체 프런트엔드
-
-<https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu>
-
-_[2019.06.22]_ 프론트엔드 영역이 존재하는 이유라고 말할 수 있는 UX에 대한 이야기를 공유.
-
-### NAVER Tech Concert: 주니어 개발자의 성장에 대한 뻔하지만 뻔하지 않은 이야기
-
-<https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo>
-
-_[2019.04.11]_ 개발자로서의 성장에 대한 내용으로 사이드 프로젝트를 통한 성장 뿐만 아니라 회사에서의 업무를 통한 성장 또한 중요하다는 내용을 구체적인 예시와 함께 공유.
-
-### GDG Devfest Seoul 2018: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선
-
-<https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools>
-
-_[2018.11.10]_ 웹 프론트엔드 성능과 관련하여 크게 측정과 개선 두 부분에 대한 내용을 공유.
-
-### GDG Campus Meetup(2018): 함께 일하고 싶은 개발자
-
-<https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja>
-
-_[2018.02.11]_ 현업에서 배운 '개발'을 소개하며 함께 일하고 싶은 개발자는 무엇일까에 대한 이야기를 공유.
-
+- [GDG Intern Special: 멘토스와 인턴콜라](https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra) (2019.07.06)
+- [NAVER Boostcamp: 미리 알았다면 좋았을 것 들](https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul) (2019.06.24)
+- [GDG Frontendgame: UX빼면 시체 프런트엔드](https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu) (2019.06.22)
+- [NAVER Tech Concert: 주니어 개발자의 성장에 대한 뻔하지만 뻔하지 않은 이야기](https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo) (2019.04.11)
+- [GDG Devfest Seoul 2018: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선](https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools) (2018.11.10)
+- [GDG Campus Meetup(2018): 함께 일하고 싶은 개발자](https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja) (2018.02.11)
 ## Activity
 
-### [FEConf Organizer](https://2019.feconf.kr/)
+- [FEConf Organizer](https://2020.feconf.kr/) (18.06 ~ current)
+- [우아한테크코스 리뷰어](https://woowacourse.github.io/about.html) (21.02 ~ 21.06)
 
-|                 |                                                                                       |
-| --------------: | ------------------------------------------------------------------------------------- |
-|      **period** | 18.06. ~ current.                                                                     |
-| **description** | 페이스북 그룹인 '프론트엔드 개발 그룹'의 운영진이며 FEConf라는 컨퍼런스의 오거나이저. |
 
 ## Lecture
 
-### ECMAScript 2016
-
-<https://www.slideshare.net/JaeYeopHan/es6-1-let-const>
-
-사내에서 진행한 자바스크립트 강의 자료.
-
-### TypeScript Tutorial
-
-<https://www.slideshare.net/JaeYeopHan/intro-typescript-playground>
-
-사내에서 진행한 타입스크립트 강의 자료.
+- [ECMAScript 2016](https://www.slideshare.net/JaeYeopHan/es6-1-let-const)
+- [TypeScript Tutorial](https://www.slideshare.net/JaeYeopHan/intro-typescript-playground)
 
 <br />
 
