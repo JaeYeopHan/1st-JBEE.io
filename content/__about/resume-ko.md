@@ -148,17 +148,16 @@ lang: 'ko'
 
 <br />
 
-# Open Source Projects
+
+# Communities
+
+#### Open Source
 
 - react-query contributions ([PRs](tannerlinsley/react-query))
 - [h6s](https://github.com/h6s-dev/h6s): Serve headless component development kit for React production apps
 - [gatsby-starter-bee template](https://github.com/JaeYeopHan/gatsby-starter-bee)
 
-<br />
-
-# Communities
-
-## Presentations
+#### Presentations
 
 - [GDG Intern Special: 멘토스와 인턴콜라](https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra) (2019.07.06)
 - [NAVER Boostcamp: 미리 알았다면 좋았을 것 들](https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul) (2019.06.24)
@@ -167,13 +166,13 @@ lang: 'ko'
 - [GDG Devfest Seoul: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선](https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools) (2018.11.10)
 - [GDG Campus Meetup: 함께 일하고 싶은 개발자](https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja) (2018.02.11)
 
-## Activity
+#### Activity
 
 - [FEConf Organizer](https://2020.feconf.kr/) (18.06 ~ current)
 - [우아한테크코스 리뷰어](https://woowacourse.github.io/about.html) (21.02 ~ 21.06)
 
 
-## Lecture
+#### Lecture
 
 - [ECMAScript 2016](https://www.slideshare.net/JaeYeopHan/es6-1-let-const)
 - [TypeScript Tutorial](https://www.slideshare.net/JaeYeopHan/intro-typescript-playground)
