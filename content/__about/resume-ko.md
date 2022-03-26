@@ -39,18 +39,18 @@ lang: 'ko'
 | **projects** | 가맹점 대시보드 / 프런트엔드 배포 어드민       |
 |    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
 
-### 가맹점 대시보드 (20.10 ~ current)
+#### 가맹점 대시보드 (20.10 ~ current)
 
 - 사업자가 사업을 하는데 있어서 결제와 관련되어 필요한 모든 것을 할 수 있는 제품
 - 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
 - Headless UI 라이브러리 개발하여 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
 
-### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ current)
+#### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ current)
 
 - 신규 가맹점을 데려오기 위한 수단 중 하나로 제안서 성격의 홈페이지 제품
 - 기획 단계에서부터 개발, AB 테스트를 통한 전환율 개선까지 참여
 
-### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
+#### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
 
 - Amazon Web Service 리소스들을 Terraform으로 관리
 - Amazon Web Service의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
@@ -65,7 +65,7 @@ lang: 'ko'
 | **position** | Web Platform Team, Inflow Silo / Front-End Engineer  |
 | **projects** | 로그센터, 숨은정부지원금찾기, 반짝특가, 매일행운상자 |
 
-### Log Center (로그센터) / Logging SDK (20.02 ~ 20.10)
+#### Log Center (로그센터) / Logging SDK (20.02 ~ 20.10)
 
 > TypeScript, Next.js, swr, react-hook-form, emotion
 
@@ -73,7 +73,7 @@ lang: 'ko'
 - 복잡한 Form을 Uncontrolled, Controlled의 조합으로 설계 및 개발
 - DX를 고려한 로깅 SDK 인터페이스 설계 및 개발
 
-### 토스앱 인플로우 제품 (20.04 ~ 20.10)
+#### 토스앱 인플로우 제품 (20.04 ~ 20.10)
 
 > TypeScript, Next.js, emotion
 
@@ -180,8 +180,9 @@ LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 �
 - [NAVER Boostcamp: 미리 알았다면 좋았을 것 들](https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul) (2019.06.24)
 - [GDG Frontendgame: UX빼면 시체 프런트엔드](https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu) (2019.06.22)
 - [NAVER Tech Concert: 주니어 개발자의 성장에 대한 뻔하지만 뻔하지 않은 이야기](https://speakerdeck.com/jaeyeophan/junieo-gaebaljayi-seongjange-daehaeseo) (2019.04.11)
-- [GDG Devfest Seoul 2018: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선](https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools) (2018.11.10)
-- [GDG Campus Meetup(2018): 함께 일하고 싶은 개발자](https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja) (2018.02.11)
+- [GDG Devfest Seoul: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선](https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools) (2018.11.10)
+- [GDG Campus Meetup: 함께 일하고 싶은 개발자](https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja) (2018.02.11)
+
 ## Activity
 
 - [FEConf Organizer](https://2020.feconf.kr/) (18.06 ~ current)
