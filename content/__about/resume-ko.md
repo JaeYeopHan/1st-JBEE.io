@@ -1,6 +1,6 @@
 ---
 title: 'about'
-date: 2021-4-17 13:21:13
+date: 2022-3-26 13:21:13
 lang: 'ko'
 ---
 
@@ -43,7 +43,7 @@ lang: 'ko'
 
 - 사업자가 사업을 하는데 있어서 결제와 관련되어 필요한 모든 것을 할 수 있는 제품
 - 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
-- Headless UI 라이브러리 개발하여 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
+- Headless UI 라이브러리 개발하여 복잡한 인터페이스를 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
 
 #### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ current)
 
@@ -118,28 +118,18 @@ lang: 'ko'
 |  **period**  | 17.07 ~ 18.10                      |
 | **position** | FE Platform / Front-End Engineer   |
 | **projects** | SmartAround, generator-sau-webpack |
+| **tech** | TypeScript, jQuery, lerna |
 
-### SmartAround Service (Front-End 개발)
+#### SmartAround Service (18.02 ~ 18.10)
 
-사용자의 위치를 기반으로 맛집, 액티비티, 방문할만한 곳 등 다양항 정보를 제공해주는 서비스.
-
-- 18.02 ~ 18.10
-- TypeScript, jQuery, lerna
-
-#### Description
-
+- 사용자의 위치를 기반으로 맛집, 액티비티, 방문할만한 곳 등 다양항 정보를 제공해주는 서비스.
 - 팀 내 TypeScript 도입
-  - 복잡한 UI를 여러 Layer로 나누어 설계 후, 각 Layer 간의 interface를 강제하기 위해 TypeScript를 도입.
-  - 도입 후, 팀 내 TypeScript 전파를 위해 스터디 진행.
-- 성능 및 UX 개선 작업
-  - 이미지 레이지 로딩, 컴포넌트 레이지 초기화를 통한 초기 로딩 성능을 개선.
-  - 브라우저 뒤로가기, 외부 공유 등의 상황에서 사용자가 바라보고 있던 화면이 유지되도록 개발.
+- 이미지 레이지 로딩, 컴포넌트 레이지 초기화를 통한 초기 로딩 성능을 개선.
+- 브라우저 뒤로가기, 외부 공유 등의 상황에서 사용자가 바라보고 있던 화면이 유지되도록 사용성 개선.
 - 팀 내 모듈들을 관리하기 위해 lerna 도입
-  - 팀 내에서 사용할 수 있는 컴포넌트, 모듈들을 사내 npm registry에 배포 및 관리.
-- 프로젝트 회고에 대한 연구 및 진행
-  - 팀 내 회고 문화를 전파 (관련 [블로그 글](https://jbee.io/essay/about_retrospective/))
+- 프로젝트 회고에 대한 연구 및 진행(관련 [블로그 글](https://jbee.io/essay/about_retrospective/))
 
-### Project Generator
+#### Project Generator
 
 - Yeoman Generator 기반의 개발 환경 scaffolding 도구.
 - 프로젝트의 기반이 되는 TypeScript 기반의 template을 제작 및 유지보수.
