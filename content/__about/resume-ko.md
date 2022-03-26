@@ -67,15 +67,11 @@ lang: 'ko'
 
 #### Log Center (로그센터) / Logging SDK (20.02 ~ 20.10)
 
-> TypeScript, Next.js, swr, react-hook-form, emotion
-
 - 토스앱 내에서 사용자의 행동을 추적할 수 있는 로그들을 쉽게 관리할 수 있는 웹 애플리케이션 제품 / 제품에서 사용할 수 있는 로깅 SDK
 - 복잡한 Form을 Uncontrolled, Controlled의 조합으로 설계 및 개발
 - DX를 고려한 로깅 SDK 인터페이스 설계 및 개발
 
 #### 토스앱 인플로우 제품 (20.04 ~ 20.10)
-
-> TypeScript, Next.js, emotion
 
 - 토스앱에 신규 유저를 유치하기 위한 제품들을 개발 (숨은정부지원금찾기, 반짝특가, 매일행운상자)
 - 초대 Scheme, 공유 Scheme, 혜택 Scheme등을 적용하여 여러 제품을 짧은 주기로 실험
@@ -87,31 +83,20 @@ lang: 'ko'
 |   **period** | 18.11 ~ 20.04                                                   |
 | **position** | Web Dev 2 / Front-End Engineer                                  |
 | **projects** | LINE Indonesia Bank, Smart Invest Japan, Webview SDK, Mentoring |
+| **tech** | TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook |
 
-### Indonesia Bank (웹뷰 영역 개발)
+#### Indonesia Bank (19.02 ~ 20.04)
 
-인도네시아 국가를 대상으로 하나은행과 함께 진행하는 은행 애플리케이션.
-
-- 19.02 ~ 20.04
-- TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook
-
-#### Description
-
+- 인도네시아 국가를 대상으로 하나은행과 함께 진행하는 은행 애플리케이션의 웹뷰 영역 담당
 - 프로젝트 초기 React Application Architecture 설계
 - Storybook을 통한 UI 검증 프로세스 간소화
 - App like UI를 위한 시도 (https://github.com/JaeYeopHan/ux-lab)
 - redux-saga Unit 테스트를 강화
 - 웹뷰 파트 리드로 CR 프로세스, QA 프로세스, 일정, 커뮤니케이션 포인트 정리
 
-### Smart Invest (Front-End 개발 담당)
+#### Smart Invest (18.11 ~ 20.04)
 
-LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 플랫폼.
-
-- 18.11 ~ 20.04
-- Vue, Vuex, vue-router, vue-i18n, jest
-
-#### Description
-
+- LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 플랫폼.
 - 외부 외주 인력에 의해 개발 및 유지 보수된 서비스를 3개월 동안 마이그레이션 작업 및 내재화 진행
 - 성능 향상 및 사용성 개선
   - 성능, 접근성, SEO 등 기존에 부족했던 부분들을 전반적으로 개선. (Lighthouse 기준으로 평균 80점에서 97점으로 상승)
@@ -122,8 +107,7 @@ LINE Messenger 플랫폼을 기반으로 운영되는 투자 서비스 중개 �
 - 생산성 향상 및 배포 안정성을 위한 자동화
   - Jenkins, 사내 CDN 시스템, 사내 클라우드 시스템 연동으로 원버튼 배포 시스템 구축하여 정적 리소스 파일 배포 자동화
   - 퍼블리셔와 협업하기 힘든 구조를 자동화. (HTML/CSS 업데이트하는 부분을 스크립트로 자동화)
-- 프로젝트 문서화
-  - 개발 환경, 프로젝트의 구조, Trouble Shooting, Policy 등에 대한 부분을 문서화.
+- 개발 환경, 프로젝트의 구조, Trouble Shooting, Policy 등에 대한 부분을 문서화.
 
 <br />
 
