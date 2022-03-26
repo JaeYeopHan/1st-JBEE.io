@@ -155,6 +155,7 @@ lang: 'ko'
 
 - [FEConf Organizer](https://2020.feconf.kr/) (18.06 ~ current)
 - [우아한테크코스 리뷰어](https://woowacourse.github.io/about.html) (21.02 ~ 21.06)
+- [커넥트재단 부스트캠프 리뷰어](https://woowacourse.github.io/about.html) (20.08 ~ 20.10)
 
 
 #### Lecture
