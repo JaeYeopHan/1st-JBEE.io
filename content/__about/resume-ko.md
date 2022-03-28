@@ -35,7 +35,7 @@ lang: 'ko'
 |              |                                                          |
 | -----------: | -------------------------------------------------------- |
 |   **period** | 20.10 ~ current                                          |
-| **position** | Dashboard Silo Frontend Engineer, Frontend Platform Team |
+| **position** | [Frontend Chapter](https://tosspayments-dev.oopy.io/chapters/frontend/about), Dashboard Silo, Inflow Silo |
 | **projects** | 가맹점 대시보드 / 프런트엔드 배포 어드민       |
 |    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
 
