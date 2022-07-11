@@ -6,7 +6,7 @@ lang: 'ko'
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2022.03.26</i></sub></div>
+<div align="right"><sub><i>Last updated: 2022.07.11</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
@@ -16,9 +16,9 @@ lang: 'ko'
 
 **저는 `______` 하는 조직을 선호합니다.**
 
-1. 의사결정이 투명하게 이뤄지고 공유되는
-2. 구성원 간 신뢰를 기반으로 자율적으로 일하는
-3. 조직의 비전을 구성원들이 모두 알고 있고 공감하는
+1. 구성원 간 신뢰를 기반으로 자율적으로 일하는
+2. 의사결정이 투명하게 이뤄지고 이를 위한 정보가 수평적으로 공유되는
+3. 구성원들이 조직의 비전을 함께 상상하고 구체화하고 이에 공감할 수 있는
 
 |             |                                 |
 | :---------: | ------------------------------- |
@@ -36,26 +36,32 @@ lang: 'ko'
 | -----------: | -------------------------------------------------------- |
 |   **period** | 20.10 ~ current                                          |
 | **position** | [Frontend Chapter](https://tosspayments-dev.oopy.io/chapters/frontend/about), Dashboard Silo, Inflow Silo |
-| **projects** | 가맹점 대시보드 / 프런트엔드 배포 어드민       |
+| **projects** | 가맹점 대시보드 / 프런트엔드 플랫폼       |
 |    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
 
-#### 가맹점 대시보드 (20.10 ~ current)
+#### Frontend Platform Engineering
+
+- A/B Testing을 위한 SDK
+- 사용자 지표 추적을 위한 TypeScript/React 로깅 SDK
+- 이메일 템플릿 작업을 위한 어드민 작업 (AWS SES, Nest.js, Next.js)
+- 원버튼 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
+
+#### 가맹점 대시보드 (20.10 ~ 22.07)
 
 - 사업자가 사업을 하는데 있어서 결제와 관련되어 필요한 모든 것을 할 수 있는 제품
 - 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
 - Headless UI 라이브러리 개발하여 복잡한 인터페이스를 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
 
-#### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ current)
+#### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
+
+- AWS 리소스들을 Terraform으로 관리
+- AWS의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
+- GitHub Action을 기반으로 CI/CD 구성
+
+#### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ 22.06)
 
 - 신규 가맹점을 데려오기 위한 수단 중 하나로 제안서 성격의 홈페이지 제품
 - 기획 단계에서부터 개발, AB 테스트를 통한 전환율 개선까지 참여
-
-#### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
-
-- Amazon Web Service 리소스들을 Terraform으로 관리
-- Amazon Web Service의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
-- GitHub Action을 기반으로 CI/CD 구성
-- 원버튼 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
 
 ## Toss (Viva Republica)
 
@@ -140,10 +146,11 @@ lang: 'ko'
 
 - react-query contributions ([PRs](tannerlinsley/react-query))
 - [h6s](https://github.com/h6s-dev/h6s): Serve headless component development kit for React production apps
-- [gatsby-starter-bee template](https://github.com/JaeYeopHan/gatsby-starter-bee)
+- [gatsby-starter-bee template](https://github.com/JaeYeopHan/gatsby-starter-bee): Blog template
 
 #### Presentations
 
+- [SLASH22: Effective Component 지속 가능한 성장과 컴포넌트](https://www.youtube.com/watch?v=fR8tsJ2r7Eg)
 - [GDG Intern Special: 멘토스와 인턴콜라](https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra) (2019.07.06)
 - [NAVER Boostcamp: 미리 알았다면 좋았을 것 들](https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul) (2019.06.24)
 - [GDG Frontendgame: UX빼면 시체 프런트엔드](https://speakerdeck.com/jaeyeophan/uxbbaemyeon-sice-peureonteuendeu) (2019.06.22)
@@ -151,17 +158,15 @@ lang: 'ko'
 - [GDG Devfest Seoul: Chrome Devtools를 활용한 웹 프론트엔드 성능 측정과 개선](https://slides.com/jbee/devfest_seoul_2018_performance_optimization_with_chrome_devtools) (2018.11.10)
 - [GDG Campus Meetup: 함께 일하고 싶은 개발자](https://speakerdeck.com/jaeyeophan/gdg-campus-2018-meetup-balpyojaryo-hamgge-ilhago-sipeun-gaebalja) (2018.02.11)
 
+#### Books
+
+- [커리어 속에서 성장하는 방법](https://fastcampus.co.kr/books/212106)
+
 #### Activity
 
-- [FEConf Organizer](https://2020.feconf.kr/) (18.06 ~ current)
+- [FEConf Organizer](https://2022.feconf.kr/) (18.06 ~ current)
 - [우아한테크코스 리뷰어](https://woowacourse.github.io/about.html) (21.02 ~ 21.06)
 - [커넥트재단 부스트캠프 리뷰어](https://boostcamp.connect.or.kr/) (20.08 ~ 20.10)
-
-
-#### Lecture
-
-- [ECMAScript 2016](https://www.slideshare.net/JaeYeopHan/es6-1-let-const)
-- [TypeScript Tutorial](https://www.slideshare.net/JaeYeopHan/intro-typescript-playground)
 
 <br />
 
