@@ -6,19 +6,19 @@ lang: 'ko'
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2022.07.11</i></sub></div>
+<div align="right"><sub><i>Last updated: 2022.07.17</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
-1. 지속 가능한 제품을 개발하는데 집중하는
-2. 개인과 조직의 생산성에 신경쓰는
-3. 채용을 비롯한 개발 문화에 관심이 많은
+1. 제품의 변경을 우선적으로 고민하는
+2. 성장을 위한 개발 문화를 고민하는
+3. 채용을 비롯하여 조직과 사람에 관심이 많은
 
 **저는 `______` 하는 조직을 선호합니다.**
 
-1. 구성원 간 신뢰를 기반으로 자율적으로 일하는
+1. 출퇴근 시간을 본인이 결정할 수 있는
 2. 의사결정이 투명하게 이뤄지고 이를 위한 정보가 수평적으로 공유되는
-3. 구성원들이 조직의 비전을 함께 상상하고 구체화하고 이에 공감할 수 있는
+3. 구성원들이 조직의 비전을 함께 구체화하고 공감할 수 있는
 
 |             |                                 |
 | :---------: | ------------------------------- |
@@ -41,22 +41,22 @@ lang: 'ko'
 
 #### Frontend Platform Engineering
 
-- A/B Testing을 위한 SDK
+- 원클릭 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
+- A/B Testing을 위한 TypoeScript SDK
 - 사용자 지표 추적을 위한 TypeScript/React 로깅 SDK
 - 이메일 템플릿 작업을 위한 어드민 작업 (AWS SES, Nest.js, Next.js)
-- 원버튼 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
+
+#### 프론트엔드 제품의 배포 환경 구성 (20.10 ~ 22.02)
+
+- AWS 리소스들을 Terraform으로 관리
+- AWS의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
+- GitHub Action을 기반으로 CI/CD 구성
 
 #### 가맹점 대시보드 (20.10 ~ 22.07)
 
 - 사업자가 사업을 하는데 있어서 결제와 관련되어 필요한 모든 것을 할 수 있는 제품
 - 에러 처리 및 모니터링 효율화 (<https://jbee.io/react/error-declarative-handling-0/>)
 - Headless UI 라이브러리 개발하여 복잡한 인터페이스를 어느 제품에서라도 재사용 가능하도록 개발 ([@h6s](https://github.com/h6s-dev/h6s))
-
-#### CI/CD 구성 및 프런트엔드 배포 어드민 (20.10 ~ 22.02)
-
-- AWS 리소스들을 Terraform으로 관리
-- AWS의 S3, CloudFront, Lambda@edge를 사용한 정적 배포 구성
-- GitHub Action을 기반으로 CI/CD 구성
 
 #### [토스페이먼츠 홈페이지](https://tosspayments.com/) (22.02 ~ 22.06)
 
@@ -161,6 +161,10 @@ lang: 'ko'
 #### Books
 
 - [커리어 속에서 성장하는 방법](https://fastcampus.co.kr/books/212106)
+
+#### Articles
+
+- [조금만 신경써서 초기 렌더링 빠르게 하기 (feat. JAM Stack)](https://toss.tech/article/faster-initial-rendering)
 
 #### Activity
 
