@@ -42,7 +42,7 @@ lang: 'ko'
 #### Frontend Platform Engineering
 
 - 원클릭 배포 및 롤백 환경을 위한 어드민 웹 애플리케이션 구성
-- A/B Testing을 위한 TypoeScript SDK
+- A/B Testing을 위한 TypeScript SDK
 - 사용자 지표 추적을 위한 TypeScript/React 로깅 SDK
 - 이메일 템플릿 작업을 위한 어드민 작업 (AWS SES, Nest.js, Next.js)
 
