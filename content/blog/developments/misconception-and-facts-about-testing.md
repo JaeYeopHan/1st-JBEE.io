@@ -1,12 +1,12 @@
 ---
 title: '테스트에 대한 오해와 사실'
-date: 2023-01-13 11:01:12
+date: 2023-02-24 11:01:12
 category: developments
-thumbnail: './images/swe-resume.jpg'
+thumbnail: './images/misconception-and-facts-about-testing.jpg'
 draft: false
 ---
 
-![swe-resume](./images/swe-resume.jpg)
+![misconception-and-facts-about-testing](./images/misconception-and-facts-about-testing.jpg)
 
 > 테스트 코드를 작성하는 이유는 하나지만 작성하지 않은 이유는 저마다 다양하다.
 
