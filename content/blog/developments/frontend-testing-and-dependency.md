@@ -119,9 +119,9 @@ addListener(document, 'onload', () => {
 
 예제에서 `DocumentFeature`라는 인터페이스에 주목할 필요가 있다. 예제에서 코드를 수정할 때 
 
-> '`addEventListener`만 필요하다고 미리 알 수 있다면'
+> `addEventListener`만 필요하다고 미리 알 수 있다면
 
-이라는 가정이 있었다. 즉, 필요한 기능이 무엇인지 사전에 합의가 필요하다는 것이고 우리는 이것을 인터페이스로 정의했다. 그리고 이 인터페이스는 누군가는 메세지라고 부르기도 하고 계약(contract)이라고 부르기도 한다.
+이라는 가정이 있었다. 즉, 필요한 기능이 무엇인지 사전에 합의가 필요하다는 것이고 우리는 이것을 인터페이스로 정의했다. 반대로 필요한 기능을 정의한다고 볼 수 있고 이것을 일종의 계약(contract)이라고 볼 수 있다.
 
 `addListener` 의 첫번째 인자 `document`에는 `DocumentFeature`라는 계약만 따른다면 그 어떤 것이라도 전달될 수 있는 것이다.
 
@@ -166,8 +166,8 @@ interface LogClientSpec {
 export class LogClient implements LogClientSpec {}
 ```
 
-- `LogClientSpec`라는 계약을 만들고
-- 이 계약을 수행하는 `LogClient`를 정의한다.
+1. `LogClientSpec`라는 계약을 만들고
+2. 이 계약을 수행하는 `LogClient`를 정의한다.
 
 *ServicePage.tsx*
 
@@ -200,8 +200,8 @@ function App() {
 }
 ```
 
-- 앞서 이야기한 '계약'을 수행하는 `LogClient`를 생성한다.
-- `ServicePage` 외부에서 `LogClient`를 생성하고 Context Provider를 통해 필요한 LogClient를 전달(주입)한다.
+1. 앞서 이야기한 '계약'을 수행하는 `LogClient`를 생성한다.
+2. `ServicePage` 외부에서 `LogClient`를 생성하고 Context Provider를 통해 필요한 LogClient를 전달(주입)한다.
 
 ### 만약 테스트를 한다면?
 
