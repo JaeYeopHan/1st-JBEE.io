@@ -183,7 +183,7 @@ function ServicePage() {
 }
 ```
 
-1. `log`라는 기능이 필요했고 그 기능이 있어야 한다는 '계약'에 충실한 `client` 객체를 `useLogClient`로부터 받는다.
+1. `log`라는 기능이 필요했고 그 기능이 있어야 한다는 '계약'에 충실한 `client` 객체를 `LogContext`로부터 받는다.
 2. `ServicePage`라는 컴포넌트는 `LogClient`의 존재에 대해 알지 못한다.
 
 *App.tsx*
