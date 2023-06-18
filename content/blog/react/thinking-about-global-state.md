@@ -301,7 +301,7 @@ export interface CacheInterface {
 
 그러나 서버의 데이터가 클라이언트에 중복으로 저장되어 캐싱된 데이터가 out-of-date 되는 문제는 아직 해결하지 못했다.
 
-### stale-while-revalidte
+### stale-while-revalidate
 
 [HTTP Spec RFC 5861](https://tools.ietf.org/html/rfc5861)에서 stale Content에 대한 [Cache-Control](https://developer.mozilla.org/ko/docs/Web/HTTP/Headers/Cache-Control) 확장이 있다.
 
