@@ -6,7 +6,7 @@ lang: 'ko'
 
 # 한재엽 (Jbee)
 
-<div align="right"><sub><i>Last updated: 2022.07.17</i></sub></div>
+<div align="right"><sub><i>Last updated: 2023.07.02</i></sub></div>
 
 **저는 `______` 하는 엔지니어입니다.**
 
@@ -35,9 +35,15 @@ lang: 'ko'
 |              |                                                          |
 | -----------: | -------------------------------------------------------- |
 |   **period** | 20.10 ~ current                                          |
-| **position** | [Frontend Chapter](https://tosspayments-dev.oopy.io/chapters/frontend/about), Dashboard Silo, Inflow Silo |
-| **projects** | 가맹점 대시보드 / 프런트엔드 플랫폼       |
+| **position** | [Frontend Chapter](https://tosspayments-dev.oopy.io/chapters/frontend/about) Lead |
+| **projects** | 클라이언트 플랫폼 / 프런트엔드 플랫폼 / 가맹점 대시보드      |
 |    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
+
+#### Client Platform Engineering
+
+- [토스비즈니스 앱](https://tossbusiness.com/) 초기 구현 (E2E 암호화, JWT 인증)
+- 개발 환경 구성 및 서비스 개발 방향 설정
+- React Native Remote bundle Versioning 정책 설계
 
 #### Frontend Platform Engineering
 
@@ -150,6 +156,7 @@ lang: 'ko'
 
 #### Presentations
 
+- [프론트엔드 다이빙 클럽: 유난한 엔데](https://speakerdeck.com/jaeyeophan/yunanhan-ende) (2023.06.30)
 - [SLASH22: Effective Component 지속 가능한 성장과 컴포넌트](https://www.youtube.com/watch?v=fR8tsJ2r7Eg) (2022.06.08)
 - [GDG Intern Special: 멘토스와 인턴콜라](https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra) (2019.07.06)
 - [NAVER Boostcamp: 미리 알았다면 좋았을 것 들](https://speakerdeck.com/jaeyeophan/miri-alassdamyeon-johasseul-geosdeul) (2019.06.24)
