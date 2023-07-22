@@ -18,8 +18,8 @@ draft: false
 
 이 글은 총 2편의 글로 나뉘어져 있다.
 
-- 프론트엔드 테스트에 대한 오해와 사실
-- 좋은 테스트 코드와 의존성 (TBD)
+- 테스트에 대한 오해와 사실 (이 글)
+- [프론트엔드 테스트 코드와 의존성](https://jbee.io/developments/frontend-testing-and-dependency/)
 
 (이 글에서 말하는 테스트는 테스트 코드를 활용한 자동화 테스트를 의미한다.)
 
