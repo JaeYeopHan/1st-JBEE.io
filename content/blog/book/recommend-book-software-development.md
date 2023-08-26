@@ -1,5 +1,5 @@
 ---
-title: '일과 삶의 통합'
+title: '추천하는 책 5권, 소프트웨어 개발편'
 date: 2023-08-28 11:01:12
 category: book
 thumbnail: './images/recommend-book-software-development.jpg'
