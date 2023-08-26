@@ -2,7 +2,7 @@
 title: '일과 삶의 통합'
 date: 2023-08-25 11:01:12
 category: essay
-thumbnail: './images/swe-resume.jpg'
+thumbnail: './images/work-in-life-integration.jpg'
 draft: false
 ---
 
