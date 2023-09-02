@@ -41,6 +41,6 @@ module.exports = {
     facebookAppId: '829988527335744', // v3.2
   },
   revueId: 'jbee',
-  ga: 'UA-79845333-3',
+  ga: 'G-8KEE9XRZFE',
   sentryDsn: 'https://031a7d403c7d43c69b30e8f18c56ced0@sentry.io/1396146',
 }
