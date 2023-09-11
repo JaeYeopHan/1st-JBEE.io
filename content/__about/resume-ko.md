@@ -32,12 +32,12 @@ lang: 'ko'
 
 ## TossPayments
 
-|              |                                                          |
-| -----------: | -------------------------------------------------------- |
-|   **period** | 20.10 ~ current                                          |
+|              |                                                                                   |
+| -----------: | --------------------------------------------------------------------------------- |
+|   **period** | 20.10 ~ current                                                                   |
 | **position** | [Frontend Chapter](https://tosspayments-dev.oopy.io/chapters/frontend/about) Lead |
-| **projects** | 클라이언트 플랫폼 / 프런트엔드 플랫폼 / 가맹점 대시보드      |
-|    *tech*    |  Next.js, TypeScript, react-query, react-hook-form, emotion |
+| **projects** | 클라이언트 플랫폼 / 프런트엔드 플랫폼 / 가맹점 대시보드                           |
+|       _tech_ | Next.js, TypeScript, react-query, react-hook-form, emotion                        |
 
 #### Client Platform Engineering
 
@@ -90,12 +90,12 @@ lang: 'ko'
 
 ## LINE Financial Plus
 
-|              |                                                                 |
-| -----------: | --------------------------------------------------------------- |
-|   **period** | 18.11 ~ 20.04                                                   |
-| **position** | Web Dev 2 / Front-End Engineer                                  |
-| **projects** | LINE Indonesia Bank, Smart Invest Japan, Webview SDK, Mentoring |
-| **tech** | TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook |
+|              |                                                                                 |
+| -----------: | ------------------------------------------------------------------------------- |
+|   **period** | 18.11 ~ 20.04                                                                   |
+| **position** | Web Dev 2 / Front-End Engineer                                                  |
+| **projects** | LINE Indonesia Bank, Smart Invest Japan, Webview SDK, Mentoring                 |
+|     **tech** | TypeScript, React, Redux, redux-saga, react-router, react-i18n, jest, Storybook |
 
 #### Indonesia Bank (19.02 ~ 20.04)
 
@@ -125,7 +125,7 @@ lang: 'ko'
 |  **period**  | 17.07 ~ 18.10                      |
 | **position** | FE Platform / Front-End Engineer   |
 | **projects** | SmartAround, generator-sau-webpack |
-| **tech** | TypeScript, jQuery, lerna |
+|   **tech**   | TypeScript, jQuery, lerna          |
 
 #### SmartAround Service (18.02 ~ 18.10)
 
@@ -145,7 +145,6 @@ lang: 'ko'
 
 <br />
 
-
 # Communities
 
 #### Open Source
@@ -156,6 +155,7 @@ lang: 'ko'
 
 #### Presentations
 
+- [너디너리 데모데이: 개발자의 학과 습](https://present.do/documents/64ff0be77b111b10ca480f43)
 - [프론트엔드 다이빙 클럽: 유난한 엔데](https://speakerdeck.com/jaeyeophan/yunanhan-ende) (2023.06.30)
 - [SLASH22: Effective Component 지속 가능한 성장과 컴포넌트](https://www.youtube.com/watch?v=fR8tsJ2r7Eg) (2022.06.08)
 - [GDG Intern Special: 멘토스와 인턴콜라](https://speakerdeck.com/jaeyeophan/mentoseuwa-inteonkolra) (2019.07.06)
