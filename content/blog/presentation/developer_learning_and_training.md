@@ -10,4 +10,5 @@ draft: false
 
 [컴공선배](https://www.youtube.com/@comgongbro)에서 주관한 너디너리 데모데이에서 개발자의 학습에 대한 주제로 발표를 했어요. 오랜만에 외부 발표를 하니 긴장감도 있고 생각 정리도 되고 좋았습니다.
 
-발표 자료: https://present.do/documents/64ff0be77b111b10ca480f43
+- 발표 자료: https://present.do/documents/64ff0be77b111b10ca480f43
+- 발표 영상: https://www.youtube.com/watch?v=qlNzmQEuMjQ
