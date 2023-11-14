@@ -20,12 +20,12 @@ lang: 'ko'
 2. 의사결정이 투명하게 이뤄지고 이를 위한 정보가 수평적으로 공유되는
 3. 구성원들이 조직의 비전을 함께 구체화하고 공감할 수 있는
 
-|              |                                                                                |
-| :----------: | ------------------------------------------------------------------------------ |
-|  **GitHub**  | <https://github.com/JaeYeopHan>                                                |
-|   **Blog**   | <https://jbee.io>                                                              |
-| **Contact**  | <ljyhanll@gmail.com>                                                           |
-| **LinkedIn** | [Profile](https://www.linkedin.com/in/%EC%9E%AC%EC%97%BD-%ED%95%9C-617210120/) |
+|              |                                 |
+| :----------: | ------------------------------- |
+|  **GitHub**  | <https://github.com/JaeYeopHan> |
+|   **Blog**   | <https://jbee.io>               |
+| **Contact**  | <ljyhanll@gmail.com>            |
+| **LinkedIn** | <https://linkedin.com/in/jbee0> |
 
 <br />
 
