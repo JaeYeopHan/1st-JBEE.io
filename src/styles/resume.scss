@@ -20,6 +20,10 @@
       background-color: #0f6ae5;
       content: '';
     }
+    td {
+      padding-top: 0.5rem;
+      padding-bottom: calc(0.5rem - 1px);
+    }
   }
 
   div.final {
